@@ -1,12 +1,9 @@
 # Planeta Lector
 
-Planeta Lector es una librería online con la misión de encantar a sus interesados en el mundo de la lectura
-Contamos con una gran diversidad de libros en sus diversos formatos (analógicos, e-books, audiobooks)
-Desde ávidos lectores hasta quienes comienzan esta travesía, podrán encontrar interesantes opciones en nuestras recomendaciones hechas por nuestro equipo
-Buscamos renovarnos constantemente
-Hasta contamos con un espacio de críticas donde podrás debatir tus libros favoritos con otros entusiastas
-Unite a esta comunidad
-Desde libros académicos hasta novelas gráficas
+Planeta Lector es una librería online con la misión de encantar a sus interesados en el mundo de la lectura y que puedan encontrar ese libro que tanto querian. Contamos con una gran diversidad de libros en distintos formatos, ya que podran comprarlo de manera digital para leerlo desde su dispositivo movil o de manera analogica y tradicional.
+ Este sitio esta dedicado para todo publico, desde lectores frecuentes hasta quienes quieran comenzar su camino en la lectura. Podran encontrar interesantes opciones en las recomendaciones realizadas por nuestro staff. Como sabran buscamos renovarnos constantemente por eso ofrecemos siempre lo mas nuevo y nuestros libros estan en constante actualizacion.
+ Tambien contamos con un espacio exclusivo para vos! Donde podras debatir e intercambiar opiniones acerca de tus libros favoritos con distintos usuarios registrados en nuestra pagina web y asi sacar diversas conclusiones del mismo. 
+ No esperes mas, unite a nuestra comunidad lectora!
 
     ...
 
