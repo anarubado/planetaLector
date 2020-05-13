@@ -10,7 +10,7 @@ Planeta Lector es una librería online con la misión de encantar a sus interesa
 ## Mentes detrás de Planeta Lector
 
 #### Carla Arias
-    ...
+Tengo 26 años soy Licenciada en Ciencias de la Educación de la UBA. Trabajo en educación y tecnología, me encanta todo lo que tiene que ver con esos campos. Mi contacto con la programación es trabajar en el día a día con programadores/as y porque alguna vez hice talleres sobre todo de HTML y CSS. Ah y me encanta leer. 
 
 #### Martín Dvorkin
 Jugador de Futsal, termine el secundario en 2019 y no queria meterme en una facultad a estudiar porque si y como me interesaba la programacion decidi meterme a aprender de 0 en este curso. Esta seria mi primera vez programando.
