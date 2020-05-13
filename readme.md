@@ -12,13 +12,13 @@ Desde libros académicos hasta novelas gráficas
 
 ## Mentes detrás de Planeta Lector
 
-### Carla Arias
+#### Carla Arias
     ...
 
-### Martín Dvorkin
+#### Martín Dvorkin
     ...
 
-### Anabella Rubado
+#### Anabella Rubado
 Estudiante de la UBA, con gran curiosidad por el mundo de la programación y por el conocimiento en general. Comencé este año estudiando los fundamentos en el lenguaje Python e hice un curso de Análisis de Datos utilizando el entorno de trabajo Anaconda.
 
 ## Listado de referentes del mercado
