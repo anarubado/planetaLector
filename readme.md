@@ -16,7 +16,7 @@ Desde libros académicos hasta novelas gráficas
     ...
 
 ### Martín Dvorkin
-    ...
+Jugador de Futsal, termine el secundario en 2019 y no queria meterme en una facultad a estudiar porque si y como me interesaba la programacion decidi meterme a aprender de 0 en este curso. Esta seria mi primera vez programando.
 
 ### Anabella Rubado
 Estudiante de la UBA, con gran curiosidad por el mundo de la programación y por el conocimiento en general. Comencé este año estudiando los fundamentos en el lenguaje Python e hice un curso de Análisis de Datos utilizando el entorno de trabajo Anaconda.
