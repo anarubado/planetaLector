@@ -23,4 +23,4 @@ Estudiante de la UBA, con gran curiosidad por el mundo de la programación y por
  * [kelediciones.com](https://www.kelediciones.com/) por su estructura y manejo de subcategorías
 
  ## Tablero de tareas
- * [trello.com/proyectointegrador](https://trello.com/b/qeZHvnY6/proyectointegrador)
+ * [trello.com/proyectointegrador_grupo_2_libreria](https://trello.com/b/qeZHvnY6/proyectointegrador)
