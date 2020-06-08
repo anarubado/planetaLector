@@ -21,3 +21,6 @@ Estudiante de la UBA, con gran curiosidad por el mundo de la programación y por
  * [tematika.com](https://www.tematika.com/) por su gran variedad y organización de categorías
  * [bajalibros.com](https://www.bajalibros.com/AR?frstPGI3R=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8=) por su target (adultos y jóvenes)
  * [kelediciones.com](https://www.kelediciones.com/) por su estructura y manejo de subcategorías
+
+ ## Tablero de tareas
+ * [trello.com/proyectointegrador](https://trello.com/b/qeZHvnY6/proyectointegrador)
