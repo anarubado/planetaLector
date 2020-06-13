@@ -27,7 +27,3 @@ app.use('/login', loginRoutes);
 app.use('/registro', registerRoutes);
 app.use('/productos', productosRoutes);
 app.use('/carrito', carritoRoutes);
-
-
-
-
