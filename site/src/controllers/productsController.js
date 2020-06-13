@@ -5,7 +5,7 @@ const productsController = {
     },
 
     detail: function(req, res){
-        res.send("detail");
+        res.render("detail");
     }
 }
 

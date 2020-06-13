@@ -11,6 +11,7 @@ app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, '../public'))); // Para los recursos estaticos de public
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
