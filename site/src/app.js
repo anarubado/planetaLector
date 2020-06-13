@@ -2,11 +2,9 @@ const express = require("express");
 const app = express();
 
 // Requerimientos de rutas
-const homeRoutes = require('./routes/home');
-const loginRoutes = require('./routes/login');
-const registerRoutes = require('./routes/registro');
-const productosRoutes = require('./routes/productos');
-const carritoRoutes = require('./routes/carrito');
+const homeRouter = require('./routes/home');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
 
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -22,8 +20,6 @@ app.listen(3000, function(){
 });
 
 // Rutas
-app.use('/', homeRoutes);
-app.use('/login', loginRoutes);
-app.use('/registro', registerRoutes);
-app.use('/productos', productosRoutes);
-app.use('/carrito', carritoRoutes);
+app.use('/', homeRouter);
+app.use('/users', usersRouter);
+app.use('/products', productsRouter);

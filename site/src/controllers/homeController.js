@@ -1,6 +1,7 @@
 const homeController = {
+
     index: function(req, res){
-        res.send("anda la rutaaa");
+        res.send("index");
     }
 }
 
