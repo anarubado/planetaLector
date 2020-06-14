@@ -1,15 +1,15 @@
 const usersController = {
 
     register: function(req, res){
-        res.render("register");
+        return res.render("register");
     },
 
     login: function(req, res){
-        res.render("login");
+        return res.render("login");
     },
 
     cart: function(req, res){
-        res.render("cart");
+        return res.render("cart");
     }
 }
 

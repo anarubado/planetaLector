@@ -1,7 +1,11 @@
 const homeController = {
 
     index: function(req, res){
-        res.send("index");
+        return res.render("index");
+    },
+
+    search: function(req, res){
+        return res.render("search");
     }
 }
 

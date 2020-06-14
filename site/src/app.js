@@ -7,11 +7,12 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
 const methodOverride = require('method-override');
+const path = require('path');
 app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, '../public'))); // Para los recursos estaticos de public
+app.use(express.static(path.join(__dirname, '../public'))); // Configura los recursos estaticos dentro de la carpeta public
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

@@ -1,11 +1,11 @@
 const productsController = {
 
     index: function(req, res){
-        res.render("products");
+        return res.render("products");
     },
 
     detail: function(req, res){
-        res.render("detail");
+        return res.render("detail");
     }
 }
 
