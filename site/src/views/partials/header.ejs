@@ -17,14 +17,44 @@
                 <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
             </li>
             <li>
-                <i class="fas fa-user"></i>
+
+                
+                <button class = 'btn' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fas fa-user"></i>
+                </button>
+                
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <ul>
+                            <li><a href="/users/login">Iniciar sesion</a></li>
+                            <li><a href="/users/register">Registrarse</a></li>
+                        </ul>
+                    </div>
+                </div> 
+
             </li>
         </ul>
     </nav>
-       
-    <a href="" class="toggle-nav">
-        <span class="fa fa-bars"></span>
-    </a>
+
+    <div class = "collapse-menu">
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <span class="fa fa-bars"></span>
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <ul>
+                    <li><a href="/products">LIBROS</a></li>
+                    <li>NOVEDADES</li>
+                    <li><a href="/users/cart">Mi Carrito</a></li>
+                    <li><a href="/users/login">Iniciar sesion</a></li>
+                    <li><a href="/users/register">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
 
     
          

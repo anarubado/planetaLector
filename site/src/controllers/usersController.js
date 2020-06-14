@@ -1,3 +1,6 @@
+const jsonModel = require('../models/jsonModel');
+const usersModel = jsonModel('users');
+
 const usersController = {
 
     register: function(req, res){

@@ -1,3 +1,6 @@
+const jsonModel = require('../models/jsonModel');
+const homeModel = jsonModel('products');
+
 const homeController = {
 
     index: function(req, res){

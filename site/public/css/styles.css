@@ -3,3 +3,24 @@
 
 
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-nav{
+    display: none;
+}
+
+
+@media (min-width: 427px){
+
+    .collapse-menu{
+        display: none;
+    }
+
+    .main-nav{
+        display: block;
+    }
+}
