@@ -1,62 +1,68 @@
 <header>
+        
+    <div class = "row menu">        
+        <div class = "col-7">
+            <a href="/" class = "logo"></a>
+                <img src="images/header&footer/planeta.png" alt="logo-pl" class = "logo-pl">
+                <span class = "planeta-lector">Planeta Lector</span>
+            </a>
+        </div>
 
-    <a href="/" class = "logo">
-        <img src="images/header&footer/planeta.png" alt="logo-pl" class = "logo-pl">
-        <span class = "planeta-lector">Planeta Lector</span>
-    </a>
-
-    <nav class = "main-nav">
-        <ul>
-            <li>
-                <a href="/products">LIBROS</a>
-            </li>
-            <li>
-                <a href="">NOVEDADES</a>
-            </li>
-            <li>
-                <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
-            </li>
-            <li>
-
-                
-                <button class = 'btn' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-user"></i>
+        <div class = "col-5 collapse-menu">
+            <p class = toggle>
+                <button class="btn btn-primary " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="fa fa-bars"></span>
                 </button>
-                
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <ul>
-                            <li><a href="/users/login">Iniciar sesion</a></li>
-                            <li><a href="/users/register">Registrarse</a></li>
-                        </ul>
-                    </div>
-                </div> 
-
-            </li>
-        </ul>
-    </nav>
-
-    <div class = "collapse-menu">
-        <p>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <span class="fa fa-bars"></span>
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                <ul>
-                    <li><a href="/products">LIBROS</a></li>
-                    <li>NOVEDADES</li>
-                    <li><a href="/users/cart">Mi Carrito</a></li>
-                    <li><a href="/users/login">Iniciar sesion</a></li>
-                    <li><a href="/users/register">Registrarse</a></li>
-                </ul>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <ul class = 'collapse-options'>
+                        <li><a href="/products">LIBROS</a></li>
+                        <li><a href="">NOVEDADES</a></li>
+                        <li><a href="/users/cart">Mi Carrito</a></li>
+                        <li><a href="/users/login">Iniciar sesión</a></li>
+                        <li><a href="/users/register">Registrarse</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    
 
+
+
+
+
+
+
+
+        <nav class = "col-7 main-nav">
+            <ul>
+                <li>
+                    <a href="/products/">LIBROS</a>
+                </li>
+                <li>
+                    <a href="/products/news">NOVEDADES</a>
+                </li>
+                <li>
+                    <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
+                </li>
+                <li>                
+                    <button class = 'btn' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <ul>
+                                <li><a href="/users/login">Iniciar sesion</a></li>
+                                <li><a href="/users/register">Registrarse</a></li>
+                            </ul>
+                        </div>
+                    </div>
     
+                </li>
+            </ul>
+        </nav>
+    </div> 
          
 
 </header>

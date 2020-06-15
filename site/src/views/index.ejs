@@ -12,91 +12,31 @@
                 <p>Libros en todos sus formatos.</p>
                 <p>¡De bibliófilos para bibliófilos!</p>
                 <form action="/search" method = "GET">
-                    <input type="keywords" name = "busqueda" placeholder = "Search">
-                    <button type="submit" class = "btn btn-info boton">Search</button>
+                    <input type="keywords" name = "busqueda" placeholder = "Search" class = "search-bar">
+                    <button type="submit" class = "btn btn-info search-button"><i class="fas fa-search"></i></button>
                 </form>
                 <div>
                     <img src="images/header&footer/neptuno.png" alt="" class = "neptuno">
-                </div>              
+                </div>
+                <div>
+                    <img src="images/header&footer/books.png" alt="" class = "books">
+                </div>                               
                 
             </div>        
 
+            <h2>Isaac Asimov</h2>
+            <%- include('partials/slide', {id: "123"}) %>
 
-
-            <div class = "products">
-
-                <div class = "slide">
-                    <h2>Isaac Asimov</h2>
-                <section class = "carrete">
-                    <article class = "producto">
-                        <img src="" alt="">
-                        <h2></h2>
-                    </article>
-                    <article class = "producto">
-                        <img src="" alt="">
-                        <h2></h2>
-                    </article>
-                    <article class = "producto">
-                        <img src="" alt="">
-                        <h2></h2>
-                    </article>
-                </section>
-                </div>
-
-            </div>
-
-            <h2>15 libros de Suspenso</h2>
-            <section class = "carrete">
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-            </section>
+            <h2>15 libros de Suspenso</h2>           
 
             <h2>Introduccion a Virginia Woolf</h2>
-            <section class = "carrete">
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-            </section>
 
             <h2>Para leer en la cuarentena</h2>
-            <section class = "carrete">
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-                <article class = "producto">
-                    <img src="" alt="">
-                    <h2></h2>
-                </article>
-            </section>
-
-            <%- include('partials/footer') %>
+            
+            <%- include('partials/footer', {id: "345"}) %>
         </div>
 
-        <%- include('partials/scripts-js') %>
+        <%- include('partials/scripts-js', {id: "678"}) %>
         
     </body>
 </html>
