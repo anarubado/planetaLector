@@ -4,8 +4,67 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.container{
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+/* HOME STYLES */
+
+.toggle{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .main-nav{
     display: none;
+}
+
+
+
+.collapse-options li{
+    text-align: right;
+
+}
+
+.presentacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.neptuno{
+    width: 120px;
+}
+
+.search-bar{
+    border-radius: 30px;
+    padding: 5px 10px;
+}
+
+.search-button{
+    border-radius: 50%;
+
+}
+
+.books{
+    width: 100%;
 }
 
 
@@ -18,8 +77,19 @@
     .main-nav{
         display: block;
     }
+
+    .main-nav ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
 }
 
-.boton{
-    background-color: red;
-}
+
+
+/* PRODUCTS STYLES */
+
+
+
+/* ETC */
