@@ -2,6 +2,67 @@
 <html lang="en">
 <%- include('partials/head', {title: 'Puede ser la categoría de libros a ver!!'}) %>
 <body>
-    <h2>estamos en products</h2>   
+    <!--header-->
+    <%- include ('partials/header') %> 
+    <!--Categorias-->
+<div class = "menu-categorias">
+    <ul>
+        <li><a href="">Categoria 1</a></li>
+        <li><a href="">Categoria 2</a></li>
+        <li><a href="">Categoria 3</a></li>
+        <li><a href="">Categoria 4</a></li>
+        <li><a href="">Categoria 5</a></li>
+    </ul>
+</div>
+
+<div class = "title">
+    <h1>Categoría</h1>
+</div>
+
+<div class= "circuito-navegación">
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Categoria</a></li>
+    </ul>
+</div>
+
+<div class = "novedades">
+    <h2>Novedades</h2>
+    <section class="productos-novedades">
+        <article class= "producto-novedades">
+            <img src="" alt="">
+            <h3>Nombre del libro</h3>
+            <h4>Autor</h4>
+            <p>Descripción</p>
+        </article>
+    </section>
+</div>
+
+<div class = "descuentos">
+    <h2>Descuentos</h2>
+    <section class = "productos-descuento">
+        <article class = "producto-descuento">
+            <img src="" alt="">
+            <h3>Nombre del libro</h3>
+            <p>Autor</p>
+            <h3>Precio</h3>
+            <h3>Precio final</h3>
+            <img src="" alt="">
+        </article>
+    </section>
+</div>
+
+<!--acá va un coso para pasar de página que no se cómo mierda se hace-->
+
+<section class = "productos">
+    <article class = "producto">
+        <img src="" alt="">
+        <h2>Titulo</h2>
+        <h3>por Autor</h3>
+        <img src="" alt="">
+    </article>
+</section>
+<!--acá va un coso para pasar de página que no se cómo mierda se hace-->
+<%- include ('partials/footer') %> 
 </body>
 </html>

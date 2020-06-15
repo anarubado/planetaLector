@@ -4,11 +4,11 @@ const productsModel = jsonModel('products');
 const productsController = {
 
     index: function(req, res){
-        return res.render("products");
+        return res.render('products');
     },
 
     detail: function(req, res){
-        return res.render("detail");
+        return res.render('detail');
     }
 }
 
