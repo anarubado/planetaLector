@@ -17,15 +17,15 @@ const usersController = {
             ...req.body,
         }
 
-        let users = fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'),'utf-8');
-        users = JSON.parse(users);
-        //users.push(user);
+        let usuarios = fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'),'utf-8');
+        usuarios = JSON.parse(usuarios);
+        //usuarios.push(user);
 
-        users = [...users, user];
+        usuarios = [...usuarios, user];
 
-        users = JSON.stringify(users, null, " ");
+        usuarios = JSON.stringify(usuarios, null, " ");
     
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), users);
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), usuarios);
         
         return res.redirect('/');
 
