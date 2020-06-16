@@ -1,5 +1,5 @@
-const jsonModel = require('../models/jsonModel');
-const homeModel = jsonModel('products');
+const jsonModel = require('../models/jsonModel.js');
+const homeModel = jsonModel('products.json');
 
 const homeController = {
 
@@ -8,7 +8,9 @@ const homeController = {
     },
 
     search: function(req, res){
-        return res.render("search");
+        let keywords = req.query.keywords;
+        let products = homeModel.search(keywords);
+        return res.render("search", {keywords, products});
     }
 }
 

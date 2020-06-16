@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 a{
     text-decoration: none;
 }
@@ -19,38 +23,20 @@ ul{
 
 /* HOME STYLES */
 
-.toggle{
-    display: flex;
-    justify-content: flex-end;
-}
+/* header */
 
-
-.menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.main-nav{
-    display: none;
-}
-
-
-
-.collapse-options li{
-    text-align: right;
-
-}
-
-.presentacion{
+.presentation{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: #343A40;
+    color: white;
+    /*position: relative;*/
 }
 
 .neptuno{
-    width: 120px;
+    width: 150px;
+    /*position: absolute;*/
 }
 
 .search-bar{
@@ -60,30 +46,28 @@ ul{
 
 .search-button{
     border-radius: 50%;
-
 }
 
 .books{
     width: 100%;
 }
 
+/* footer */
 
-@media (min-width: 427px){
+.suscription-sm{
+    background-color: grey;
+}
 
-    .collapse-menu{
-        display: none;
-    }
+.footer-info{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
 
-    .main-nav{
-        display: block;
-    }
+/* search */
 
-    .main-nav ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-    }
+.product img{
+    width: 100%;
 }
 
 
