@@ -1,3 +1,4 @@
+/* ========== GENERAL CONFIGURATIONS (start) ========== */
 *{
     margin: 0;
     padding: 0;
@@ -21,9 +22,15 @@ ul{
     padding-bottom: 15px
 }
 
+/* ========== GENERAL CONFIGURATIONS (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ========== STYLES ANI (start) ========== */
+
 /* HOME STYLES */
 
-/* header */
+/* index-presentation */
 
 .presentation{
     display: flex;
@@ -31,21 +38,39 @@ ul{
     align-items: center;
     background-color: #343A40;
     color: white;
-    /*position: relative;*/
+    padding-top: 20px;
+}
+
+.presentacion h2{
+    margin-bottom: 15px;
+}
+
+.presentacion p{
+    margin-bottom: 20px;
+
 }
 
 .neptuno{
     width: 150px;
-    /*position: absolute;*/
 }
 
 .search-bar{
     border-radius: 30px;
-    padding: 5px 10px;
+    padding: 5px 5px;
+    background-color: white;
+}
+
+.search-bar input{
+    border: none;
+    padding-left: 10px;
 }
 
 .search-button{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
 }
 
 .books{
@@ -71,9 +96,32 @@ ul{
 }
 
 
+/* ========== STYLES ANI (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ========== STYLES CARLI (start) ========== */
 
 /* PRODUCTS STYLES */
 
+/* ========== STYLES CARLI (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
 
 
-/* ETC */
+
+
+
+/* ========== STYLES MARTIN (start) ========== */
+
+/* LOGIN AND REGISTER */
+
+/* ETC. */
+
+/* ========== STYLES MARTIN (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
