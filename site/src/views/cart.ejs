@@ -2,7 +2,33 @@
 <html lang="en">
 <%- include('partials/head', {title: 'Mi Carrito'}) %>
 <body>
-    <h2>estamos en el cart</h2>
-    
+<%- include('partials/header')  %> 
+<div>
+<section class="compras">
+<article class="producto">
+<img src="" alt="Foto de libro">
+<div class='infocompra'>
+<div class="titulo"><h6>Titulo:</h6><p class="info">Nombre Libro</p></div>
+<div class="titulo"><h6>Autor:</h6><p class="info">Nombre Autor </p></div>
+<div class="titulo"><h6>Editorial:</h6><p class="info">Nombre Editorial</p></div>
+<div class="titulo"><h6>ISBN:</h6><p class="info">978-84-7888-445-2</p></div>
+</div>
+<div class="infocantidad"><h5>Cantidad</h5><input type="number" value="1" class='contador'></div>
+<div class="infocantidad"><h5>Precio</h5><p>$655</p></div>
+</article>
+<article class="producto">
+<img src="" alt="Foto de libro">
+<div class='infocompra'>
+<div class="titulo"><h6>Titulo:</h6><p class="info">Nombre Libro</p></div>
+<div class="titulo"><h6>Autor:</h6><p class="info">Nombre Autor </p></div>
+<div class="titulo"><h6>Editorial:</h6><p class="info">Nombre Editorial</p></div>
+<div class="titulo"><h6>ISBN:</h6><p class="info">978-84-9838-793-3</p></div>
+</div>
+<div class="infocantidad"><h5>Cantidad</h5><input type="number" value="1" class='contador'></div>
+<div class="infocantidad"><h5>Precio</h5><p>$440</p></div>
+</section>
+</div>
+<%- include('partials/slide')  %> 
+<%- include('partials/footer')  %> 
 </body>
 </html>
