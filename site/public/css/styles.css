@@ -17,11 +17,6 @@ ul{
     list-style-type: none;
 }
 
-.container{
-    padding-top: 15px;
-    padding-bottom: 15px
-}
-
 /* ========== GENERAL CONFIGURATIONS (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
@@ -29,6 +24,10 @@ ul{
 /* ========== STYLES ANI (start) ========== */
 
 /* HOME STYLES */
+
+.md-menu{
+    display: none;
+}
 
 /* index-presentation */
 
@@ -41,13 +40,12 @@ ul{
     padding-top: 20px;
 }
 
-.presentacion h2{
-    margin-bottom: 15px;
+.presentation h3{
+    font-size: 21px;
 }
 
-.presentacion p{
-    margin-bottom: 20px;
-
+.presentation p{
+    margin-bottom: 30px;
 }
 
 .neptuno{
@@ -58,6 +56,7 @@ ul{
     border-radius: 30px;
     padding: 5px 5px;
     background-color: white;
+    margin-bottom: 30px;
 }
 
 .search-bar input{
@@ -69,8 +68,6 @@ ul{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
 }
 
 .books{
@@ -81,18 +78,133 @@ ul{
 
 .suscription-sm{
     background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.suscription-info input{
+    border-radius: 30px;
+    padding: 5px 5px 5px 10px;
+    background-color: white;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.suscription-info button{
+    border-radius: 30px;
+}
+
+.main-footer{
+    background-color: #343A40;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.footer-logo{
+    display: none;
 }
 
 .footer-info{
-    background-color: black;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0;
 }
+
+.footer-info li{
+    margin-bottom: 10px;
+}
+
+.social-media{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;    
+}
+
+.social-media a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.social-media a i{
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    color: white;
+    border-radius: 50%;   
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.fab.fa-twitter{
+    background-color: #1DA1F2;
+}
+
+.fab.fa-instagram{
+    background-color: #E1306C;
+}
+
+.fab.fa-facebook-f{
+    background-color: #4267B2;    
+}
+
+
 
 /* search */
 
 .product img{
     width: 100%;
+}
+
+@media (min-width: 410px){
+
+    .suscription-info{
+        border-radius: 30px;
+        padding: 5px 5px;
+        background-color: white;
+    }
+    
+    .suscription-info input{
+        border: none;
+        padding-left: 10px;
+        margin-bottom: 0px;
+    }
+    
+    .suscription-info button{
+        border-radius: 30px;
+    }    
+}
+
+@media (min-width: 768px){
+
+    .footer-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .md-menu{
+        display: inline;
+    }
+
+    .sm-menu{
+        display: none;
+    }
+
+
+
+    
 }
 
 

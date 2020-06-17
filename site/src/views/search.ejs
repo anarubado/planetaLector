@@ -2,9 +2,12 @@
 <html lang="en">
 <%- include('partials/head', {title: 'Búsqueda: ' + keywords}) %>
 <body>
+
+    <%- include('partials/header') %>
+
     <div class = "container">
-        <%- include('partials/header') %> 
-        <h2>Resultados de la busqueda: <%= keywords %> </h2>
+
+        <h2>Resultados de la busqueda: <%= keywords %></h2>
         
         <section class = "row products">
             <% products.forEach(product => { %>
@@ -17,9 +20,12 @@
                     </a>                    
                 </article>         
             <% }) %>
-            </section>
-        <%- include('partials/footer') %>
-    </div>
+        </section>
+
+    </div>         
+        
+    <%- include('partials/footer') %>
+    
     <%- include('partials/scripts-js')  %> 
     
 </body>

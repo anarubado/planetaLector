@@ -1,17 +1,25 @@
-<header>
+<header class = "container-fluid">
 
     <nav class = "navbar navbar-expand-md navbar-dark bg-dark row">
-        <button class = "navbar-toggler button" data-toggle = "collapse" data-target = "#collapse-target">
-            <span class = "navbar-toggler-icon lines"></span>
-        </button>
 
-        <div class = "collapse navbar-collapse" id = collapse-target>
-            <a class = "navbar-brand" href=""><img src="images/headerAndfooter/planeta.png" alt="logo-pl" class = "logo-pl"></a>
+        <a class = "navbar-brand" href="/">
+            <img src="images/headerAndfooter/planeta.png" alt="logo-pl" class = "logo-pl">
             <span class = "navbar-text">Planeta Lector</span>
+        </a>
 
+        <button class = "navbar-toggler button" data-toggle = "collapse" data-target = "#collapse-target">
+            <span class = "navbar-toggler-icon lines"></span>            
+        </button>
+    
+        <div class = "collapse navbar-collapse" id = collapse-target>                    
+    
+            <ul class = "navbar-nav ml-auto">
 
-            <ul class = "navbar-nav ml-auto ">
-                <li class = "nav-item dropdown">
+                <li class = "nav-item sm-menu">
+                    <a class = "nav-link" href="">CATEGORIAS</a>
+                </li>
+
+                <li class = "nav-item dropdown md-menu">
                     <a class = "nav-link dropdown-toggle" data-toggle = "dropdown" data-target = "dropdown-books"  href="#">
                         LIBROS
                     </a>
@@ -27,7 +35,16 @@
                         <a class = "dropdown-item" href="">Autoayuda</a>                 
                     </div>
                 </li>
-                <li class = "nav-item dropdown">                
+
+                <li class = "nav-item sm-menu">
+                    <a class = "nav-link" href="/users/login">INICIAR SESION</a>
+                </li>
+
+                <li class = "nav-item sm-menu">
+                    <a class = "nav-link" href="/users/register">REGISTRARME</a>
+                </li>
+
+                <li class = "nav-item dropdown md-menu">            
                     <a class = "nav-link dropdown-toggle" data-toggle="dropdown" data-target = "dropdown-users" href="#">
                         <i class="fas fa-user"></i>
                     </a>
@@ -36,18 +53,24 @@
                         <a class = "dropdown-item" href="/users/register">Registrarse</a>
                     </div>
                 </li>
-                <li class = "nav-item">
+
+                <li class = "nav-item sm-menu">
+                    <a class = "nav-link" href="/users/cart">MI CARRITO</a>
+                </li>
+
+                <li class = "nav-item md-menu">
                     <a class = "nav-link" href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
-                </li>                
-                <li class = "nav-item">
+                </li>
+
+                <li class = "nav-item md-menu">
                     <a class = "nav-link" href="#">NOVEDADES</a>
                 </li>
                 
             </ul>
-        </div>
 
-    </nav>
-         
+        </div>
+        
+    </nav>        
 
 </header>
 

@@ -3,13 +3,14 @@
 
 <%- include('partials/head', {title: 'Inicio'}) %>
 
-    <body class = "index-body">
+    <body>
+
+        <%- include('partials/header') %>
+
         <div class = "container-fluid">
-
-            <%- include('partials/header') %>
-
+            
             <div class = "row presentation">
-                <h2>Libros en todos sus formatos.</h2>
+                <h3>Libros en todos sus formatos.</h3>
                 <p>¡De bibliófilos para bibliófilos!</p>
 
                 <div class = "search-bar">
@@ -29,30 +30,19 @@
         </div>
 
         <div class = "container">
-            <h2>Isaac Asimov</h2>
+            <h3>Isaac Asimov</h3>
             <%- include('partials/slide') %>
 
-            <h2>15 libros de Suspenso</h2>           
+            <h3>15 libros de Suspenso</h3>           
 
-            <h2>Introduccion a Virginia Woolf</h2>
+            <h3>Introduccion a Virginia Woolf</h3>
 
-            <h2>Para leer en la cuarentena</h2>
-        </div>
-
-        <div class = "container-fluid">
-            <%- include('partials/footer') %>
-
+            <h3>Para leer en la cuarentena</h3>
         </div>
 
 
-            
-            
-
-            
-            
-            
+        <%- include('partials/footer') %>
         
-
         <%- include('partials/scripts-js') %>
         
     </body>
