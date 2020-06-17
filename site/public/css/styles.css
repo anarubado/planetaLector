@@ -236,4 +236,166 @@ ul{
 
 /* ========== STYLES MARTIN (end) ========== */
 
+/* REGISTER STYLES */
+
+
+.register{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(201, 76, 76, 0.3);
+}
+
+h1.btn.title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 1000%;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 100%; 
+    width: 50%;
+}
+
+.form-control{
+    border-radius: 20px;
+}
+
+.cuenta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: red;
+}
+@media(min-width:768px){
+
+.formdiv{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}    
+.register{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(201, 76, 76, 0.3);
+    width: 30%;
+}
+    
+}
+/* LOGIN STYLES */
+.login{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(201, 76, 76, 0.3);
+}
+
+h1.btn.title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 100%; 
+    width: 50%;
+    
+}
+
+
+.crear{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: red;
+}
+
+@media(min-width:768px){
+
+    .formdiv{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }    
+    .register{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(201, 76, 76, 0.3);
+        width: 30%;
+    }
+    .login{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(201, 76, 76, 0.3);
+        width: 30%;
+    }
+
+
+}
+
+/* CART STYLES */
+.producto{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: flex-start;
+    border-bottom: 1px solid black;
+}
+
+.infocompra{
+    display: flex;
+    flex-direction: column;
+}
+ 
+.titulo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.infocantidad{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+.contador{
+    border-radius: 20px;
+    width: 30%;
+    padding-left: 2px
+    
+}
 /* --------------------------------------------------------------------------------------------------------------------------------- */
