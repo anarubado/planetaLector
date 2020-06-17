@@ -13,8 +13,8 @@
 <div class="titulo"><h6>Editorial:</h6><p class="info">Nombre Editorial</p></div>
 <div class="titulo"><h6>ISBN:</h6><p class="info">978-84-7888-445-2</p></div>
 </div>
-<div class="infocantidad"><h5>Cantidad</h5><input type="number" value="1" class='contador'></div>
-<div class="infocantidad"><h5>Precio</h5><p>$655</p></div>
+<div class="infocantidad"><h5 class="cantidad">Cantidad</h5><input type="number" value="1" class='contador cantidad'></div>
+<div class="infocantidad"><h5 class="precio">Precio</h5><p class="precio">$655</p></div>
 </article>
 <article class="producto">
 <img src="" alt="Foto de libro">
@@ -24,9 +24,13 @@
 <div class="titulo"><h6>Editorial:</h6><p class="info">Nombre Editorial</p></div>
 <div class="titulo"><h6>ISBN:</h6><p class="info">978-84-9838-793-3</p></div>
 </div>
-<div class="infocantidad"><h5>Cantidad</h5><input type="number" value="1" class='contador'></div>
-<div class="infocantidad"><h5>Precio</h5><p>$440</p></div>
+<div class="infocantidad"><h5 class="cantidad">Cantidad</h5><input type="number" value="1" class='contador cantidad'></div>
+<div class="infocantidad"><h5 class="precio">Precio</h5><p class="precio">$440</p></div>
 </section>
+</div>
+<div class="endcart">
+<div class='infototal'><h5 class="total">Total</h5><p>$1095</p></div>
+<div class='infototal'><button type="submit" class="btn btn-danger enviar">FINALIZAR COMPRA</button></div>
 </div>
 <%- include('partials/slide')  %> 
 <%- include('partials/footer')  %> 
