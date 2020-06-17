@@ -390,12 +390,27 @@ h1.btn.title{
     justify-content: flex-end;
     align-items: flex-start;
     align-self: flex-start;
+    width: 28%;
+}
+.cantidad{
+    align-self: flex-end;
+}
+
+.precio{
+    margin-left: 30px;
 }
 
 .contador{
     border-radius: 20px;
     width: 30%;
-    padding-left: 2px
-    
+    padding-left: 20px;   
+}
+
+.infototal{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 /* --------------------------------------------------------------------------------------------------------------------------------- */
