@@ -159,6 +159,18 @@ ul{
     background-color: #4267B2;    
 }
 
+/* slides */
+
+.slide-item{
+    padding: 50px;
+
+}
+
+.carousel-item img{
+    width: 200px;
+}
+
+
 
 
 /* search */
@@ -185,6 +197,8 @@ ul{
         border-radius: 30px;
     }    
 }
+
+
 
 @media (min-width: 768px){
 
@@ -223,10 +237,6 @@ ul{
 /* ========== STYLES CARLI (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
-
-
-
-
 
 /* ========== STYLES MARTIN (start) ========== */
 
