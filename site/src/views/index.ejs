@@ -3,40 +3,57 @@
 
 <%- include('partials/head', {title: 'Inicio'}) %>
 
-    <body>
-        <div class = "container">
+    <body class = "index-body">
+        <div class = "container-fluid">
 
-            <%- include('partials/header') %>        
+            <%- include('partials/header') %>
 
-            <div class = "presentacion">
-                <p>Libros en todos sus formatos.</p>
+            <div class = "row presentation">
+                <h2>Libros en todos sus formatos.</h2>
                 <p>¡De bibliófilos para bibliófilos!</p>
-                <form action="/search" method = "GET">
-                    <input type="keywords" name = "busqueda" placeholder = "Search" class = "search-bar">
-                    <button type="submit" class = "btn btn-info search-button"><i class="fas fa-search"></i></button>
-                </form>
+
+                <div class = "search-bar">
+                    <form action="/search" method = "GET">
+                        <input type="keywords" name = "keywords" placeholder = "Search">
+                        <button type="submit" class = "btn btn-info search-button"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
                 <div>
                     <img src="images/headerAndfooter/neptuno.png" alt="" class = "neptuno">
                 </div>
                 <div>
                     <img src="images/headerAndfooter/books.png" alt="" class = "books">
-                </div>                               
-                
-            </div>        
+                </div>
+            </div>          
 
+        </div>
+
+        <div class = "container">
             <h2>Isaac Asimov</h2>
-            <%- include('partials/slide', {id: "123"}) %>
+            <%- include('partials/slide') %>
 
             <h2>15 libros de Suspenso</h2>           
 
             <h2>Introduccion a Virginia Woolf</h2>
 
             <h2>Para leer en la cuarentena</h2>
-            
-            <%- include('partials/footer', {id: "345"}) %>
         </div>
 
-        <%- include('partials/scripts-js', {id: "678"}) %>
+        <div class = "container-fluid">
+            <%- include('partials/footer') %>
+
+        </div>
+
+
+            
+            
+
+            
+            
+            
+        
+
+        <%- include('partials/scripts-js') %>
         
     </body>
 </html>

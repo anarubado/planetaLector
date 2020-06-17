@@ -1,61 +1,52 @@
 <header>
-        
-    <div class = "row menu">        
-        <div class = "col-7">
-            <a href="/" class = "logo"></a>
-                <img src="images/headerAndfooter/planeta.png" alt="logo-pl" class = "logo-pl">
-                <span class = "planeta-lector">Planeta Lector</span>
-            </a>
-        </div>
 
-        <div class = "col-5 collapse-menu">
-            <p class = toggle>
-                <button class="btn btn-primary " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <span class="fa fa-bars"></span>
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <ul class = 'collapse-options'>
-                        <li><a href="/products">LIBROS</a></li>
-                        <li><a href="">NOVEDADES</a></li>
-                        <li><a href="/users/cart">Mi Carrito</a></li>
-                        <li><a href="/users/login">Iniciar sesión</a></li>
-                        <li><a href="/users/register">Registrarse</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <nav class = "navbar navbar-expand-md navbar-dark bg-dark row">
+        <button class = "navbar-toggler button" data-toggle = "collapse" data-target = "#collapse-target">
+            <span class = "navbar-toggler-icon lines"></span>
+        </button>
 
-        <nav class = "col-md-5 col-lg-4 col-xl-3 main-nav">
-            <ul>
-                <li>
-                    <a href="/products/">LIBROS</a>
-                </li>
-                <li>
-                    <a href="/products/news">NOVEDADES</a>
-                </li>
-                <li>
-                    <a href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
-                </li>
-                <li>                
-                    <button class = 'btn' type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="fas fa-user"></i>
-                    </button>
-                    
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <ul>
-                                <li><a href="/users/login">Iniciar sesion</a></li>
-                                <li><a href="/users/register">Registrarse</a></li>
-                            </ul>
-                        </div>
+        <div class = "collapse navbar-collapse" id = collapse-target>
+            <a class = "navbar-brand" href=""><img src="images/headerAndfooter/planeta.png" alt="logo-pl" class = "logo-pl"></a>
+            <span class = "navbar-text">Planeta Lector</span>
+
+
+            <ul class = "navbar-nav ml-auto ">
+                <li class = "nav-item dropdown">
+                    <a class = "nav-link dropdown-toggle" data-toggle = "dropdown" data-target = "dropdown-books"  href="#">
+                        LIBROS
+                    </a>
+                    <div class = "dropdown-menu" aria-labelledby="dropdown-books">
+                        <a class = "dropdown-item" href="">Literatura</a>
+                        <a class = "dropdown-item" href="">Divulgación Científica</a>
+                        <a class = "dropdown-item" href="">Historia</a>
+                        <a class = "dropdown-item" href="">Informática / Tecnología</a>
+                        <a class = "dropdown-item" href="">Ciencias de la Salud y Naturales</a>
+                        <a class = "dropdown-item" href="">Religión</a>
+                        <a class = "dropdown-item" href="">Turismo</a>
+                        <a class = "dropdown-item" href="">Idiomas<a>
+                        <a class = "dropdown-item" href="">Autoayuda</a>                 
                     </div>
-    
                 </li>
+                <li class = "nav-item dropdown">                
+                    <a class = "nav-link dropdown-toggle" data-toggle="dropdown" data-target = "dropdown-users" href="#">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class = "dropdown-menu" aria-labelledby="dropdown-users">
+                        <a class = "dropdown-item" href="/users/login">Iniciar sesión</a>
+                        <a class = "dropdown-item" href="/users/register">Registrarse</a>
+                    </div>
+                </li>
+                <li class = "nav-item">
+                    <a class = "nav-link" href="/users/cart"><i class="fas fa-shopping-bag"></i></a>
+                </li>                
+                <li class = "nav-item">
+                    <a class = "nav-link" href="#">NOVEDADES</a>
+                </li>
+                
             </ul>
-        </nav>
-    </div> 
+        </div>
+
+    </nav>
          
 
 </header>

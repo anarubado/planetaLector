@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head', {title: 'Búsqueda: !!!'}) %>
+<%- include('partials/head', {title: 'Búsqueda: ' + keywords}) %>
 <body>
-    <%- include('partials/header') %> 
-    <h2>estamos en el search</h2>
-    <%- include('partials/footer') %> 
+    <div class = "container">
+        <%- include('partials/header') %> 
+        <h2>Resultados de la busqueda: <%= keywords %> </h2>
+        
+        <section class = "row products">
+            <% products.forEach(product => { %>
+                <article class = "col-3 product">
+                    <a href="/products/<%= product.id %>">
+                        <img src="<%= product.imagen %> " alt="">
+                        <p><%= product.titulo %> </p>
+                        <p>por <%= product.autor %> </p>
+                        <span><%= product.precio %> </span>                  
+                    </a>                    
+                </article>         
+            <% }) %>
+            </section>
+        <%- include('partials/footer') %>
+    </div>
+    <%- include('partials/scripts-js')  %> 
     
 </body>
 </html>

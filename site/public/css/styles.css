@@ -1,7 +1,12 @@
+/* ========== GENERAL CONFIGURATIONS (start) ========== */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
 }
 
 a{
@@ -17,80 +22,107 @@ ul{
     padding-bottom: 15px
 }
 
+/* ========== GENERAL CONFIGURATIONS (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ========== STYLES ANI (start) ========== */
+
 /* HOME STYLES */
 
-.toggle{
-    display: flex;
-    justify-content: flex-end;
-}
+/* index-presentation */
 
-
-.menu{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.main-nav{
-    display: none;
-}
-
-
-
-.collapse-options li{
-    text-align: right;
-
-}
-
-.presentacion{
+.presentation{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: #343A40;
+    color: white;
+    padding-top: 20px;
+}
+
+.presentacion h2{
+    margin-bottom: 15px;
+}
+
+.presentacion p{
+    margin-bottom: 20px;
+
 }
 
 .neptuno{
-    width: 120px;
+    width: 150px;
 }
 
 .search-bar{
     border-radius: 30px;
-    padding: 5px 10px;
+    padding: 5px 5px;
+    background-color: white;
+}
+
+.search-bar input{
+    border: none;
+    padding-left: 10px;
 }
 
 .search-button{
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-
+    display: flex;
+    justify-content: center;
 }
 
 .books{
     width: 100%;
 }
 
+/* footer */
 
-@media (min-width: 427px){
+.suscription-sm{
+    background-color: grey;
+}
 
-    .collapse-menu{
-        display: none;
-    }
+.footer-info{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
 
-    .main-nav{
-        display: block;
-    }
+/* search */
 
-    .main-nav ul{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-    }
+.product img{
+    width: 100%;
 }
 
 
+/* ========== STYLES ANI (end) ========== */
+
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ========== STYLES CARLI (start) ========== */
 
 /* PRODUCTS STYLES */
 
+/* ========== STYLES CARLI (end) ========== */
 
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+/* ========== STYLES MARTIN (start) ========== */
+
+/* LOGIN AND REGISTER */
+
+/* ETC. */
+
+/* ========== STYLES MARTIN (end) ========== */
 
 /* REGISTER STYLES */
 
@@ -254,3 +286,4 @@ h1.btn.title{
     padding-left: 2px
     
 }
+/* --------------------------------------------------------------------------------------------------------------------------------- */
