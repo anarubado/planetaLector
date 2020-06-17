@@ -230,12 +230,6 @@ ul{
 
 /* ========== STYLES MARTIN (start) ========== */
 
-/* LOGIN AND REGISTER */
-
-/* ETC. */
-
-/* ========== STYLES MARTIN (end) ========== */
-
 /* REGISTER STYLES */
 
 
@@ -296,6 +290,7 @@ h1.btn.title{
     
 }
 /* LOGIN STYLES */
+
 .login{
     display: flex;
     flex-wrap: wrap;
@@ -398,4 +393,7 @@ h1.btn.title{
     padding-left: 2px
     
 }
+
+/* ========== STYLES MARTIN (end) ========== */
+
 /* --------------------------------------------------------------------------------------------------------------------------------- */
