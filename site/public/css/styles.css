@@ -218,14 +218,33 @@ ul{
 
 /* ========== STYLES CARLI (start) ========== */
 
+/*.presentacion-seccion {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+}
+
+.presentacion-imagen {
+    width: 20%;
+    float: right;
+}
+
+.nav-categoria {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}*/
+
 /* PRODUCTS STYLES */
 
 /* ========== STYLES CARLI (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
 
-
-
+.presentacion-imagen {
+    float: right;
+}
 
 
 /* ========== STYLES MARTIN (start) ========== */
