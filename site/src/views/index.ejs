@@ -20,10 +20,10 @@
                     </form>
                 </div>
                 <div>
-                    <img src="images/headerAndfooter/neptuno.png" alt="" class = "neptuno">
+                    <img src="/images/headerAndfooter/neptuno.png" alt="" class = "neptuno">
                 </div>
                 <div>
-                    <img src="images/headerAndfooter/books.png" alt="" class = "books">
+                    <img src="/images/headerAndfooter/books.png" alt="" class = "books">
                 </div>
             </div>          
 
@@ -31,14 +31,16 @@
 
         <div class = "container">
             <h3>Isaac Asimov</h3>
-            <%- include('partials/slide') %>
+            <%- include('partials/slide', {id: "slide-asimov"}) %>
 
-            <h3>15 libros de Suspenso</h3>           
+            <h3>15 libros de Suspenso</h3>   
+            <%- include('partials/slide', {id: "slide-suspense"}) %>        
 
             <h3>Introduccion a Virginia Woolf</h3>
+            <%- include('partials/slide', {id: "slide-woolf"}) %>
 
             <h3>Para leer en la cuarentena</h3>
-            <%- include('partials/slide') %>
+            <%- include('partials/slide', {id: "slide-quarantine"}) %>
         </div>
 
 
