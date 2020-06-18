@@ -3,50 +3,57 @@
 <%- include('partials/head', {title: "Titulo"}) %>
 <body>
     <%-include('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"}) %> 
+    
     <!--Circuito de navegación-->
+    <nav class = "menu-categorias">
+      <div class= "navegacion">
+          <ul>
+              <li><a href="">Literatura</a></li>
+              <li><a href="">Divulgación&nbsp;científica</a></li>
+              <li><a href="">Historia</a></li>
+              <li><a href="">Informática&nbsp;/&nbsp;Tecnología</a></li>
+              <li><a href="">Ciencias&nbsp;de&nbsp;la&nbsp;Salud&nbsp;y&nbsp;Naturales</a></li>
+              <li><a href="">Religión</a></li>
+              <li><a href="">Turismo</a></li>
+              <li><a href="">Idiomas</a></li>
+              <li><a href="">Autoayuda</a></li>
+          </ul>
+      </div>
+  </nav>
+
 
     <div class = "container">
-
-      <!--Sección producto-->
-      <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" class="card-img" alt="...">
-              <p>Autor</p>
-              <p>Editorial</p>
-              <p>Idioma</p>
-              <p>Número de páginas</p>
-            </div>          
-
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Título</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="card border-primary mb-3" style="max-width: 18rem;">
-                  <div class="card-body text-primary">
-                    <h5 class="card-title">Tapa dura</h5>
-                    <p class="card-text">$1234</p>
-                  </div>
-                </div>
-
-                <div class="card border-primary mb-3" style="max-width: 18rem;">
-                  <div class="card-body text-primary">
-                    <h5 class="card-title">Tapa dura</h5>
-                    <p class="card-text">$1234</p>
-                  </div>
-                </div>
-
-                <p class="card-text"><small class="text-muted">En stock</small></p>
-                <button type="button" class="btn btn-primary">AGREGAR</button>
-              </div>
+      <div class = "detalle-producto">
+        <div class="caja-producto">
+          <div class= "subcaja1-producto" >
+            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+            <h3>Autor</h3>
+            <h3>Editorial</h3>
+            <h3>Idioma</h3>
+            <h3>Número de páginas</h3>
+          </div>
+          <div class= "subcaja2-producto" >
+            <h2>Título</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequuntur! Perspiciatis dicta dolorem temporibus, sequi ipsa voluptate quod eos numquam est natus facere reiciendis quaerat neque. Fuga debitis voluptates consectetur!</p>
+            <div class="audiobook-ebook">
+              <p>Encuentra el ebook</p>
+              <p>Encuentra el audiobook</p>
             </div>
+            <div class= "precios">
+              <p>recuadro 1</p>
+              <p>recuadro 2</p>
+            </div>
+            <button>AGREGAR</button>
           </div>
         </div>
-      
+      </div>      
         <!--sección sobre el autor-->
-        <img src="https://pbs.twimg.com/profile_images/1254225951224979456/S3Xy5D_T_400x400.jpg" alt="unaimagen" class="rounded-circle">
-        <h3>Sobre la autora</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati placeat officia reiciendis dolor architecto ipsam ex, sequi deleniti deserunt sunt! Eligendi eum rem ad quia totam eius quas quasi quo.</p>
+        <div class ="sobre-la-autora">
+          <img src="https://pbs.twimg.com/profile_images/1254225951224979456/S3Xy5D_T_400x400.jpg" alt="unaimagen">
+          <h3>Sobre la autora</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati placeat officia reiciendis dolor architecto ipsam ex, sequi deleniti deserunt sunt! Eligendi eum rem ad quia totam eius quas quasi quo.</p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores voluptatum, perspiciatis deleniti hic aspernatur eveniet eligendi vel animi necessitatibus in non! Explicabo nostrum eaque porro vel quod laborum ullam sed id quaerat, placeat sunt ratione voluptatibus tempore qui adipisci velit minima ipsum odit quo dolorem atque, iste quibusdam quis at? Laboriosam iusto veniam officiis eum deserunt reprehenderit inventore sequi! Ut tenetur, suscipit veritatis esse sunt similique ipsa commodi aliquam, labore natus laboriosam veniam itaque laudantium optio dicta unde autem, facere magni molestiae nobis fugiat corrupti. Minima nesciunt dolorum, cum debitis, adipisci, in esse quod ad omnis excepturi itaque modi. Consequuntur.</p>
+        </div>
 
         <!--otros productos-->
         <h3>Categoría</h3>
