@@ -182,7 +182,7 @@ ul{
     position: relative;
 }
 
-.banner-title div img{
+.bg-banner{
     width: 100%;    
 }
 
@@ -199,10 +199,9 @@ ul{
     left: 15%;
 }
 
-
-
-
-
+.decorative-img{
+    display: none;
+}
 
 /* search */
 
@@ -247,9 +246,13 @@ ul{
         display: none;
     }
 
-
-
-    
+    .decorative-img{
+        display: inline-block;
+        position: absolute;
+        top: 10%;
+        right: 2%;
+        width: 20%;
+    }    
 }
 
 
@@ -263,11 +266,34 @@ ul{
 
 /* ========== STYLES CARLI (start) ========== */
 
+/*.presentacion-seccion {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+}
+
+.presentacion-imagen {
+    width: 20%;
+    float: right;
+}
+
+.nav-categoria {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}*/
+
 /* PRODUCTS STYLES */
 
 /* ========== STYLES CARLI (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
+
+.presentacion-imagen {
+    float: right;
+}
+
 
 /* ========== STYLES MARTIN (start) ========== */
 

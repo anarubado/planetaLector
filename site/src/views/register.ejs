@@ -3,6 +3,7 @@
 <%- include('partials/head', {title: 'Registrarse'}) %>
 <body>
   <%- include ('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"})  %> 
+  <div class = "container">
   <div class="formdiv">
   <form class="register" action='/register' method="POST">
     <h1 class="btn title">Registrate</h1>
@@ -24,8 +25,9 @@
   </form> 
 </div>
   <%- include ('partials/slide')  %>
-  <%- include ('partials/footer')  %>
+</div>
 
+  <%- include ('partials/footer')  %>
   <%- include('partials/scripts-js')  %> 
 </body>
 </html>
