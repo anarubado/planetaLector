@@ -170,6 +170,37 @@ ul{
     width: 200px;
 }
 
+/* banner title */
+
+.banner-title{
+    display: flex;
+    justify-content: space-around;   
+    padding: 15px 0; 
+}
+
+.banner-title div{
+    position: relative;
+}
+
+.banner-title div img{
+    width: 100%;    
+}
+
+.banner-title div h4{
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
+
+.banner-title div h6{
+    font-size: 12px;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+}
+
+
+
 
 
 
