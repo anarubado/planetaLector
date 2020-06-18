@@ -188,15 +188,15 @@ ul{
 
 .banner-title div h4{
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 15%;
 }
 
 .banner-title div h6{
     font-size: 12px;
     position: absolute;
-    top: 45%;
-    left: 15%;
+    top: 55%;
+    left: 20%;
 }
 
 .decorative-img{
@@ -246,13 +246,26 @@ ul{
         display: none;
     }
 
+    .banner-title div h4{
+        position: absolute;
+        top: 35%;
+        left: 15%;
+    }
+    
+    .banner-title div h6{
+        font-size: 12px;
+        position: absolute;
+        top: 55%;
+        left: 20%;
+    }
+
     .decorative-img{
         display: inline-block;
         position: absolute;
         top: 10%;
         right: 2%;
         width: 20%;
-    }    
+    }
 }
 
 
