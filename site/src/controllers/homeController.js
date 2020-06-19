@@ -4,7 +4,7 @@ const homeModel = jsonModel('products.json');
 const homeController = {
 
     index: function(req, res){
-        let slidesProducts = homeModel.processSlideProducts(15, homeModel.getNItemsSlide());
+        let slidesProducts = homeModel.processSlideProducts(15, 3);
         return res.render("index", {slidesProducts});
     },
 

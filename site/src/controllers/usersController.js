@@ -9,7 +9,7 @@ const path = require('path');
 const usersController = {
 
     register: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, homeModel.getNItemsSlide());
+        let slidesProducts = productsModel.processSlideProducts(15, 3);
         return res.render("register", {slidesProducts});
     },
 
@@ -35,12 +35,12 @@ const usersController = {
 
 
     login: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, homeModel.getNItemsSlide());
+        let slidesProducts = productsModel.processSlideProducts(15, 3);
         return res.render("login", {slidesProducts});
     },
 
     cart: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, homeModel.getNItemsSlide());
+        let slidesProducts = productsModel.processSlideProducts(15, 3);
         return res.render("cart", {slidesProducts});
     }
 }

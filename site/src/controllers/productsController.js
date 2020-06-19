@@ -8,7 +8,7 @@ const productsController = {
     },
     
     detail: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15,homeModel.getNItemsSlide());
+        let slidesProducts = productsModel.processSlideProducts(15,3);
         return res.render('detail', {slidesProducts});
     }
 }
