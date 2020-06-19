@@ -279,34 +279,217 @@ ul{
 
 /* ========== STYLES CARLI (start) ========== */
 
-/*.presentacion-seccion {
+.menu-categorias {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.navegacion ul {
+    display: flex;
+}
+
+.navegacion ul li {
+    padding: 0 15px;
+}
+
+.novedades {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.novedades h2 {
+    margin-bottom: 5%;
+    font-size: 35px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.producto-novedades {
+    display: flex;
+    flex-direction: row;
+}
+
+.caja-imagen {
+    width: 25%;
+}
+
+.caja-imagen {
     width: 100%;
 }
 
-.presentacion-imagen {
-    width: 20%;
-    float: right;
+.descuentos h2 {
+    margin-top: 5% ;
+    margin-bottom: 5%;
+    font-size: 35;
+    font-weight: bold;
 }
 
-.nav-categoria {
+.descuentos {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-}*/
+    justify-content: space-between;
+}
 
-/* PRODUCTS STYLES */
+.descripcion-producto {
+    margin-left: 15px;
+}
+
+.nombre-libro {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.descripcion-producto p {
+    font-size: 20px;
+}
+
+.descripcion-producto2 {
+    margin-top: 15px;
+}
+
+.descripcion-producto2 h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.descripcion-producto2 p {
+    font-size: 15px;
+} 
+
+.precio-descuento {
+    font-size: 25px;
+    color: #C60000;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.precios {
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.productos-categoria h2 {
+    font-size: 25px;
+}
+
+.productos-categoria h3 {
+    font-size: 15px;
+}
+
+.items {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+/* ============Styles detail===========*/
+
+.caja-producto {
+    display: flex;
+    flex-direction: row;
+}
+
+.sobre-la-autora img {
+    float: left;
+    border-radius: 50%;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.audiobook-ebook {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.precios {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;  
+}
+
+.menu-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 15px;
+}
+
+.menu-breadcrumb .navegacion ul {
+    display: flex;
+}
+
+.menu-breadcrumb .navegacion ul li {
+    padding: 0 5px;
+}
+
+.subcaja2-producto {
+    margin-left: 10px;
+}
+
+.subcaja2-producto h2 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.subcaja2-producto p {
+    font-size: 30px;
+}
+
+.audiobook-ebook p {
+    font-size: 15px;
+}
+
+.border-primary {
+    margin: 5px;
+}
+
+.card-title {
+    font-size: 30px;
+}
+
+
+.boton {
+    border-style: none;
+    background-color: #E1306C;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+.subcaja1-producto p {
+    font-size: 25px;
+    padding: 0
+}
+
+.sobre-la-autora {
+    margin: 50px;
+}
+
+.sobre-la-autora h3 {
+    font-size:25px;
+}
+
+.sobre-la-autora p {
+    font-size:20px;
+}
+
 
 /* ========== STYLES CARLI (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
-
-.presentacion-imagen {
-    float: right;
-}
-
 
 /* ========== STYLES MARTIN (start) ========== */
 
