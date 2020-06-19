@@ -1,5 +1,5 @@
 const jsonModel = require('../models/jsonModel');
-const productsModel = jsonModel('products');
+const productsModel = jsonModel('products.json');
 
 const productsController = {
 
@@ -8,7 +8,8 @@ const productsController = {
     },
 
     detail: function(req, res){
-        return res.render('detail');
+        let slidesProducts = homeModel.processSlideProducts(15,3);
+        return res.render('detail', {slidesProducts});
     }
 }
 

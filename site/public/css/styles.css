@@ -163,11 +163,10 @@ ul{
 
 .slide-item{
     padding: 50px;
-
 }
 
-.carousel-item img{
-    width: 200px;
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    background-color: black;
 }
 
 /* banner title */

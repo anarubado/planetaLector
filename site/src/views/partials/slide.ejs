@@ -1,48 +1,26 @@
+
 <div id="<%= id %>" class="carousel slide" data-ride="carousel">
+
     
     <div class="carousel-inner">
-        <div class="carousel-item active" data-interval = "false">
 
-            <div class = 'row slide-item'>
+        <% let activeItem = "active" %>
 
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/522177.jpg" class="d-block w-100" alt="...">
-                    <p>Lorem ipsum dolor sit amet</p>
-                </div>  
+        <% slidesProducts.forEach(slideView => { %>
 
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/522177.jpg" class="d-block w-100" alt="...">
-                    <span>Lorem ipsum dolor sit amet</span>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="carousel-item" data-interval = "false">
-            <div class = 'row slide-item'>
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/620816.jpg" class="d-block w-100" alt="...">
-                    <span>Lorem ipsum dolor sit amet</span>
-                </div>  
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/620816.jpg" class="d-block w-100" alt="...">
-                    <span>Lorem ipsum dolor sit amet</span>
+            
+            <div class="carousel-item <%= activeItem %>"data-interval = "false">
+                <div class = 'row slide-item'>
+                    <% slideView.forEach(product => { %>
+                        <%- product %>                     
+                    <% }) %>
                 </div>
             </div>
-        </div>
+            <%= activeItem = "" %> 
+         
+        <% }) %>   
 
-        <div class="carousel-item" data-interval = "false">
-            <div class = 'row slide-item'>
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/523716.jpg" class="d-block w-100" alt="...">
-                    <span>Lorem ipsum dolor sit amet</span>
-                </div>  
-                <div class = 'col-6'>
-                    <img src="/images/slides/home/1/523716.jpg" class="d-block w-100" alt="...">
-                    <span>Lorem ipsum dolor sit amet</span>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 

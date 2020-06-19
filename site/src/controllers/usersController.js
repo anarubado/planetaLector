@@ -1,5 +1,6 @@
 const jsonModel = require('../models/jsonModel');
-const usersModel = jsonModel('users');
+const usersModel = jsonModel('users.json');
+const productsModel = jsonModel('products.json');
 const fs = require('fs');
 const path = require('path');
 
@@ -8,7 +9,8 @@ const path = require('path');
 const usersController = {
 
     register: function(req, res){
-        return res.render("register");
+        let slidesProducts = productsModel.processSlideProducts(15,3);
+        return res.render("register", {slidesProducts});
     },
 
     save: function(req, res){
@@ -33,11 +35,13 @@ const usersController = {
 
 
     login: function(req, res){
-        return res.render("login");
+        let slidesProducts = productsModel.processSlideProducts(15,3);
+        return res.render("login", {slidesProducts});
     },
 
     cart: function(req, res){
-        return res.render("cart");
+        let slidesProducts = productsModel.processSlideProducts(15,3);
+        return res.render("cart", {slidesProducts});
     }
 }
 
