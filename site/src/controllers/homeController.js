@@ -4,7 +4,7 @@ const homeModel = jsonModel('products.json');
 const homeController = {
 
     index: function(req, res){
-        let slidesProducts = homeModel.processSlideProducts(15,1);
+        let slidesProducts = homeModel.processSlideProducts(15, homeModel.getNItemsSlide());
         return res.render("index", {slidesProducts});
     },
 
@@ -12,9 +12,7 @@ const homeController = {
         let keywords = req.query.keywords;
         let products = homeModel.search(keywords);
         return res.render("search", {keywords, products});
-    }
-
-    
+    }    
 }
 
 module.exports = homeController;
