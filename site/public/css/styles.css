@@ -391,6 +391,24 @@ ul{
     margin-bottom: 0;
 }
 
+.boton-mini {
+    border-radius: 100%;
+    border-style: none;
+    background-color: #E1306C;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 426px) {
+    .menu-categorias {
+        display: none;
+    }
+    
+} 
+
 /* ============Styles detail===========*/
 
 .caja-producto {
