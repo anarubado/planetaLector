@@ -613,6 +613,9 @@ h1.btn.title{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 100%;
 }
 
 .infocantidad{
@@ -644,6 +647,10 @@ h1.btn.title{
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
+}
+
+.total{
+    margin-right: 10%;
 }
 
 /* ========== STYLES MARTIN (end) ========== */
