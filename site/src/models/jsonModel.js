@@ -36,6 +36,18 @@ const model = function(jsonFile){
             return nProducts;
         },
 
+        getNItemsSlide: function(){
+
+            //if(){
+                //return 1;
+
+            //} else if (window.screen.width >= 426 && window.screen.width <= 768){
+                //return 3;
+
+            //}
+            //return 5;
+        },
+
         processSlideProducts: function(quantityProducts, nItemsPerSlide){
 
             let slideProducts = this.getNProducts(quantityProducts);
@@ -60,7 +72,7 @@ const model = function(jsonFile){
                 position += nItemsPerSlide;
             }
 
-            return products;           
+            return products;    
                        
         }
 
@@ -68,8 +80,6 @@ const model = function(jsonFile){
     }
     
     return functions;
-
-
 }
 
 module.exports = model;
