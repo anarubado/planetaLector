@@ -5,45 +5,52 @@
     <%-include('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"}) %> 
     
     <!--Circuito de navegación-->
-    <nav class = "menu-categorias">
+    <nav class = "menu-breadcrumb">
       <div class= "navegacion">
           <ul>
-              <li><a href="">Literatura</a></li>
-              <li><a href="">Divulgación&nbsp;científica</a></li>
-              <li><a href="">Historia</a></li>
-              <li><a href="">Informática&nbsp;/&nbsp;Tecnología</a></li>
-              <li><a href="">Ciencias&nbsp;de&nbsp;la&nbsp;Salud&nbsp;y&nbsp;Naturales</a></li>
-              <li><a href="">Religión</a></li>
-              <li><a href="">Turismo</a></li>
-              <li><a href="">Idiomas</a></li>
-              <li><a href="">Autoayuda</a></li>
+              <li><a href="/">Inicio /</a></li>
+              <li><a href="">Categoria /</a></li>
+              <li><a href="">Producto</a></li>
           </ul>
       </div>
-  </nav>
-
+    </nav>
 
     <div class = "container">
       <div class = "detalle-producto">
         <div class="caja-producto">
           <div class= "subcaja1-producto" >
             <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-            <h3>Autor</h3>
-            <h3>Editorial</h3>
-            <h3>Idioma</h3>
-            <h3>Número de páginas</h3>
+              <p class="items">Autor: Lorem</p>
+              <p class="items">Editorial: Lorem</p>
+              <p class="items">Idioma: Lorem</p>
+              <p class="items">Número&nbsp;de&nbsp;páginas:&nbsp;Lorem</p>
           </div>
           <div class= "subcaja2-producto" >
             <h2>Título</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequuntur! Perspiciatis dicta dolorem temporibus, sequi ipsa voluptate quod eos numquam est natus facere reiciendis quaerat neque. Fuga debitis voluptates consectetur!</p>
             <div class="audiobook-ebook">
-              <p>Encuentra el ebook</p>
+              <p>Encuentra el ebook&nbsp;&nbsp;</p>
               <p>Encuentra el audiobook</p>
             </div>
             <div class= "precios">
-              <p>recuadro 1</p>
-              <p>recuadro 2</p>
+              <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body text-primary">
+                  <h5 class="card-title">Tapa dura</h5>
+                  <div class="precios">
+                    <p>$1234</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body text-primary">
+                  <h5 class="card-title">Tapa blanda</h5>
+                  <div class="precios">
+                    <p>$1234</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button>AGREGAR</button>
+            <button class= "boton">AGREGAR</button>
           </div>
         </div>
       </div>      
