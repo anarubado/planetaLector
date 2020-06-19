@@ -326,7 +326,7 @@ h1.btn.title{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 1000%;
+    width: 100%;
     font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -349,26 +349,7 @@ h1.btn.title{
     justify-content: center;
     color: red;
 }
-@media(min-width:768px){
 
-.formdiv{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}    
-.register{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(201, 76, 76, 0.3);
-    width: 30%;
-}
-    
-}
 /* LOGIN STYLES */
 
 .login{
@@ -379,26 +360,6 @@ h1.btn.title{
     align-items: center;
     background-color: rgba(201, 76, 76, 0.3);
 }
-
-h1.btn.title{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.form-group{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 100%; 
-    width: 50%;
-    
-}
-
-
 .crear{
     display: flex;
     flex-wrap: wrap;
@@ -406,35 +367,45 @@ h1.btn.title{
     color: red;
 }
 
-@media(min-width:768px){
-
+@media(min-width:410px){
     .formdiv{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }    
+    }
+    .login{  
+        height: auto; 
+        width: 80%;
+        margin-top: 5%;
+    }
     .register{
+        height: auto; 
+        width: 80%;
+        margin-top: 5%;
+    }
+    
+}
+
+@media(min-width:768px){   
+    .formdiv{
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgba(201, 76, 76, 0.3);
-        width: 30%;
     }
-    .login{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgba(201, 76, 76, 0.3);
-        width: 30%;
+    .login{  
+        height: auto; 
+        width: 40%;
+        margin-top: 5%;
     }
-
-
+    .register{
+        height: auto; 
+        width: 40%;
+        margin-top: 5%;
+    }
 }
 
 /* CART STYLES */
@@ -445,6 +416,10 @@ h1.btn.title{
     justify-content: start;
     align-items: flex-start;
     border-bottom: 1px solid black;
+}
+
+.compras{
+    margin-top: 5%;
 }
 
 .infocompra{
