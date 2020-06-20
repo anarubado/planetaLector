@@ -9,8 +9,8 @@ const path = require('path');
 const usersController = {
 
     register: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("register", {slidesProducts});
+        //let slidesProducts = productsModel.processSlideProducts(15, 3);
+        return res.render("register");
     },
 
     save: function(req, res){
@@ -35,13 +35,13 @@ const usersController = {
 
 
     login: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("login", {slidesProducts});
+        //let slidesProducts = productsModel.processSlideProducts(15, 3);
+        return res.render("login");
     },
 
     cart: function(req, res){
-        let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("cart", {slidesProducts});
+        //let slidesProducts = productsModel.processSlideProducts(15, 3);
+        return res.render("cart");
     }
 }
 

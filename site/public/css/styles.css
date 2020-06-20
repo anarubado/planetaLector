@@ -32,6 +32,7 @@ ul{
 /* index-presentation */
 
 .presentation{
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +44,7 @@ ul{
 
 .presentation h3{
     font-size: 21px;
+    color: white;
 }
 
 .presentation p{
@@ -74,6 +76,13 @@ ul{
 .books{
     width: 100%;
     padding: 0 15px;
+}
+
+/* section titles in idex */
+
+.index-titles{
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 /* footer */
@@ -163,12 +172,12 @@ ul{
 
 /* slides */
 
-.slide-item{
-    padding: 50px;
+.slide-container{
+    margin-top: 30px;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon{
-    background-color: black;
+.slide-container:last-child{
+    margin-bottom: 30px;
 }
 
 /* banner title */
@@ -522,6 +531,10 @@ ul{
     justify-content: center;
     align-items: center;
     background-color: rgba(201, 76, 76, 0.3);
+    padding: 30px 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 30px;
 }
 
 h1.btn.title{
@@ -561,6 +574,10 @@ h1.btn.title{
     justify-content: center;
     align-items: center;
     background-color: rgba(201, 76, 76, 0.3);
+    padding: 30px 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 30px;
 }
 .crear{
     display: flex;

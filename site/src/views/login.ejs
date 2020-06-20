@@ -6,7 +6,7 @@
     <div class = "container">
   <div class="formdiv">
   <form class="login" action='/login' method="POST">
-    <h1 class="btn title">INICIA SESION</h1>
+    <h1 class="btn title">INICIÁ SESIÓN</h1>
     <div class="form-group"> 
       <input type="text" class="form-control" name='user' id="exampleInputUser1" aria-describedby="emailHelp" placeholder="Nombre de usuario">
     <p></p>
@@ -14,11 +14,12 @@
     <div class="form-group" >
       <input type="password" class="form-control" name='password' id="exampleInputPassword1" placeholder="Contraseña">
     </div>
-    <button type="submit" class="btn btn-danger iniciar">INICIAR SESION</button>
+    <button type="submit" class="btn btn-danger iniciar">INICIAR SESIÓN</button>
     <p></p>
-    <a class="crear" href="/users/register">CREAR UNA CUENTA</a>
+    <a class="crear" href="/users/register">Crea una cuenta</a>
   </form> 
 </div>
+  <h3>Nuestras recomendaciones del mes de Abril</h3>
   <%- include ('partials/slide', {id: "slide-login"})  %>
 </div>
   <%- include ('partials/footer')  %>

@@ -52,7 +52,7 @@ const model = function(jsonFile){
 
         processSlideProducts: function(quantityProducts, nItemsPerSlide){
 
-            // Explicacion //            
+            // EXPLICACION (Activar MODO PACIENCIA) //            
             
             let slideProducts = this.getNProducts(quantityProducts);        // Trae un array con N productos desde products.json
             let products = [];                                              // Crea un array products el cual va a contener arrayS con la cantidad de divs que queramos mostrar...
@@ -99,7 +99,7 @@ const model = function(jsonFile){
             while((position + nItemsPerSlide) < slideProducts.length){
 
                 let slide = [];
-                
+
                 // Con el siguiente for, estoy seteando que SIEMPRE se agreguen a mi slide, en este caso, 3 DIVS. Lo hago incrementando el numero de la posicion
 
                 // Demostracion:
@@ -127,6 +127,9 @@ const model = function(jsonFile){
             return products;  // Retorna el array products terminado  
                        
         }
+
+        // Dadas las complicaciones, se cancela la implementacion del metodo por no podes manejar los viewports facilmente desde el back. Quizas en el futuro, se encuentre una manera.
+        // Ante la decepcion, se usara UIkit como fue recomendado por Gonza y a llorar a la lloreria.
     }
     
     return functions;
