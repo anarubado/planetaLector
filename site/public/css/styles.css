@@ -387,6 +387,12 @@ ul{
     font-size: 15px;
 }
 
+.productos-categoria {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .items {
     padding: 0;
     margin-bottom: 0;
@@ -407,6 +413,31 @@ ul{
     .menu-categorias {
         display: none;
     }
+    .productos-descuento {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 15px;
+    }
+
+    .productos-descuento {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 15px;
+    }
+
+    .productos-categoria {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .productos-categoria img {
+        max-width: 50%;
+    }
+    
+    
     
 } 
 
@@ -504,6 +535,29 @@ ul{
 .sobre-la-autora p {
     font-size:20px;
 }
+
+
+@media (max-width: 426px) {
+    .menu-breadcrumb {
+        display: none;
+    }
+    .menu-breadcrumb {
+        display: none;
+    }
+    .subcaja2-producto {
+        margin-top: 20px;
+    }
+
+    .caja-producto {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .subcaja1-producto {
+        margin-top: 20px;
+    }
+    
+} 
 
 
 /* ========== STYLES CARLI (end) ========== */
