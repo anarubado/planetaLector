@@ -5,6 +5,7 @@ const homeController = {
 
     index: function(req, res){
         //let slidesProducts = homeModel.processSlideProducts(15, 3);
+        let products = homeModel.readJson();
         return res.render("index");
     },
 
