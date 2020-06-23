@@ -180,6 +180,18 @@ ul{
     margin-bottom: 30px;
 }
 
+.uk-position-center-left-out svg, .uk-position-center-right-out svg{
+    color: black;
+}
+
+.uk-card-media-top img{
+    width: 100%;
+}
+
+.uk-card-body{
+    padding: 20px 0px;
+    text-align: center;
+}
 /* banner title */
 
 .banner-title{

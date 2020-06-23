@@ -44,7 +44,7 @@ const usersController = {
     cart: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15, 3);
         let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-        let cienciaFiccion = productsModel.filterNProducts("Ciencia Ficcion", 10)
+        let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10)
         return res.render("cart", {isaacAsimov, cienciaFiccion});
     }
 }
