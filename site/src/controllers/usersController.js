@@ -10,7 +10,8 @@ const usersController = {
 
     register: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("register");
+        let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
+        return res.render("register", {harryPotter});
     },
 
     save: function(req, res){
@@ -36,12 +37,15 @@ const usersController = {
 
     login: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("login");
+        let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+        return res.render("login", {jkRowling});
     },
 
     cart: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15, 3);
-        return res.render("cart");
+        let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
+        let cienciaFiccion = productsModel.filterNProducts("Ciencia Ficcion", 10)
+        return res.render("cart", {isaacAsimov, cienciaFiccion});
     }
 }
 

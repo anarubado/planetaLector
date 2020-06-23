@@ -9,7 +9,9 @@ const productsController = {
     
     detail: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15,3);
-        return res.render('detail');
+        let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
+        let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+        return res.render('detail', {harryPotter, jkRowling});
     }
 }
 

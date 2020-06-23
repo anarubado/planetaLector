@@ -125,11 +125,25 @@ const model = function(jsonFile){
             }
 
             return products;  // Retorna el array products terminado  
-                       
-        }
 
-        // Dadas las complicaciones, se cancela la implementacion del metodo por no podes manejar los viewports facilmente desde el back. Quizas en el futuro, se encuentre una manera.
-        // Ante la decepcion, se usara UIkit como fue recomendado por Gonza y a llorar a la lloreria.
+            // Dadas las complicaciones, se cancela la implementacion del metodo por no poder manejar los viewports facilmente desde el back. Quizas en el futuro, se encuentre una manera.
+            // Ante la decepcion, se usara UIkit como fue recomendado por Gonza y a llorar a la lloreria.
+                       
+        },
+
+        filterNProducts: function(keywords, nProducts){
+
+            let products = this.readJson();                         // Lee el JSON y lo convierte en objeto literal
+
+            products = products.filter(function(product){
+                return product.titulo.includes(keywords) || product.autor.includes(keywords) || product.categoria.includes(keywords) || product.subcategoria.includes(keywords);                    // Filtra por titulo, autor, categoria o subcategoria      
+
+            });
+
+            products.splice(nProducts + 1, products.length);        // Ejemplo: Queremos un array de 15 productos, entonces se hace un splice desde la posicion 16 del array hasta la ultima, .length nos da el numero de posicion 'no inclusive' el cual podra borrar todos los productos sobrantes.
+
+            return products;
+        }        
     }
     
     return functions;
