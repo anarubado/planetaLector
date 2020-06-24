@@ -304,17 +304,39 @@ ul{
 .menu-categorias {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin-bottom: 15px;
 }
 
-.navegacion ul {
+
+
+.navegacion-1 ul {
+    margin-top: 15px;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navegacion-2 ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navegacion-3 ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .navegacion ul li {
     padding: 0 15px;
+}
+
+.section-productos-novedades {
+    display: flex;
+    flex-direction: row;
 }
 
 .novedades {
@@ -336,14 +358,10 @@ ul{
 }
 
 .caja-imagen {
-    width: 25%;
-}
-
-.caja-imagen {
     width: 100%;
 }
 
-.descuentos h2 {
+.descuentos {
     margin-top: 5% ;
     margin-bottom: 5%;
     font-size: 35;
@@ -367,7 +385,7 @@ ul{
 }
 
 .descripcion-producto p {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .descripcion-producto2 {
@@ -382,6 +400,18 @@ ul{
 .descripcion-producto2 p {
     font-size: 15px;
 } 
+
+.descuentos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.productos-descuento {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .precio-descuento {
     font-size: 25px;
@@ -458,9 +488,39 @@ ul{
         max-width: 50%;
     }
     
+    .section-productos-novedades {
+        display: flex;
+        flex-direction: column;
+    }
     
+    .descripcion-producto p {
+        font-size: 9px;
+    }
+
+    .cuerpo {
+        margin-left: 10px;
+    }
     
 } 
+
+@media (max-width: 769px) {
+    .menu-categorias {
+        display: none;
+    }
+
+    .section-productos-novedades {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .productos-descuentos {
+        max-width: 50%;
+    }
+
+    .productos-categoria .product {
+        margin-right: 20px;
+    }
+}
 
 /* ============Styles detail===========*/
 

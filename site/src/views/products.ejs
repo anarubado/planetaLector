@@ -8,51 +8,61 @@
     <div class = "container">
         <%- include('partials/banner-title', {title: "Literatura", route: "Inicio / Categorías / Literatura", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
     <!--Categorias-->
-              
-        <nav class = "menu-categorias">
-            <div class= "navegacion">
-                <ul>
-                    <li><a href="">Literatura</a></li>
-                    <li><a href="">Divulgación&nbsp;científica</a></li>
-                    <li><a href="">Historia</a></li>
-                    <li><a href="">Informática&nbsp;/&nbsp;Tecnología</a></li>
-                    <li><a href="">Ciencias&nbsp;de&nbsp;la&nbsp;Salud&nbsp;y&nbsp;Naturales</a></li>
-                    <li><a href="">Religión</a></li>
-                    <li><a href="">Turismo</a></li>
-                    <li><a href="">Idiomas</a></li>
-                    <li><a href="">Autoayuda</a></li>
-                </ul>
+        <div class = "cuerpo">     
+            <nav class = "menu-categorias">
+                <div class= "navegacion">
+                        <div class = "navegacion-1">
+                            <ul>
+                                <li><a href="">Literatura</a></li>
+                                <li><a href="">Divulgación&nbsp;científica</a></li>
+                                <li><a href="">Historia</a></li>
+                            </ul>
+                        </div>
+                        <div class = "navegacion-2">
+                            <ul>
+                                <li><a href="">Informática&nbsp;/&nbsp;Tecnología</a></li>
+                                <li><a href="">Ciencias&nbsp;de&nbsp;la&nbsp;Salud&nbsp;y&nbsp;Naturales</a></li>
+                                <li><a href="">Religión</a></li>
+                            </ul>
+                        </div>
+                        <div class = "navegacion-3">
+                            <ul>
+                                <li><a href="">Turismo</a></li>
+                                <li><a href="">Idiomas</a></li>
+                                <li><a href="">Autoayuda</a></li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class = "novedades">
+                <h2>Novedades</h2>
+                <section class="section-productos-novedades">
+                    <article class= "producto-novedades">
+                        <div class= "caja-imagen">
+                            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
+                        </div>
+                        <div class = "descripcion-producto">
+                            <h3 class="nombre-libro">Nombre del libro</h3>
+                            <p>Autor</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
+                        </div>
+                    </article>
+                    <article class= "producto-novedades">
+                        <div class= "caja-imagen">
+                            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
+                        </div>
+                        <div class = "descripcion-producto">
+                            <h3>Nombre del libro</h3>
+                            <p>Autor</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
+                        </div>
+                    </article>
+                </section>
             </div>
-        </nav>
 
-        <div class = "novedades">
-            <h2>Novedades</h2>
-            <section class="row productos-novedades">
-                <article class= "producto-novedades col-md-6 col-xs-12">
-                    <div class= "caja-imagen">
-                        <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
-                     </div>
-                     <div class = "descripcion-producto">
-                        <h3 class="nombre-libro">Nombre del libro</h3>
-                        <p>Autor</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
-                    </div>
-                </article>
-                <article class= "producto-novedades col-6 xs-12">
-                    <div class= "caja-imagen">
-                        <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
-                     </div>
-                     <div class = "descripcion-producto">
-                        <h3>Nombre del libro</h3>
-                        <p>Autor</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
-                    </div>
-                </article>
-            </section>
-        </div>
-
-        <div class = "row descuentos">
-            <h2 class= "col-12 p-0">Descuentos</h2>
+            <h2 class ="descuentos">Descuentos</h2>
             <section class= "productos-descuento">
                 <article class = "producto-descuento">
                     <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
@@ -66,8 +76,18 @@
                         <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
                     </div>
                 </article>
-            </section>
-            <section class= "row productos-descuento">
+                <article class = "producto-descuento">
+                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+                    <div class = "descripcion-producto2">
+                        <h3>Nombre del libro</h3>
+                        <p>Autor</p>
+                        <div class="precios">
+                            <h3 class= "precio-descuento">$1234</h3>
+                            <h3 class= "precio-final">$12345</h3>
+                        </div>
+                        <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </article>
                 <article class = "producto-descuento">
                     <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
                     <div class = "descripcion-producto2">
@@ -81,83 +101,69 @@
                     </div>
                 </article>
             </section>
-            <section class= "row productos-descuento">
-                <article class = "producto-descuento">
+
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class = "productos-categoria">
+                <article class = "product">
                     <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                    <div class = "descripcion-producto2">
-                        <h3>Nombre del libro</h3>
-                        <p>Autor</p>
-                        <div class="precios">
-                            <h3 class= "precio-descuento">$1234</h3>
-                            <h3 class= "precio-final">$12345</h3>
-                        </div>
-                        <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
-                    </div>
+                    <h2>Titulo</h2>
+                    <h3>por Autor</h3>
+                    <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
+                </article>
+                <article class = "product">
+                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+                    <h2>Titulo</h2>
+                    <h3>por Autor</h3>
+                    <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
+                </article>
+                <article class = "product">
+                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+                    <h2>Titulo</h2>
+                    <h3>por Autor</h3>
+                    <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
+                </article>
+                <article class = "product">
+                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+                    <h2>Titulo</h2>
+                    <h3>por Autor</h3>
+                    <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
                 </article>
             </section>
-        </div>
 
-        <nav aria-label="...">
-            <ul class="pagination">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-
-        <section class = "productos-categoria">
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-        </section>
-
-        <!--acá va un coso para pasar de página que no se cómo mierda se hace-->
-        <nav aria-label="...">
-            <ul class="pagination">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>        
+            <!--acá va un coso para pasar de página que no se cómo mierda se hace-->
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>         
     </div>
     
     <%- include ('partials/footer') %> 
