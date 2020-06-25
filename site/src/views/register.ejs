@@ -5,19 +5,37 @@
   <%- include ('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"})  %> 
   <div class = "container">
   <div class="formdiv">
-  <form class="register" action='/register' method="POST">
+  <form class="register" action='/users/register' method="POST">
     <h1 class="btn title">REGISTRATE</h1>
     <div class="form-group"> 
       <input type="text" class="form-control" name='user' id="exampleInputUser1" aria-describedby="emailHelp" placeholder="Nombre de usuario">
-    <p></p>
+    <p class='error'>
+      <% if (typeof errors != 'undefined') { %>
+        <% if (errors.user) { %>
+          <%= errors.user.msg %> 
+        <% } %>
+     <% }%>
+    </p>
     </div>
     <div class="form-group"> 
       <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-    <p></p>
+    <p class="error">
+      <% if (typeof errors != 'undefined') { %>
+        <% if (errors.email) { %>
+          <%= errors.email.msg %> 
+        <% } %>
+     <% }%>
+    </p>
     </div>
     <div class="form-group" >
       <input type="password" class="form-control" name='password' id="exampleInputPassword1" placeholder="Contraseña">
-      
+      <p class="error">
+        <% if (typeof errors != 'undefined') { %>
+          <% if (errors.password) { %>
+            <%= errors.password %> 
+          <% } %>
+       <% }%>
+      </p>
     </div>
     <button type="submit" class="btn btn-danger enviar">REGISTRARSE</button>
     <p></p>

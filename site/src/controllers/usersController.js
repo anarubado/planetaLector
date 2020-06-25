@@ -3,6 +3,8 @@ const usersModel = jsonModel('users.json');
 const productsModel = jsonModel('products.json');
 const fs = require('fs');
 const path = require('path');
+const bcryptjs = require('bcryptjs');
+const {validationResult} = require('express-validator')
 
 
 
@@ -15,22 +17,35 @@ const usersController = {
     },
 
     save: function(req, res){
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+        // Encripto clave de usuarios
+        req.body.password = bcryptjs.hashSync(req.body.password, 10);
         let user = {
             id:"",
             ...req.body,
         }
-
+       /* usersModel.guardarUno(user);
+        return res.redirect('/');*/
+       // Leer JSON
         let usuarios = fs.readFileSync(path.join(__dirname, '..', 'data', 'users.json'),'utf-8');
         usuarios = JSON.parse(usuarios);
-        //usuarios.push(user);
-
+        
+        
+    
+        // Agrego la data
         usuarios = [...usuarios, user];
 
+        // Guardo la data
         usuarios = JSON.stringify(usuarios, null, " ");
     
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'users.json'), usuarios);
         
         return res.redirect('/');
+    }else{
+        // En caso de haber error lo muestre por pantalla
+        return res.render('register', {errors: errors.mapped()})
+    }
 
     },
 

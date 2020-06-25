@@ -17,6 +17,15 @@ const model = function(jsonFile){
             return fs.writeFileSync(this.path, products, 'utf-8');
         },
 
+        guardarUno: function(newData){
+            // Leer todo el json
+            let allData = this.leerJson();
+            // Agregar la data
+            allData = [...allData, newData];
+            // Guarar la data
+            this.escribirJson(allData)
+         },
+
         search: function(search){
             let products = this.readJson();
             let searchedProducts = products.filter(function(product){
