@@ -4,5 +4,11 @@
   "user": "martin",
   "email": "martin@gmail.com",
   "password": "12345678"
+ },
+ {
+  "id": "",
+  "user": "Nicolas",
+  "email": "nicolas@gmail.com",
+  "password": "$2a$10$Nbqws3iDdj3s2uny61xu9O/biYBSwLYQcOthhs1VKARwOZHe6eQoS"
  }
 ]
