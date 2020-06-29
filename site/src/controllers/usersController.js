@@ -61,6 +61,56 @@ const usersController = {
     return res.render("login", { jkRowling });
   },
 
+  processLogin: function (req,res) {
+    let errors = validationResult (req);
+   
+        if (errors.isEmpty()) {
+            let usersJSON = fs.readFileSync(
+              path.join(__dirname, "..", "data", "users.json"),
+              "utf-8");
+            let users;
+            if (usersJSON == '') {
+                users = [];
+            } else {
+                users = JSON.parse(usersJSON);
+            }
+
+            for (let i = 0; i<users.length; i++) {
+                if (users[i].user == req.body.user) {
+                    if (bcryptjs.compareSync(req.body.password, users [i].password)) {
+                      //usuarioALoguearse is not defined 
+                        var usuarioALoguearse = users [i]
+                        break;
+                    }
+                }
+            }
+            if (usuarioALoguearse == undefined) {
+                return res.render ('login', 
+                    { errors:'credenciales invalids'})
+            }
+
+            req.session.usuarioLogueado = usuarioALoguearse;
+
+            //if (req.body.recordame != undefined) {
+                //res.cookie ('recordame', usuarioALoguearse.user, {maxAge: 60000})
+            //}
+
+          let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
+          let suspense = productsModel.filterNProducts("suspense", 10);
+          let virginiaWoolf = productsModel.filterNProducts("Virginia Woolf", 10);
+          let quarantine = productsModel.filterNProducts("quarantine", 10)
+          return res.render("index", {isaacAsimov, suspense,virginiaWoolf,quarantine});
+
+        } else {
+          //return res.send (errors.mapped());
+          let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+          return res.render("login", {
+            errors: errors.mapped(),
+            jkRowling
+          });
+        }
+  },
+
   cart: function (req, res) {
     //let slidesProducts = productsModel.processSlideProducts(15, 3);
     let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);

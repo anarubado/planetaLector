@@ -5,17 +5,31 @@
     <%- include ('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"})  %> 
     <div class = "container">
   <div class="formdiv">
-  <form class="login" action='/login' method="POST">
+  <form class="login" action='/users/login' method="POST">
     <h1 class="btn title">INICIÁ SESIÓN</h1>
     <div class="form-group"> 
-      <input type="text" class="form-control" name='user' id="exampleInputUser1" aria-describedby="emailHelp" placeholder="Nombre de usuario">
-    <p></p>
+      <input type="text" class="form-control" name='user' id="exampleInputUser1" aria-describedby="emailHelp" placeholder="Nombre de usuario" value="">
+      <small class='error'>
+        <% if (typeof errors != 'undefined') { %>
+          <% if (errors) { %>
+            <%= errors.user.msg %> 
+          <% } %>
+       <% }%>
+      </small>
     </div>
     <div class="form-group" >
       <input type="password" class="form-control" name='password' id="exampleInputPassword1" placeholder="Contraseña">
+      <small class="error">
+        <% if (typeof errors != 'undefined') { %>
+          <% if (errors) { %>
+            <%= errors.password.msg %> 
+          <% } %>
+       <% }%>
+      </small>
     </div>
     <button type="submit" class="btn btn-danger iniciar">INICIAR SESIÓN</button>
-    <p></p>
+    <label for="">Recordame</label>
+    <input class = "boton-recordame" type="checkbox" name = "recordame">
     <a class="crear" href="/users/register">Crea una cuenta</a>
   </form> 
 </div>

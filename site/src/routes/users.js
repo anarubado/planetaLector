@@ -41,6 +41,25 @@ router.post(
 );
 
 router.get("/login", usersController.login);
+router.post ('/login', [
+  body ('user')
+  .notEmpty()
+  .withMessage("*Este Campo es obligatorio")
+  .isLength({ min: 3 })
+  .withMessage("El usuario debe tener minimo 3 caracteres")
+  .custom((value) => {
+    let user = usersModel.findBySomething((element) => element.user == value);
+
+    return user;
+  })
+  .withMessage("Este usuario no existe"), 
+  body ('password')
+    .notEmpty()
+    .withMessage("*Este Campo es obligatorio")
+    .isLength ({min:8}) 
+    .withMessage ('La contraseña debe tener minimo 8 caracteres')
+    //la contraseña es incorrecta?
+] ,usersController.processLogin )
 
 router.get("/cart", usersController.cart);
 

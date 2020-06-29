@@ -10,5 +10,11 @@
   "user": "Nicolas",
   "email": "nicolas@gmail.com",
   "password": "$2a$10$Nbqws3iDdj3s2uny61xu9O/biYBSwLYQcOthhs1VKARwOZHe6eQoS"
+ },
+ {
+  "id": "",
+  "user": "Carli",
+  "email": "carla@digitalhouse.com",
+  "password": "$2a$10$VUi2lkfMNez2rMM/4T5nmu/Du1JvW35f7sbYUyY9DFHKtUrJcbjeC"
  }
 ]
