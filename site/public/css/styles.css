@@ -29,7 +29,17 @@ ul{
     display: none;
 }
 
+/* header */
+
+.main-header{
+    background-color: #343A40;
+}
+
 /* index-presentation */
+
+.main-presentation{
+    background-color: #343A40;
+}
 
 .presentation{
     
@@ -75,7 +85,6 @@ ul{
 
 .books{
     width: 100%;
-    padding: 0 15px;
 }
 
 /* section titles in idex */
@@ -133,6 +142,10 @@ ul{
     margin-bottom: 10px;
 }
 
+.footer-info li a{
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .social-media{
     display: flex;
     flex-direction: column;
@@ -145,6 +158,7 @@ ul{
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .social-media a i{
@@ -168,6 +182,12 @@ ul{
 
 .fab.fa-facebook-f{
     background-color: #4267B2;    
+}
+
+
+.social-media a:hover, .footer-info li a:hover{
+    text-decoration: none;
+    color: white;
 }
 
 /* slides */
@@ -420,14 +440,12 @@ ul{
 }
 
 .boton-mini {
-    border-radius: 100%;
-    border-style: none;
-    background-color: #E1306C;
-    color: white;
-    padding: 10px;
-    margin: 5px;
-    margin-top: 0;
-    margin-bottom: 20px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 426px) {
@@ -587,113 +605,49 @@ ul{
 
 /* ========== STYLES MARTIN (start) ========== */
 
-/* REGISTER STYLES */
+/* REGISTER AND LOGIN STYLES */
 
-
-.register{
+.formdiv{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(201, 76, 76, 0.3);
-    padding: 30px 0;
-    margin-top: 30px;
-    margin-bottom: 30px;
+}
+
+.register, .login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 38, 59, 0.16);
+    padding: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     border-radius: 30px;
+    max-width: 500px;
 }
 
-h1.btn.title{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+.title{
     font-size: 30px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.form-group{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 100%; 
-    width: 50%;
+    margin-bottom: 30px;
 }
 
 .form-control{
-    border-radius: 20px;
-}
-
-.cuenta{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: red;
-}
-
-/* LOGIN STYLES */
-
-.login{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(201, 76, 76, 0.3);
-    padding: 30px 0;
-    margin-top: 30px;
-    margin-bottom: 30px;
     border-radius: 30px;
-}
-.crear{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    color: red;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-@media(min-width:410px){
-    .formdiv{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .login{  
-        height: auto; 
-        width: 80%;
-        margin-top: 5%;
-    }
-    .register{
-        height: auto; 
-        width: 80%;
-        margin-top: 5%;
-    }
-    
+.registrar, .iniciar{
+    margin-bottom: 10px;
 }
 
-@media(min-width:768px){   
-    .formdiv{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .login{  
-        height: auto; 
-        width: 40%;
-        margin-top: 5%;
-    }
-    .register{
-        height: auto; 
-        width: 40%;
-        margin-top: 5%;
-    }
+.crear-cuenta:hover, .tengo-cuenta:hover{
+    text-decoration: none;
 }
 
 /* CART STYLES */
+
 .producto{
     display: flex;
     flex-wrap: wrap;
@@ -750,6 +704,15 @@ h1.btn.title{
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
+}
+
+.trash-bin{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .total{

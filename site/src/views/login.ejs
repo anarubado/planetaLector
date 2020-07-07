@@ -2,25 +2,31 @@
 <html lang="en">
 <%- include('partials/head', {title: 'Iniciar sesión'}) %>
 <body>
-  <%- include ('partials/header', {bgColor: "bg-light", navbarColor: "navbar-light"})  %> 
+  <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
+
   <div class = "container">
+
     <div class="formdiv">
+
       <form class="login" action='/login' method="POST">
-        <h1 class="btn title">INICIÁ SESIÓN</h1>
-        <div class="form-group"> 
-          <input type="name" class="form-control" name='name' placeholder="Nombre de usuario">
-          <p></p>
-        </div>
-        <div class="form-group" >
-          <input type="password" class="form-control" name='password' id="exampleInputPassword1" placeholder="Contraseña">
-        </div>
+
+        <h1 class="title">INICIÁ SESIÓN</h1>
+        
+        <input type="name" class="form-control" name='name' placeholder="Nombre de usuario">
+        
+        <input type="password" class="form-control" name='password' placeholder="Contraseña">
+        
         <button type="submit" class="btn btn-info iniciar">INICIAR SESIÓN</button>
-        <p></p>
-        <a class="crear" href="/users/register">Crea una cuenta</a>
-      </form> 
+        
+        <a class="crear-cuenta" href="/users/register">Crea una cuenta</a>
+
+      </form>
+
     </div>
+
     <h3>Libros de J. K. Rowling</h3>
     <%- include ('partials/slide', {id: "slide-login", products: jkRowling})  %>
+
   </div>
   <%- include ('partials/footer')%>
   <%- include('partials/scripts-js')%>     
