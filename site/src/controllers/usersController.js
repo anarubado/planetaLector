@@ -17,7 +17,7 @@ const usersController = {
 
     let errors = validationResult(req);
     
-    if(errors.isEmpty()) {
+    if(errors.isEmpty()){
       // Encripto clave de usuarios
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
@@ -53,42 +53,19 @@ const usersController = {
 
     let errors = validationResult(req);    
    
-    if (errors.isEmpty()) {
-      let usersJSON = fs.readFileSync(path.join(__dirname, "..", "data", "users.json"), "utf-8");
-      let users;
+    if (errors.isEmpty()){
 
-      if (usersJSON == '') {
-          users = [];
-      } else {
-          users = JSON.parse(usersJSON);
+      let user = usersModel.findBySomething(user => user.email == req.body.email);
+
+      delete user.password;
+
+      req.session.user = user;
+
+      if(req.body.recordame){
+        res.cookie('email', user.email, {maxAge: 1000 * 60 * 60 * 24})
       }
 
-      for (let i = 0; i<users.length; i++) {
-          if (users[i].user == req.body.user) {
-              if (bcryptjs.compareSync(req.body.password, users [i].password)) {
-                //usuarioALoguearse is not defined 
-                  var usuarioALoguearse = users [i]
-                  break;
-              }
-          }
-      }
-      if (usuarioALoguearse == undefined) {
-          return res.render ('login', 
-              { errors:'credenciales invalids'})
-      }
-
-      req.session.usuarioLogueado = usuarioALoguearse;
-
-      //if (req.body.recordame != undefined) {
-          //res.cookie ('recordame', usuarioALoguearse.user, {maxAge: 60000})
-      //}
-
-    let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-    let suspense = productsModel.filterNProducts("suspense", 10);
-    let virginiaWoolf = productsModel.filterNProducts("Virginia Woolf", 10);
-    let quarantine = productsModel.filterNProducts("quarantine", 10);
-    
-    return res.render("index", {isaacAsimov, suspense, virginiaWoolf, quarantine});
+    return res.redirect('/')
 
   } else {
     

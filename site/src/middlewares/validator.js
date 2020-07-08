@@ -68,7 +68,7 @@ const validator = {
               let validation = bcryptjs.compareSync(req.body.password, user.password);
               return validation;
           }
-          return false
+          return false;
         })
         .withMessage("Email o contraseña invalida"),
 

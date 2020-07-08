@@ -16,5 +16,61 @@
   "user": "Carli",
   "email": "carla@digitalhouse.com",
   "password": "$2a$10$VUi2lkfMNez2rMM/4T5nmu/Du1JvW35f7sbYUyY9DFHKtUrJcbjeC"
+ },
+ {
+  "id": "",
+  "user": "Ana Rubado",
+  "email": "rubadoana@gmail.com",
+  "password": "$2a$10$jeLwLcdMNIwD/lMLbJj4MuFrm5SN5.Q/KIaKLifuGyXgtqOzSBmGK",
+  "image": "image-1594212507044.jpg"
+ },
+ {
+  "id": "",
+  "user": "Marta",
+  "email": "marta@gmail.com",
+  "password": "$2a$10$d2QhQ7TY4IznKIOd5TbT9OmfhkqYHQE1wZDq9qhm20MHABqA95qoe",
+  "image": "image-1594213506456.jpg"
+ },
+ {
+  "id": "",
+  "user": "Silvia",
+  "email": "silvia@gmail.com",
+  "password": "$2a$10$Tgv7lZmS7Mb8cKJpvH3PGeTWFA2jvkY2ohmOJzQINZrdvNmT4yM3m",
+  "image": "image-1594213599867.jpg"
+ },
+ {
+  "id": "",
+  "user": "Franco",
+  "email": "franco@gmail.com",
+  "password": "$2a$10$7q0AggfVskK6fDyCdQWCG..fswBB17Ym0c.VR4ghKpiPvRYwfXDnm",
+  "image": "image-1594215662247.jpg"
+ },
+ {
+  "id": "",
+  "user": "Helena",
+  "email": "helena@gmail.com",
+  "password": "$2a$10$vTnYyMa5qFZOr6w3PRIrg.6AFJ8J0Kdj6KDQC3pUNS.2qGTgbAru6",
+  "image": "image-1594216167569.jpg"
+ },
+ {
+  "id": "",
+  "user": "messi",
+  "email": "messi@gmail.com",
+  "password": "$2a$10$iM6vSZd6j7tXILBsu5T.G.Q7pVOXbaMCc53b1hH91zOzSurx0Pqly",
+  "image": "image-1594216571102.jpg"
+ },
+ {
+  "id": "",
+  "user": "Ale",
+  "email": "ale@gmail.com",
+  "password": "$2a$10$jk5zG5Evi/A0sUxCn5uuD.t3RZ8YhOqfPtrAllbkcMMv3CwbcMvsC",
+  "image": "image-1594217069904.jpg"
+ },
+ {
+  "id": "",
+  "user": "ronaldo",
+  "email": "ronaldo@gmail.com",
+  "password": "$2a$10$FdeM4.e2oZd/ACiGmwkcGOMXjUr.aoKJ/G.Qdee4wXipVkA9QINpm",
+  "image": "image-1594218588697.jpg"
  }
 ]
