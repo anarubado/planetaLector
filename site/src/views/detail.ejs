@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head', {title: "Titulo"}) %>
+<%- include('partials/head', {title: detail.titulo}) %>
 <body>
     <%-include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %> 
     
@@ -16,28 +16,37 @@
     </nav>
 
     <div class = "container">
+
       <div class = "detalle-producto">
+
         <div class="caja-producto ">
-          <div class= "subcaja1-producto" >
-            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-              <p class="items">Autor: Lorem</p>
-              <p class="items">Editorial: Lorem</p>
-              <p class="items">Idioma: Lorem</p>
-              <p class="items">Número&nbsp;de&nbsp;páginas:&nbsp;Lorem</p>
+
+          <div class= "subcaja1-producto"
+          >
+            <img src="<%= detail.imagen %> " alt="">
+              <p class="items">Autor: <%= detail.autor %></p>
+              <p class="items">Editorial: <%= detail.editorial %></p>
+              <p class="items">Idioma: <%= detail.idioma %></p>
+              <p class="items">Número&nbsp;de&nbsp;páginas:&nbsp;<%= detail.nPaginas%> </p>
           </div>
           <div class= "subcaja2-producto" >
-            <h2>Título</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequuntur! Perspiciatis dicta dolorem temporibus, sequi ipsa voluptate quod eos numquam est natus facere reiciendis quaerat neque. Fuga debitis voluptates consectetur!</p>
+            <h2><%= detail.titulo %> </h2>
+            <p><%= detail.descripcion %> </p>
             <div class="audiobook-ebook">
-              <p>Encuentra el ebook&nbsp;&nbsp;</p>
-              <p>Encuentra el audiobook</p>
+              <a href="">
+                <p>Encuentra el ebook&nbsp;&nbsp;</p>
+              </a>
+              <a href="">
+                <p>Encuentra el audiobook</p>
+              </a>             
+              
             </div>
             <div class= "precios">
               <div class="card border-primary mb-3" style="max-width: 18rem;">
                 <div class="card-body text-primary">
                   <h5 class="card-title">Tapa dura</h5>
                   <div class="precios">
-                    <p>$1234</p>
+                    <p><%= detail.precio %> </p>
                   </div>
                 </div>
               </div>
@@ -45,7 +54,7 @@
                 <div class="card-body text-primary">
                   <h5 class="card-title">Tapa blanda</h5>
                   <div class="precios">
-                    <p>$1234</p>
+                    <p><%= detail.precio %> </p>
                   </div>
                 </div>
               </div>
@@ -56,9 +65,9 @@
       </div>      
         <!--sección sobre el autor-->
         <div class ="sobre-la-autora">
-          <img src="https://pbs.twimg.com/profile_images/1254225951224979456/S3Xy5D_T_400x400.jpg" alt="unaimagen">
+          <img src="<%= detail.imagenAutor %> " alt="unaimagen">
           <h3>Sobre la autora</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati placeat officia reiciendis dolor architecto ipsam ex, sequi deleniti deserunt sunt! Eligendi eum rem ad quia totam eius quas quasi quo.</p>
+          <p><%= detail.bioAutor %> </p>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores voluptatum, perspiciatis deleniti hic aspernatur eveniet eligendi vel animi necessitatibus in non! Explicabo nostrum eaque porro vel quod laborum ullam sed id quaerat, placeat sunt ratione voluptatibus tempore qui adipisci velit minima ipsum odit quo dolorem atque, iste quibusdam quis at? Laboriosam iusto veniam officiis eum deserunt reprehenderit inventore sequi! Ut tenetur, suscipit veritatis esse sunt similique ipsa commodi aliquam, labore natus laboriosam veniam itaque laudantium optio dicta unde autem, facere magni molestiae nobis fugiat corrupti. Minima nesciunt dolorum, cum debitis, adipisci, in esse quod ad omnis excepturi itaque modi. Consequuntur.</p>
         </div>
 

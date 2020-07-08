@@ -36,70 +36,48 @@
                 </div>
             </nav>
 
-            <div class = "novedades">
-                <h2>Novedades</h2>
+            <h2>Novedades</h2>
+
+            <div class = "novedades">                
                 <section class="section-productos-novedades">
+                <% novedades.forEach(libro => { %>
                     <article class= "producto-novedades">
                         <div class= "caja-imagen">
-                            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
+                            <a href="/products/detail/<%= libro.id %>">
+                                <img src= "<%= libro.imagen %> "alt="" class="imagen-libro">
+                            </a>
                         </div>
                         <div class = "descripcion-producto">
-                            <h3 class="nombre-libro">Nombre del libro</h3>
-                            <p>Autor</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
+                            <a href="/products/detail/<%= libro.id %>">
+                                <h3 class="nombre-libro"><%= libro.titulo %> </h3>
+                            </a>
+                            <p>por <%= libro.autor %> </p>
+                            <p><%= libro.descripcion %> </p>
                         </div>
-                    </article>
-                    <article class= "producto-novedades">
-                        <div class= "caja-imagen">
-                            <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="" class="imagen-libro">
-                        </div>
-                        <div class = "descripcion-producto">
-                            <h3>Nombre del libro</h3>
-                            <p>Autor</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, impedit non! Assumenda eveniet quisquam magni at corporis, hic perferendis aliquid quos laboriosam, saepe, consectetur velit dolore! Praesentium autem tenetur animi!</p>
-                        </div>
-                    </article>
+                    </article>                 
+                <% }) %>
                 </section>
+
             </div>
 
-            <h2 class ="descuentos">Descuentos</h2>
+            <h2 class ="descuentos">Descuentos</h2>          
+             
+            
             <section class= "productos-descuento">
+                <% descuentos.forEach(libro => { %>
                 <article class = "producto-descuento">
-                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
+                    <img src="<%= libro.imagen %> " alt="">
                     <div class = "descripcion-producto2">
-                        <h3>Nombre del libro</h3>
-                        <p>por autor</p>
+                        <h3><%= libro.titulo %> </h3>
+                        <p>por <%= libro.autor %> </p>
                         <div class="precios">
-                            <h3 class= "precio-descuento">$1234</h3>
-                            <h3 class= "precio-final">$12345</h3>
+                            <h3 class= "precio-descuento">$<%= libro.precio %> </h3>
+                            <h3 class= "precio-final">$<%= libro.precio %> </h3>
                         </div>
                         <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
                     </div>
                 </article>
-                <article class = "producto-descuento">
-                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                    <div class = "descripcion-producto2">
-                        <h3>Nombre del libro</h3>
-                        <p>Autor</p>
-                        <div class="precios">
-                            <h3 class= "precio-descuento">$1234</h3>
-                            <h3 class= "precio-final">$12345</h3>
-                        </div>
-                        <button class= "btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                </article>
-                <article class = "producto-descuento">
-                    <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                    <div class = "descripcion-producto2">
-                        <h3>Nombre del libro</h3>
-                        <p>Autor</p>
-                        <div class="precios">
-                            <h3 class= "precio-descuento">$1234</h3>
-                            <h3 class= "precio-final">$12345</h3>
-                        </div>
-                        <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-                    </div>
-                </article>
+                <% }) %>                
             </section>
 
             <nav aria-label="...">
@@ -120,32 +98,21 @@
                 </ul>
             </nav>
 
-        <section class = "productos-categoria">
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-            <article class = "product">
-                <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="">
-                <h2>Titulo</h2>
-                <h3>por Autor</h3>
-                <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-            </article>
-        </section>
+        <section class = "productos-categoria row">
+
+            <% literatura.forEach(libro => { %>
+                <article class = "book col-2">
+                    <a href="/products/detail/<%= libro.id %>">
+                        <img src="<%= libro.imagen %> " alt="">
+                        <p><%= libro.titulo %> </p>
+                    </a>                    
+                    <p>por <%= libro.autor %> </p>
+                    <a href="/users/cart" class = "cart-link">
+                        <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
+                    </a>                    
+                </article>             
+            <% }) %>
+            
 
             <!--acá va un coso para pasar de página que no se cómo mierda se hace-->
             <nav aria-label="...">

@@ -153,6 +153,13 @@ const model = function (jsonFile) {
 
       return element;
     },
+
+    filterBySomething: function(callback){
+      let content = this.readJson();
+      let element = content.filter(callback);
+
+      return element;
+    }
   };
 
   return functions;

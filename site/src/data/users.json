@@ -86,5 +86,12 @@
   "email": "messi10@gmail.com",
   "password": "$2a$10$iEsZ9Ln7I7UIV7B/yhvCwedd.SIuAyeX8hOxSh56XK1bp.bHrZWAu",
   "image": "image-1594217699146.jpg"
+ },
+ {
+  "id": "",
+  "user": "Norberto",
+  "email": "norberto@gmail.com",
+  "password": "$2a$10$cjndkPqZA5o6hnuAFY2VW.8emr6e41lT432m.IrvPtQMTHplVMM8S",
+  "image": "image-1594220036271.jpg"
  }
 ]

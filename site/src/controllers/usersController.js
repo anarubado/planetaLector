@@ -17,13 +17,8 @@ const usersController = {
   processRegister: function (req, res) { 
      
     let errors = validationResult(req);
-<<<<<<< HEAD
-    
-    if(errors.isEmpty()){
-=======
 
     if (errors.isEmpty()) {
->>>>>>> 805e3998ea90a765f43ccadd9feb0e99f050776a
       // Encripto clave de usuarios
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);

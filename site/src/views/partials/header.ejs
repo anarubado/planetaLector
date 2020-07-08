@@ -47,14 +47,22 @@
                         <a class = "nav-link" href="/users/register">REGISTRARME</a>
                     </li>
     
-                    <li class = "nav-item dropdown md-menu">            
+                    <li class = "nav-item dropdown md-menu">        
                         <a class = "nav-link dropdown-toggle" data-toggle="dropdown" data-target = "dropdown-users" href="#">
                             <i class="fas fa-user"></i>
                         </a>
+                        <% %> 
+                            <div class = "dropdown-menu" aria-labelledby="dropdown-users">
+                                <a class = "dropdown-item" href="/users/login">Iniciar sesión</a>
+                                <a class = "dropdown-item" href="/users/register">Registrarse</a>
+                            </div>
+                        <% %>
                         <div class = "dropdown-menu" aria-labelledby="dropdown-users">
-                            <a class = "dropdown-item" href="/users/login">Iniciar sesión</a>
-                            <a class = "dropdown-item" href="/users/register">Registrarse</a>
+                            <a class = "dropdown-item" href="">Cerrar sesión</a>
                         </div>
+                        <% %> 
+
+
                     </li>
     
                     <li class = "nav-item sm-menu">

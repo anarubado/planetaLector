@@ -377,6 +377,12 @@ ul{
     flex-direction: row;
 }
 
+.producto-novedades.caja-imagen a.imagen-libro{
+    width: 190px;
+    height: 285px;
+
+}
+
 .caja-imagen {
     width: 100%;
 }
@@ -469,6 +475,16 @@ ul{
     margin-bottom: 0;
 }
 
+.book{
+    position: relative;
+}
+
+.cart-link{
+    position: absolute;
+    top: 190px;
+    right: 20px;
+}
+
 .boton-mini {
     border-radius: 50%;
     width: 40px;
@@ -477,6 +493,8 @@ ul{
     justify-content: center;
     align-items: center;
 }
+
+
 
 @media (max-width: 426px) {
     .menu-categorias {
