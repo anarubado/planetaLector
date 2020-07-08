@@ -12,8 +12,8 @@ const model = function (jsonFile) {
     },
 
     writeJson: function (products) {
-      products = JSON.stringify(products, null, " ");
-      return fs.writeFileSync(this.path, products);
+      products = JSON.stringify(products, null, ' ');
+      return fs.writeFileSync(this.path, products );
     },
 
     saveOne: function (newData) {

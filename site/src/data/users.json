@@ -72,5 +72,19 @@
   "email": "ronaldo@gmail.com",
   "password": "$2a$10$FdeM4.e2oZd/ACiGmwkcGOMXjUr.aoKJ/G.Qdee4wXipVkA9QINpm",
   "image": "image-1594218588697.jpg"
+ },
+ {
+  "id": "",
+  "user": "Mario",
+  "email": "mario10@gmail.com",
+  "password": "$2a$10$1ZYHJUXFZzYPzpx71It8t.ezM9yOgwMq4ErK7.F65Ig1g3SRSS72O",
+  "image": "image-1594212396343.jpg"
+ },
+ {
+  "id": "",
+  "user": "messi10",
+  "email": "messi10@gmail.com",
+  "password": "$2a$10$iEsZ9Ln7I7UIV7B/yhvCwedd.SIuAyeX8hOxSh56XK1bp.bHrZWAu",
+  "image": "image-1594217699146.jpg"
  }
 ]

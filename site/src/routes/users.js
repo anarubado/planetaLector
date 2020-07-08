@@ -45,6 +45,7 @@ router.post("/register", upload.single('image'), validator.register, usersContro
 
 router.get("/login", usersController.login);
 router.post ('/login', validator.login, usersController.processLogin )
+router.post('/logout', usersController.logout);
 
 router.get("/cart", usersController.cart);
 

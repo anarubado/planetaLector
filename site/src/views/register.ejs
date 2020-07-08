@@ -12,7 +12,7 @@
 
         <h1 class="title">REGISTRATE</h1>
         
-        <input type="name" class="form-control" name='user' placeholder="Nombre de usuario" value="">
+        <input type="name" class="form-control" name='user' placeholder="Nombre de usuario" value="">          
         
         <small class='error'>
           <% if (typeof errors != 'undefined') { %>
@@ -33,10 +33,9 @@
         </small>
 
         <label for="">Avatar</label>
-        <input type="file" name = "image" value="">
+        <input type="file" name="image" value="">
 
         <input type="password" class="form-control" name='password' placeholder="Contraseña" value="">
-
         <small class="error">
           <% if (typeof errors != 'undefined') { %>
             <% if (errors.password) { %>
@@ -44,8 +43,8 @@
             <% } %>
          <% }%>
         </small>
-
-        <input type="password" class = "form-control" name = "retype" placeholder="Repita su contraseña" value="">       
+        <input type="password" class = "form-control" name = "retype" placeholder="Repita su contraseña" value="">
+        
         
         <button type="submit" class="btn btn-info registrar">REGISTRARSE</button>
         
