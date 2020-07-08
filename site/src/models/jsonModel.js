@@ -12,13 +12,13 @@ const model = function (jsonFile) {
     },
 
     writeJson: function (products) {
-      products = JSON.stringify(products);
-      return fs.writeFileSync(this.path, products, "utf-8");
+      products = JSON.stringify(products, null, ' ');
+      return fs.writeFileSync(this.path, products );
     },
 
     saveOne: function (newData) {
       // Leer todo el json
-      let allData = this.leerJson();
+      let allData = this.readJson();
       // Agregar la data
       allData = [...allData, newData];
       // Guarar la data

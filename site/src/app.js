@@ -16,7 +16,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '../public'))); // Configura los recursos estaticos dentro de la carpeta public
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use (session ({secret: 'Un mensaje secreto'}));
+app.use (session ({secret: 'Un mensaje secreto', resave : false , 
+saveUninitialized : true}));
 
 
 app.listen(3000, function(){

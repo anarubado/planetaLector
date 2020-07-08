@@ -6,6 +6,7 @@ const path = require("path");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 
+
 const usersController = {
   register: function (req, res) {
     //let slidesProducts = productsModel.processSlideProducts(15, 3);
@@ -13,11 +14,11 @@ const usersController = {
     return res.render("register", { harryPotter });
   },
 
-  processRegister: function (req, res){
-
+  processRegister: function (req, res) { 
+     
     let errors = validationResult(req);
-    
-    if(errors.isEmpty()) {
+
+    if (errors.isEmpty()) {
       // Encripto clave de usuarios
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
@@ -25,13 +26,12 @@ const usersController = {
       let user = {
         id: "",
         ...req.body,
-        image: req.file.filename
+        image: req.file.filename,
       };
 
       usersModel.saveOne(user);
 
       return res.redirect("/");
-
     } else {
       // En caso de haber error lo muestre por pantalla
       let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
@@ -49,53 +49,39 @@ const usersController = {
     return res.render("login", { jkRowling });
   },
 
-  processLogin: function (req,res) {
+  processLogin: function (req, res) {
+    const errors = validationResult(req);
 
-    let errors = validationResult(req);    
-   
     if (errors.isEmpty()) {
-      let usersJSON = fs.readFileSync(path.join(__dirname, "..", "data", "users.json"), "utf-8");
-      let users;
+      //LOGUEO AL USUARIO
+      let user = usersModel.findBySomething(user => user.email == req.body.email);
 
-      if (usersJSON == '') {
-          users = [];
-      } else {
-          users = JSON.parse(usersJSON);
+      delete user.password;
+
+      req.session.user = user; // YA ESTA EN SESSION
+
+      if (req.body.recordame) {
+        // Creo la cookie
+        res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 });
       }
 
-      for (let i = 0; i<users.length; i++) {
-          if (users[i].user == req.body.user) {
-              if (bcryptjs.compareSync(req.body.password, users [i].password)) {
-                //usuarioALoguearse is not defined 
-                  var usuarioALoguearse = users [i]
-                  break;
-              }
-          }
-      }
-      if (usuarioALoguearse == undefined) {
-          return res.render ('login', 
-              { errors:'credenciales invalids'})
-      }
+      return res.redirect('/')
+    } else {
+      let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+      return res.render("login", { errors: errors.mapped(), old: req.body, jkRowling });
+    }
+  },
 
-      req.session.usuarioLogueado = usuarioALoguearse;
+  logout: function(req,res) {
+// Desloguear al usuario
 
-      //if (req.body.recordame != undefined) {
-          //res.cookie ('recordame', usuarioALoguearse.user, {maxAge: 60000})
-      //}
+req.session.destroy();
 
-    let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-    let suspense = productsModel.filterNProducts("suspense", 10);
-    let virginiaWoolf = productsModel.filterNProducts("Virginia Woolf", 10);
-    let quarantine = productsModel.filterNProducts("quarantine", 10);
-    
-    return res.render("index", {isaacAsimov, suspense, virginiaWoolf, quarantine});
+if(req.cookies.email){
+  res.clearCookie('email');
+}
 
-  } else {
-    
-    let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-    return res.render("login", { errors: errors.mapped(), jkRowling });
-  }
-
+return res.redirect('/');
   },
 
   cart: function (req, res) {
