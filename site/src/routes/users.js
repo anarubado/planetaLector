@@ -48,5 +48,6 @@ router.post ('/login', validator.login, usersController.processLogin )
 router.post('/logout', usersController.logout);
 
 router.get("/cart", usersController.cart);
+router.get('/prueba', usersController.prueba)
 
 module.exports = router;

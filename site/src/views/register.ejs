@@ -12,7 +12,7 @@
 
         <h1 class="title">REGISTRATE</h1>
         
-        <input type="name" class="form-control" name='user' placeholder="Nombre de usuario" value="">          
+        <input type="name" class="form-control" name='user' placeholder="Nombre de usuario" value="<%= typeof old == "undefined" ? null : old.user %>">          
         
         <small class='error'>
           <% if (typeof errors != 'undefined') { %>
@@ -22,7 +22,7 @@
          <% }%>
         </small>
 
-        <input type="email" class="form-control" name='email' placeholder="Email" value="">
+        <input type="email" class="form-control" name='email' placeholder="Email" value="<%= typeof old == "undefined" ? null : old.email %>">
 
         <small class="error">
           <% if (typeof errors != 'undefined') { %>
@@ -32,8 +32,6 @@
          <% }%>
         </small>
 
-        <label for="">Avatar</label>
-        <input type="file" name="image" value="">
 
         <input type="password" class="form-control" name='password' placeholder="Contraseña" value="">
         <small class="error">
@@ -44,6 +42,13 @@
          <% }%>
         </small>
         <input type="password" class = "form-control" name = "retype" placeholder="Repita su contraseña" value="">
+        <small class="error">
+          <% if (typeof errors != 'undefined') { %>
+            <% if (errors.password) { %>
+              <%= errors.password.msg %> 
+            <% } %>
+         <% }%>
+        </small>
         
         
         <button type="submit" class="btn btn-info registrar">REGISTRARSE</button>
