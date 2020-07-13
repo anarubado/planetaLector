@@ -5,6 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+let db = require('../database/models')
+let sequelize = db.sequelize
 
 
 const usersController = {
@@ -91,6 +93,18 @@ const usersController = {
     let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
     return res.render("cart", { isaacAsimov, cienciaFiccion });
   },
+
+  prueba: function(req, res){
+   /* sequelize.query('SELECT * FROM USERS')
+    .then(function(resultado){
+      let users = resultado[0];
+      return res.render('prueba', {users: users})
+    })*/
+    db.Users.findAll()
+    .then(function(resultados){
+      return res.render('prueba', {resultados:resultados})
+    })
+  }
 };
 
 module.exports = usersController;
