@@ -187,8 +187,13 @@ ul{
 
 .social-media a:hover, .footer-info li a:hover{
     text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.social-media a:active, .footer-info li a:active{
     color: white;
 }
+
 
 /* slides */
 
@@ -329,8 +334,6 @@ ul{
     margin-bottom: 15px;
 }
 
-
-
 .navegacion-1 ul {
     margin-top: 15px;
     display: flex;
@@ -354,60 +357,17 @@ ul{
     padding: 0 15px;
 }
 
-.section-productos-novedades {
-    display: flex;
-    flex-direction: row;
-}
-
-.novedades {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-.novedades h2 {
-    margin-bottom: 5%;
-    font-size: 35px;
-    margin-top: 15px;
-    font-weight: bold;
-}
+/* NOVEDADES */
 
 .producto-novedades {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-.producto-novedades.caja-imagen a.imagen-libro{
+.imagen-libro{
     width: 190px;
-    height: 285px;
-
-}
-
-.caja-imagen {
-    width: 100%;
-}
-
-.descuentos {
-    margin-top: 5% ;
-    margin-bottom: 5%;
-    font-size: 35;
-    font-weight: bold;
-}
-
-.descuentos {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.descripcion-producto {
-    margin-left: 15px;
-}
-
-.nombre-libro {
-    font-size: 25px;
-    font-weight: bold;
 }
 
 .descripcion-producto p {
@@ -425,6 +385,28 @@ ul{
 
 .descripcion-producto2 p {
     font-size: 15px;
+}
+
+.nombre-libro {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* DESCUENTOS */
+
+.descuentos {
+    margin-top: 5% ;
+    margin-bottom: 5%;
+    font-size: 35;
+    font-weight: bold;
+}
+
+.descuentos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
 } 
 
 .descuentos {
@@ -481,8 +463,8 @@ ul{
 
 .cart-link{
     position: absolute;
-    top: 190px;
-    right: 20px;
+    /*top: px;
+    right: px;*/
 }
 
 .boton-mini {
@@ -531,10 +513,6 @@ ul{
     
     .descripcion-producto p {
         font-size: 9px;
-    }
-
-    .cuerpo {
-        margin-left: 10px;
     }
     
 } 

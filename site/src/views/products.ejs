@@ -38,37 +38,38 @@
 
             <h2>Novedades</h2>
 
-            <div class = "novedades">                
-                <section class="section-productos-novedades">
-                <% novedades.forEach(libro => { %>
-                    <article class= "producto-novedades">
-                        <div class= "caja-imagen">
-                            <a href="/products/detail/<%= libro.id %>">
-                                <img src= "<%= libro.imagen %> "alt="" class="imagen-libro">
-                            </a>
-                        </div>
-                        <div class = "descripcion-producto">
-                            <a href="/products/detail/<%= libro.id %>">
-                                <h3 class="nombre-libro"><%= libro.titulo %> </h3>
-                            </a>
-                            <p>por <%= libro.autor %> </p>
-                            <p><%= libro.descripcion %> </p>
-                        </div>
-                    </article>                 
-                <% }) %>
-                </section>
+            <section class="section-productos-novedades row">
+            <% novedades.forEach(libro => { %>
+                <article class= "producto-novedades col-12 col-sm-12 col-md-6 row">
+                    <span class= "caja-imagen col-12 col-sm-12 col-md-6">
+                        <a href="/products/detail/<%= libro.id %>">
+                            <img src= "<%= libro.imagen %> "alt="" class="imagen-libro">
+                        </a>
+                    </span>
+                    <span class = "descripcion-producto col-12 col-sm-12 col-md-6">
+                        <a href="/products/detail/<%= libro.id %>">
+                            <h3 class="nombre-libro"><%= libro.titulo %> </h3>
+                        </a>
+                        <p>por <%= libro.autor %> </p>
+                        <p><%= libro.descripcion %> </p>
+                    </span>
+                </article>                 
+            <% }) %>
+            </section>
 
-            </div>
-
-            <h2 class ="descuentos">Descuentos</h2>          
+            <h2 class ="descuentos">Descuentos</h2>    
              
             
-            <section class= "productos-descuento">
+            <section class= "productos-descuento row">
                 <% descuentos.forEach(libro => { %>
-                <article class = "producto-descuento">
-                    <img src="<%= libro.imagen %> " alt="">
+                <article class = "producto-descuento col-12 col-sm-12 col-md-4">
+                    <a href="/products/detail/<%= libro.id  %>  ">
+                        <img src="<%= libro.imagen %>" alt="">
+                    </a>                    
                     <div class = "descripcion-producto2">
-                        <h3><%= libro.titulo %> </h3>
+                        <a href="/products/detail/<%= libro.id  %>">
+                            <h3><%= libro.titulo %> </h3>
+                        </a>
                         <p>por <%= libro.autor %> </p>
                         <div class="precios">
                             <h3 class= "precio-descuento">$<%= libro.precio %> </h3>
@@ -101,7 +102,7 @@
         <section class = "productos-categoria row">
 
             <% literatura.forEach(libro => { %>
-                <article class = "book col-2">
+                <article class = "book col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
                     <a href="/products/detail/<%= libro.id %>">
                         <img src="<%= libro.imagen %> " alt="">
                         <p><%= libro.titulo %> </p>
