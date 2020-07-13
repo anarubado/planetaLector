@@ -53,7 +53,7 @@ const usersController = {
 
   processLogin: function (req, res) {
     const errors = validationResult(req);
-
+    
     if (errors.isEmpty()) {
       //LOGUEO AL USUARIO
       let user = usersModel.findBySomething(user => user.email == req.body.email);
@@ -70,7 +70,7 @@ const usersController = {
       return res.redirect('/')
     } else {
       let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-      return res.render("login", { errors: errors.mapped(), old: req.body, jkRowling });
+      return res.render("login", { errors: errors.mapped(), old:req.body, jkRowling });
     }
   },
 

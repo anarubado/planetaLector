@@ -11,17 +11,17 @@
       <form class="login" action='/users/login' method="POST">
 
         <h1 class="title">INICIÁ SESIÓN</h1>
-        
-        <input type="email" class="form-control" name='email' placeholder="Email" value = "<% typeof old == "undefined" ? null : old.email %> ">
+
+        <input type="email" class="form-control" name='email' placeholder="Email" value = "<%= typeof old == "undefined" ? null : old.email %> ">
         
         <p class='error'>
-          <% typeof errors == 'undefined' ? null :  errors.email ? errors.email.msg : null %> 
+          <%= typeof errors == 'undefined' ? null :  errors.email ? errors.email.msg : null %> 
         </p>
 
         <input type="password" class="form-control" name='password' placeholder="Contraseña">
 
         <p class='error'>
-          <% typeof errors == 'undefined' ? null :  errors.password ? errors.password.msg : null %> 
+          <%= typeof errors == 'undefined' ? null :  errors.password ? errors.password.msg : null %> 
         </p>        
 
         <div class = "recordarme">
