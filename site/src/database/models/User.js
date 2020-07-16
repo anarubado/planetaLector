@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Users';
+    let alias = 'User';
     let cols = {
 
         name: {
@@ -13,6 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         email: {
             type: dataTypes.STRING
         },
+
         password: {
             type: dataTypes.STRING
         }
@@ -21,6 +22,17 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'users',
         timestamps: false
     }
+
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+
+        User.belongsTo(models.CartItem, {
+            as: "cartItems",
+            foreignKey: "user_id"
+
+        })
+    }
+
     return User;
 }

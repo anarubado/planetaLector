@@ -1,23 +1,37 @@
 [
  {
   "id": 1,
-  "user": "Bauti",
-  "email": "bauti@gmail.com",
-  "password": "$2a$10$ZA4v6Vzp5dwBP2gW2jQ.3.mC.Wc7rTFixVa4aNS5vxPdoP3XrZPSK",
+  "user": "Ellie",
+  "email": "ellie@gmail.com",
+  "password": "$2a$10$n.dcYMg/clU/xJ635Ox3Be/TrgJLkRWIsYcfjG2tWUCEdrs.tYD02",
   "image": "default-image.jpg"
  },
  {
   "id": 2,
-  "user": "Ani",
-  "email": "ani@gmail.com",
-  "password": "$2a$10$41XOXN60RaccobxTbOVgWuspYG0mndSez69QDKYRLSJZmZaT14DW6",
-  "image": "default-image.jpg"
+  "user": "Joel",
+  "email": "joel@gmail.com",
+  "password": "$2a$10$nzb6G5X/iNLE.buazwYhCOOMfY2raLpfKwJNt4uFvfP5K/k.qhIT2",
+  "image": "image-1594940849234.jpg"
  },
  {
   "id": 3,
-  "user": "Ellie",
-  "email": "ellie@gmail.com",
-  "password": "$2a$10$fhHSrhpw8nxvs6BRDObEYOmDc/DAtlXaODQlw6WDDkSkWcOOjov2C",
+  "user": "Abby",
+  "email": "abby@gmail.com",
+  "password": "$2a$10$5XGn7ing1GUeYc7dCXpbZOlNJIOyGS4hkWwurFR/qz7LuS/BD/jWy",
+  "image": "image-1594940901449.jpg"
+ },
+ {
+  "id": 4,
+  "user": "Tommy",
+  "email": "tommy@gmail.com",
+  "password": "$2a$10$yMUJLYNRhrH5AV4VpkSv.eS6Je.stE//Q.4aoKVk4XpW0ogxMGdni",
+  "image": "default-image.jpg"
+ },
+ {
+  "id": 5,
+  "user": "Dina",
+  "email": "dina@gmail.com",
+  "password": "$2a$10$PnfwiPvzLrk9zfKyRkOE6Ol367ZqGd7aYGC7W9Pg2jU1cwjEAZMti",
   "image": "default-image.jpg"
  }
 ]

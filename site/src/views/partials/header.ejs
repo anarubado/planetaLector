@@ -43,12 +43,18 @@
                         <a class = "nav-link" href="#">NOVEDADES</a>
                     </li>
 
-                    <!-- Si estoy sin loggear-->
+                    <!-- Si estoy loggeada-->
 
                     <% if(locals.user){ %> 
 
                         <li class = "nav-item sm-menu">
                             <a class = "nav-link" href="/users/cart">MI CARRITO</a>
+                        </li>
+
+                        <li class = "nav-item sm-menu">
+                            <form action="/users/logout" method="POST">
+                                <button type="submit">CERRAR SESIÓN</button>
+                            </form>
                         </li>
         
                         <li class = "nav-item md-menu">
@@ -57,11 +63,12 @@
 
                         <li class = "nav-item dropdown md-menu">        
                             <a class = "nav-link dropdown-toggle" data-toggle="dropdown" data-target = "dropdown-users" href="#">
+                                <span><%= locals.user.user %> </span>
                                 <i class="fas fa-user"></i>
                             </a>
                             <div class = "dropdown-menu" aria-labelledby="dropdown-users">
                                 <form action="/users/logout" method="POST">
-                                    <a class = "dropdown-item" href="/">Cerrar sesión</a>
+                                    <button class = "dropdown-item" type="submit"> Cerrar sesión</button>
                                 </form>
                                 
                             </div>
@@ -73,7 +80,7 @@
 
                     <!---->
 
-                    <!-- Si estoy loggeada-->
+                    <!-- Si no estoy loggeada-->
     
                         <li class = "nav-item sm-menu">
                             <a class = "nav-link" href="/users/login">INICIAR SESIÓN</a>

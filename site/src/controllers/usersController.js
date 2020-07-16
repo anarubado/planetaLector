@@ -1,13 +1,13 @@
 const jsonModel = require("../models/jsonModel");
 const usersModel = jsonModel("users.json");
 const productsModel = jsonModel("products.json");
-const fs = require("fs");
-const path = require("path");
-const bcryptjs = require("bcryptjs");
-const { validationResult } = require("express-validator");
-let db = require('../database/models')
-let sequelize = db.sequelize
 
+const bcryptjs = require("bcryptjs");
+
+const { validationResult } = require("express-validator");
+
+let db = require('../database/models');
+let sequelize = db.sequelize;
 
 const usersController = {
 
@@ -78,7 +78,7 @@ const usersController = {
 
   logout: function(req,res) {
 
-    // Desloguear al usuario
+    // Desloguea al usuario
 
     req.session.destroy();
 
