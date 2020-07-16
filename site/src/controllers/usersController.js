@@ -10,6 +10,7 @@ let sequelize = db.sequelize
 
 
 const usersController = {
+
   register: function (req, res) {
     //let slidesProducts = productsModel.processSlideProducts(15, 3);
     let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
@@ -20,28 +21,28 @@ const usersController = {
      
     let errors = validationResult(req);
 
+    // Si no hay errores, registro al usuario
+
     if (errors.isEmpty()) {
-      // Encripto clave de usuarios
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
 
       let user = {
-        id: "",
+        id: usersModel.generateId(),
         ...req.body,
-        image: req.file.filename,
+        image: req.file ? req.file.filename : 'default-image.jpg',
       };
 
       usersModel.saveOne(user);
 
-      return res.redirect("/");
+      return res.redirect("/users/login");
+
+      // En caso de haber errores se muestran en pantalla
+
     } else {
-      // En caso de haber error lo muestre por pantalla
       let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
-      return res.render("register", {
-        errors: errors.mapped(),
-        harryPotter,
-        old: req.body,
-      });
+      return res.render("register", {errors: errors.mapped(), harryPotter, old: req.body});
+
     }
   },
 
@@ -52,25 +53,26 @@ const usersController = {
   },
 
   processLogin: function (req, res) {
+
     const errors = validationResult(req);
     
     if (errors.isEmpty()) {
       //LOGUEO AL USUARIO
       let user = usersModel.findBySomething(user => user.email == req.body.email);
 
-      delete user.password;
+      delete user.password; // o guarda la contraseña en session
 
       req.session.user = user; // YA ESTA EN SESSION
 
       if (req.body.recordame) {
         // Creo la cookie
-        res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 });
+        res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 }); // Manda al navegador la cookie 
       }
 
       return res.redirect('/')
     } else {
       let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-      return res.render("login", { errors: errors.mapped(), old:req.body, jkRowling });
+      return res.render("login", { errors: errors.mapped(), old: req.body, jkRowling });
     }
   },
 

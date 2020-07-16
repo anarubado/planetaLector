@@ -159,7 +159,16 @@ const model = function (jsonFile) {
       let element = content.filter(callback);
 
       return element;
+    },
+
+    generateId: function(){
+      let elements = this.readJson();
+      if (elements.length == 0){
+        return 1;
+      } 
+      return ++elements.pop().id;
     }
+  
   };
 
   return functions;

@@ -8,7 +8,6 @@ const usersModel = jsonModel("users.json");
 const path = require('path');
 const multer = require('multer');
 const validator = require("../middlewares/validator");
-const e = require("express");
 
 // Multer
 
