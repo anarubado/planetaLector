@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     const CoverType = sequelize.define(alias, cols, config)
     CoverType.associate = function(models){
-        CoverType.hasMany(models.Product,{
+        CoverType.hasMany(models.Products,{
             as: "products",
             foreignKey: "coverType_id"
         })

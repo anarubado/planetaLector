@@ -12,6 +12,9 @@ module.exports = (sequelize, dataTypes) => {
     },
     image: {
         type: dataTypes.STRING
+    },
+    biography: {
+        type: dataTypes.STRING
     }
     };
     let config = {
@@ -19,16 +22,12 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const Author = sequelize.define(alias, cols, config)
-    Author.associate = function(models){
+   /* Author.associate = function(models){
         Author.hasMany(models.Product,{
             as: "products",
             foreignKey: "author_id"
         })
-        Author.belongsTo(models.BioAuthor,{
-            as: "bioAuthors",
-            foreignKey: "bioAuthor_id"
-        })
-    }
+    }*/         
     
     return Author
 }

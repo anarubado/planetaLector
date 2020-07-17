@@ -44,23 +44,23 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Product = sequelize.define(alias, cols, config)
     Product.associate = function(models){
-        Product.belongsTo(models.Category,{
+        Product.belongsTo(models.Categories,{
             as: "categories",
             foreignKey: "category_id"
         })
-        Product.belongsTo(models.Author,{
+        Product.belongsTo(models.Authors,{
             as: "authors",
             foreignKey: "author_id"
         })
-        Product.belongsTo(models.Editorial,{
+        Product.belongsTo(models.Editorials,{
             as: "editorials",
             foreignKey: "editorial_id"
         })
-        Product.belongsTo(models.CoverType,{
+        Product.belongsTo(models.CoverTypes,{
             as: "coverTypes",
             foreignKey: "coverType_id"
         })
-        Product.belongsTo(models.FormatType,{
+        Product.belongsTo(models.FormatTypes,{
             as: "formatTypes",
             foreignKey: "formatType_id"
         })

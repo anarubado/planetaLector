@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Editorial = sequelize.define(alias, cols, config)
     Editorial.associate = function(models){
-        Editorial.hasMany(models.Product,{
+        Editorial.hasMany(models.Products,{
             as: "products",
             foreignKey: "editorial_id"
         })

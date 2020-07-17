@@ -24,7 +24,12 @@ const usersController = {
       // Encripto clave de usuarios
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
-
+      
+      /*db.users.create({
+        username: req.body.username,
+        email:req.body.email,
+        password: req.body.password
+      })*/
       let user = {
         id: "",
         ...req.body,
@@ -32,6 +37,7 @@ const usersController = {
       };
 
       usersModel.saveOne(user);
+
 
       return res.redirect("/");
     } else {
