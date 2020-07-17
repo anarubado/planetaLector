@@ -138,9 +138,7 @@ const usersController = {
         
       })
 
-      // Identificar el producto en la db
-
-      
+      // Identificar el producto en la db      
 
       // Hacer un INSERT INTO en la tabla cartItems
 
