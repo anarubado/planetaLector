@@ -33,5 +33,12 @@
   "email": "dina@gmail.com",
   "password": "$2a$10$PnfwiPvzLrk9zfKyRkOE6Ol367ZqGd7aYGC7W9Pg2jU1cwjEAZMti",
   "image": "default-image.jpg"
+ },
+ {
+  "id": 6,
+  "user": "Jesse",
+  "email": "jesse@gmail.com",
+  "password": "$2a$10$7exNcCogDmhlQPC9v.KXN.UbLiNXQXIF97TS38gcL.LlJjANmCo9q",
+  "image": "default-image.jpg"
  }
 ]
