@@ -102,10 +102,58 @@ const usersController = {
       let users = resultado[0];
       return res.render('prueba', {users: users})
     })*/
-    db.Users.findAll()
+    db.User.findAll()
     .then(function(resultados){
       return res.render('prueba', {resultados:resultados})
     })
+  },
+
+  addToCart: function(req, res){
+
+    // Deberia fijarme que el usuario este en session
+
+    if (req.session.user){
+      
+      // Cuando este en session, identificarlo con su id en la base de datos
+      
+
+      db.User.findOne({
+        where: {email: req.session.user.email} // En el model no esta el id
+      })
+      .then(function(user){
+
+        db.Product.findOne({
+          where: {id: req.params.id} // En el model no esta el id
+  
+        })
+        .then(function(product){
+          let userFound = user;  
+          let productFound = product;
+
+          sequelize.query("INSERT INTO cartItems VALUES "(1, userFound, productFound));
+          
+          
+        })
+
+        
+      })
+
+      // Identificar el producto en la db
+
+      
+
+      // Hacer un INSERT INTO en la tabla cartItems
+
+      //sequelize.query(INSERT INTO cartItems VALUES (1, userFound, productFound))
+      
+      return res.send("llegue")
+
+    } else{
+
+      // Si no hay nadie en session, lo redirijimos a login
+      res.redirect('/users/login');
+
+    }
   }
 };
 

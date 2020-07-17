@@ -75,7 +75,9 @@
                             <h3 class= "precio-descuento">$<%= libro.precio %> </h3>
                             <h3 class= "precio-final">$<%= libro.precio %> </h3>
                         </div>
-                        <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
+                        <form action="/users/cart/<%= libro.id %>" method="POST">
+                            <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
+                        </form>
                     </div>
                 </article>
                 <% }) %>                
