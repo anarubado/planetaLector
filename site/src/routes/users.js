@@ -8,6 +8,7 @@ const usersModel = jsonModel("users.json");
 const path = require('path');
 const multer = require('multer');
 const validator = require("../middlewares/validator");
+const auth = require('../middlewares/auth');
 
 // Multer
 
@@ -39,14 +40,14 @@ var upload = multer({ storage: storage,
 
 // Rutas
 
-router.get("/register", usersController.register);
+router.get("/register", auth.registerAndLogin, usersController.register);
 router.post("/register", upload.single('image'), validator.register, usersController.processRegister);
 
-router.get("/login", usersController.login);
+router.get("/login", auth.registerAndLogin, usersController.login);
 router.post ('/login', validator.login, usersController.processLogin )
 router.post('/logout', usersController.logout);
 
-router.get("/cart", usersController.cart);
+router.get("/cart", auth.cart, usersController.cart);
 router.post('/cart/:id', usersController.addToCart);
 router.get('/prueba', usersController.prueba)
 

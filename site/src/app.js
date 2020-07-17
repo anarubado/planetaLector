@@ -31,6 +31,7 @@ app.listen(3000, function(){
 
 app.use(log);
 
+
 // Rutas
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
