@@ -26,7 +26,12 @@ const usersController = {
     if (errors.isEmpty()) {
       delete req.body.retype;
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
-
+      
+      /*db.users.create({
+        username: req.body.username,
+        email:req.body.email,
+        password: req.body.password
+      })*/
       let user = {
         id: usersModel.generateId(),
         ...req.body,

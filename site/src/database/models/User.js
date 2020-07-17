@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
 
-        name: {
+        username: {
             type: dataTypes.STRING
         },
 
