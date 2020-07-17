@@ -2,11 +2,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'User';
     let cols = {
 
-        name: {
-            type: dataTypes.STRING
-        },
-
-        lastName: {
+        username: {
             type: dataTypes.STRING
         },
 
