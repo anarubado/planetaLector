@@ -1,9 +1,9 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Editorials';
+    let alias = 'Editorial';
     let cols = {
-    name: {
-        type: dataTypes.STRING
-    }
+        name: {
+            type: dataTypes.STRING
+        }
     };
     let config = {
         tableName: 'editorials',
@@ -11,10 +11,10 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Editorial = sequelize.define(alias, cols, config)
     Editorial.associate = function(models){
-        Editorial.hasMany(models.Products,{
+        Editorial.hasMany(models.Product,{
             as: "products",
             foreignKey: "editorial_id"
         })
     }
-    return Editorial
+    return Editorial;
 }

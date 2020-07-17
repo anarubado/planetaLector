@@ -32,8 +32,19 @@
          <% }%>
         </small>
 
+        <label for="">Avatar</label>
+        <input type="file" name="image" value="">
+
+        <small class="error">
+          <% if (typeof errors != 'undefined') { %>
+            <% if (errors.image) { %>
+              <%= errors.image.msg %> 
+            <% } %>
+         <% }%>
+        </small>
 
         <input type="password" class="form-control" name='password' placeholder="Contraseña" value="">
+
         <small class="error">
           <% if (typeof errors != 'undefined') { %>
             <% if (errors.password) { %>
@@ -41,11 +52,13 @@
             <% } %>
          <% }%>
         </small>
+
         <input type="password" class = "form-control" name = "retype" placeholder="Repita su contraseña" value="">
+
         <small class="error">
           <% if (typeof errors != 'undefined') { %>
-            <% if (errors.password) { %>
-              <%= errors.password.msg %> 
+            <% if (errors.retype) { %>
+              <%= errors.retype.msg %> 
             <% } %>
          <% }%>
         </small>
