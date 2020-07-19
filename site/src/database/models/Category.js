@@ -2,12 +2,23 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Category';
     let cols = {
         title: {
+            
             type: dataTypes.STRING
         },
 
-        subCategoryId: {
-            type: dataTypes.STRING
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
+
+        
     };
 
     let config = {

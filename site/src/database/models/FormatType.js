@@ -3,8 +3,21 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'FormatType';
 
     let cols = {
+        
         type: {
             type: dataTypes.STRING
+        },
+
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
     };
 

@@ -3,6 +3,18 @@ module.exports = (sequelize, dataTypes) => {
     let cols = {
         type: {
             type: dataTypes.STRING
+        }, 
+
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
     };
     let config = {

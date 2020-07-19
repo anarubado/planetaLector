@@ -1,6 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'CartItem';
     let cols = {
+
         userId: {
             type: dataTypes.INTEGER
         },
@@ -14,6 +15,10 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
             type: dataTypes.DATE
         }
     };

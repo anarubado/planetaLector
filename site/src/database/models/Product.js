@@ -1,6 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Product';
     let cols = {
+        
         title: {
             type: dataTypes.STRING
         },
@@ -33,6 +34,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
 
+        subcategoryId: {
+            type: dataTypes.INTEGER
+        },
+
         authorId: {
             type: dataTypes.INTEGER
         },
@@ -47,6 +52,18 @@ module.exports = (sequelize, dataTypes) => {
 
         formatTypeId: {
             type: dataTypes.INTEGER
+        },
+
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
     };
     let config = {

@@ -1,8 +1,21 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = 'Editorial';
     let cols = {
+        
         name: {
             type: dataTypes.STRING
+        },
+
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
     };
     let config = {

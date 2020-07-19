@@ -12,12 +12,12 @@
 
         <h1 class="title">REGISTRATE</h1>
         
-        <input type="name" class="form-control" name='user' placeholder="Nombre de usuario" value="<%= typeof old == "undefined" ? null : old.user %>">          
+        <input type="name" class="form-control" name='username' placeholder="Nombre de usuario" value="<%= typeof old == "undefined" ? null : old.username %>">          
         
         <small class='error'>
           <% if (typeof errors != 'undefined') { %>
-            <% if (errors.user) { %>
-              <%= errors.user.msg %>
+            <% if (errors.username) { %>
+              <%= errors.username.msg %>
             <% } %>
          <% }%>
         </small>
