@@ -3,12 +3,13 @@ const usersModel = jsonModel('users.json');
 const path = require('path');
 const { body } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const db = require('../database/models');
 
 const validator = {
 
     register: [
 
-        body("user")
+        body("username")
 
           .notEmpty()
           .withMessage("*Este Campo es obligatorio")
@@ -17,12 +18,24 @@ const validator = {
           .withMessage("*El usuario debe tener como mínimo 3 caracteres")
           .bail()
           .custom((value) => {
-            let user = usersModel.findBySomething((user) => user.user == value);  // Valida si el nombre de usuario ya existe 
-            return !user;
+
+            db.User.findOne({
+              where: {username: value}
+            })
+            .then(function(result){
+              console.log(result);
+              if (result == null){
+                return true;
+              }
+              return false;
+            })
+            //let user = usersModel.findBySomething((user) => user.username == value);  // Valida si el nombre de usuario ya existe 
+            //return !user;
           })
           .withMessage("*El usuario ya está registrado"),                 
 
         body("email")
+
           .notEmpty()
           .withMessage("*Este campo es obligatorio")
           .bail()
@@ -30,11 +43,21 @@ const validator = {
           .withMessage("*El campo debe ser un email")
           .bail()
           .custom((value) => {
-            let user = usersModel.findBySomething((user) => user.email == value);
-    
-            return !user;
+
+            db.User.findOne({
+              where: {email: value}
+            })
+            .then(function(result){
+              if (result == null){
+                return true;
+              }
+              return false;
+            })
+            
+            //let user = usersModel.findBySomething((user) => user.email == value);    
+            //return !user;
           })
-          .withMessage("Email ya registrado"),
+          .withMessage("El email ya esta registrado"),
 
         body("image")
 

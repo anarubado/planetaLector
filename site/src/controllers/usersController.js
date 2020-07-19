@@ -24,15 +24,23 @@ const usersController = {
     // Si no hay errores, registro al usuario
 
     if (errors.isEmpty()) {
+      
       delete req.body.retype;
+
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
       
-      /*db.users.create({
+      db.User.create({
         username: req.body.username,
         email:req.body.email,
+        image: req.file ? req.file.filename : 'default-image.jpg',
         password: req.body.password
-      })*/
-      let user = {
+      })
+      .then(function(newUser){
+        return res.redirect("/users/login")
+      })
+      
+
+      /* let user = {
         id: usersModel.generateId(),
         ...req.body,
         image: req.file ? req.file.filename : 'default-image.jpg',
@@ -40,7 +48,7 @@ const usersController = {
 
       usersModel.saveOne(user);
 
-      return res.redirect("/users/login");
+      return res.redirect("/users/login");*/
 
       // En caso de haber errores se muestran en pantalla
 
@@ -116,47 +124,45 @@ const usersController = {
   addToCart: function(req, res){
 
     // Deberia fijarme que el usuario este en session
-
     if (req.session.user){
       
       // Cuando este en session, identificarlo con su id en la base de datos
-      
-
       db.User.findOne({
         where: {email: req.session.user.email} // En el model no esta el id
       })
       .then(function(user){
 
-        db.Product.findOne({
+        // Identificar el producto en la db 
+        return db.Product.findOne({
           where: {id: req.params.id} // En el model no esta el id
   
         })
-        .then(function(product){
-          let userFound = user;  
-          let productFound = product;
-
-          sequelize.query("INSERT INTO cartItems VALUES "(1, userFound, productFound));
-          
-          
-        })
-
         
       })
+      .then(function(product){
+        let userFound = user;  
+        let productFound = product;
 
-      // Identificar el producto en la db      
-
-      // Hacer un INSERT INTO en la tabla cartItems
-
-      //sequelize.query(INSERT INTO cartItems VALUES (1, userFound, productFound))
+        // Hacer un INSERT INTO en la tabla cartItems
+        //return sequelize.query("INSERT INTO cartItems VALUES " + "(" + 1 + "," req.session.user.id, productFound.id)"); // create
+          
+      })    
+      .then((itemNuevo) => {
+        return res.redirect('/cart')
+      })  
       
-      return res.send("llegue")
+      return res.send("llegue");
 
     } else{
 
       // Si no hay nadie en session, lo redirijimos a login
       res.redirect('/users/login');
-
     }
+
+  },
+
+  deleteFromCart: function(req, res){
+
   }
 };
 
