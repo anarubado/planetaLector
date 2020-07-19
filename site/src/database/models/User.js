@@ -11,8 +11,24 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
+        image: {
+            type: dataTypes.STRING
+        },
+
         password: {
             type: dataTypes.STRING
+        },
+
+        createdAt: {
+            type: dataTypes.DATE
+        },
+
+        updatedAt: {
+            type: dataTypes.DATE
+        }, 
+
+        deletedAt: {
+            type: dataTypes.DATE
         }
     };
 
