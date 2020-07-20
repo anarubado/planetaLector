@@ -18,6 +18,7 @@ const usersController = {
   },
 
   processRegister: function (req, res) { 
+    
      
     let errors = validationResult(req);
 
@@ -29,16 +30,16 @@ const usersController = {
 
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
       
-      db.User.create({
+      db.Users.create({
         username: req.body.username,
         email:req.body.email,
         image: req.file ? req.file.filename : 'default-image.jpg',
         password: req.body.password
-      })
-      .then(function(newUser){
-        return res.redirect("/users/login")
-      })
+      });
+
       
+      
+      return res.redirect("/users/login");      
 
       /* let user = {
         id: usersModel.generateId(),
@@ -71,18 +72,28 @@ const usersController = {
     
     if (errors.isEmpty()) {
       //LOGUEO AL USUARIO
-      let user = usersModel.findBySomething(user => user.email == req.body.email);
+      //let user = usersModel.findBySomething(user => user.email == req.body.email);
+      db.Users.findOne({
+        where: {
+          email: req.body.email
+        }
+      })
+      .then(function(user){
 
-      delete user.password; // o guarda la contraseña en session
+        delete user.dataValues.password; // o guarda la contraseña en session
 
-      req.session.user = user; // YA ESTA EN SESSION
+        req.session.user = user.dataValues; // YA ESTA EN SESSION
 
-      if (req.body.recordame) {
-        // Creo la cookie
-        res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 }); // Manda al navegador la cookie 
-      }
+        if (req.body.recordame) {
+          // Creo la cookie
+          res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 }); // Manda al navegador la cookie 
+        }
 
-      return res.redirect('/')
+        return res.redirect('/');
+
+      })
+
+      
     } else {
       let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
       return res.render("login", { errors: errors.mapped(), old: req.body, jkRowling });

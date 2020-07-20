@@ -10,7 +10,6 @@ const validator = {
     register: [
 
         body("username")
-
           .notEmpty()
           .withMessage("*Este Campo es obligatorio")
           .bail()
@@ -19,23 +18,18 @@ const validator = {
           .bail()
           .custom((value) => {
 
-            db.User.findOne({
+            let respuesta = db.Users.findOne({
               where: {username: value}
             })
             .then(function(result){
-              console.log(result);
-              if (result == null){
-                return true;
+              if(result){
+                return Promise.reject('Usuario ya registrado');
               }
-              return false;
-            })
-            //let user = usersModel.findBySomething((user) => user.username == value);  // Valida si el nombre de usuario ya existe 
-            //return !user;
-          })
-          .withMessage("*El usuario ya está registrado"),                 
+            });
+            return respuesta;
+          }),                
 
         body("email")
-
           .notEmpty()
           .withMessage("*Este campo es obligatorio")
           .bail()
@@ -44,15 +38,15 @@ const validator = {
           .bail()
           .custom((value) => {
 
-            db.User.findOne({
+            let respuesta = db.Users.findOne({
               where: {email: value}
             })
             .then(function(result){
-              if (result == null){
-                return true;
+              if(result){
+                return Promise.reject('Email ya registrado');
               }
-              return false;
-            })
+            });
+            return respuesta;
             
             //let user = usersModel.findBySomething((user) => user.email == value);    
             //return !user;
@@ -60,7 +54,6 @@ const validator = {
           .withMessage("El email ya esta registrado"),
 
         body("image")
-
           .custom(function(value, {req}){
             if (req.file){
 
@@ -101,15 +94,44 @@ const validator = {
           .withMessage("*Este Campo es obligatorio")
           .bail()
           .custom((value, {req}) => {
-            let user = usersModel.findBySomething((user) => user.email == value);
+
+            // Ver si email existe
+
+            let respuesta = db.Users.findOne({
+              where: {email: value}
+            })
+            // Si existe, validar contrase;a
+            .then(function(user){
+              if(user){
+                console.log(user)
+                let validation = bcryptjs.compareSync(req.body.password, user.dataValues.password);
+                console.log(validation)
+                return validation;
+              }
+            })
+            // Validacion ok o no => Mensaje 
+            .then(function(result){
+              if(result){
+                console.log(result)
+                return true;           
+                
+              }else{
+                return Promise.reject('Email o contrase;a invalidos');
+
+              }
+            });
+            return respuesta;
+
+            // Mensaje Email o contrase;a invalidos
+    
+            /* let user = usersModel.findBySomething((user) => user.email == value);
         
             if (user){
                 let validation = bcryptjs.compareSync(req.body.password, user.password);
                 return validation;
             }
-            return false;
-          })
-          .withMessage("Email o contraseña inválida"),
+            return false;*/
+          }),
 
         body("password")
           .notEmpty()

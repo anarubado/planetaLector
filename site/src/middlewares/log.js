@@ -2,8 +2,10 @@
 // Si no esta en session pero tiene una cookie, loggeara al usuario
 const jsonModel = require("../models/jsonModel");
 const usersModel = jsonModel("users.json");
+const db = require('../database/models');
 
 module.exports = (req, res, next) => {
+
     res.locals.user = false;
 
     if(req.session.user){
@@ -13,16 +15,27 @@ module.exports = (req, res, next) => {
 
     } else if (req.cookies.email){
 
-        let user = usersModel.findBySomething(function(user){
+        /* let user = usersModel.findBySomething(function(user){
             return user.email == req.cookies.email; // Si el usuario tiene una cookie, iniciaremos su sesion
-        });
-        delete user.password;
+        });*/ 
+        db.Users.findOne({
+            where: {
+                email: req.cookies.email
+            }
+        })
+        .then(function(result){
+            let user = result.dataValues;
 
-        req.session.user = user;
+            delete user.password;
 
-        res.locals.user = user;
+            req.session.user = user;
+
+            res.locals.user = user;
 
         return next();
+
+        })
+        
 
     } else{
         return next();
