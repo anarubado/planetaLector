@@ -116,9 +116,9 @@
                         <p><%= libro.titulo %> </p>
                     </a>                    
                     <p>por <%= libro.autor %> </p>
-                    <a href="/users/cart" class = "cart-link">
+                    <form action="/users/cart/<%= libro.id %>" method="POST">
                         <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-                    </a>                    
+                    </form>                    
                 </article>             
             <% }) %>
             

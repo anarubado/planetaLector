@@ -50,6 +50,5 @@ router.post('/logout', usersController.logout);
 router.get("/cart", auth.cart, usersController.cart);
 router.post('/cart/:id', usersController.addToCart);
 router.post('/cart/:id/delete', usersController.deleteFromCart);
-router.get('/prueba', usersController.prueba)
 
 module.exports = router;

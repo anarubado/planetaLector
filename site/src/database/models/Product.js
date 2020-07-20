@@ -84,6 +84,11 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "category_id"
         });
 
+        Product.belongsTo(models.SubCategories,{
+            as: "subCategories",
+            foreignKey: "subCategory_id"
+        })
+
         Product.belongsTo(models.Authors,{
             as: "authors",
             foreignKey: "author_id"
@@ -104,7 +109,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "formatType_id"
         });
 
-        Product.belongsTo(models.CartItems, {
+        Product.hasMany(models.CartItems, {
             as: "cartItems",
             foreignKey: "product_id"
         })
