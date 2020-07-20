@@ -1,6 +1,14 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'CoverType';
+    let alias = 'CoverTypes';
     let cols = {
+
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+
+        }, 
+
         type: {
             type: dataTypes.STRING
         }, 
@@ -18,13 +26,13 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: 'coverTypes',
-        timestamps: false
+        tableName: 'coverTypes'
     }
     const CoverType = sequelize.define(alias, cols, config);
 
     CoverType.associate = function(models){
-        CoverType.hasMany(models.Product,{
+        
+        CoverType.hasMany(models.Products,{
             as: "products",
             foreignKey: "coverType_id"
         })

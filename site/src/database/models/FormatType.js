@@ -1,8 +1,15 @@
 module.exports = (sequelize, dataTypes) => {
 
-    let alias = 'FormatType';
+    let alias = 'FormatTypes';
 
     let cols = {
+
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+
+        },
         
         type: {
             type: dataTypes.STRING
@@ -22,14 +29,14 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tableName: 'formatTypes',
-        timestamps: false
+        tableName: 'formatTypes'
     };
 
     const FormatType = sequelize.define(alias, cols, config);
 
     FormatType.associate = function(models){
-        FormatType.hasMany(models.Product,{
+        
+        FormatType.hasMany(models.Products,{
             as: "products",
             foreignKey: "formatType_id"
         });

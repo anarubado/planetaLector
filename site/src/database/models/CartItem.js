@@ -1,6 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'CartItem';
+    let alias = 'CartItems';
     let cols = {
+
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+
+        },
 
         userId: {
             type: dataTypes.INTEGER
@@ -24,20 +31,20 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tableName: 'categories'
+        tableName: 'cartItems'
     }
     
     const CartItem = sequelize.define(alias, cols, config);
 
     CartItem.associate = function(models){
         
-        CartItem.belongsTo(models.Product, {
+        CartItem.belongsTo(models.Products, {
             as: 'products',
             foreignKey: 'product_id'
 
         }),
 
-        CartItem.belongsTo(models.User, {
+        CartItem.belongsTo(models.Users, {
             as: 'users',
             foreignKey: 'user_id'
         })

@@ -1,6 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Product';
+    let alias = 'Products';
     let cols = {
+
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+
+        },
         
         title: {
             type: dataTypes.STRING
@@ -34,7 +41,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
 
-        subcategoryId: {
+        subCategoryId: {
             type: dataTypes.INTEGER
         },
 
@@ -72,32 +79,32 @@ module.exports = (sequelize, dataTypes) => {
     const Product = sequelize.define(alias, cols, config)
     Product.associate = function(models){
 
-        Product.belongsTo(models.Category,{
+        Product.belongsTo(models.Categories,{
             as: "categories",
             foreignKey: "category_id"
         });
 
-        Product.belongsTo(models.Author,{
+        Product.belongsTo(models.Authors,{
             as: "authors",
             foreignKey: "author_id"
         });
 
-        Product.belongsTo(models.Editorial,{
+        Product.belongsTo(models.Editorials,{
             as: "editorials",
             foreignKey: "editorial_id"
         });
 
-        Product.belongsTo(models.CoverType,{
+        Product.belongsTo(models.CoverTypes,{
             as: "coverTypes",
             foreignKey: "coverType_id"
         });     // Podria o no tener tapa dura o blanda
 
-        Product.belongsTo(models.FormatType,{
+        Product.belongsTo(models.FormatTypes,{
             as: "formatTypes",
             foreignKey: "formatType_id"
         });
 
-        Product.belongsTo(models.CartItem, {
+        Product.belongsTo(models.CartItems, {
             as: "cartItems",
             foreignKey: "product_id"
         })

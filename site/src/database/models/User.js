@@ -1,7 +1,13 @@
 module.exports = (sequelize, dataTypes) => {
     
-    let alias = 'User';
+    let alias = 'Users';
     let cols = {
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+
+        },
 
         username: {
             type: dataTypes.STRING
@@ -33,20 +39,18 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tableName: 'users',
-        timestamps: false
+        tableName: 'users'
     }
 
     const User = sequelize.define(alias, cols, config);
 
-    //User.associate = function(models){
+    User.associate = function(models){
 
-        //User.belongsTo(models.CartItem, {
-        //    as: "cartItems",
-        //    foreignKey: "user_id"
-
-        //})
-    //}
+        User.belongsTo(models.CartItems, {
+            as: "cartItems",
+            foreignKey: "user_id"
+        })
+    }
 
     return User;
 }
