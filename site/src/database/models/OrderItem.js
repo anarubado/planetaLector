@@ -17,7 +17,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
-        productDescription: {
+        productAuthor: {
+            type: dataTypes.STRING
+        },
+
+        productEditorial: {
             type: dataTypes.STRING
         },
 
@@ -30,6 +34,10 @@ module.exports = (sequelize, dataTypes) => {
         },
 
         productImage: {
+            type: dataTypes.STRING
+        },
+
+        productIsbn: {
             type: dataTypes.STRING
         },
 

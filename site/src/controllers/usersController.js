@@ -114,11 +114,14 @@ const usersController = {
       .then(function(product){
         db.OrderItems.create({
           userId: req.session.user.id,
+          productId: product.id,
           productName: product.title,
-          productDescription: product.description,
+          productAuthor: product.author,
+          productEditorial: product.editorial,
           productQuantity:1,
           productPrice: product.price,
           productImage: product.image,
+          productIsbn: product.isbn,
           status:0,
           orderId: null,
         })
