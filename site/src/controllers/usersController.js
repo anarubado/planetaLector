@@ -126,6 +126,7 @@ const usersController = {
   },
 
   deleteFromCart: function(req, res){
+    // Hay que borrar primero las relaciones y luego el registro
 
   }
 };

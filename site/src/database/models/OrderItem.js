@@ -1,27 +1,44 @@
 module.exports = (sequelize, dataTypes) => {
-    
-    let alias = 'Users';
+    let alias = 'OrderItems';
     let cols = {
+
         id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+
         },
 
-        username: {
+        userId: {
+            type: dataTypes.INTEGER
+        },
+
+        productName: {
             type: dataTypes.STRING
         },
 
-        email: {
+        productDescription: {
             type: dataTypes.STRING
         },
 
-        image: {
+        productQuantity: {
+            type: dataTypes.INTEGER
+        },
+
+        productPrice: {
+            type: dataTypes.INTEGER
+        },
+
+        productImage: {
             type: dataTypes.STRING
         },
 
-        password: {
-            type: dataTypes.STRING
+        status: {
+            type: dataTypes.INTEGER
+        },
+
+        orderId: {
+            type: dataTypes.INTEGER
         },
 
         createdAt: {
@@ -38,12 +55,12 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tableName: 'users'
+        tableName: 'orderItems'
     }
-
-    const User = sequelize.define(alias, cols, config);
+    
+    const OrderItem = sequelize.define(alias, cols, config);
 
     
-
-    return User;
+    
+    return OrderItem;
 }
