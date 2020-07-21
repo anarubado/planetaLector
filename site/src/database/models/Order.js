@@ -41,6 +41,13 @@ module.exports = (sequelize, dataTypes) => {
     
     const Order = sequelize.define(alias, cols, config);
 
+    Order.associate = function(models){
+        // Asociacion con OrderItems
+
+        // Asociacion con Users
+        
+    }
+
     
     
     return Order;

@@ -41,12 +41,12 @@ module.exports = (sequelize, dataTypes) => {
 
         SubCategory.hasMany(models.Products,{
             as: "products",
-            foreignKey: "subCategory_id"
+            foreignKey: "subCategoryId"
         })
 
         SubCategory.belongsTo(models.Categories,{
             as: "categories",
-            foreignKey: "category_id"
+            foreignKey: "categoryId"
         })
     }
     

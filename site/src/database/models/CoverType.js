@@ -34,7 +34,7 @@ module.exports = (sequelize, dataTypes) => {
         
         CoverType.hasMany(models.Products,{
             as: "products",
-            foreignKey: "coverType_id"
+            foreignKey: "coverTypeId"
         })
     }
     return CoverType;

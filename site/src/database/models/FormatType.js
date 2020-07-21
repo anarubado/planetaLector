@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
         
         FormatType.hasMany(models.Products,{
             as: "products",
-            foreignKey: "formatType_id"
+            foreignKey: "formatTypeId"
         });
     }
     return FormatType;

@@ -60,6 +60,14 @@ module.exports = (sequelize, dataTypes) => {
     
     const OrderItem = sequelize.define(alias, cols, config);
 
+    OrderItem.associate = function(models){
+        // Asociacion con Products
+
+        // Asociacion con Users
+
+        // Asociacion con Orders
+
+    }
     
     
     return OrderItem;

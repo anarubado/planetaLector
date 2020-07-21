@@ -17,17 +17,13 @@ const usersController = {
     return res.render("register", { harryPotter });
   },
 
-  processRegister: function (req, res) { 
-    
-     
+  processRegister: function (req, res) {
     let errors = validationResult(req);
 
     // Si no hay errores, registro al usuario
-
     if (errors.isEmpty()) {
       
       delete req.body.retype;
-
       req.body.password = bcryptjs.hashSync(req.body.password, 10);
       
       db.Users.create({
@@ -35,9 +31,9 @@ const usersController = {
         email:req.body.email,
         image: req.file ? req.file.filename : 'default-image.jpg',
         password: req.body.password
-      });     
+      })
       
-      return res.redirect("/users/login");
+      return res.redirect("/users/login"); // No deberia estar dentro de un then?
 
     } else {
       let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
@@ -91,10 +87,17 @@ const usersController = {
   },
 
   cart: function (req, res) {
-    //let slidesProducts = productsModel.processSlideProducts(15, 3);
-    let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-    let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
-    return res.render("cart", { isaacAsimov, cienciaFiccion });
+    db.OrderItems.findAll({
+      where: {
+        userId: req.session.user.id
+      }
+    })
+    .then(function(orderItems){
+      let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
+      let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
+      return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems });
+    })    
+    
   },
 
   addToCart: function(req, res){
@@ -109,14 +112,25 @@ const usersController = {
       })
 
       .then(function(product){
-        db.CartItems.create({
+        db.OrderItems.create({
           userId: req.session.user.id,
-          productId: product.id
+          productName: product.title,
+          productDescription: product.description,
+          productQuantity:1,
+          productPrice: product.price,
+          productImage: product.image,
+          status:0,
+          orderId: null,
         })
         .then(function(newItem){
-          return res.redirect('/cart');
+          db.OrderItems.findAll({
+            where: {
+              userId: req.session.user.id
+            }
+          })
+          return res.redirect('/users/cart');       
         })
-      })      
+      })   
 
     } else{
       // Si no hay nadie en session, lo redirijimos a login

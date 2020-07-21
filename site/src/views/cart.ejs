@@ -10,26 +10,26 @@
 
         <div>
             <section class="compras">
-                <%# products.forEach(product => { %>
+                <% orderItems.forEach(item => { %>
                     
                     <article class="producto">
                         <img src="/images/products/variousProducts/4ececdb229fcfb9c21faafee4fc9ebee5bcc15d6_9789877476095_cover.jpg" alt="Foto de libro">
                         <div class='infocompra'>
                             <div class="titulo">
                                 <h6>Titulo:</h6>
-                                <p class="info"><%#= product.title %> </p>
+                                <p class="info"><%= item.productName %> </p>
                             </div>
                             <div class="titulo">
                                 <h6>Autor:</h6>
-                                <p class="info"><%#= product.author %></p>
+                                <p class="info"><%= item.author %></p>
                             </div>
                             <div class="titulo">
                                 <h6>Editorial:</h6>
-                                <p class="info"><%#= product.editorial %></p>
+                                <p class="info"><%= item.editorial %></p>
                             </div>
                             <div class="titulo">
                                 <h6>ISBN:</h6>
-                                <p class="info"><%#= product.isbn %></p>
+                                <p class="info"><%= item.isbn %></p>
                             </div>
                         </div>
     
@@ -40,9 +40,9 @@
     
                         <div class="infocantidad">
                             <h5 class="precio">Precio</h5>
-                            <p class="precio">$<%#= product.price %> </p>
+                            <p class="precio">$<%= item.productPrice %> </p>
                         </div>
-                        <form action="/users/cart/<%#= product.id %>/delete" method="POST">
+                        <form action="/users/cart/<%= item.id %>/delete" method="POST">
                             <button class = "btn btn-info trash-bin" type="submit">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
@@ -50,7 +50,7 @@
                         
                     </article>
                  
-                <%# }) %>
+                <% }) %>
                 
 
 

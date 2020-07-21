@@ -81,33 +81,37 @@ module.exports = (sequelize, dataTypes) => {
 
         Product.belongsTo(models.Categories,{
             as: "categories",
-            foreignKey: "category_id"
+            foreignKey: "categoryId"
         });
 
         Product.belongsTo(models.SubCategories,{
             as: "subCategories",
-            foreignKey: "subCategory_id"
+            foreignKey: "subCategoryId"
         })
 
         Product.belongsTo(models.Authors,{
             as: "authors",
-            foreignKey: "author_id"
+            foreignKey: "authorId"
         });
 
         Product.belongsTo(models.Editorials,{
             as: "editorials",
-            foreignKey: "editorial_id"
+            foreignKey: "editorialId"
         });
 
         Product.belongsTo(models.CoverTypes,{
             as: "coverTypes",
-            foreignKey: "coverType_id"
+            foreignKey: "coverTypeId"
         });     // Podria o no tener tapa dura o blanda
 
         Product.belongsTo(models.FormatTypes,{
             as: "formatTypes",
-            foreignKey: "formatType_id"
+            foreignKey: "formatTypeId"
         });
+
+        // Asociacion con OrderItems
+
+        
     }
     return Product;
 }
