@@ -6,7 +6,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
-
         },
         
         title: {
@@ -110,6 +109,13 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         // Asociacion con OrderItems
+
+        Product.belongsToMany(models.Users,{
+            as: 'users',
+            through: 'orderItems',
+            foreignKey: 'productId',
+            otherKey: 'userId'            
+        })
 
         
     }

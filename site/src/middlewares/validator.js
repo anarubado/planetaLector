@@ -4,6 +4,7 @@ const path = require('path');
 const { body } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const db = require('../database/models');
+// const {Users} = require('../database/models'); // reemplazar db
 
 const validator = {
 
@@ -103,16 +104,13 @@ const validator = {
             // Si existe, validar contrase;a
             .then(function(user){
               if(user){
-                console.log(user)
                 let validation = bcryptjs.compareSync(req.body.password, user.dataValues.password);
-                console.log(validation)
                 return validation;
               }
             })
             // Validacion ok o no => Mensaje 
             .then(function(result){
               if(result){
-                console.log(result)
                 return true;           
                 
               }else{

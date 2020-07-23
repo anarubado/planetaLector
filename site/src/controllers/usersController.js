@@ -103,37 +103,72 @@ const usersController = {
   addToCart: function(req, res){
     // Deberia fijarme que el usuario este en session
     if (req.session.user){
-      // Identificar el producto en la db       
-      db.Products.findOne({
-        where: {id: req.params.id}
-      })
-      .then(function(product){
-        return product.dataValues;
-      })
-
-      .then(function(product){
-        db.OrderItems.create({
+      // Si lo esta, busco un orderItem que cuyo productId y userId coincidan con nuestro usuario y el producto seleccionado
+      db.OrderItems.findOne({
+        where: {
           userId: req.session.user.id,
-          productId: product.id,
-          productName: product.title,
-          productAuthor: product.author,
-          productEditorial: product.editorial,
-          productQuantity:1,
-          productPrice: product.price,
-          productImage: product.image,
-          productIsbn: product.isbn,
-          status:0,
-          orderId: null,
-        })
-        .then(function(newItem){
-          db.OrderItems.findAll({
-            where: {
-              userId: req.session.user.id
+          productId: req.params.id          
+        }
+      })
+      .then(function(orderItem){
+        // Si esta, aumentar la quantity en 1 con un update
+        if(orderItem){
+          db.OrderItems.update({
+            productQuantity: orderItem.dataValues.productQuantity + 1
+          },{
+            where:{
+              userId: req.session.user.id,
+              productId: req.params.id
             }
           })
-          return res.redirect('/users/cart');       
-        })
-      })   
+          .then(function(orderItem){
+            return res.redirect('/users/cart');
+          })
+          
+
+        } else{
+          // Sino, identificar producto en la db y crear orderItem con quantity 1      
+          db.Products.findOne({
+            where: {id: req.params.id}
+          })
+          .then(function(product){
+            return product.dataValues;
+          })
+          .then(function(product){
+            // Busco en OrderItems si el productId coincide con el req.params.id
+            db.OrderItems.create({
+              userId: req.session.user.id,
+              productId: product.id,
+              productName: product.title,
+              productAuthor: product.author,
+              productEditorial: product.editorial,
+              productQuantity: 1,
+              productPrice: product.price,
+              productImage: product.image,
+              productIsbn: product.isbn,
+              status: 0,
+              orderId: null,
+            })
+            .then(function(orderItem){
+              return res.redirect('/users/cart');
+            })
+           
+            
+          }) 
+          
+        }
+      })
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
 
     } else{
       // Si no hay nadie en session, lo redirijimos a login
