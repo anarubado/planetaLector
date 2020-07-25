@@ -79,22 +79,22 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = function(models){
 
         Product.belongsTo(models.Categories,{
-            as: "categories",
+            as: "category",
             foreignKey: "categoryId"
         });
 
         Product.belongsTo(models.SubCategories,{
-            as: "subCategories",
+            as: "subCategory",
             foreignKey: "subCategoryId"
         })
 
         Product.belongsTo(models.Authors,{
-            as: "authors",
+            as: "author",
             foreignKey: "authorId"
         });
 
         Product.belongsTo(models.Editorials,{
-            as: "editorials",
+            as: "editorial",
             foreignKey: "editorialId"
         });
 
@@ -110,12 +110,12 @@ module.exports = (sequelize, dataTypes) => {
 
         // Asociacion con OrderItems
 
-        Product.belongsToMany(models.Users,{
-            as: 'users',
-            through: 'orderItems',
-            foreignKey: 'productId',
-            otherKey: 'userId'            
-        })
+        // Product.belongsToMany(models.Users,{
+        //     as: 'users',
+        //     through: 'orderItems',
+        //     foreignKey: 'productId',
+        //     otherKey: 'userId'            
+        // })
 
         
     }

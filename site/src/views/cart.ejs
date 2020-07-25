@@ -39,10 +39,10 @@
                         </div>
     
                         <div class="infocantidad">
-                            <h5 class="precio">Precio</h5>
-                            <p class="precio">$<%= item.productPrice %> </p>
+                            <h5 class="precio">Subtotal</h5>
+                            <p class="precio">$<%= item.productQuantity * item.productPrice %> </p>
                         </div>
-                        <form action="/users/cart/<%= item.id %>/delete" method="POST">
+                        <form action="/users/cart/delete/<%= item.id %>" method="POST">
                             <button class = "btn btn-info trash-bin" type="submit">
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </button>
@@ -58,11 +58,10 @@
             </section>
         </div>
 
-
         <div class="endcart">
             <div class='infototal'>
                 <h5 class="total">Total</h5>
-                <p>$1095</p>
+                <p>$<%= total %></p>
             </div>
 
             <div class='infototal'>

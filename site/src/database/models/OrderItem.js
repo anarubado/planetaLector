@@ -45,6 +45,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
+        subTotal: {
+            type: dataTypes.INTEGER
+        },
+
         status: {
             type: dataTypes.INTEGER
         },

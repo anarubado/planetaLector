@@ -93,10 +93,18 @@ const usersController = {
       }
     })
     .then(function(orderItems){
-      let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-      let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
-      return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems });
-    })    
+      db.OrderItems.sum("subTotal",{
+        where: {
+          userId: req.session.user.id
+        }
+      })
+      .then(function(total){
+        let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
+        let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
+        return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems, total:total });
+      })
+      
+    })
     
   },
 
@@ -114,7 +122,8 @@ const usersController = {
         // Si esta, aumentar la quantity en 1 con un update
         if(orderItem){
           db.OrderItems.update({
-            productQuantity: orderItem.dataValues.productQuantity + 1
+            productQuantity: orderItem.productQuantity + 1,
+            subTotal: orderItem.productPrice * (orderItem.productQuantity + 1)
           },{
             where:{
               userId: req.session.user.id,
@@ -123,13 +132,15 @@ const usersController = {
           })
           .then(function(orderItem){
             return res.redirect('/users/cart');
-          })
-          
+          })          
 
         } else{
           // Sino, identificar producto en la db y crear orderItem con quantity 1      
           db.Products.findOne({
-            where: {id: req.params.id}
+            where: {id: req.params.id},
+            include: {
+              all: true
+            }
           })
           .then(function(product){
             return product.dataValues;
@@ -140,36 +151,24 @@ const usersController = {
               userId: req.session.user.id,
               productId: product.id,
               productName: product.title,
-              productAuthor: product.author,
-              productEditorial: product.editorial,
+              productAuthor: product.author.name + ' ' + product.author.lastName, // author viene del alias del modelo
+              productEditorial: product.editorial.name, // editorial viene del alias del modelo
               productQuantity: 1,
               productPrice: product.price,
               productImage: product.image,
               productIsbn: product.isbn,
+              subTotal: product.price,
               status: 0,
-              orderId: null,
+              orderId: null
             })
             .then(function(orderItem){
               return res.redirect('/users/cart');
-            })
-           
+            })           
             
           }) 
           
         }
       })
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        
-
     } else{
       // Si no hay nadie en session, lo redirijimos a login
       return res.redirect('/users/login');
@@ -178,9 +177,25 @@ const usersController = {
   },
 
   deleteFromCart: function(req, res){
-    // Hay que borrar primero las relaciones y luego el registro
-
+    // Hay que borrar primero las relaciones y luego el registro!!
+    console.log('OTRO REGISTRO')
+    sequelize.query('SET FOREIGN_KEY_CHECKS=0;')
+    .then(function(result){
+      return db.OrderItems.destroy({
+        where: {
+          userId: req.session.user.id,
+          productId: req.params.id
+        }
+      })
+    })
+    .then(function(result){
+      return sequelize.query('SET FOREIGN_KEY_CHECKS=1;')
+    })
+    .then(function(result){
+      return res.redirect('/users/cart');
+    })
   }
 };
 
 module.exports = usersController;
+

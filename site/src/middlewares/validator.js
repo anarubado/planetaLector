@@ -119,16 +119,6 @@ const validator = {
               }
             });
             return respuesta;
-
-            // Mensaje Email o contrase;a invalidos
-    
-            /* let user = usersModel.findBySomething((user) => user.email == value);
-        
-            if (user){
-                let validation = bcryptjs.compareSync(req.body.password, user.password);
-                return validation;
-            }
-            return false;*/
           }),
 
         body("password")
