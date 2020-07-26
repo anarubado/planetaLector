@@ -52,7 +52,7 @@ router.post('/cart/delete/:id', usersController.deleteFromCart);
 router.post('/cart/:id', usersController.addToCart);
 
 router.get('/perfil/:id', auth.cart, usersController.perfil);
-router.post('/perfil/:id', upload.single('image'),usersController.editarPerfil);
+router.post('/perfil/:id', validator.profile, usersController.editarPerfil);
 
 
 module.exports = router;

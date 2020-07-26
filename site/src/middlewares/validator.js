@@ -124,6 +124,48 @@ const validator = {
         body("password")
           .notEmpty()
           .withMessage("El campo es obligatorio")
+      ],
+
+      profile: [
+        body("username")
+          .notEmpty()
+          .withMessage("*Este Campo es obligatorio")
+          .bail()
+          .isLength({ min: 3 })
+          .withMessage("*El usuario debe tener como mínimo 3 caracteres")
+          .bail()
+          .custom((value) => {
+
+            let respuesta = db.Users.findOne({
+              where: {username: value}
+            })
+            .then(function(result){
+              if(result){
+                return Promise.reject('Usuario ya registrado');
+              }
+            });
+            return respuesta;
+          }),                
+
+        body("email")
+          .notEmpty()
+          .withMessage("*Este campo es obligatorio")
+          .bail()
+          .isEmail()
+          .withMessage("*El campo debe ser un email")
+          .bail()
+          .custom((value) => {
+
+            let respuesta = db.Users.findOne({
+              where: {email: value}
+            })
+            .then(function(result){
+              if(result){
+                return Promise.reject('Email ya registrado');
+              }
+            });
+            return respuesta;
+          })
       ]
 
 }

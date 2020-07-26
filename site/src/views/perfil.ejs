@@ -5,49 +5,52 @@
   <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
 
 <div>
-    <label for="">
-       Usuario
-    </label>
-    <input type="text" name= "usuario" value="<%=user.username%>">
+
     <form action="/users/perfil/<%=user.id%>" method="POST">
-        <button type = "submit">Editar</button>
-    </form>
+        <label for="">
+            Usuario
+         </label>
+         <input type="name" name= "username" value="<%=user.username%>">
+
+         <small class='error'>
+            <% if (typeof errors != 'undefined') { %>
+              <% if (errors.username) { %>
+                <%= errors.username.msg %>
+              <% } %>
+           <% }%>
+          </small>
+
+         <label for="">
+            Mail
+         </label>
+         <input type="email" name= "email" value="<%=user.email%>">
+
+         <small class="error">
+            <% if (typeof errors != 'undefined') { %>
+              <% if (errors.email) { %>
+                <%= errors.email.msg %> 
+              <% } %>
+           <% }%>
+          </small>
+
+         <!-- <label for="">
+            Contraseña actual
+         </label> 
+         <input type="password" name= "oldPassword" value="">
+
+         <label for="">
+            Nueva contraseña
+         </label>
+         <input type="password" name= "newPassword" value=""> -->
+                 
+
+         <button type="submit">Enviar</button>
+    </form>  
+
+    <img src="/images/users/<%=user.image %> " alt="">
+    
 </div>
-<div>
-    <label for="">
-        Mail
-     </label>
-     <input type="text" name= "mail" value="<%=user.email%>">
-     <form action="/users/perfil/<%=user.id%>" method="POST">
-         <button type = "submit">Editar</button>
-     </form>
-</div>
-<div>
-    <label for="">
-        Contraseña actual
-     </label>     
-     <form action="/users/perfil/<%=user.id%>" method="POST">
-        <input type="password" name= "password" value="">
-     </form>
-</div>
-<div>
-    <label for="">
-        Nueva contraseña
-     </label>
-     <input type="password" name= "password" value="">
-     <form action="/users/perfil/<%=user.id%>" method="POST">
-         <button type ="submit">Enviar</button>
-     </form>
-</div>
-<div>
-    <label for="">
-        Foto de perfil
-     </label>
-     <img src="/images/users/<%=user.image%>" alt="">
-     <form action="/users/perfil/<%=user.image%>" method="POST" enctype="multipart/form-data">
-        <input type="file" name = "image" value = ""> 
-     </form>
-</div>
+
 <%- include ('partials/footer')%>
 <%- include('partials/scripts-js')%> 
 </body>

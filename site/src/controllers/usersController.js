@@ -204,15 +204,23 @@ const usersController = {
    },
 
    editarPerfil: function (req,res) {
-     db.Users.update ({
-       username: req.body.username,
-       password: req.body.password,
-       email: req.body.email,
-       image: req.file.image
-     }, {where: {
-       id: req.session.user.id}
-      })
-      res.redirect ('users/perfil/' + req.params.id)
+    let errors = validationResult(req);
+    console.log(errors)
+
+    if (errors.isEmpty()){
+      db.Users.update ({
+        username: req.body.username,
+        email: req.body.email,
+      }, {where: {
+        id: req.session.user.id}
+       })
+      return res.redirect('/');       
+
+    } else{
+      console.log(errors);
+      return res.render('perfil', {errors: errors.mapped()} )
+    }    
+      
    }
 
 };
