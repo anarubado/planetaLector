@@ -11,7 +11,9 @@ const homeController = {
         let virginiaWoolf = productsModel.filterNProducts("Virginia Woolf", 5);
         let quarantine = productsModel.filterNProducts("Autoayuda", 5);
 
-        return res.render("index", {isaacAsimov, suspense, virginiaWoolf, quarantine});
+        let user = req.session.user;
+
+        return res.render("index", {isaacAsimov, suspense, virginiaWoolf, quarantine, user});
     },
 
     search: function(req, res){
