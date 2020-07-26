@@ -8,8 +8,8 @@
     <label for="">
        Usuario
     </label>
-    <input type="text" name= "usuario" value="<%=resultado.username%>">
-    <form action="/users/perfil/<%=resultado.id%>" method="POST">
+    <input type="text" name= "usuario" value="<%=user.username%>">
+    <form action="/users/perfil/<%=user.id%>" method="POST">
         <button type = "submit">Editar</button>
     </form>
 </div>
@@ -17,33 +17,39 @@
     <label for="">
         Mail
      </label>
-     <input type="text" name= "mail" value="<%=resultado.email%>">
-     <form action="/users/perfil/<%=resultado.id%>" method="POST">
+     <input type="text" name= "mail" value="<%=user.email%>">
+     <form action="/users/perfil/<%=user.id%>" method="POST">
          <button type = "submit">Editar</button>
      </form>
 </div>
 <div>
     <label for="">
-        Contraseña
+        Contraseña actual
+     </label>     
+     <form action="/users/perfil/<%=user.id%>" method="POST">
+        <input type="password" name= "password" value="">
+     </form>
+</div>
+<div>
+    <label for="">
+        Nueva contraseña
      </label>
-     <input type="password" name= "password" value="<%=resultado.password%>">
-     <form action="/users/perfil/<%=resultado.id%>" method="POST">
-         <button type = "submit">Editar</button>
+     <input type="password" name= "password" value="">
+     <form action="/users/perfil/<%=user.id%>" method="POST">
+         <button type ="submit">Enviar</button>
      </form>
 </div>
 <div>
     <label for="">
         Foto de perfil
      </label>
-     <img src="/images/users/<%=resultado.image%>" alt="">
-     <form action="/users/perfil/<%=resultado.id%>" method="POST">
-         <button type = "submit">Editar</button>
+     <img src="/images/users/<%=user.image%>" alt="">
+     <form action="/users/perfil/<%=user.id%>" method="POST">
+         <button type ="submit">Editar</button>
      </form>
 </div>
 
-<h3>De la saga de Harry Potter</h3>
-<%- include ('partials/slide', {id: "slide-register", products: harryPotter})  %>
-</div>
+
 
 <%- include ('partials/footer')%>
 <%- include('partials/scripts-js')%> 
