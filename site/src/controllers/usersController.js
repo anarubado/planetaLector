@@ -201,6 +201,18 @@ const usersController = {
       .then (function (resultado){
         return res.render ('perfil', {user:resultado})
       })
+   },
+
+   editarPerfil: function (req,res) {
+     db.Users.update ({
+       username: req.body.username,
+       password: req.body.password,
+       email: req.body.email,
+       image: req.file.image
+     }, {where: {
+       id: req.session.user.id}
+      })
+      res.redirect ('users/perfil/' + req.params.id)
    }
 
 };

@@ -36,15 +36,10 @@
         Foto de perfil
      </label>
      <img src="/images/users/<%=resultado.image%>" alt="">
-     <form action="/users/perfil/<%=resultado.id%>" method="POST">
-         <button type = "submit">Editar</button>
+     <form action="/users/perfil/<%=resultado.image%>" method="POST" enctype="multipart/form-data">
+        <input type="file" name = "image" value = ""> 
      </form>
 </div>
-
-<h3>De la saga de Harry Potter</h3>
-<%- include ('partials/slide', {id: "slide-register", products: harryPotter})  %>
-</div>
-
 <%- include ('partials/footer')%>
 <%- include('partials/scripts-js')%> 
 </body>
