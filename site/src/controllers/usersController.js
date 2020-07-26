@@ -199,7 +199,6 @@ const usersController = {
      //Preguntar si está logueado
       db.Users.findByPk (req.session.user.id)
       .then (function (resultado){
-        return res.send (resultado)
         return res.render ('perfil', {user:resultado})
       })
    }

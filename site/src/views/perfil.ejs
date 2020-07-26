@@ -4,4 +4,48 @@
 <body>
   <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
 
-  
+<div>
+    <label for="">
+       Usuario
+    </label>
+    <input type="text" name= "usuario" value="<%=resultado.username%>">
+    <form action="/users/perfil/<%=resultado.id%>" method="POST">
+        <button type = "submit">Editar</button>
+    </form>
+</div>
+<div>
+    <label for="">
+        Mail
+     </label>
+     <input type="text" name= "mail" value="<%=resultado.email%>">
+     <form action="/users/perfil/<%=resultado.id%>" method="POST">
+         <button type = "submit">Editar</button>
+     </form>
+</div>
+<div>
+    <label for="">
+        Contraseña
+     </label>
+     <input type="password" name= "password" value="<%=resultado.password%>">
+     <form action="/users/perfil/<%=resultado.id%>" method="POST">
+         <button type = "submit">Editar</button>
+     </form>
+</div>
+<div>
+    <label for="">
+        Foto de perfil
+     </label>
+     <img src="/images/users/<%=resultado.image%>" alt="">
+     <form action="/users/perfil/<%=resultado.id%>" method="POST">
+         <button type = "submit">Editar</button>
+     </form>
+</div>
+
+<h3>De la saga de Harry Potter</h3>
+<%- include ('partials/slide', {id: "slide-register", products: harryPotter})  %>
+</div>
+
+<%- include ('partials/footer')%>
+<%- include('partials/scripts-js')%> 
+</body>
+</html>
