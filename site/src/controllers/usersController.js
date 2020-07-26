@@ -194,7 +194,16 @@ const usersController = {
     .then(function(result){
       return res.redirect('/users/cart');
     })
-  }
+  },
+  perfil: function (req,res) {
+     //Preguntar si está logueado
+      db.Users.findByPk (req.session.user.id)
+      .then (function (resultado){
+        return res.send (resultado)
+        return res.render ('perfil', {user:resultado})
+      })
+   }
+
 };
 
 module.exports = usersController;
