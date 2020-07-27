@@ -10,7 +10,7 @@
         <label for="">
             Usuario
          </label>
-         <input type="name" name= "username" value="<%=user.username%>">
+         <input type="name" name= "username" value="<%= typeof old == "undefined" ? user.username : old.username %>">
 
          <small class='error'>
             <% if (typeof errors != 'undefined') { %>
@@ -23,7 +23,7 @@
          <label for="">
             Mail
          </label>
-         <input type="email" name= "email" value="<%=user.email%>">
+         <input type="email" name= "email" value="<%= typeof old == "undefined" ? user.email : old.email %>">
 
          <small class="error">
             <% if (typeof errors != 'undefined') { %>
@@ -33,15 +33,23 @@
            <% }%>
           </small>
 
-         <!-- <label for="">
+         <label for="">
             Contraseña actual
          </label> 
-         <input type="password" name= "oldPassword" value="">
+         <input type="password" name="currentPassword" value="">
+
+         <small class="error">
+            <% if (typeof errors != 'undefined') { %>
+              <% if (errors.currentPassword) { %>
+                <%= errors.currentPassword.msg %> 
+              <% } %>
+           <% }%>
+          </small>
 
          <label for="">
             Nueva contraseña
          </label>
-         <input type="password" name= "newPassword" value=""> -->
+         <input type="password" name= "newPassword" value="">
                  
 
          <button type="submit">Enviar</button>

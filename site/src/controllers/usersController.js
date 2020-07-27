@@ -205,21 +205,22 @@ const usersController = {
 
    editarPerfil: function (req,res) {
     let errors = validationResult(req);
-    console.log(errors)
+
+    // habria que destruir la cookie con el email viejo si cambiamos el email
 
     if (errors.isEmpty()){
       db.Users.update ({
         username: req.body.username,
-        email: req.body.email,
+        email: req.body.email
+        //password: req.body.password ? 
       }, {where: {
         id: req.session.user.id}
        })
-      return res.redirect('/');       
+      return res.redirect('/'); 
 
     } else{
-      console.log(errors);
-      return res.render('perfil', {errors: errors.mapped()} )
-    }    
+      return res.render('perfil', {errors: errors.mapped(), old: req.body} )
+    } 
       
    }
 

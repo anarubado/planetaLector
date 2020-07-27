@@ -133,19 +133,7 @@ const validator = {
           .bail()
           .isLength({ min: 3 })
           .withMessage("*El usuario debe tener como mínimo 3 caracteres")
-          .bail()
-          .custom((value) => {
-
-            let respuesta = db.Users.findOne({
-              where: {username: value}
-            })
-            .then(function(result){
-              if(result){
-                return Promise.reject('Usuario ya registrado');
-              }
-            });
-            return respuesta;
-          }),                
+          .bail(),                
 
         body("email")
           .notEmpty()
@@ -153,19 +141,19 @@ const validator = {
           .bail()
           .isEmail()
           .withMessage("*El campo debe ser un email")
-          .bail()
-          .custom((value) => {
+          .bail(),
 
-            let respuesta = db.Users.findOne({
-              where: {email: value}
+        body("currentPassword")
+          .custom((value, {req}) => {
+            return db.Users.findByPk(req.session.user.id)
+            .then(function(user){
+              let validation = bcryptjs.compareSync(req.body.currentPassword, user.password);
+              return validation
             })
-            .then(function(result){
-              if(result){
-                return Promise.reject('Email ya registrado');
-              }
-            });
-            return respuesta;
           })
+          .withMessage("Contrasenia invalida")
+          
+          
       ]
 
 }
