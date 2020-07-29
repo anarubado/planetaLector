@@ -57,17 +57,17 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
 
-        createdAt: {
-            type: dataTypes.DATE
-        },
+        // createdAt: {
+        //     type: dataTypes.DATE
+        // },
 
-        updatedAt: {
-            type: dataTypes.DATE
-        }, 
+        // updatedAt: {
+        //     type: dataTypes.DATE
+        // }, 
 
-        deletedAt: {
-            type: dataTypes.DATE
-        }
+        // deletedAt: {
+        //     type: dataTypes.DATE
+        // }
     };
 
     let config = {

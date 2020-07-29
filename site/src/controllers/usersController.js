@@ -176,10 +176,22 @@ const usersController = {
 
   },
 
+
   deleteFromCart: function(req, res){
     // Hay que borrar primero las relaciones y luego el registro!!
-    console.log('OTRO REGISTRO')
-    sequelize.query('SET FOREIGN_KEY_CHECKS=0;')
+    // console.log(req.session.user)
+    db.OrderItems.destroy({
+      where: {
+        userId: req.session.user.id,
+        id: req.params.id
+      }
+    })
+
+    .then(function(orderItem){
+      return res.redirect('/users/cart');
+    })
+    
+    /*sequelize.query('SET FOREIGN_KEY_CHECKS=0;')
     .then(function(result){
       return db.OrderItems.destroy({
         where: {
@@ -194,27 +206,35 @@ const usersController = {
     .then(function(result){
       return res.redirect('/users/cart');
     })
+    */
   },
+
+
   perfil: function (req,res) {
      //Preguntar si está logueado
-      db.Users.findByPk(req.session.user.id)
-      .then(function(resultado){
-        return res.render('perfil', {user:resultado})
+      db.Users.findByPk(req.params.id)
+      .then(function(user){
+        return res.render('perfil', {user})
       })
    },
 
    editarPerfil: function (req,res) {
     let errors = validationResult(req);
-
     // habria que destruir la cookie con el email viejo si cambiamos el email
+
+    // return res.send(errors.mapped());
 
     if (errors.isEmpty()){
       db.Users.update ({
         username: req.body.username,
-        email: req.body.email
-        //password: req.body.password ? 
+        email: req.body.email,
+        password: req.body.newPassword != "" ? bcryptjs.hashSync(req.body.newPassword, 10)
+        : db.Users.findByPk(req.params.id)
+        .then(function(user){
+          return user.password;
+        })
       }, {where: {
-        id: req.session.user.id}
+        id: req.params.id}
        })
       return res.redirect('/'); 
 

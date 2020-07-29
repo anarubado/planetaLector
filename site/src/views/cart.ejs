@@ -7,9 +7,15 @@
     <div class = "container">
         
         <%- include('partials/banner-title', {title: "Mi Carrito", route: "Inicio / Mi Carrito", decoImg: "/images/banner-title/img-cart.png", bannerImg: '/images/banner-title/banner-title-2.png'}) %>
-
+        <% if (orderItems.length > 0) { %>
         <div>
             <section class="compras">
+                <!-- orderItems tiene algo dentro -->
+
+                
+                 
+                
+
                 <% orderItems.forEach(item => { %>
                     
                     <article class="producto">
@@ -68,6 +74,8 @@
                 <button type="submit" class="btn btn-info enviar">FINALIZAR COMPRA</button>
             </div>
         </div>
+
+        <% } %>
 
         <h3>Libros de Ciencia Ficción</h3>
         <%- include('partials/slide', {id: "slide-cart-1", products: cienciaFiccion})  %> 

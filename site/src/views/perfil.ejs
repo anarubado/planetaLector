@@ -2,64 +2,84 @@
 <html lang="en">
 <%- include('partials/head', {title: 'Iniciar sesión'}) %>
 <body>
+
   <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
 
-<div>
+   <div class="container">
 
-    <form action="/users/perfil/<%=user.id%>" method="POST">
-        <label for="">
-            Usuario
-         </label>
-         <input type="name" name= "username" value="<%= typeof old == "undefined" ? user.username : old.username %>">
+      <form action="/users/perfil/<%=user.id%>" method="POST">
+         <div>
+            <label for="">
+               Usuario
+            </label>
+            <input type="name" name= "username" value="<%= typeof old == "undefined" ? user.username : old.username %>">
 
-         <small class='error'>
-            <% if (typeof errors != 'undefined') { %>
-              <% if (errors.username) { %>
-                <%= errors.username.msg %>
-              <% } %>
-           <% }%>
-          </small>
+            <small class='error'>
+               <% if (typeof errors != 'undefined') { %>
+               <% if (errors.username) { %>
+                  <%= errors.username.msg %>
+               <% } %>
+            <% }%>
+            </small>
 
-         <label for="">
-            Mail
-         </label>
-         <input type="email" name= "email" value="<%= typeof old == "undefined" ? user.email : old.email %>">
+         </div>
 
-         <small class="error">
-            <% if (typeof errors != 'undefined') { %>
-              <% if (errors.email) { %>
-                <%= errors.email.msg %> 
-              <% } %>
-           <% }%>
-          </small>
+         <div>
+            <label for="">
+               Mail
+            </label>
+            <input type="email" name= "email" value="<%= typeof old == "undefined" ? user.email : old.email %>">
 
-         <label for="">
-            Contraseña actual
-         </label> 
-         <input type="password" name="currentPassword" value="">
+            <small class="error">
+               <% if (typeof errors != 'undefined') { %>
+               <% if (errors.email) { %>
+                  <%= errors.email.msg %> 
+               <% } %>
+            <% }%>
+            </small>
 
-         <small class="error">
-            <% if (typeof errors != 'undefined') { %>
-              <% if (errors.currentPassword) { %>
-                <%= errors.currentPassword.msg %> 
-              <% } %>
-           <% }%>
-          </small>
+         </div>
 
-         <label for="">
-            Nueva contraseña
-         </label>
-         <input type="password" name= "newPassword" value="">
-                 
+         <div>
+            <label for="">
+               Contraseña actual
+            </label> 
+            <input type="password" name="currentPassword" value="<%= typeof old == "undefined" ? null : old.currentPassword %>">
+
+            <small class="error">
+               <% if (typeof errors != 'undefined') { %>
+               <% if (errors.currentPassword) { %>
+                  <%= errors.currentPassword.msg %> 
+               <% } %>
+            <% }%>
+            </small>
+
+         </div>
+
+         <div>
+            <label for="">
+               Nueva contraseña
+            </label>
+            <input type="password" name= "newPassword" value="<%= typeof old == "undefined" ? null : old.newPassword %>">
+
+            <small class="error">
+               <% if (typeof errors != 'undefined') { %>
+               <% if (errors.newPassword) { %>
+                  <%= errors.newPassword.msg %> 
+               <% } %>
+            <% }%>
+            </small>
+
+         </div>
+
+         <!-- <img src="" alt=""> -->        
 
          <button type="submit">Enviar</button>
-    </form>  
+      </form>    
+      
+   </div>
 
-    <img src="/images/users/<%=user.image %> " alt="">
-    
-</div>
-
-<%- include ('partials/footer')%>
-<%- include('partials/scripts-js')%> 
+   <%- include ('partials/footer')%>
+   <%- include('partials/scripts-js')%> 
 </body>
 </html>

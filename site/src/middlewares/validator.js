@@ -127,31 +127,70 @@ const validator = {
       ],
 
       profile: [
+        
         body("username")
           .notEmpty()
           .withMessage("*Este Campo es obligatorio")
           .bail()
           .isLength({ min: 3 })
           .withMessage("*El usuario debe tener como mínimo 3 caracteres")
-          .bail(),                
+          .bail()
+          .custom((value, {req}) => {
+            // Que no tire error cuando volvemos a guardar nuestro nombre viejo
+            // Pero que tire error cuando queremos guardar un nombre ya elegido
+            return db.Users.findOne({
+              where: {
+                username: value
+              }
+            })
+            .then(function(user){
+              if(user){
+                if(user.username != req.session.user.username){
+
+                  return Promise.reject('Usuario existente');
+                }
+              }
+            })
+          }),
+
 
         body("email")
           .notEmpty()
           .withMessage("*Este campo es obligatorio")
           .bail()
           .isEmail()
-          .withMessage("*El campo debe ser un email")
-          .bail(),
+          .withMessage("*El campo debe ser un email"),
 
         body("currentPassword")
+          .optional({
+            nullable: true,
+            checkFalsy: true
+          })
           .custom((value, {req}) => {
             return db.Users.findByPk(req.session.user.id)
             .then(function(user){
-              let validation = bcryptjs.compareSync(req.body.currentPassword, user.password);
-              return validation
+              if(!bcryptjs.compareSync(req.body.currentPassword, user.password)){
+                return Promise.reject('Contrasenia invalida')
+              }
             })
           })
-          .withMessage("Contrasenia invalida")
+          ,
+
+        body("newPassword") // Deberiamos ver otra manera de crear una dependencia entre el campo newP con el campo currentP
+          .optional({
+            nullable: true,
+            checkFalsy: true
+          })
+          .custom((value, {req}) => {
+            return db.Users.findByPk(req.params.id)
+            .then(function(user){
+              if(!bcryptjs.compareSync(req.body.currentPassword, user.password)){
+                return Promise.reject('La contrasenia actual debe ser correcta para ingresar su nueva contrasenia')
+              }
+            })
+          })
+          .isLength({ min: 8 })
+          .withMessage("La contraseña debe tener como mínimo 8 caracteres")         
           
           
       ]
