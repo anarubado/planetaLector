@@ -51,8 +51,10 @@ router.get("/cart", auth.cart, usersController.cart);
 router.post('/cart/delete/:id', usersController.deleteFromCart);
 router.post('/cart/:id', usersController.addToCart);
 
-router.get('/perfil/:id', auth.cart, usersController.perfil);
-router.post('/perfil/:id', validator.profile, usersController.editarPerfil);
+router.get('/profile/password/:id', auth.cart, usersController.password);
+router.post('/profile/editpassword/:id', validator.password, usersController.editPassword);
 
+router.get('/profile/:id', auth.cart, usersController.profile);
+router.post('/profile/:id', validator.profile, usersController.editProfile);
 
 module.exports = router;

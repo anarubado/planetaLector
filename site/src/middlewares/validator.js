@@ -4,6 +4,7 @@ const path = require('path');
 const { body } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const db = require('../database/models');
+//const { not } = require('sequelize/types/lib/operators');
 // const {Users} = require('../database/models'); // reemplazar db
 
 const validator = {
@@ -140,12 +141,14 @@ const validator = {
             // Pero que tire error cuando queremos guardar un nombre ya elegido
             return db.Users.findOne({
               where: {
-                username: value
+                username: value // hay un usuario en la db con nombre roberta?
               }
             })
             .then(function(user){
               if(user){
-                if(user.username != req.session.user.username){
+                
+                if(user.username != req.session.user.username){ //en session esta roberta que es != a Carli
+                  //roberta != roberta
 
                   return Promise.reject('Usuario existente');
                 }
@@ -161,11 +164,15 @@ const validator = {
           .isEmail()
           .withMessage("*El campo debe ser un email"),
 
+        
+      ],
+
+      password: [
+
         body("currentPassword")
-          .optional({
-            nullable: true,
-            checkFalsy: true
-          })
+          .notEmpty()
+          .withMessage("Ingrese su contrasenia actual para cambiarla")
+          .bail()
           .custom((value, {req}) => {
             return db.Users.findByPk(req.session.user.id)
             .then(function(user){
@@ -173,25 +180,25 @@ const validator = {
                 return Promise.reject('Contrasenia invalida')
               }
             })
-          })
-          ,
+          }),
 
         body("newPassword") // Deberiamos ver otra manera de crear una dependencia entre el campo newP con el campo currentP
-          .optional({
-            nullable: true,
-            checkFalsy: true
-          })
-          .custom((value, {req}) => {
-            return db.Users.findByPk(req.params.id)
-            .then(function(user){
-              if(!bcryptjs.compareSync(req.body.currentPassword, user.password)){
-                return Promise.reject('La contrasenia actual debe ser correcta para ingresar su nueva contrasenia')
-              }
-            })
-          })
+          .notEmpty()
+          .withMessage('Ingrese su nueva contrasenia')
+          .bail()
           .isLength({ min: 8 })
           .withMessage("La contraseña debe tener como mínimo 8 caracteres")         
           
+
+          // Validador
+          // Preguntar si el primer campo coincide con la contraseña de la DB
+
+          // Preguntar si las contraseñas nuevas coinciden
+
+
+          // Controlador
+          // Hasheas la password
+          // Update de tu usuario donde coincida el email con el que está en sesión. Updateas la password
           
       ]
 

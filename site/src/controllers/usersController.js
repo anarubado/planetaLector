@@ -190,58 +190,78 @@ const usersController = {
     .then(function(orderItem){
       return res.redirect('/users/cart');
     })
-    
-    /*sequelize.query('SET FOREIGN_KEY_CHECKS=0;')
-    .then(function(result){
-      return db.OrderItems.destroy({
-        where: {
-          userId: req.session.user.id,
-          productId: req.params.id
-        }
-      })
-    })
-    .then(function(result){
-      return sequelize.query('SET FOREIGN_KEY_CHECKS=1;')
-    })
-    .then(function(result){
-      return res.redirect('/users/cart');
-    })
-    */
   },
 
 
-  perfil: function (req,res) {
+  profile: function (req,res) {
      //Preguntar si está logueado
-      db.Users.findByPk(req.params.id)
+      db.Users.findByPk(req.session.user.id)
       .then(function(user){
-        return res.render('perfil', {user})
+        return res.render('profile', {user})
       })
    },
 
-   editarPerfil: function (req,res) {
+   editProfile: function (req,res) {
     let errors = validationResult(req);
     // habria que destruir la cookie con el email viejo si cambiamos el email
 
-    // return res.send(errors.mapped());
-
     if (errors.isEmpty()){
-      db.Users.update ({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.newPassword != "" ? bcryptjs.hashSync(req.body.newPassword, 10)
-        : db.Users.findByPk(req.params.id)
-        .then(function(user){
-          return user.password;
-        })
-      }, {where: {
-        id: req.params.id}
-       })
-      return res.redirect('/'); 
+      db.Users.findByPk(req.params.id)
+      .then(function(user){
+        return db.Users.update ({
+          username: req.body.username,
+          email: req.body.email,
+          //password: req.body.newPassword != "" ? bcryptjs.hashSync(req.body.newPassword, 10) : user.password
+        }, {where: {
+          id: req.params.id}
+         })
+         
+       
+      })
+      .then(()=>{
+        req.session.user.username = req.body.username;
+        return res.redirect('/'); 
+      })
+      
 
     } else{
-      return res.render('perfil', {errors: errors.mapped(), old: req.body} )
+      return res.render('profile', {errors: errors.mapped(), old: req.body} )
     } 
       
+   },
+
+   password: function(req, res){
+
+    db.Users.findByPk(req.session.user.id)
+    .then(function(user){
+      return res.render('password', {user})
+    })
+   },
+
+   editPassword: function(req, res){
+    let errors = validationResult(req);
+    // habria que destruir la cookie con el email viejo si cambiamos el email
+
+    if (errors.isEmpty()){
+      db.Users.findByPk(req.params.id)
+      .then(function(user){
+        return db.Users.update ({
+          password: req.body.newPassword != "" ? bcryptjs.hashSync(req.body.newPassword, 10) : user.password
+        }, {where: {
+          id: req.params.id}
+         })
+         
+       
+      })
+      .then(()=>{
+        return res.redirect('/'); 
+      })
+      
+
+    } else{
+      return res.render('password', {errors: errors.mapped(), old: req.body} )
+    }
+
    }
 
 };
