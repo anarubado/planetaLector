@@ -5,17 +5,12 @@
     <%- include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %> 
 
     <div class = "container">
-        
+                
         <%- include('partials/banner-title', {title: "Mi Carrito", route: "Inicio / Mi Carrito", decoImg: "/images/banner-title/img-cart.png", bannerImg: '/images/banner-title/banner-title-2.png'}) %>
         <% if (orderItems.length > 0) { %>
         <div>
-            <section class="compras">
-                <!-- orderItems tiene algo dentro -->
-
-                
+            <section class="compras">             
                  
-                
-
                 <% orderItems.forEach(item => { %>
                     
                     <article class="producto">
@@ -54,10 +49,9 @@
                             </button>
                         </form>
                         
-                    </article>
+                    </article>                    
                  
-                <% }) %>
-                
+                    <% }) %>               
 
 
         
@@ -71,8 +65,11 @@
             </div>
 
             <div class='infototal'>
-                <button type="submit" class="btn btn-info enviar">FINALIZAR COMPRA</button>
+                <form action="/users/checkout/<%= orderItems[0].userId %>" method="POST">
+                    <button type="submit" class="btn btn-info enviar">FINALIZAR COMPRA</button>
+                </form>
             </div>
+            
         </div>
 
         <% } %>

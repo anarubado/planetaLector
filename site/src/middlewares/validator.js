@@ -141,14 +141,13 @@ const validator = {
             // Pero que tire error cuando queremos guardar un nombre ya elegido
             return db.Users.findOne({
               where: {
-                username: value // hay un usuario en la db con nombre roberta?
+                username: value
               }
             })
             .then(function(user){
               if(user){
                 
-                if(user.username != req.session.user.username){ //en session esta roberta que es != a Carli
-                  //roberta != roberta
+                if(user.username != req.session.user.username){
 
                   return Promise.reject('Usuario existente');
                 }

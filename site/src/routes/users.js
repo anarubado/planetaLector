@@ -57,4 +57,6 @@ router.post('/profile/editpassword/:id', validator.password, usersController.edi
 router.get('/profile/:id', auth.cart, usersController.profile);
 router.post('/profile/:id', validator.profile, usersController.editProfile);
 
+router.post('/checkout/:id', usersController.checkout);
+
 module.exports = router;

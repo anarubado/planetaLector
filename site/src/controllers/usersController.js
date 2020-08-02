@@ -1,6 +1,7 @@
 const jsonModel = require("../models/jsonModel");
 const usersModel = jsonModel("users.json");
 const productsModel = jsonModel("products.json");
+const dbModel = require('../models/dbModel');
 
 const bcryptjs = require("bcryptjs");
 
@@ -261,6 +262,52 @@ const usersController = {
     } else{
       return res.render('password', {errors: errors.mapped(), old: req.body} )
     }
+
+   },
+
+   checkout: function(req, res){
+     // Buscar total de OrderItems por id de usuario
+     db.OrderItems.sum("subTotal",{
+      where: {
+        userId: req.params.id
+      }
+    })
+    .then(function(total){   
+      // Crear un registro en Orders (create)
+      return db.Orders.create({
+        number: 1000,
+        total: total,
+        userId: req.params.id
+ 
+      })
+      .then(function(order){
+        // Asignarle a todos los OrderItems el OrderId y status = 1 (update)
+        return db.OrderItems.update({
+          status: 1,
+          orderId: order.number
+        },{
+          where: {
+            userId: req.params.id
+          }
+        })
+      })
+      // Vaciar carrito? Destruir orderItems
+      .then(function(){
+        db.OrderItems.destroy({
+          where: {
+            userId: req.params.id
+          }
+        })
+      })
+      .then(function(){
+        return res.redirect('/');
+      })
+
+    })
+
+     
+     
+     // Asignarle a todos los OrderItems el OrderId y status = 1 (update)
 
    }
 
