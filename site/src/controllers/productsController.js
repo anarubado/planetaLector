@@ -34,12 +34,17 @@ const productsController = {
             }})
         let pedidoCategory = db.Categories.findAll()
         let pedidoSubCategory = db.SubCategories.findAll()
+        let pedidoAuthor = db.Authors.findAll()
+        let pedidoEditorial = db.Editorials.findAll()
+        let pedidoCovertype = db.CoverTypes.findAll()
+        let pedidoFormatype = db.FormatTypes.findAll()
+        
       
-        Promise.all([pedidoProducto,pedidoCategory,pedidoSubCategory])
+        Promise.all([pedidoProducto,pedidoCategory,pedidoSubCategory,pedidoAuthor,pedidoEditorial,pedidoCovertype,pedidoFormatype])
             //console.log(product);
-            .then(function([product,category,subCategory]){
+            .then(function([product,category,subCategory,author,editorial,coverType,formatType]){
                 console.log(category);
-                return res.render('editarProducto',{product,category,subCategory})
+                return res.render('editarProducto',{product,category,subCategory,author,editorial,coverType,formatType})
             })
             
     },

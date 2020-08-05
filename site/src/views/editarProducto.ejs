@@ -7,9 +7,10 @@
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
-            <h2 class="products-title"><i>Estás editando:<%=product.title%></i></h2>
+            <h2 class="products-title"><img class="imagen-edit"src= "/images/products/literature/<%=product.image%>" alt="Foto"><i>Estás editando:<%=product.title%></i></h2>
         </div>
     </div>
+
     <div class="col-12">
         <!--pasar el id del producto a la ruta que viaja por post-->
         <form action="/products/edit/<%=product.id%>" method="post">
@@ -20,8 +21,12 @@
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <label for="autor" class="form-label">Autor:</label>
-                    <input type="text" id="autor" name="autor" placeholder="Ej: 5678" class="form-input" value="<%=autor.name%>">
+                    <label for="autor" class="form-label">Autores:</label>
+                    <select name="autores" id="autores" class="form-input">
+                        <% author.forEach(element => {%>
+                           <option value="<%=element.id%>"><%=element.name%></option> 
+                        <%});%>
+                    </select>
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -64,8 +69,39 @@
                     <label for="price" class="form-label">Numero de paginas:</label>
                     <input type="text" id="paginas" name="paginas" placeholder="Ej: 5678" class="form-input" value="<%=product.numberPages%>">
                 </div>
+
                 <div class="col-12 col-md-6">
-                <label class="form-label" for=""><img src="<%=product.image%>" alt="Foto"></label>
+                    <label for="editorial" class="form-label">Editorial:</label>
+
+                    <select name="editorial" id="editorial" class="form-input">
+                        <% editorial.forEach(element => {%>
+                           <option value="<%=element.id%>"><%=element.name%></option> 
+                        <%});%>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="coverType" class="form-label">Tipo de tapa:</label>
+
+                    <select name="coverType" id="coverType" class="form-input">
+                        <% coverType.forEach(element => {%>
+                           <option value="<%=element.id%>"><%=element.type%></option> 
+                        <%});%>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="formatType" class="form-label">Formato:</label>
+
+                    <select name="formatType" id="formatType" class="form-input">
+                        <% formatType.forEach(element => {%>
+                           <option value="<%=element.id%>"><%=element.type%></option> 
+                        <%});%>
+                    </select>
+                </div>
+
+                <div class="col-12 col-md-6">
+                
                 <input  type="file" name="image" value="<%=product.image%>">
                 </div>
 
