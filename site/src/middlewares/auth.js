@@ -4,7 +4,7 @@ const productsModel = jsonModel('products.json');
 const auth =  {
 
     // Con session -> no puedan acceder a iniciar sesion y registrarse
-    registerAndLogin : function(req, res, next){
+    user: function(req, res, next){
         if (req.session.user){
             return res.redirect('/');
         }
@@ -12,7 +12,7 @@ const auth =  {
     },
 
     // Sin session -> no puedan accerder al carrito
-    cart: function(req, res, next){
+    guest: function(req, res, next){
         if (req.session.user){
             return next();    
         }

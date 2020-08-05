@@ -307,7 +307,6 @@ const usersController = {
 
      
      
-     // Asignarle a todos los OrderItems el OrderId y status = 1 (update)
 
    }
 

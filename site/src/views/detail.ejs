@@ -59,7 +59,10 @@
                 </div>
               </div>
             </div>
-            <button class= "boton">AGREGAR</button>
+
+            <form action="/users/cart/<%= detail.id %>" method="POST">
+              <button type="submit" class= "boton">AGREGAR</button>
+            </form>
           </div>
         </div>
       </div>      

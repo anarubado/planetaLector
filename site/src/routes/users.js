@@ -40,21 +40,21 @@ var upload = multer({ storage: storage,
 
 // Rutas
 
-router.get("/register", auth.registerAndLogin, usersController.register);
+router.get("/register", auth.user, usersController.register);
 router.post("/register", upload.single('image'), validator.register, usersController.processRegister);
 
-router.get("/login", auth.registerAndLogin, usersController.login);
-router.post ('/login', validator.login, usersController.processLogin )
+router.get("/login", auth.user, usersController.login);
+router.post ('/login', validator.login, usersController.processLogin);
 router.post('/logout', usersController.logout);
 
-router.get("/cart", auth.cart, usersController.cart);
+router.get("/cart", auth.guest, usersController.cart);
 router.post('/cart/delete/:id', usersController.deleteFromCart);
-router.post('/cart/:id', usersController.addToCart);
+router.post('/cart/:id', auth.guest, usersController.addToCart);
 
-router.get('/profile/password/:id', auth.cart, usersController.password);
+router.get('/profile/password/:id', auth.guest, usersController.password);
 router.post('/profile/editpassword/:id', validator.password, usersController.editPassword);
 
-router.get('/profile/:id', auth.cart, usersController.profile);
+router.get('/profile/:id', auth.guest, usersController.profile);
 router.post('/profile/:id', validator.profile, usersController.editProfile);
 
 router.post('/checkout/:id', usersController.checkout);
