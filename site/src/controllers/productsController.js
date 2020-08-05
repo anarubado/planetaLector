@@ -46,6 +46,7 @@ const productsController = {
     update: function() {
         //let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
         //let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+        
     }
 }
 

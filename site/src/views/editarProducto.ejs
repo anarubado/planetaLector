@@ -18,6 +18,12 @@
                     <label for="name" class="form-label">Nombre del producto:</label>
                     <input type="text" id="name" name="name" placeholder="Ej: <%=product.title%>" class="form-input" value="<%=product.title%>">
                 </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="autor" class="form-label">Autor:</label>
+                    <input type="text" id="autor" name="autor" placeholder="Ej: 5678" class="form-input" value="<%=autor.name%>">
+                </div>
+
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Precio del producto:</label>
                     <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%=product.price%>">
@@ -27,12 +33,46 @@
 
                     <select name="category" id="category" class="form-input">
                         <% category.forEach(element => {%>
-                           <option value="<%=element.title%>"></option> 
+                           <option value="<%=element.id%>"><%=element.title%></option> 
                         <%});%>
                     </select>
                 </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="Subcategory" class="form-label">Subcategoría:</label>
+
+                    <select name="subcategory" id="subcategory" class="form-input">
+                        <% subCategory.forEach(element => {%>
+                           <option value="<%=element.id%>"><%=element.title%></option> 
+                        <%});%>
+                    </select>
+                </div>
+
+                
+
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label">Stock:</label>
+                    <input type="text" id="stock" name="stock" placeholder="Ej: 5678" class="form-input" value="<%=product.stock%>">
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label">ISBN:</label>
+                    <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-input" value="<%=product.isbn%>">
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label">Numero de paginas:</label>
+                    <input type="text" id="paginas" name="paginas" placeholder="Ej: 5678" class="form-input" value="<%=product.numberPages%>">
+                </div>
+                <div class="col-12 col-md-6">
+                <label class="form-label" for=""><img src="<%=product.image%>" alt="Foto"></label>
+                <input  type="file" name="image" value="<%=product.image%>">
+                </div>
+
+            
+
                 <div class="col-12">
-                    <label for="description" class="form-label">Descipción:</label>
+                    <label for="description" class="form-label">Descripción:</label>
                     <textarea name="description" id="description" class="form-input"><%=product.description%></textarea>
                 </div>
                 <div class="col-12">
