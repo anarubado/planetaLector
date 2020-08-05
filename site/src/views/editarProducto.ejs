@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+    <%- include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title"><i>Estás editando:<%=product.title%></i></h2>
+        </div>
+    </div>
+    <div class="col-12">
+        <!--pasar el id del producto a la ruta que viaja por post-->
+        <form action="/products/edit/<%=product.id%>" method="post">
+            <div class="row product-detail">
+                <div class="col-12 col-md-6">
+                    <label for="name" class="form-label">Nombre del producto:</label>
+                    <input type="text" id="name" name="name" placeholder="Ej: <%=product.title%>" class="form-input" value="<%=product.title%>">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="price" class="form-label">Precio del producto:</label>
+                    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%=product.price%>">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="category" class="form-label">Categoría:</label>
+
+                    <select name="category" id="category" class="form-input">
+                        <% category.forEach(element => {%>
+                           <option value="<%=element.title%>"></option> 
+                        <%});%>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="description" class="form-label">Descipción:</label>
+                    <textarea name="description" id="description" class="form-input"><%=product.description%></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="buy-now-button">Guardar producto</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include ('partials/footer') %>
+<%- include('partials/scripts-js') %>  
+</body>
