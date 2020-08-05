@@ -6,8 +6,11 @@
   <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
 
    <div class="container">
+      <div class='formdiv'>
 
-      <form action="/users/profile/<%=user.id%>" method="POST">
+      <form class="profile" action="/users/profile/<%=user.id%>" method="POST">
+
+         <h1 class="title">EDITA TU PERFIL</h1>
 
          <!-- <img src="" alt=""> -->
          
@@ -15,7 +18,7 @@
             <label for="">
                Usuario
             </label>
-            <input type="name" name= "username" value="<%= typeof old == "undefined" ? user.username : old.username %>">
+            <input class="form-control" type="name" name= "username" value="<%= typeof old == "undefined" ? user.username : old.username %>">
 
             <small class='error'>
                <% if (typeof errors != 'undefined') { %>
@@ -31,7 +34,7 @@
             <label for="">
                Mail
             </label>
-            <input type="email" name= "email" value="<%= typeof old == "undefined" ? user.email : old.email %>">
+            <input class="form-control" type="email" name= "email" value="<%= typeof old == "undefined" ? user.email : old.email %>">
 
             <small class="error">
                <% if (typeof errors != 'undefined') { %>
@@ -45,12 +48,13 @@
 
          <a href="/users/profile/password/<%= user.id %>">Cambiar contrasenia</a>
 
-         <button type="submit">Enviar</button>
+         <button type="submit" class="btn btn-info registrar">Enviar</button>
       </form> 
 
              
       
    </div>
+</div>
 
    <%- include ('partials/footer')%>
    <%- include('partials/scripts-js')%> 

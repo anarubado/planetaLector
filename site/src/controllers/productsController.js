@@ -1,5 +1,8 @@
 const jsonModel = require('../models/jsonModel');
 const productsModel = jsonModel('products.json');
+const dbModel = require ('../models/dbModel');
+let db = require ('../database/models');
+let sequelize = db.sequelize
 
 const productsController = {
 
@@ -24,6 +27,31 @@ const productsController = {
         });
 
         return res.render('detail', {harryPotter, jkRowling, detail});
+    }, 
+    edit: function(req, res){
+        let pedidoProducto = db.Products.findByPk(req.params.idProduct, {include: {
+              all: true
+            }})
+        let pedidoCategory = db.Categories.findAll()
+        let pedidoSubCategory = db.SubCategories.findAll()
+        let pedidoAuthor = db.Authors.findAll()
+        let pedidoEditorial = db.Editorials.findAll()
+        let pedidoCovertype = db.CoverTypes.findAll()
+        let pedidoFormatype = db.FormatTypes.findAll()
+        
+      
+        Promise.all([pedidoProducto,pedidoCategory,pedidoSubCategory,pedidoAuthor,pedidoEditorial,pedidoCovertype,pedidoFormatype])
+            //console.log(product);
+            .then(function([product,category,subCategory,author,editorial,coverType,formatType]){
+                console.log(category);
+                return res.render('editarProducto',{product,category,subCategory,author,editorial,coverType,formatType})
+            })
+            
+    },
+    update: function() {
+        //let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
+        //let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+        
     }
 }
 

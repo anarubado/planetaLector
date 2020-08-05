@@ -24,6 +24,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
+        rol: {
+            type: dataTypes.INTEGER
+        },
+
         createdAt: {
             type: dataTypes.DATE
         },
