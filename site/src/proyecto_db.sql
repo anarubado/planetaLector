@@ -15,6 +15,7 @@ CREATE TABLE users(
 
 CREATE TABLE products(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    admin TINYINT,
     title VARCHAR(255),
     description TEXT,
     price MEDIUMINT,
