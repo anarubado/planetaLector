@@ -820,6 +820,28 @@ ul{
       width: 100%
   }
 
+  .action-button {
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+.action-button.delete {
+    background-color:#E1306C;
+  }
+
+  .action-button.edit {
+    background-color:#17a2b8;
+  }
+  
+
 /* --------------------------------------------------------------------------------------------------------------------------------- */
 /* FORMULARIO DE EDICIÓN STYLES */
 .imagen-edit {

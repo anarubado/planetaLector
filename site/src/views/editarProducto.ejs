@@ -24,7 +24,9 @@
                     <label for="autor" class="form-label">Autores:</label>
                     <select name="autores" id="autores" class="form-input">
                         <% author.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.name%>  <%=element.lastName%></option> 
+                            <% if (element.id == product.authorId) {%> 
+                           <option selected value="<%=element.id%>"><%=element.name%>  <%=element.lastName%></option> 
+                            <%}%> 
                         <%});%>
                     </select>
                 </div>
@@ -34,10 +36,11 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="category" class="form-label">Categoría:</label>
-
                     <select name="category" id="category" class="form-input">
                         <% category.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.title%></option> 
+                            <% if(element.id == product.categoryId){ %> 
+                           <option selected value="<%=element.id%>"><%=element.title%></option>
+                            <% } %> 
                         <%});%>
                     </select>
                 </div>
@@ -47,7 +50,9 @@
 
                     <select name="subcategory" id="subcategory" class="form-input">
                         <% subCategory.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.title%></option> 
+                            <% if (element.id == product.subCategoryId){ %> 
+                           <option selected value="<%=element.id%>"><%=element.title%></option> 
+                            <% } %> 
                         <%});%>
                     </select>
                 </div>
@@ -74,7 +79,9 @@
 
                     <select name="editorial" id="editorial" class="form-input">
                         <% editorial.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.name%></option> 
+                            <% if(element.id == product.editorialId){ %> 
+                           <option selected value="<%=element.id%>"><%=element.name%></option> 
+                            <% } %> 
                         <%});%>
                     </select>
                 </div>
@@ -84,7 +91,9 @@
 
                     <select name="coverType" id="coverType" class="form-input">
                         <% coverType.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.type%></option> 
+                            <% if(element.id == product.coverTypeId){ %> 
+                           <option selected value="<%=element.id%>"><%=element.type%></option> 
+                            <% } %> 
                         <%});%>
                     </select>
                 </div>
@@ -94,7 +103,9 @@
 
                     <select name="formatType" id="formatType" class="form-input">
                         <% formatType.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.type%></option> 
+                            <% if(element.id == product.formatTypeId){ %> 
+                           <option selected value="<%=element.id%>"><%=element.type%></option> 
+                        <% } %> 
                         <%});%>
                     </select>
                 </div>
@@ -111,7 +122,10 @@
                     <textarea name="description" id="description" class="form-input"><%=product.description%></textarea>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-info registrar">Editar producto</button>
+                    <button type="submit" class="action-button edit">Editar producto</button>
+                    <form action="/borrar/<%=product.id%>" method="POST">
+                        <button type="submit" class="action-button delete">Borrar producto</button>
+                    </form>
                 </div>
             </div>
         </form>
