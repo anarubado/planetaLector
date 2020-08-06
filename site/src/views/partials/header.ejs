@@ -69,6 +69,9 @@
                             <div class = "dropdown-menu" aria-labelledby="dropdown-users">
                                 <form action="/users/profile/<%= locals.user.id %>" method="GET">
                                     <button class = "dropdown-item" type="submit">Mi perfil</button>
+                                </form>
+                                <form action="/products/crear" method="GET">
+                                    <button class = "dropdown-item" type="submit">Cargar productos</button>
                                 </form>  
                                 <form action="/users/logout" method="POST">
                                     <button class = "dropdown-item" type="submit">Cerrar sesión</button>

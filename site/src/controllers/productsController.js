@@ -81,6 +81,41 @@ const productsController = {
         return res.redirect('/');
         
         
+    },
+    delete: function(req,res){
+        db.Products.destroy({
+            where:{
+                id: req.params.idProduct
+            }
+        })
+        return res.redirect('/');
+    },
+    create: function(req,res){
+        let pedidoCovertype = db.CoverTypes.findAll()
+        let pedidoFormatype = db.FormatTypes.findAll()
+        Promise.all([pedidoCovertype,pedidoFormatype])
+            //console.log(product);
+            .then(function([coverType,formatType]){
+                res.render('crearProducto',{coverType,formatType})
+            })
+    },
+    save: function(req,res){
+        db.Products.create({
+            title: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            stock: req.body.stock,
+            isbn: req.body.isbn,
+            numberPages: req.body.paginas,
+            image: req.body.image,
+            authorId: req.body.autores,
+            categoryId: req.body.category,
+            subCategoryId: req.body.subCategory,
+            editorialId: req.body.editorial,
+            coverTypeId: req.body.coverType,
+            formatTypeId: req.body.formatType
+        })
+        return res.redirect('/');
     }
 }
 

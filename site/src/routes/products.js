@@ -38,4 +38,11 @@ router.get('/detail/:idProduct', productsController.detail);
 router.get('/edit/:idProduct', productsController.edit);
 router.post('/edit/:idProduct',upload.single('image'),productsController.update);
 
+/*Ruta para crear un producto*/
+router.get('/crear', productsController.create);
+router.post('/crear',upload.single('image'),productsController.save);
+
+/*Ruta para borrar un producto*/
+router.post('/delete/:idProduct',productsController.delete);
+
 module.exports = router;
