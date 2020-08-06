@@ -48,9 +48,38 @@ const productsController = {
             })
             
     },
-    update: function() {
-        //let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
-        //let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+    update: function(req,res) {
+        db.Products.update ({
+            title: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            stock: req.body.stock,
+            isbn: req.body.isbn,
+            numberPages: req.body.paginas,
+            image: req.body.image,
+            authorId: req.body.autores,
+            categoryId: req.body.category,
+            subCategoryId: req.body.subCategory,
+            editorialId: req.body.editorial,
+            coverTypeId: req.body.coverType,
+            formatTypeId: req.body.formatType
+
+            //authorId: req.body.autores
+        }, {
+            where: {
+                id:req.params.idProduct
+            }
+        });
+        /*db.Authors.update ({
+            name: req.body.name,
+            lastName: req.body.lastName
+        },{
+            where: {
+                id:req.params.idProduct
+            }
+        });*/
+        return res.redirect('/');
+        
         
     }
 }

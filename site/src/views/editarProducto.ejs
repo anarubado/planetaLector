@@ -7,7 +7,7 @@
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
-            <h2 class="products-title"><img class="imagen-edit"src= "/images/products/literature/<%=product.image%>" alt="Foto"><i>Estás editando:<%=product.title%></i></h2>
+            <h2 class="products-title"><i>Estás editando:<%=product.title%></i></h2>
         </div>
     </div>
 
@@ -24,11 +24,10 @@
                     <label for="autor" class="form-label">Autores:</label>
                     <select name="autores" id="autores" class="form-input">
                         <% author.forEach(element => {%>
-                           <option value="<%=element.id%>"><%=element.name%></option> 
+                           <option value="<%=element.id%>"><%=element.name%>  <%=element.lastName%></option> 
                         <%});%>
                     </select>
                 </div>
-
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Precio del producto:</label>
                     <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%=product.price%>">
@@ -100,10 +99,10 @@
                     </select>
                 </div>
 
-                <div class="col-12 col-md-6">
-                
-                <input  type="file" name="image" value="<%=product.image%>">
-                </div>
+            <div class="caja-edicion-foto">
+                <img class="imagen-edit"src= "/images/products/literature/<%=product.image%>" alt="Foto">
+                <input class="input-edicion-foto"  type="file" name="image" value="<%=product.image%>">
+            </div>
 
             
 
@@ -112,7 +111,7 @@
                     <textarea name="description" id="description" class="form-input"><%=product.description%></textarea>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="buy-now-button">Guardar producto</button>
+                    <button type="submit" class="btn btn-info registrar">Editar producto</button>
                 </div>
             </div>
         </form>

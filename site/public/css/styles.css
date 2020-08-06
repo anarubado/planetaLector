@@ -612,6 +612,7 @@ ul{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
+    margin: 5px;
 }
 
 .subcaja1-producto p {
@@ -629,6 +630,11 @@ ul{
 
 .sobre-la-autora p {
     font-size:20px;
+}
+
+.botones-agregar-editar-borrar {
+    display:flex;
+    flex-direction: row;
 }
 
 
@@ -815,3 +821,18 @@ ul{
   }
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
+/* FORMULARIO DE EDICIÓN STYLES */
+.imagen-edit {
+    margin-top: 15px;
+    width: 25%;
+}
+
+.caja-edicion-foto {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-edicion-foto {
+    align-self: center;
+    margin-left: 15px;
+}
