@@ -93,18 +93,20 @@ const productsController = {
         })
         return res.redirect('/');
     },
+
     create: function(req,res){
-        let pedidoCovertype = db.CoverTypes.findAll()
-        let pedidoFormatype = db.FormatTypes.findAll()
-        Promise.all([pedidoCovertype,pedidoFormatype])
-            //console.log(product);
-            .then(function([coverType,formatType]){
-                return res.render('crearProducto',{coverType,formatType})
+        let coverTypes = db.CoverTypes.findAll()
+        let formatTypes = db.FormatTypes.findAll()
+
+        Promise.all([coverTypes, formatTypes])
+            .then(function([coverTypes,formatTypes]){
+                return res.render('createProduct',{coverTypes, formatTypes});
             })
     },
 
-    save: function(req,res){
+    save: function(req, res){
         let errors = validationResult(req);
+
 
         if(errors.isEmpty()){
             db.Products.create({
@@ -126,13 +128,19 @@ const productsController = {
                 editorialId: null,
                 coverTypeId: req.body.coverType,
                 formatTypeId: req.body.formatType       
-                          
-                
+                 
             })
+    
             return res.redirect('/');
 
         } else{
-            return res.render('createProduct', {errors: errors.mapped()});
+            let coverTypes = db.CoverTypes.findAll()
+            let formatTypes = db.FormatTypes.findAll()
+
+            Promise.all([coverTypes, formatTypes])
+                .then(function([coverTypes,formatTypes]){
+                    return res.render('createProduct',{coverTypes, formatTypes, errors: errors.mapped()});
+                });
         }
 
         
