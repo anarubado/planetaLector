@@ -123,11 +123,12 @@
                 </div>
                 <div class="col-12">
                     <button type="submit" class="action-button edit">Editar producto</button>
-                    <form action="/borrar/<%=product.id%>" method="POST">
-                        <button type="submit" class="action-button delete">Borrar producto</button>
-                    </form>
+                    
                 </div>
             </div>
+        </form>
+        <form action="/products/delete/<%=product.id%>" method="POST">
+            <button type="submit" class="action-button delete">Borrar producto</button>
         </form>
     </div>
 </div>
