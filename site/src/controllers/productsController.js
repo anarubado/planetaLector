@@ -4,6 +4,8 @@ const dbModel = require ('../models/dbModel');
 let db = require ('../database/models');
 let sequelize = db.sequelize
 
+const { validationResult } = require("express-validator");
+
 const productsController = {
 
     index: function(req, res){
@@ -28,6 +30,7 @@ const productsController = {
 
         return res.render('detail', {harryPotter, jkRowling, detail});
     }, 
+
     edit: function(req, res){
         let pedidoProducto = db.Products.findByPk(req.params.idProduct, {include: {
               all: true
@@ -40,11 +43,10 @@ const productsController = {
         let pedidoFormatype = db.FormatTypes.findAll()
         
       
-        Promise.all([pedidoProducto,pedidoCategory,pedidoSubCategory,pedidoAuthor,pedidoEditorial,pedidoCovertype,pedidoFormatype])
+        Promise.all([pedidoProducto, pedidoCategory, pedidoSubCategory, pedidoAuthor, pedidoEditorial, pedidoCovertype, pedidoFormatype])
             //console.log(product);
-            .then(function([product,category,subCategory,author,editorial,coverType,formatType]){
-                console.log(category);
-                return res.render('editarProducto',{product,category,subCategory,author,editorial,coverType,formatType})
+            .then(function([product, category, subCategory, author, editorial, coverType, formatType]){
+                return res.render('editProduct',{product, category, subCategory, author, editorial, coverType, formatType})
             })
             
     },
@@ -82,7 +84,8 @@ const productsController = {
         
         
     },
-    delete: function(req,res){
+
+    delete: function(req, res){
         db.Products.destroy({
             where:{
                 id: req.params.idProduct
@@ -96,26 +99,43 @@ const productsController = {
         Promise.all([pedidoCovertype,pedidoFormatype])
             //console.log(product);
             .then(function([coverType,formatType]){
-                res.render('crearProducto',{coverType,formatType})
+                return res.render('crearProducto',{coverType,formatType})
             })
     },
+
     save: function(req,res){
-        db.Products.create({
-            title: req.body.name,
-            description: req.body.description,
-            price: req.body.price,
-            stock: req.body.stock,
-            isbn: req.body.isbn,
-            numberPages: req.body.paginas,
-            image: req.body.image,
-            authorId: req.body.autores,
-            categoryId: req.body.category,
-            subCategoryId: req.body.subCategory,
-            editorialId: req.body.editorial,
-            coverTypeId: req.body.coverType,
-            formatTypeId: req.body.formatType
-        })
-        return res.redirect('/');
+        let errors = validationResult(req);
+
+        if(errors.isEmpty()){
+            db.Products.create({
+                title: req.body.title,
+                description: req.body.description,
+                price: req.body.price,
+                stock: req.body.stock,
+                isbn: req.body.isbn,
+                numberPages: req.body.pages,
+                //image: req.file...,
+                // categoryId: req.body.category,
+                // subCategoryId: req.body.subCategory,
+                // authorId: req.body.autores,
+                // editorialId: req.body.editorial,
+                image: req.file ? req.file.filename : 'default-image.jpg',
+                categoryId: null,
+                subCategoryId: null,
+                authorId: null,
+                editorialId: null,
+                coverTypeId: req.body.coverType,
+                formatTypeId: req.body.formatType       
+                          
+                
+            })
+            return res.redirect('/');
+
+        } else{
+            return res.render('createProduct', {errors: errors.mapped()});
+        }
+
+        
     }
 }
 

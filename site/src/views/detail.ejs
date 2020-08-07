@@ -60,10 +60,26 @@
               </div>
             </div>
             <div class="botones-agregar-editar-borrar">
-              <form action="/users/cart/<%=detail.id%>" method="POST">
-                <button class= "boton">AGREGAR</button>
-              </form>
-              <a href="/products/edit/<%=detail.id%>"><button class= "boton">EDITAR</button></a>
+
+              <% if(locals.user.admin == 1){ %> 
+                <form action="/products/edit/<%=detail.id%>" method="GET">
+                  <button class= "boton">EDITAR</button>
+                </form>
+
+                <form action="/products/delete/<%=detail.id%>" method="POST">
+                  <button class= "boton">BORRAR</button>
+                </form>
+
+              <% } else{ %> 
+
+                <form action="/users/cart/<%=detail.id%>" method="POST">
+                  <button class= "boton">AGREGAR</button>
+                </form> 
+
+              <% } %> 
+          
+                           
+
             </div>
           </div>
         </div>
@@ -72,7 +88,7 @@
         <div class ="sobre-la-autora">
           <img src="<%= detail.imagenAutor %> " alt="unaimagen">
           <h3>Sobre la autora</h3>
-          <p><%= detail.bioAutor %> </p>
+          <p><%= detail.bioAutor %></p>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores voluptatum, perspiciatis deleniti hic aspernatur eveniet eligendi vel animi necessitatibus in non! Explicabo nostrum eaque porro vel quod laborum ullam sed id quaerat, placeat sunt ratione voluptatibus tempore qui adipisci velit minima ipsum odit quo dolorem atque, iste quibusdam quis at? Laboriosam iusto veniam officiis eum deserunt reprehenderit inventore sequi! Ut tenetur, suscipit veritatis esse sunt similique ipsa commodi aliquam, labore natus laboriosam veniam itaque laudantium optio dicta unde autem, facere magni molestiae nobis fugiat corrupti. Minima nesciunt dolorum, cum debitis, adipisci, in esse quod ad omnis excepturi itaque modi. Consequuntur.</p>
         </div>
 

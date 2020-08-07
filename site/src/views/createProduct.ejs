@@ -4,21 +4,30 @@
 <%- include('partials/head', {title: 'Inicio'}) %>
 <body>
     <%- include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
-<div class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="products-title"><i>Estás creando un producto</i></h2>
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title"><i>Estás creando un producto</i></h2>
+            </div>
         </div>
-    </div>
 
     <div class="col-12">
         <!--pasar el id del producto a la ruta que viaja por post-->
-        <form action="/products/crear" method="post">
+        <form action="/products/create" method="POST">
             <div class="row product-detail">
+
                 <div class="col-12 col-md-6">
                     <label for="name" class="form-label">Nombre del producto:</label>
-                    <input type="text" id="name" name="name" placeholder="Ej:Harry Potter y la piedra filosofal" class="form-input">
+                    <input type="text" id="title" name="title" placeholder="Ej:Harry Potter y la piedra filosofal" class="form-input">
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.title) { %>
+                        <%= errors.title.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="autor" class="form-label">Autor:</label>
@@ -50,7 +59,7 @@
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Numero de paginas:</label>
-                    <input type="text" id="paginas" name="paginas" placeholder="Ej: 100" class="form-input">
+                    <input type="text" id="paginas" name="pages" placeholder="Ej: 100" class="form-input">
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -79,7 +88,7 @@
                 </div>
 
             <div class="caja-edicion-foto">
-                <input class="input-edicion-foto"  type="file" name="image">
+                <input class="input-edicion-foto" type="file" name="image" valu>
             </div>
 
             

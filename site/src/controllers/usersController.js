@@ -31,7 +31,8 @@ const usersController = {
         username: req.body.username,
         email:req.body.email,
         image: req.file ? req.file.filename : 'default-image.jpg',
-        password: req.body.password
+        password: req.body.password,
+        admin: req.body.admin ? 1 : 0
       })
       
       return res.redirect("/users/login"); // No deberia estar dentro de un then?
