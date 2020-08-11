@@ -115,20 +115,14 @@ const productsController = {
                 price: req.body.price,
                 stock: req.body.stock,
                 isbn: req.body.isbn,
-                numberPages: req.body.pages,
-                //image: req.file...,
-                // categoryId: req.body.category,
-                // subCategoryId: req.body.subCategory,
-                // authorId: req.body.autores,
-                // editorialId: req.body.editorial,
-                image: req.file ? req.file.filename : 'default-image.jpg',
-                categoryId: null,
-                subCategoryId: null,
-                authorId: null,
-                editorialId: null,
-                coverTypeId: req.body.coverType,
-                formatTypeId: req.body.formatType       
-                 
+            numberPages: req.body.paginas,
+            image: req.body.image,
+            authorId: req.body.autores,
+            categoryId: req.body.category,
+            subCategoryId: req.body.subCategory,
+            editorialId: req.body.editorial,
+            coverTypeId: req.body.coverType,
+            formatTypeId: req.body.formatType
             })
     
             return res.redirect('/');
