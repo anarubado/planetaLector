@@ -9,6 +9,9 @@ const homeRouter = require('./routes/home');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
+const apiUsersRouter = require('./routes/api/apiUsers');
+const apiProductsRouter = require('./routes/api/apiProducts');
+
 const methodOverride = require('method-override');
 const path = require('path');
 app.use(methodOverride('_method'));
@@ -23,8 +26,8 @@ app.use (session ({secret: 'Un mensaje secreto', resave : false ,
 saveUninitialized : true}));
 
 
-app.listen(3000, function(){
-    console.log("Running on 3000");
+app.listen(3030, function(){
+    console.log("Running on 3030");
 });
 
 // Middlewares propios a nivel de aplicacion
@@ -36,3 +39,6 @@ app.use(log);
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+
+app.use('/api/users', apiUsersRouter);
+app.use('/api/products', apiProductsRouter);

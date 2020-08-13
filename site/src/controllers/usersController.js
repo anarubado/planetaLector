@@ -105,7 +105,6 @@ const usersController = {
         let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
         return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems, total:total });
       })
-      
     })
     
   },

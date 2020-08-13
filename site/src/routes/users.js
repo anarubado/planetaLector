@@ -48,7 +48,9 @@ router.post ('/login', validator.login, usersController.processLogin);
 router.post('/logout', usersController.logout);
 
 router.get("/cart", auth.guest, usersController.cart);
+
 router.post('/cart/delete/:id', usersController.deleteFromCart);
+
 router.post('/cart/:id', auth.guest, usersController.addToCart);
 
 router.get('/profile/password/:id', auth.guest, usersController.password);
