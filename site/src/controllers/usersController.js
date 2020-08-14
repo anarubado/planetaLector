@@ -1,9 +1,9 @@
 const jsonModel = require("../models/jsonModel");
 const usersModel = jsonModel("users.json");
 const productsModel = jsonModel("products.json");
-const dbModel = require('../models/dbModel');
 
 const bcryptjs = require("bcryptjs");
+const mercadopago = require('mercadopago');
 
 const { validationResult } = require("express-validator");
 
@@ -266,6 +266,69 @@ const usersController = {
    },
 
    checkout: function(req, res){
+     // Recopilar la info pertinente para las preferences de MP.
+     db.OrderItems.findAll({
+       where: {
+         userId: req.params.id
+       }
+     })
+     .then(function(orderItems){
+       let items = [];
+       orderItems.forEach(orderItem => {
+         let item = {
+           title: orderItem.productName,
+           unit_price: orderItem.productPrice,
+           quantity: orderItem.productQuantity
+         }        
+
+        items.push(item);
+         
+       })
+       return items;
+     })
+     .then(function(items){
+      // Configuracion de TOKEN
+      mercadopago.configure({
+        access_token: 'PRODUCT_TOKEN'
+      });
+
+      // Configuracion de preferences
+      let preference = {
+        items: items,
+        back_urls: {
+          success: "http://localhost:3030/success",
+          failure: "http://localhost:3030/failure",
+          pending: "http://localhost:3030/pending"
+      },
+        auto_return: "approved"
+      };
+      
+      mercadopago.preferences.create(preference)
+      .then(function(response){
+        return res.redirect(response.body.init_point);
+
+      })
+      .catch(function(error){
+        console.log(error);
+      })
+
+     })
+
+
+
+     // Hacer el link al archivo de checkout para inyectar la info
+
+
+
+
+
+
+
+
+     
+   },
+
+   ticket: function(req, res){
      // Buscar total de OrderItems por id de usuario
      db.OrderItems.sum("subTotal",{
       where: {
@@ -304,9 +367,6 @@ const usersController = {
       })
 
     })
-
-     
-     
 
    }
 
