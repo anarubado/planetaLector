@@ -99,12 +99,12 @@ module.exports = (sequelize, dataTypes) => {
         });
 
         Product.belongsTo(models.CoverTypes,{
-            as: "coverTypes",
+            as: "coverType",
             foreignKey: "coverTypeId"
         });     // Podria o no tener tapa dura o blanda
 
         Product.belongsTo(models.FormatTypes,{
-            as: "formatTypes",
+            as: "formatType",
             foreignKey: "formatTypeId"
         });
 

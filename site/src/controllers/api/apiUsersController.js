@@ -12,7 +12,13 @@ const apiUsersController = {
                     },
 
                     data: {
-                        users: users
+                        users: users.map(function(user){
+                            return ({
+                                id: user.id,
+                                username: user.username,
+                                email: user.email
+                            })
+                        })
                     }
                 }
                 res.json(api);
@@ -34,7 +40,12 @@ const apiUsersController = {
                     },
 
                     data: {
-                        user: user
+                        user: {
+                            id: user.id,
+                            admin: user.admin,
+                            username: user.username,
+                            email: user.email
+                        }
                     }
                 }
                 res.json(api);
