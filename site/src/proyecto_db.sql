@@ -147,6 +147,9 @@ ADD FOREIGN KEY (orderId) REFERENCES orders(id);
 ALTER TABLE orderItems
 ADD subTotal INT;
 
+INSERT INTO users VALUES ()
+
+
 
 
 

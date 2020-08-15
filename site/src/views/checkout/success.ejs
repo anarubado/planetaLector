@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success</title>
-</head>
+<%- include('../partials/head', {title: '¡Pago exitoso!'}) %>
 <body>
-    <h1>Todo bien, amiwi</h1>
+    <%- include('../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %> 
+    <div class='container'>
+        <div class='payment-image'>
+            <img src="/images/paymentStatus/undraw_order_confirmed_aaw7.svg" alt="failure-image">
+        </div>
+        <h1 style="text-align: center; margin-bottom: 60px">¡Tu pago fue realizado exitosamente!</h1>
+
+    </div>
+    <%- include('../partials/footer')  %> 
+    <%- include('../partials/scripts-js')  %> 
+    
 </body>
 </html>

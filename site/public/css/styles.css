@@ -315,6 +315,19 @@ ul{
     }
 }
 
+/* Payments */
+
+.payment-image{
+    display: flex;
+    justify-content: center;
+}
+.payment-image img{
+    height: 300px;
+    margin: 60px 0;
+}
+
+
+
 
 /* ========== STYLES ANI (end) ========== */
 
