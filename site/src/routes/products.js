@@ -11,7 +11,7 @@ const validator = require('../middlewares/validator');
 var storage = multer.diskStorage({
 
     destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, '..', '..', 'public', 'images', 'products', 'variousProducts'))
+      cb(null, path.join(__dirname, '..', '..', 'public', 'images', 'products'));
     },
   
     filename: function (req, file, cb) {
@@ -22,13 +22,15 @@ var storage = multer.diskStorage({
   
   var upload = multer({ storage: storage,
     imageFilter: function(req, file, cb){
-  
+      console.log("start: ", req.file)
       let acceptedExt = ['.jpg', '.png', '.jepg'];
       let ext = path.extname(file.originalname);
   
       if(!acceptedExt.includes(ext)){
         req.file = file;
       }
+
+      console.log("finish: ", req.file)
   
       cb(null, acceptedExt.includes(ext));
     }

@@ -8,6 +8,7 @@ CREATE TABLE users(
     email VARCHAR(100),
     image VARCHAR(255),
     password TEXT,
+    admin TINYINT,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     deletedAt DATETIME
@@ -15,7 +16,6 @@ CREATE TABLE users(
 
 CREATE TABLE products(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    admin TINYINT,
     title VARCHAR(255),
     description TEXT,
     price MEDIUMINT,
@@ -33,12 +33,13 @@ CREATE TABLE products(
     updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     deletedAt DATETIME
 );
--- FALTAN FOREIGN KEYS!!!!!!!!!
+
 -- status: 0 => estado pendiente de compra
 -- status: 1 => estado cerrado de compra
 -- orderId => numero de 'ticket', numero de compra.
--- Es null hasta que compremos el producto. Cuando el status sea 1, orderId recibe un numero
--- El numero orderId sale de la tabla orders
+-- Es null hasta que compremos el producto. Cuando éste comprado el status será 1 y orderId recibe un numero
+-- El numero orderId sale de la tabla orders.
+
 CREATE TABLE orderItems(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     userId INT UNSIGNED,
@@ -50,6 +51,7 @@ CREATE TABLE orderItems(
     productPrice MEDIUMINT,
     productImage VARCHAR(255),
     productIsbn VARCHAR(255),
+    subTotal INT,
     status TINYINT,
     orderId INT UNSIGNED,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -132,20 +134,14 @@ ADD FOREIGN KEY (formatTypeId) REFERENCES formatTypes(id);
 ALTER TABLE subcategories
 ADD FOREIGN KEY (categoryId) REFERENCES categories(id);
 
+ALTER TABLE orderItems
+ADD FOREIGN KEY (userId) REFERENCES users(id),
+ADD FOREIGN KEY (productId) REFERENCES products(id),
+ADD FOREIGN KEY (orderId) REFERENCES orders(id);
+
 ALTER TABLE orders
 ADD FOREIGN KEY (userId) REFERENCES users(id);
 
-ALTER TABLE orderItems
-ADD FOREIGN KEY (userId) REFERENCES users(id);
-
-ALTER TABLE orderItems
-ADD FOREIGN KEY (productId) REFERENCES products(id);
-
-ALTER TABLE orderItems
-ADD FOREIGN KEY (orderId) REFERENCES orders(id);
-
-ALTER TABLE orderItems
-ADD subTotal INT;
 
 
 

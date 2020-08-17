@@ -27,6 +27,7 @@ const apiUsersController = {
     },
 
     store: function(req, res){
+        db.Users.create({})
 
     },
 

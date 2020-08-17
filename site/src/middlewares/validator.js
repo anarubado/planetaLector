@@ -201,7 +201,51 @@ const validator = {
           
       ],
 
-      editProduct: [
+      editProduct: [ 
+
+      ],
+
+      createProduct: [
+        body("title")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+        
+        body("author")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("price")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("category")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("subCategory")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("stock")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("isbn")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("numberPages")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("editorial")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
+        body("description")
+          .notEmpty()
+          .withMessage("Este campo es obligatorio"),
+
         body("image")
           .custom(function(value, {req}){
             if (req.file){
@@ -217,47 +261,14 @@ const validator = {
           })
           .withMessage("Extensión inválida"), 
 
-      ],
-
-      createProduct: [
-        body("title")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-        
-          body("author")
+        body("coverType")
           .notEmpty()
           .withMessage("Este campo es obligatorio"),
 
-          body("price")
+        body("formatType")
           .notEmpty()
           .withMessage("Este campo es obligatorio"),
-
-          body("category")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-          body("subCategory")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-          body("stock")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-          body("isbn")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-          body("pages")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-          body("editorial")
-          .notEmpty()
-          .withMessage("Este campo es obligatorio"),
-
-        
-        
+          
 
       ]
 

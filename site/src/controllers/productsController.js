@@ -94,18 +94,21 @@ const productsController = {
     },
 
     create: function(req,res){
-        let coverTypes = db.CoverTypes.findAll()
-        let formatTypes = db.FormatTypes.findAll()
+        let authors = db.Authors.findAll();
+        let categories = db.Categories.findAll();
+        let subCategories = db.SubCategories.findAll();
+        let editorials = db.Editorials.findAll();
+        let coverTypes = db.CoverTypes.findAll();
+        let formatTypes = db.FormatTypes.findAll();
 
-        Promise.all([coverTypes, formatTypes])
-            .then(function([coverTypes,formatTypes]){
-                return res.render('createProduct',{coverTypes, formatTypes});
+        Promise.all([authors, categories, subCategories, editorials, coverTypes, formatTypes])
+            .then(function([authors, categories, subCategories, editorials, coverTypes,formatTypes]){
+                return res.render('createProduct', {authors, categories, subCategories, editorials, coverTypes, formatTypes});
             })
     },
 
     save: function(req, res){
         let errors = validationResult(req);
-
 
         if(errors.isEmpty()){
             db.Products.create({
@@ -114,25 +117,31 @@ const productsController = {
                 price: req.body.price,
                 stock: req.body.stock,
                 isbn: req.body.isbn,
-            numberPages: req.body.paginas,
-            image: req.body.image,
-            authorId: req.body.autores,
-            categoryId: req.body.category,
-            subCategoryId: req.body.subCategory,
-            editorialId: req.body.editorial,
-            coverTypeId: req.body.coverType,
-            formatTypeId: req.body.formatType
+                numberPages: req.body.numberPages,
+                image: req.file ? req.file.filename : 'default-image.jpg',
+                authorId: req.body.author,
+                categoryId: req.body.category,
+                subCategoryId: req.body.subCategory,
+                editorialId: req.body.editorial,
+                coverTypeId: req.body.coverType,
+                formatTypeId: req.body.formatType
             })
+
+            console.log(req.file, 'aca anitiiiiiiiiiiiiiiiii');
     
             return res.redirect('/');
 
         } else{
-            let coverTypes = db.CoverTypes.findAll()
-            let formatTypes = db.FormatTypes.findAll()
+            let authors = db.Authors.findAll();
+            let categories = db.Categories.findAll();
+            let subCategories = db.SubCategories.findAll();
+            let editorials = db.Editorials.findAll();
+            let coverTypes = db.CoverTypes.findAll();
+            let formatTypes = db.FormatTypes.findAll();
 
-            Promise.all([coverTypes, formatTypes])
-                .then(function([coverTypes,formatTypes]){
-                    return res.render('createProduct',{coverTypes, formatTypes, errors: errors.mapped()});
+            Promise.all([authors, categories, subCategories, editorials, coverTypes, formatTypes])
+                .then(function([authors, categories, subCategories, editorials, coverTypes,formatTypes]){
+                    return res.render('createProduct',{authors, categories, subCategories, editorials, coverTypes, formatTypes, errors: errors.mapped(), old: req.body});
                 });
         }
 

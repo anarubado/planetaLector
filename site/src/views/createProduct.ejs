@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('partials/head', {title: 'Inicio'}) %>
+<%- include('partials/head', {title: 'Creá un producto'}) %>
 <body>
     <%- include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
     <div class="container products-wrapper">
@@ -18,7 +18,8 @@
 
                 <div class="col-12 col-md-6">
                     <label for="name" class="form-label">Nombre del producto:</label>
-                    <input type="text" id="title" name="title" placeholder="Ej:Harry Potter y la piedra filosofal" class="form-input">
+                    <input type="text" id="title" name="title" placeholder="Ej:Harry Potter y la piedra filosofal" class="form-input"
+                    value="<%= typeof old == "undefined" ? null : old.title %>">
                 </div>
 
                 <small class="error">
@@ -30,74 +31,284 @@
                   </small>
 
                 <div class="col-12 col-md-6">
-                    <label for="autor" class="form-label">Autor:</label>
-                    <input type="text" id="author" name= "author" placeholder="J.K. Rowling" class="form-input">
+                    <label for="author" class="form-label">Autor:</label>
+
+                    <select name="author" id="author" class="form-input">
+
+                        <% if (typeof old != 'undefined' && old.author) { %>
+                            <% authors.forEach(author => {%>
+                                <% if (author.id == old.author) {%> 
+                                    <option value="<%= old.author %>" selected><%= author.name + " " + author.lastName %></option>
+                                <% } else{ %>
+                                    <option value="<%=author.id%>"><%=author.name + " " + author.lastName%></option> 
+                                <% } %>
+                             <%});%> 
+
+                        <% } else { %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% authors.forEach(author => {%>
+                                <option value="<%=author.id%>"><%=author.name + " " + author.lastName%></option> 
+                             <%});%>                           
+                            
+
+                        <% } %>
+                    </select>
+                    
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.author) { %>
+                        <%= errors.author.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
+
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Precio del producto:</label>
-                    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+                    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= typeof old == "undefined" ? null : old.price %>">
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.price) { %>
+                        <%= errors.price.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
+                  
                 <div class="col-12 col-md-6">
                     <label for="category" class="form-label">Categoría:</label>
-                    <input type="text" id="category" name="category" placeholder="Ej: Literatura" class="form-input">
+                    <select name="category" id="category" class="form-input">
+
+                        <% if (typeof old != 'undefined' && old.category) { %>
+                            <% categories.forEach(category => {%>
+                                <% if (category.id == old.category) {%> 
+                                    <option value="<%= old.category %>" selected><%= category.title %></option>
+                                <% } else{ %>
+                                    <option value="<%=category.id%>"><%= category.title%></option> 
+                                <% } %>
+                             <%});%> 
+
+                        <% } else { %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% categories.forEach(category => {%>
+                                <option value="<%=category.id%>"><%= category.title%></option> 
+                             <%});%>                           
+                            
+
+                        <% } %>
+                    </select>
+
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.category) { %>
+                        <%= errors.category.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="Subcategory" class="form-label">Subcategoría:</label>
-                    <input type="text" id="subCategory" name="subCategory" placeholder="Ej: Fantástica" class="form-input">
+                    <select name="subCategory" id="subCategory" class="form-input">
+
+                        <% if (typeof old != 'undefined' && old.subCategory) { %>
+                            <% subCategories.forEach(subCategory => {%>
+                                <% if (subCategory.id == old.subCategory) {%> 
+                                    <option value="<%= old.subCategory %>" selected><%= subCategory.title %></option>
+                                <% } else{ %>
+                                    <option value="<%=subCategory.id%>"><%= subCategory.title%></option> 
+                                <% } %>
+                             <%});%> 
+
+                        <% } else { %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% subCategories.forEach(subCategory => {%>
+                                <option value="<%=subCategory.id%>"><%= subCategory.title%></option> 
+                             <%});%>                           
+                            
+
+                        <% } %>
+                    </select>
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.subCategory) { %>
+                        <%= errors.subCategory.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
     
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Stock:</label>
-                    <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input">
+                    <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input" value="<%= typeof old == "undefined" ? null : old.stock %>">
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.stock) { %>
+                        <%= errors.stock.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">ISBN:</label>
-                    <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-input">
+                    <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-input" value="<%= typeof old == "undefined" ? null : old.isbn %>">
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.isbn) { %>
+                        <%= errors.isbn.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Numero de paginas:</label>
-                    <input type="text" id="paginas" name="pages" placeholder="Ej: 100" class="form-input">
+                    <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 100" class="form-input" value="<%= typeof old == "undefined" ? null : old.numberPages %>">
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.numberPages) { %>
+                        <%= errors.numberPages.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="editorial" class="form-label">Editorial:</label>
-                    <input type="text" id="editorial" name="editorial" placeholder="Ej: Salamanca" class="form-input">
+                    <select name="editorial" id="editorial" class="form-input">
+
+                        <% if (typeof old != 'undefined' && old.editorial) { %>
+                            <% editorials.forEach(editorial => {%>
+                                <% if (editorial.id == old.editorial) {%> 
+                                    <option value="<%= old.editorial %>" selected><%= editorial.name %></option>
+                                <% } else{ %>
+                                    <option value="<%=editorial.id%>"><%= editorial.name%></option> 
+                                <% } %>
+                             <%});%> 
+
+                        <% } else { %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% editorials.forEach(editorial => {%>
+                                <option value="<%=editorial.id%>"><%= editorial.name%></option> 
+                             <%});%>                           
+                            
+
+                        <% } %>
+                    </select>
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.editorial) { %>
+                        <%= errors.editorial.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="coverType" class="form-label">Tipo de tapa:</label>
 
                     <select name="coverType" id="coverType" class="form-input">
-                        <% coverTypes.forEach(coverType => {%>
-                           <option value="<%=coverType.id%>"><%=coverType.type%></option> 
-                        <%});%>
+
+                        <% if (typeof old != 'undefined' && old.coverType) { %>
+                            <% coverTypes.forEach(coverType => {%>
+                                <% if (coverType.id == old.coverType) {%> 
+                                    <option value="<%= old.coverType %>" selected><%= coverType.type %> </option>
+                                <% } else{ %>
+                                    <option value="<%=coverType.id%>"><%=coverType.type%></option> 
+                                <% } %>
+                             <%});%> 
+
+                        <% } else { %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% coverTypes.forEach(coverType => {%>
+                                <option value="<%=coverType.id%>"><%=coverType.type%></option> 
+                             <%});%>                           
+                            
+
+                        <% } %>
                     </select>
+
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.coverType) { %>
+                        <%= errors.coverType.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
                 <div class="col-12 col-md-6">
                     <label for="formatType" class="form-label">Formato:</label>
 
                     <select name="formatType" id="formatType" class="form-input">
-                        <% formatTypes.forEach(formatType => {%>
-                           <option value="<%=formatType.id%>"><%=formatType.type%></option> 
-                        <%});%>
+
+                        <% if (typeof old != 'undefined' && old.formatType) { %>
+                            <% formatTypes.forEach(formatType => {%>
+                                <% if (formatType.id == old.formatType) {%> 
+                                    <option value="<%= formatType.id %>" selected><%= formatType.type %> </option>
+                                <% } else{ %>
+                                    <option value="<%=formatType.id%>"><%=formatType.type%></option> 
+                                <% } %>
+                             <%});%>
+
+                        <% } else{ %>
+                            <option value="" disabled hidden selected>Elige una opcion</option>
+                            <% formatTypes.forEach(formatType => {%>
+                                <option value="<%=formatType.id%>"><%=formatType.type%></option> 
+                             <%});%> 
+                            
+
+                        <% } %>
+                        
+                        
                     </select>
                 </div>
 
-            <div class="caja-edicion-foto">
-                <label for="image" class="form-label">Imagen:</label>
-                <input class="input-edicion-foto"  type="file" name="image">
-            </div>
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.formatType) { %>
+                        <%= errors.formatType.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
 
+                <div class="caja-edicion-foto">
+                    <label for="image" class="form-label">Imagen:</label>
+                    <input class="input-edicion-foto" type="file" name="image" value="">
+                </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.image) { %>
+                        <%= errors.image.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
             
 
                 <div class="col-12">
                     <label for="description" class="form-label">Descripción:</label>
-                    <textarea name="description" id="description" class="form-input"></textarea>
+                    <textarea name="description" id="description" class="form-input"><%= typeof old == "undefined" ? null : old.description %></textarea>
                 </div>
+
+                <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.description) { %>
+                        <%= errors.description.msg %> 
+                      <% } %>
+                   <% }%>
+                  </small>
+                  
                 <div class="col-12">
                     <button type="submit" class="action-button edit">Crear producto</button>
                 </div>
