@@ -61,4 +61,7 @@ router.post('/profile/:id', validator.profile, usersController.editProfile);
 
 router.post('/checkout/:id', usersController.checkout);
 
+router.get('/create', usersController.create);
+router.post('/create', usersController.save);
+
 module.exports = router;

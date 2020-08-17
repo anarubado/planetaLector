@@ -368,7 +368,17 @@ const usersController = {
 
     })
 
+   },
+
+   create: function(req, res){
+
+   },
+
+   save: function(req, res){
+     
    }
+
+
 
 };
 

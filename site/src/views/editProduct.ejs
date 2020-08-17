@@ -16,43 +16,50 @@
         <form action="/products/edit/<%=product.id%>" method="post">
             <div class="row product-detail">
                 <div class="col-12 col-md-6">
-                    <label for="name" class="form-label">Nombre del producto:</label>
-                    <input type="text" id="name" name="name" placeholder="Ej: <%=product.title%>" class="form-input" value="<%=product.title%>">
+                    <label for="title" class="form-label">Nombre del producto:</label>
+                    <input type="text" id="title" name="title" class="form-input" value="<%=product.title%>">
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <label for="autor" class="form-label">Autores:</label>
-                    <select name="autores" id="autores" class="form-input">
-                        <% author.forEach(element => {%>
-                            <% if (element.id == product.authorId) {%> 
-                           <option selected value="<%=element.id%>"><%=element.name%>  <%=element.lastName%></option> 
-                            <%}%> 
+                    <label for="author" class="form-label">Autores:</label>
+                    <select name="author" id="author" class="form-input">
+                        <% authors.forEach(author => {%>
+                            <% if (author.id == product.authorId) {%> 
+                                <option value="<%=author.id%>" selected><%=author.name + " " + author.lastName %></option> 
+                            <% } else{ %>
+                                <option value="<%=author.id%>"><%=author.name + " " + author.lastName %></option>
+                            <% } %>
                         <%});%>
                     </select>
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Precio del producto:</label>
-                    <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%=product.price%>">
+                    <input type="text" id="price" name="price" class="form-input" value="<%=product.price%>">
                 </div>
                 <div class="col-12 col-md-6">
                     <label for="category" class="form-label">Categoría:</label>
                     <select name="category" id="category" class="form-input">
-                        <% category.forEach(element => {%>
-                            <% if(element.id == product.categoryId){ %> 
-                           <option selected value="<%=element.id%>"><%=element.title%></option>
-                            <% } %> 
+
+                        <% categories.forEach(category => {%>
+                            <% if(category.id == product.categoryId){ %> 
+                                <option selected value="<%=category.id%>"><%=category.title%></option>
+                            <% } else{ %>
+                                <option value="<%=category.id%>"><%= category.title %></option>
+                            <% } %>
                         <%});%>
                     </select>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <label for="Subcategory" class="form-label">Subcategoría:</label>
+                    <label for="subCategory" class="form-label">Subcategoría:</label>
 
-                    <select name="subcategory" id="subcategory" class="form-input">
-                        <% subCategory.forEach(element => {%>
-                            <% if (element.id == product.subCategoryId){ %> 
-                           <option selected value="<%=element.id%>"><%=element.title%></option> 
-                            <% } %> 
+                    <select name="subCategory" id="subCategory" class="form-input">
+                        <% subCategories.forEach(subCategory => {%>
+                            <% if (subCategory.id == product.subCategoryId){ %> 
+                                <option value="<%=subCategory.id%>" selected><%= subCategory.title %></option> 
+                            <% } else{ %>
+                                <option value="<%=subCategory.id%>"><%= subCategory.title %></option>
+                            <% } %>
                         <%});%>
                     </select>
                 </div>
@@ -61,7 +68,7 @@
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Stock:</label>
-                    <input type="text" id="stock" name="stock" placeholder="Ej: 5678" class="form-input" value="<%=product.stock%>">
+                    <input type="text" id="stock" name="stock" class="form-input" value="<%=product.stock%>">
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -71,17 +78,19 @@
 
                 <div class="col-12 col-md-6">
                     <label for="price" class="form-label">Numero de paginas:</label>
-                    <input type="text" id="paginas" name="paginas" placeholder="Ej: 5678" class="form-input" value="<%=product.numberPages%>">
+                    <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 5678" class="form-input" value="<%=product.numberPages%>">
                 </div>
 
                 <div class="col-12 col-md-6">
                     <label for="editorial" class="form-label">Editorial:</label>
 
                     <select name="editorial" id="editorial" class="form-input">
-                        <% editorial.forEach(element => {%>
-                            <% if(element.id == product.editorialId){ %> 
-                           <option selected value="<%=element.id%>"><%=element.name%></option> 
-                            <% } %> 
+                        <% editorials.forEach(editorial => {%>
+                            <% if(editorial.id == product.editorialId){ %> 
+                                <option value="<%=editorial.id%>" selected><%= editorial.name %></option> 
+                            <% } else{ %>
+                                <option value="<%=editorial.id%>"><%= editorial.name %></option>
+                            <% } %>
                         <%});%>
                     </select>
                 </div>
@@ -90,10 +99,12 @@
                     <label for="coverType" class="form-label">Tipo de tapa:</label>
 
                     <select name="coverType" id="coverType" class="form-input">
-                        <% coverType.forEach(element => {%>
-                            <% if(element.id == product.coverTypeId){ %> 
-                           <option selected value="<%=element.id%>"><%=element.type%></option> 
-                            <% } %> 
+                        <% coverTypes.forEach(coverType => {%>
+                            <% if(coverType.id == product.coverTypeId){ %> 
+                                <option value="<%=coverType.id%>" selected><%=coverType.type%></option> 
+                            <% } else{ %>
+                                <option value="<%=coverType.id%>"><%= coverType.type %></option>
+                            <% } %>
                         <%});%>
                     </select>
                 </div>
@@ -102,9 +113,11 @@
                     <label for="formatType" class="form-label">Formato:</label>
 
                     <select name="formatType" id="formatType" class="form-input">
-                        <% formatType.forEach(element => {%>
-                            <% if(element.id == product.formatTypeId){ %> 
-                           <option selected value="<%=element.id%>"><%=element.type%></option> 
+                        <% formatTypes.forEach(formatType => {%>
+                            <% if(formatType.id == product.formatTypeId){ %> 
+                                <option value="<%=formatType.id%>" selected><%=formatType.type%></option> 
+                        <% } else{ %>
+                            <option value="<%=formatType.id%>"><%= formatType.type %></option>
                         <% } %> 
                         <%});%>
                     </select>
@@ -112,7 +125,7 @@
 
             <div class="caja-edicion-foto">
                 <img class="imagen-edit"src= "/images/products/literature/<%=product.image%>" alt="Foto">
-                <input class="input-edicion-foto"  type="file" name="image" value="<%=product.image%>">
+                <input class="input-edicion-foto" type="file" name="image" value="<%=product.image%>">
             </div>
 
             

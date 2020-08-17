@@ -31,44 +31,42 @@ const productsController = {
     }, 
 
     edit: function(req, res){
-        let pedidoProducto = db.Products.findByPk(req.params.idProduct, {include: {
+        let product = db.Products.findByPk(req.params.idProduct, {include: {
               all: true
             }})
-        let pedidoCategory = db.Categories.findAll()
-        let pedidoSubCategory = db.SubCategories.findAll()
-        let pedidoAuthor = db.Authors.findAll()
-        let pedidoEditorial = db.Editorials.findAll()
-        let pedidoCovertype = db.CoverTypes.findAll()
-        let pedidoFormatype = db.FormatTypes.findAll()
+        let categories = db.Categories.findAll()
+        let subCategories = db.SubCategories.findAll()
+        let authors = db.Authors.findAll()
+        let editorials = db.Editorials.findAll()
+        let coverTypes = db.CoverTypes.findAll()
+        let formatTypes = db.FormatTypes.findAll()
         
       
-        Promise.all([pedidoProducto, pedidoCategory, pedidoSubCategory, pedidoAuthor, pedidoEditorial, pedidoCovertype, pedidoFormatype])
-            //console.log(product);
-            .then(function([product, category, subCategory, author, editorial, coverType, formatType]){
-                return res.render('editProduct',{product, category, subCategory, author, editorial, coverType, formatType})
+        Promise.all([product, categories, subCategories, authors, editorials, coverTypes, formatTypes])
+            .then(function([product, categories, subCategories, authors, editorials, coverTypes, formatTypes]){
+                return res.render('editProduct',{product, categories, subCategories, authors, editorials, coverTypes, formatTypes})
             })
             
     },
+
     update: function(req,res) {
         db.Products.update ({
-            title: req.body.name,
+            title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             stock: req.body.stock,
             isbn: req.body.isbn,
-            numberPages: req.body.paginas,
-            image: req.body.image,
-            authorId: req.body.autores,
+            numberPages: req.body.numberPages,
+            //image: req.file ? req.file.filename : 'default-image.jpg',
+            authorId: req.body.author,
             categoryId: req.body.category,
             subCategoryId: req.body.subCategory,
             editorialId: req.body.editorial,
             coverTypeId: req.body.coverType,
             formatTypeId: req.body.formatType
-
-            //authorId: req.body.autores
         }, {
             where: {
-                id:req.params.idProduct
+                id: req.params.idProduct
             }
         });
         /*db.Authors.update ({
@@ -118,16 +116,14 @@ const productsController = {
                 stock: req.body.stock,
                 isbn: req.body.isbn,
                 numberPages: req.body.numberPages,
-                image: req.file ? req.file.filename : 'default-image.jpg',
+                //image: req.file ? req.file.filename : 'default-image.jpg',
                 authorId: req.body.author,
                 categoryId: req.body.category,
                 subCategoryId: req.body.subCategory,
                 editorialId: req.body.editorial,
                 coverTypeId: req.body.coverType,
                 formatTypeId: req.body.formatType
-            })
-
-            console.log(req.file, 'aca anitiiiiiiiiiiiiiiiii');
+            });
     
             return res.redirect('/');
 
