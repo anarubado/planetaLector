@@ -9,6 +9,7 @@ const path = require('path');
 const multer = require('multer');
 const validator = require("../middlewares/validator");
 const auth = require('../middlewares/auth');
+const { user } = require("../middlewares/auth");
 
 // Multer
 
@@ -62,6 +63,14 @@ router.post('/profile/:id', validator.profile, usersController.editProfile);
 router.post('/checkout/:id', usersController.checkout);
 
 router.get('/create', usersController.create);
-router.post('/create', usersController.save);
+router.post('/create', validator.register, usersController.save);
+
+router.get('/list', usersController.list);
+
+router.post('/delete/:id', usersController.delete);
+
+router.get('/edit/:id', usersController.edit);
+
+
 
 module.exports = router;

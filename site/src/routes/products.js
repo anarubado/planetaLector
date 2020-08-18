@@ -48,6 +48,10 @@ router.get('/create', auth.guest, productsController.create);
 router.post('/create', upload.single('image'), validator.createProduct, productsController.save);
 
 /*Ruta para borrar un producto*/
-router.post('/delete/:idProduct', auth.guest, productsController.delete); 
+router.post('/delete/:idProduct', auth.guest, productsController.delete);
+
+/* Ruta para mostrar productos para el admin */
+router.get('/list', productsController.list);
+
 
 module.exports = router;

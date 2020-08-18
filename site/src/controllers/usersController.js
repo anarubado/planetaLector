@@ -32,7 +32,7 @@ const usersController = {
         email:req.body.email,
         image: req.file ? req.file.filename : 'default-image.jpg',
         password: req.body.password,
-        admin: req.body.admin ? 1 : 0
+        admin: 0
       })
       
       return res.redirect("/users/login"); // No deberia estar dentro de un then?
@@ -371,12 +371,76 @@ const usersController = {
    },
 
    create: function(req, res){
+     return res.render('admin/users/create');   
+
 
    },
 
    save: function(req, res){
+    let errors = validationResult(req);
+
+    // Si no hay errores, creo al usuario
+    if (errors.isEmpty()) {
+      
+      delete req.body.retype;
+      req.body.password = bcryptjs.hashSync(req.body.password, 10);
+      
+      db.Users.create({
+        username: req.body.username,
+        email: req.body.email,
+        //image: req.file ? req.file.filename : 'default-image.jpg',
+        password: req.body.password,
+        admin: req.body.admin ? 1 : 0
+      })
+      .then(function(){
+        return res.redirect("/users/list");
+      })
+      
+      
+
+    } else {
+      return res.render("admin/users/create", {errors: errors.mapped(), old: req.body});
+
+    }
      
-   }
+   },
+
+   list: function(req, res){
+    db.Users.findAll({
+        include: {
+            all: true
+        }
+    })
+    .then(function(users){
+        let details = users.map(user => {
+            return ({
+                id: user.id,
+                username: user.username,
+                email: user.email
+            })               
+        });
+        //return res.send(details)
+        return res.render('admin/users/list', {details: details});            
+
+    })
+        
+    },
+
+    delete: function(req, res){
+      db.Users.destroy({
+          where:{
+              id: req.params.id
+          }
+      })
+      .then(function(){
+        return res.redirect('/users/list');
+      })
+      
+  },
+
+  edit: function(req, res){
+    return res.redirect('/');
+  }
 
 
 

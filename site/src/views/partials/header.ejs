@@ -72,8 +72,17 @@
                                 </form>
                                 <% if(locals.user.admin == 1) { %> 
                                     <form action="/products/create" method="GET">
-                                        <button class = "dropdown-item" type="submit">Cargar productos</button>
-                                    </form> 
+                                        <button class = "dropdown-item" type="submit">Crear productos</button>
+                                    </form>
+                                    <form action="/users/create" method="GET">
+                                        <button class = "dropdown-item" type="submit">Crear usuarios</button>
+                                    </form>
+                                    <form action="/products/list" method="GET">
+                                        <button class = "dropdown-item" type="submit">Ver productos</button>
+                                    </form>
+                                    <form action="/users/list" method="GET">
+                                        <button class = "dropdown-item" type="submit">Ver usuarios</button>
+                                    </form>
                                 <% } %> 
                                 <form action="/users/logout" method="POST">
                                     <button class = "dropdown-item" type="submit">Cerrar sesión</button>

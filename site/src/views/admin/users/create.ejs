@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head', {title: 'Creá un usuario'}) %>
+<body>
+    <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2><i>Estás creando un usuario</i></h2>
+
+
+                <div class="col-12">
+                    <form action="/users/create" method="POST">
+                        
+            
+                            <div class="col-12 col-md-6">
+                                <label for="username" class="form-label">Nombre del usuario:</label>
+                                <input type="name" id="username" name="username" class="form-input"
+                                value="<%= typeof old == "undefined" ? null : old.username %>">
+                            </div>
+            
+                            <small class="error">
+                                <% if (typeof errors != 'undefined') { %>
+                                  <% if (errors.username) { %>
+                                    <%= errors.username.msg %> 
+                                  <% } %>
+                               <% }%>
+                            </small>
+
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label">Email del usuario: </label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                value="<%= typeof old == "undefined" ? null : old.email %>">
+                            </div>
+
+                            <small class="error">
+                                <% if (typeof errors != 'undefined') { %>
+                                  <% if (errors.email) { %>
+                                    <%= errors.email.msg %> 
+                                  <% } %>
+                               <% }%>
+                            </small>
+
+                            <div class="col-12 col-md-6">
+                                <label for="password" class="form-label">Ingrese su contrasenia</label>
+                                <input type="password" id="password" name="password" class="form-input"
+                                value="">
+                            </div>
+
+                            <small class="error">
+                                <% if (typeof errors != 'undefined') { %>
+                                  <% if (errors.password) { %>
+                                    <%= errors.password.msg %> 
+                                  <% } %>
+                               <% }%>
+                            </small>
+
+                            <div class="col-12 col-md-6">
+                                <label for="retype" class="form-label">Repita su contrasenia</label>
+                                <input type="password" id="retype" name="retype" class="form-input"
+                                value="">
+                            </div>
+
+                            <small class="error">
+                                <% if (typeof errors != 'undefined') { %>
+                                  <% if (errors.retype) { %>
+                                    <%= errors.retype.msg %> 
+                                  <% } %>
+                               <% }%>
+                            </small>
+
+                            
+                            <label for="admin" class="form-label">Admin</label>
+                            <input type="checkbox" id="admin" name="admin" class="form-input">
+
+
+                            <button type="submit" class="btn btn-info">Crear usuario</button>
+
+            
+                        
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

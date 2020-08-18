@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head', {title: 'Ver productos'}) %>
+<body>
+    <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
+    <div class="container">
+        <% details.forEach(detail => { %>
+            <span><%= detail.title + " - " + detail.author %></span>
+            <form action="/products/edit/<%= detail.id%> " method="GET">
+                <button class="btn btn-info"><i class="fas fa-edit"></i></button>
+            
+            </form>
+            <form action="/products/delete/<%= detail.id %> " method="POST">
+                <button class="btn btn-info"><i class="fas fa-trash"></i></button>            
+            </form>
+        
+        <% }) %>
+
+    </div>
+    
+    <%- include('../../partials/footer')  %> 
+    <%- include('../../partials/scripts-js')  %> 
+</body>
+</html>

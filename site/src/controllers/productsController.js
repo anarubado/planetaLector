@@ -44,7 +44,7 @@ const productsController = {
       
         Promise.all([product, categories, subCategories, authors, editorials, coverTypes, formatTypes])
             .then(function([product, categories, subCategories, authors, editorials, coverTypes, formatTypes]){
-                return res.render('editProduct',{product, categories, subCategories, authors, editorials, coverTypes, formatTypes})
+                return res.render('admin/products/edit',{product, categories, subCategories, authors, editorials, coverTypes, formatTypes})
             })
             
     },
@@ -88,7 +88,11 @@ const productsController = {
                 id: req.params.idProduct
             }
         })
-        return res.redirect('/');
+        .then(function(){
+            return res.redirect('/products/list');
+
+        })
+        
     },
 
     create: function(req,res){
@@ -101,7 +105,7 @@ const productsController = {
 
         Promise.all([authors, categories, subCategories, editorials, coverTypes, formatTypes])
             .then(function([authors, categories, subCategories, editorials, coverTypes,formatTypes]){
-                return res.render('createProduct', {authors, categories, subCategories, editorials, coverTypes, formatTypes});
+                return res.render('admin/products/create', {authors, categories, subCategories, editorials, coverTypes, formatTypes});
             })
     },
 
@@ -123,9 +127,13 @@ const productsController = {
                 editorialId: req.body.editorial,
                 coverTypeId: req.body.coverType,
                 formatTypeId: req.body.formatType
-            });
+            })
+            .then(function(){
+                return res.redirect('/products/list');
+
+            })
     
-            return res.redirect('/');
+            
 
         } else{
             let authors = db.Authors.findAll();
@@ -137,11 +145,33 @@ const productsController = {
 
             Promise.all([authors, categories, subCategories, editorials, coverTypes, formatTypes])
                 .then(function([authors, categories, subCategories, editorials, coverTypes,formatTypes]){
-                    return res.render('createProduct',{authors, categories, subCategories, editorials, coverTypes, formatTypes, errors: errors.mapped(), old: req.body});
+                    return res.render('admin/products/create',{authors, categories, subCategories, editorials, coverTypes, formatTypes, errors: errors.mapped(), old: req.body});
                 });
         }
 
         
+
+        
+    },
+
+    list: function(req, res){
+        db.Products.findAll({
+            include: {
+                all: true
+            }
+        })
+        .then(function(products){
+            let details = products.map(product => {
+                return ({
+                    id: product.id,
+                    title: product.title,
+                    author: product.author.name + " " + product.author.lastName
+                })               
+            });
+            return res.render('admin/products/list', {details: details});            
+
+        })
+            
     }
 }
 

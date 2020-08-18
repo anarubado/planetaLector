@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head', {title: 'Ver usuarios'}) %>
+<body>
+    <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
+    <div class="container">
+        
+        <% details.forEach(detail => { %>
+            <span><%= detail.id + ". " + detail.username + " - " + detail.email %></span>
+            <form action="/users/edit/<%= detail.id %> " method="GET">
+                <button class="btn btn-info"><i class="fas fa-edit"></i></button>
+            
+            </form>
+            <form action="/users/delete/<%= detail.id %> " method="POST">
+                <button class="btn btn-info"><i class="fas fa-trash"></i></button>            
+            </form>
+        
+        <% }) %>
+        
+        
+
+    </div>
+    
+    <%- include('../../partials/footer')  %> 
+    <%- include('../../partials/scripts-js')  %> 
+</body>
+</html>
