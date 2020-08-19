@@ -4,18 +4,47 @@
 <body>
     <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"})  %>
     <div class="container">
-        <% details.forEach(detail => { %>
-            <span><%= detail.title + " - " + detail.author %></span>
-            <form action="/products/edit/<%= detail.id%> " method="GET">
-                <button class="btn btn-info"><i class="fas fa-edit"></i></button>
-            
-            </form>
-            <form action="/products/delete/<%= detail.id %> " method="POST">
-                <button class="btn btn-info"><i class="fas fa-trash"></i></button>            
-            </form>
-        
-        <% }) %>
+        <div class="row">
 
+            <div class="col-12">
+                <h2 style="margin: 8px 0;">Lista de productos</h2>
+            </div>
+            
+            
+            <div class="col-12">
+                <table class="table table-striped" id="dataTable" width="100%" cellSpacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% details.forEach(detail => { %>
+
+                                <tr>
+                                    <td><%= detail.id %></td>
+                                    <td><%= detail.title %></td>
+                                    <td class="form-admin-button">
+                                        <form action="/products/edit/<%= detail.id %> " method="GET">
+                                            <button class="btn btn-info admin-button"><i class="fas fa-edit"></i></button>                
+                                        </form>
+                                        <form class="admin-trash" action="/products/delete/<%= detail.id %> " method="POST">
+                                            <button class="btn btn-info admin-button"><i class="fas fa-trash"></i></button>            
+                                        </form>
+
+                                    </td>
+                                </tr>
+                        <% }) %>                            
+                    </tbody>
+                </table>
+
+                        
+                        
+        
+
+            </div>
+        </div>
     </div>
     
     <%- include('../../partials/footer')  %> 

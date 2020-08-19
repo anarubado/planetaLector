@@ -363,6 +363,7 @@ const usersController = {
         })
       })
       .then(function(){
+        
         return res.redirect('/');
       })
 
@@ -440,6 +441,14 @@ const usersController = {
 
   edit: function(req, res){
     return res.redirect('/');
+  },
+
+  email: function(req, res){
+    db.Users.findByPk(req.params.id)
+    .then(function(user){
+      return res.render('admin/products/contact-form', {user: user});
+    })
+    
   }
 
 

@@ -1,6 +1,6 @@
-CREATE SCHEMA proyecto_db;
+CREATE SCHEMA proyecto_db1;
 
-USE proyecto_db;
+USE proyecto_db1;
 
 CREATE TABLE users(
 	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -141,7 +141,6 @@ ADD FOREIGN KEY (orderId) REFERENCES orders(id);
 
 ALTER TABLE orders
 ADD FOREIGN KEY (userId) REFERENCES users(id);
-
 
 
 

@@ -17,6 +17,15 @@ ul{
     list-style-type: none;
 }
 
+td{
+    font-size: 13.5px;
+}
+
+.table td, .table th{
+    vertical-align: middle;
+}
+
+
 /* ========== GENERAL CONFIGURATIONS (end) ========== */
 
 /* --------------------------------------------------------------------------------------------------------------------------------- */
@@ -277,6 +286,29 @@ ul{
 
 
 
+
+
+/* Payments */
+
+.payment-image{
+    display: flex;
+    justify-content: center;
+}
+.payment-image img{
+    height: 300px;
+    margin: 60px 0;
+}
+
+/* Admin views */
+
+.admin-trash{
+    display: none;
+}
+
+.table-item-hidden{
+    display: none;
+}
+
 @media (min-width: 768px){
 
     .footer-logo{
@@ -313,19 +345,16 @@ ul{
         right: 2%;
         width: 20%;
     }
-}
 
-/* Payments */
+    td{
+        font-size: 16px;
+    }
 
-.payment-image{
-    display: flex;
-    justify-content: center;
+    .admin-trash{
+        display: block;
+        margin-left: 10px;
+    }
 }
-.payment-image img{
-    height: 300px;
-    margin: 60px 0;
-}
-
 
 
 
@@ -790,14 +819,26 @@ ul{
     align-items: flex-start;
 }
 
-.trash-bin{
+.trash-bin, .admin-button{
     border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
 }
+
+.admin-button:last-child{
+    margin-right: 0px;
+}
+
+.form-admin-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 
 .total{
     margin-right: 10%;

@@ -71,6 +71,7 @@ router.post('/delete/:id', usersController.delete);
 
 router.get('/edit/:id', usersController.edit);
 
+//router.get('/email/:id', usersController.email);
 
 
 module.exports = router;
