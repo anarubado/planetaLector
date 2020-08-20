@@ -142,21 +142,21 @@ ADD FOREIGN KEY (orderId) REFERENCES orders(id);
 ALTER TABLE orders
 ADD FOREIGN KEY (userId) REFERENCES users(id);
 
-insert into categories values (	1, "LITERATURA");
-insert into categories values (	2, "DIVULGACION CIENTIFICA");
-insert into categories values (	3, "HISTORIA");
-insert into categories values (	4, "TECNOLOGIA");
-insert into categories values (	5, "CIENCIAS DE LA SALUD");
-insert into categories values (	6, "RELIGION");
-insert into categories values (	7, "DEPORTES");
-insert into categories values (	8, "EDUCACION FINANCIERA");
-insert into categories values (	9, "AUTOAYUDA");
+INSERT INTO categories VALUES (	1, "LITERATURA");
+INSERT INTO categories VALUES (	2, "DIVULGACION CIENTIFICA");
+INSERT INTO categories VALUES (	3, "HISTORIA");
+INSERT INTO categories VALUES (	4, "TECNOLOGIA");
+INSERT INTO categories VALUES (	5, "CIENCIAS DE LA SALUD");
+INSERT INTO categories VALUES (	6, "RELIGION");
+INSERT INTO categories VALUES (	7, "DEPORTES");
+INSERT INTO categories VALUES (	8, "EDUCACION FINANCIERA");
+INSERT INTO categories VALUES (	9, "AUTOAYUDA");
 
-insert into coverTypes values (	1, "BLANDA");
-insert into coverTypes values (	2, "DURA");
+INSERT INTO coverTypes VALUES (	1, "BLANDA");
+INSERT INTO coverTypes VALUES (	2, "DURA");
 
-insert into formatTypes values (1, "DIGITAL");
-insert into formatTypes values (2, "FISICO");
+INSERT INTO formatTypes VALUES (1, "DIGITAL");
+INSERT INTO formatTypes VALUES (2, "FISICO");
 
 
 
