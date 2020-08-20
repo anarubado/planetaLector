@@ -142,6 +142,22 @@ ADD FOREIGN KEY (orderId) REFERENCES orders(id);
 ALTER TABLE orders
 ADD FOREIGN KEY (userId) REFERENCES users(id);
 
+insert into categories values (	1, "LITERATURA");
+insert into categories values (	2, "DIVULGACION CIENTIFICA");
+insert into categories values (	3, "HISTORIA");
+insert into categories values (	4, "TECNOLOGIA");
+insert into categories values (	5, "CIENCIAS DE LA SALUD");
+insert into categories values (	6, "RELIGION");
+insert into categories values (	7, "DEPORTES");
+insert into categories values (	8, "EDUCACION FINANCIERA");
+insert into categories values (	9, "AUTOAYUDA");
+
+insert into coverTypes values (	1, "BLANDA");
+insert into coverTypes values (	2, "DURA");
+
+insert into formatTypes values (1, "DIGITAL");
+insert into formatTypes values (2, "FISICO");
+
 
 
 
