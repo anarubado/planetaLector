@@ -25,6 +25,10 @@ td{
     vertical-align: middle;
 }
 
+h2{
+    margin: 20px 0;
+}
+
 
 /* ========== GENERAL CONFIGURATIONS (end) ========== */
 
@@ -43,6 +47,7 @@ td{
 .main-header{
     background-color: #343A40;
 }
+
 
 /* index-presentation */
 
@@ -305,8 +310,13 @@ td{
     display: none;
 }
 
-.table-item-hidden{
-    display: none;
+.admin-errors{
+    color: #17a2b8;
+}
+
+.admin-file{
+    display: block;
+    font-size: 11.2px;
 }
 
 @media (min-width: 768px){
@@ -353,6 +363,14 @@ td{
     .admin-trash{
         display: block;
         margin-left: 10px;
+    }
+
+    
+}
+
+@media (min-width: 1024px){
+    .admin-file{
+        font-size: 16px;
     }
 }
 
@@ -879,20 +897,9 @@ td{
     border-radius: 8px;
     font-size: 1.2em;
     color: #ffffff;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     padding: 15px 30px;
     margin-top: 15px;
     margin-bottom: 15px;
-  }
-
-.action-button.delete {
-    background-color:#E1306C;
-  }
-
-  .action-button.edit {
-    background-color:#17a2b8;
   }
   
 
@@ -903,12 +910,7 @@ td{
     width: 25%;
 }
 
-.caja-edicion-foto {
-    display: flex;
-    flex-direction: row;
-}
 
-.input-edicion-foto {
-    align-self: center;
-    margin-left: 15px;
-}
+
+
+

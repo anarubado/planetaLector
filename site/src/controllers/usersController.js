@@ -372,9 +372,7 @@ const usersController = {
    },
 
    create: function(req, res){
-     return res.render('admin/users/create');   
-
-
+     return res.render('admin/users/create');
    },
 
    save: function(req, res){

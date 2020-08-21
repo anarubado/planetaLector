@@ -3,36 +3,38 @@
 
 <%- include('../../partials/head', {title: 'Creá un producto'}) %>
 <body>
-    <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
+    <%- include('../../partials/header', {bgColor: "bg-dark ", navbarColor: " navbar-dark"}) %>
     <div class="container">
+
         <div class="row">
+            
             <div class="col-12">
-                <h2 class="products-title"><i>Estás creando un producto</i></h2>
+                <h2 style="text-align: center;">Creá un producto</h2>
             </div>
 
             <div class="col-12">
                 <!--pasar el id del producto a la ruta que viaja por post-->
                 <form action="/products/create" method="POST">
-                    <div class="row product-detail">
+                    <div class="row">
 
                         <div class="col-12 col-md-6">
-                            <label for="name" class="form-label">Nombre del producto:</label>
-                            <input type="text" id="title" name="title" placeholder="Ej:Harry Potter y la piedra filosofal" class="form-input"
+                            <label class="form-label" for="name">Nombre del producto</label>
+                            <input type="text" id="title" name="title" class="form-control"
                             value="<%= typeof old == "undefined" ? null : old.title %>">
+                        
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.title) { %>
+                                    <%= errors.title.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.title) { %>
-                                <%= errors.title.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
-
                         <div class="col-12 col-md-6">
-                            <label for="author" class="form-label">Autor:</label>
+                            <label class="form-label" for="author">Autor</label>
 
-                            <select name="author" id="author" class="form-input">
+                            <select name="author" id="author" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.author) { %>
                                     <% authors.forEach(author => {%>
@@ -44,7 +46,7 @@
                                     <%});%> 
 
                                 <% } else { %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% authors.forEach(author => {%>
                                         <option value="<%=author.id%>"><%=author.name + " " + author.lastName%></option> 
                                     <%});%>                           
@@ -52,33 +54,36 @@
 
                                 <% } %>
                             </select>
+
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.author) { %>
+                                    <%= errors.author.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                             
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.author) { %>
-                                <%= errors.author.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">Precio del producto:</label>
-                            <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= typeof old == "undefined" ? null : old.price %>">
+                            <label class="form-label" for="price">Precio del producto</label>
+                            <input type="text" id="price" name="price" class="form-control" value="<%= typeof old == "undefined" ? null : old.price %>">
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.price) { %>
+                                    <%= errors.price.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.price) { %>
-                                <%= errors.price.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
                         
                         <div class="col-12 col-md-6">
-                            <label for="category" class="form-label">Categoría:</label>
-                            <select name="category" id="category" class="form-input">
+                            <label class="form-label" for="category">Categoría</label>
+                            <select name="category" id="category" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.category) { %>
                                     <% categories.forEach(category => {%>
@@ -90,7 +95,7 @@
                                     <%});%> 
 
                                 <% } else { %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% categories.forEach(category => {%>
                                         <option value="<%=category.id%>"><%= category.title%></option> 
                                     <%});%>                           
@@ -99,19 +104,21 @@
                                 <% } %>
                             </select>
 
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.category) { %>
+                                    <%= errors.category.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
+
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.category) { %>
-                                <%= errors.category.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="Subcategory" class="form-label">Subcategoría:</label>
-                            <select name="subCategory" id="subCategory" class="form-input">
+                            <label class="form-label" for="Subcategory">Subcategoría</label>
+                            <select name="subCategory" id="subCategory" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.subCategory) { %>
                                     <% subCategories.forEach(subCategory => {%>
@@ -123,7 +130,7 @@
                                     <%});%> 
 
                                 <% } else { %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% subCategories.forEach(subCategory => {%>
                                         <option value="<%=subCategory.id%>"><%= subCategory.title%></option> 
                                     <%});%>                           
@@ -131,58 +138,64 @@
 
                                 <% } %>
                             </select>
+
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.subCategory) { %>
+                                    <%= errors.subCategory.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.subCategory) { %>
-                                <%= errors.subCategory.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
             
                         <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">Stock:</label>
-                            <input type="text" id="stock" name="stock" placeholder="Ej: 10" class="form-input" value="<%= typeof old == "undefined" ? null : old.stock %>">
+                            <label class="form-label" for="price">Stock</label>
+                            <input type="text" id="stock" name="stock" class="form-control" value="<%= typeof old == "undefined" ? null : old.stock %>">
+                        
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.stock) { %>
+                                    <%= errors.stock.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.stock) { %>
-                                <%= errors.stock.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">ISBN:</label>
-                            <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-input" value="<%= typeof old == "undefined" ? null : old.isbn %>">
+                            <label class="form-label" for="price">ISBN</label>
+                            <input type="text" id="isbn" name="isbn" class="form-control" value="<%= typeof old == "undefined" ? null : old.isbn %>">
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.isbn) { %>
+                                    <%= errors.isbn.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.isbn) { %>
-                                <%= errors.isbn.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="price" class="form-label">Numero de paginas:</label>
-                            <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 100" class="form-input" value="<%= typeof old == "undefined" ? null : old.numberPages %>">
+                            <label class="form-label" for="price">Numero de paginas</label>
+                            <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 100" class="form-control" value="<%= typeof old == "undefined" ? null : old.numberPages %>">
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                    <% if (errors.numberPages) { %>
+                                        <%= errors.numberPages.msg %> 
+                                    <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.numberPages) { %>
-                                <%= errors.numberPages.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="editorial" class="form-label">Editorial:</label>
-                            <select name="editorial" id="editorial" class="form-input">
+                            <label for="editorial" class="form-label">Editorial</label>
+                            <select name="editorial" id="editorial" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.editorial) { %>
                                     <% editorials.forEach(editorial => {%>
@@ -194,7 +207,7 @@
                                     <%});%> 
 
                                 <% } else { %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% editorials.forEach(editorial => {%>
                                         <option value="<%=editorial.id%>"><%= editorial.name%></option> 
                                     <%});%>                           
@@ -202,20 +215,22 @@
 
                                 <% } %>
                             </select>
+
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.editorial) { %>
+                                    <%= errors.editorial.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.editorial) { %>
-                                <%= errors.editorial.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="coverType" class="form-label">Tipo de tapa:</label>
+                            <label for="coverType" class="form-label">Tipo de tapa</label>
 
-                            <select name="coverType" id="coverType" class="form-input">
+                            <select name="coverType" id="coverType" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.coverType) { %>
                                     <% coverTypes.forEach(coverType => {%>
@@ -227,7 +242,7 @@
                                     <%});%> 
 
                                 <% } else { %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% coverTypes.forEach(coverType => {%>
                                         <option value="<%=coverType.id%>"><%=coverType.type%></option> 
                                     <%});%>                           
@@ -236,20 +251,22 @@
                                 <% } %>
                             </select>
 
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.coverType) { %>
+                                    <%= errors.coverType.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
+
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.coverType) { %>
-                                <%= errors.coverType.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
                         <div class="col-12 col-md-6">
-                            <label for="formatType" class="form-label">Formato:</label>
+                            <label for="formatType" class="form-label">Formato</label>
 
-                            <select name="formatType" id="formatType" class="form-input">
+                            <select name="formatType" id="formatType" class="form-control">
 
                                 <% if (typeof old != 'undefined' && old.formatType) { %>
                                     <% formatTypes.forEach(formatType => {%>
@@ -261,7 +278,7 @@
                                     <%});%>
 
                                 <% } else{ %>
-                                    <option value="" disabled hidden selected>Elige una opcion</option>
+                                    <option value="" disabled hidden selected>Elige una opción</option>
                                     <% formatTypes.forEach(formatType => {%>
                                         <option value="<%=formatType.id%>"><%=formatType.type%></option> 
                                     <%});%> 
@@ -271,45 +288,48 @@
                                 
                                 
                             </select>
+
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.formatType) { %>
+                                    <%= errors.formatType.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.formatType) { %>
-                                <%= errors.formatType.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
 
-                        <div class="caja-edicion-foto">
-                            <label for="image" class="form-label">Imagen:</label>
-                            <input class="input-edicion-foto" type="file" name="image" value="">
+                        <div class="col-12 col-md-6">
+                            <label for="image" class="form-label">Imagen</label>
+                            <input class="admin-file" type="file" name="image" value="">
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.image) { %>
+                                    <%= errors.image.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
+                        
                         </div>
-
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.image) { %>
-                                <%= errors.image.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
-                    
 
                         <div class="col-12">
-                            <label for="description" class="form-label">Descripción:</label>
-                            <textarea name="description" id="description" class="form-input"><%= typeof old == "undefined" ? null : old.description %></textarea>
+                            <label for="description" class="form-label">Descripción</label>
+                            <textarea name="description" id="description" rows="5" class="form-control"><%= typeof old == "undefined" ? null : old.description %></textarea>
+                            <small class="error admin-errors">
+                                <% if (typeof errors != 'undefined') { %>
+                                <% if (errors.description) { %>
+                                    <%= errors.description.msg %> 
+                                <% } %>
+                            <% }%>
+                            </small>
+                        
                         </div>
 
-                        <small class="error">
-                            <% if (typeof errors != 'undefined') { %>
-                            <% if (errors.description) { %>
-                                <%= errors.description.msg %> 
-                            <% } %>
-                        <% }%>
-                        </small>
+                        
                         
                         <div class="col-12">
-                            <button type="submit" class="action-button edit">Crear producto</button>
+                            <button type="submit" class="btn btn-info action-button">Crear producto</button>
                         </div>
                     </div>
                 </form>
