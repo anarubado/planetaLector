@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../partials/head', {title: 'Edita un usuario'}) %>
+<body>
+    <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-12">
+          <h2 style="text-align: center;">Estas editando a <%= user.username %> </h2>
+        </div>
+
+        <div class="col-12">
+          <form action="/users/edit/<%= user.id %>" method="POST">
+            <div class="row">
+
+              <div class="col-12 col-md-6">
+                  <label for="username" class="form-label">Nombre del usuario</label>
+                  <input type="name" id="username" name="username" class="form-control"
+                  value="<%= user.username %> ">
+
+                  <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.username) { %>
+                        <%= errors.username.msg %> 
+                      <% } %>
+                  <% }%>
+                </small>
+              </div>
+
+              
+
+              <div class="col-12 col-md-6">
+                  <label for="email" class="form-label">Email del usuario</label>
+                  <input type="email" id="email" name="email" class="form-control"
+                  value="<%= user.email %> ">
+
+                  <small class="error">
+                    <% if (typeof errors != 'undefined') { %>
+                      <% if (errors.email) { %>
+                        <%= errors.email.msg %> 
+                      <% } %>
+                  <% }%>
+                </small>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <!-- Mostrar imagen y dar opcion de cambiarla -->
+                <!-- <img src="" alt=""> -->
+                <label for="image" class="form-label">Imagen</label>
+                <input class="admin-file" type="file" name="image" value="">
+                <small class="error admin-errors">
+                    <% if (typeof errors != 'undefined') { %>
+                    <% if (errors.image) { %>
+                        <%= errors.image.msg %> 
+                    <% } %>
+                <% }%>
+                </small>
+            
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label for="admin" class="form-label">Admin</label>
+                <% if (user.admin = 1) { %>
+                    <input type="checkbox" id="admin" name="admin" checked>
+                <% } else{%>
+                    <input type="checkbox" id="admin" name="admin">
+                <% } %>
+            </div>
+
+              <div class="col-12">
+                <button style="display: block;" type="submit" class="btn btn-info action-button">Editar usuario</button>
+              </div>
+
+            </div>  
+          </form>
+
+        </div>
+
+        
+      </div>
+    </div>
+</body>
+</html>

@@ -1,150 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../../partials/head', {title: 'Inicio'}) %>
+<%- include('../../partials/head', {title: 'Editando: ' + product.title}) %>
 <body>
     <%- include('../../partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>
-<div class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="products-title"><i>Estás editando:<%=product.title%></i></h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2><%=product.title%></h2>
+            </div>
+
+            <div class="col-12">
+
+                <form action="/products/edit/<%=product.id%>" method="POST">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="title" class="form-label">Nombre del producto</label>
+                            <input type="text" id="title" name="title" class="form-control" value="<%=product.title%>">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="author" class="form-label">Autores</label>
+                            <select name="author" id="author" class="form-control">
+                                <% authors.forEach(author => {%>
+                                    <% if (author.id == product.authorId) {%> 
+                                        <option value="<%=author.id%>" selected><%=author.name + " " + author.lastName %></option> 
+                                    <% } else{ %>
+                                        <option value="<%=author.id%>"><%=author.name + " " + author.lastName %></option>
+                                    <% } %>
+                                <%});%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label">Precio del producto</label>
+                            <input type="text" id="price" name="price" class="form-control" value="<%=product.price%>">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="category" class="form-label">Categoría:</label>
+                            <select name="category" id="category" class="form-control">
+
+                                <% categories.forEach(category => {%>
+                                    <% if(category.id == product.categoryId){ %> 
+                                        <option selected value="<%=category.id%>"><%=category.title%></option>
+                                    <% } else{ %>
+                                        <option value="<%=category.id%>"><%= category.title %></option>
+                                    <% } %>
+                                <%});%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="subCategory" class="form-label">Subcategoría:</label>
+
+                            <select name="subCategory" id="subCategory" class="form-control">
+                                <% subCategories.forEach(subCategory => {%>
+                                    <% if (subCategory.id == product.subCategoryId){ %> 
+                                        <option value="<%=subCategory.id%>" selected><%= subCategory.title %></option> 
+                                    <% } else{ %>
+                                        <option value="<%=subCategory.id%>"><%= subCategory.title %></option>
+                                    <% } %>
+                                <%});%>
+                            </select>
+                        </div>                        
+
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label">Stock:</label>
+                            <input type="text" id="stock" name="stock" class="form-control" value="<%=product.stock%>">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label">ISBN:</label>
+                            <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-control" value="<%=product.isbn%>">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="price" class="form-label">Numero de paginas:</label>
+                            <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 5678" class="form-control" value="<%=product.numberPages%>">
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="editorial" class="form-label">Editorial:</label>
+
+                            <select name="editorial" id="editorial" class="form-control">
+                                <% editorials.forEach(editorial => {%>
+                                    <% if(editorial.id == product.editorialId){ %> 
+                                        <option value="<%=editorial.id%>" selected><%= editorial.name %></option> 
+                                    <% } else{ %>
+                                        <option value="<%=editorial.id%>"><%= editorial.name %></option>
+                                    <% } %>
+                                <%});%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="coverType" class="form-label">Tipo de tapa:</label>
+
+                            <select name="coverType" id="coverType" class="form-control">
+                                <% coverTypes.forEach(coverType => {%>
+                                    <% if(coverType.id == product.coverTypeId){ %> 
+                                        <option value="<%=coverType.id%>" selected><%=coverType.type%></option> 
+                                    <% } else{ %>
+                                        <option value="<%=coverType.id%>"><%= coverType.type %></option>
+                                    <% } %>
+                                <%});%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="formatType" class="form-label">Formato:</label>
+
+                            <select name="formatType" id="formatType" class="form-control">
+                                <% formatTypes.forEach(formatType => {%>
+                                    <% if(formatType.id == product.formatTypeId){ %> 
+                                        <option value="<%=formatType.id%>" selected><%=formatType.type%></option> 
+                                <% } else{ %>
+                                    <option value="<%=formatType.id%>"><%= formatType.type %></option>
+                                <% } %> 
+                                <%});%>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="image" class="form-label">Imagen</label>
+                            <!-- Mostrar imagen y dar opcion de cambiarla -->
+                            <!-- <img src= ""> -->
+                            <input class="admin-file" type="file" name="image" value="<%=product.image%>">
+                        </div>                    
+
+                        <div class="col-12">
+                            <label for="description" class="form-label">Descripción:</label>
+                            <textarea name="description" id="description" rows="5" class="form-control"><%=product.description%></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-info action-button">Editar producto</button>
+                            
+                        </div>
+                    </div>
+                </form>
+                <form action="/products/delete/<%=product.id%>" method="POST">
+                    <button type="submit" class="btn btn-danger action-button">Borrar producto</button>
+                </form>
+            </div>
         </div>
     </div>
-
-    <div class="col-12">
-        <!--pasar el id del producto a la ruta que viaja por post-->
-        <form action="/products/edit/<%=product.id%>" method="post">
-            <div class="row product-detail">
-                <div class="col-12 col-md-6">
-                    <label for="title" class="form-label">Nombre del producto:</label>
-                    <input type="text" id="title" name="title" class="form-input" value="<%=product.title%>">
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="author" class="form-label">Autores:</label>
-                    <select name="author" id="author" class="form-input">
-                        <% authors.forEach(author => {%>
-                            <% if (author.id == product.authorId) {%> 
-                                <option value="<%=author.id%>" selected><%=author.name + " " + author.lastName %></option> 
-                            <% } else{ %>
-                                <option value="<%=author.id%>"><%=author.name + " " + author.lastName %></option>
-                            <% } %>
-                        <%});%>
-                    </select>
-                </div>
-                <div class="col-12 col-md-6">
-                    <label for="price" class="form-label">Precio del producto:</label>
-                    <input type="text" id="price" name="price" class="form-input" value="<%=product.price%>">
-                </div>
-                <div class="col-12 col-md-6">
-                    <label for="category" class="form-label">Categoría:</label>
-                    <select name="category" id="category" class="form-input">
-
-                        <% categories.forEach(category => {%>
-                            <% if(category.id == product.categoryId){ %> 
-                                <option selected value="<%=category.id%>"><%=category.title%></option>
-                            <% } else{ %>
-                                <option value="<%=category.id%>"><%= category.title %></option>
-                            <% } %>
-                        <%});%>
-                    </select>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="subCategory" class="form-label">Subcategoría:</label>
-
-                    <select name="subCategory" id="subCategory" class="form-input">
-                        <% subCategories.forEach(subCategory => {%>
-                            <% if (subCategory.id == product.subCategoryId){ %> 
-                                <option value="<%=subCategory.id%>" selected><%= subCategory.title %></option> 
-                            <% } else{ %>
-                                <option value="<%=subCategory.id%>"><%= subCategory.title %></option>
-                            <% } %>
-                        <%});%>
-                    </select>
-                </div>
-
-                
-
-                <div class="col-12 col-md-6">
-                    <label for="price" class="form-label">Stock:</label>
-                    <input type="text" id="stock" name="stock" class="form-input" value="<%=product.stock%>">
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="price" class="form-label">ISBN:</label>
-                    <input type="text" id="isbn" name="isbn" placeholder="Ej: 5678" class="form-input" value="<%=product.isbn%>">
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="price" class="form-label">Numero de paginas:</label>
-                    <input type="text" id="numberPages" name="numberPages" placeholder="Ej: 5678" class="form-input" value="<%=product.numberPages%>">
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="editorial" class="form-label">Editorial:</label>
-
-                    <select name="editorial" id="editorial" class="form-input">
-                        <% editorials.forEach(editorial => {%>
-                            <% if(editorial.id == product.editorialId){ %> 
-                                <option value="<%=editorial.id%>" selected><%= editorial.name %></option> 
-                            <% } else{ %>
-                                <option value="<%=editorial.id%>"><%= editorial.name %></option>
-                            <% } %>
-                        <%});%>
-                    </select>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="coverType" class="form-label">Tipo de tapa:</label>
-
-                    <select name="coverType" id="coverType" class="form-input">
-                        <% coverTypes.forEach(coverType => {%>
-                            <% if(coverType.id == product.coverTypeId){ %> 
-                                <option value="<%=coverType.id%>" selected><%=coverType.type%></option> 
-                            <% } else{ %>
-                                <option value="<%=coverType.id%>"><%= coverType.type %></option>
-                            <% } %>
-                        <%});%>
-                    </select>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <label for="formatType" class="form-label">Formato:</label>
-
-                    <select name="formatType" id="formatType" class="form-input">
-                        <% formatTypes.forEach(formatType => {%>
-                            <% if(formatType.id == product.formatTypeId){ %> 
-                                <option value="<%=formatType.id%>" selected><%=formatType.type%></option> 
-                        <% } else{ %>
-                            <option value="<%=formatType.id%>"><%= formatType.type %></option>
-                        <% } %> 
-                        <%});%>
-                    </select>
-                </div>
-
-            <div class="caja-edicion-foto">
-                <img class="imagen-edit"src= "/images/products/literature/<%=product.image%>" alt="Foto">
-                <input class="input-edicion-foto" type="file" name="image" value="<%=product.image%>">
-            </div>
-
-            
-
-                <div class="col-12">
-                    <label for="description" class="form-label">Descripción:</label>
-                    <textarea name="description" id="description" class="form-input"><%=product.description%></textarea>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="action-button edit">Editar producto</button>
-                    
-                </div>
-            </div>
-        </form>
-        <form action="/products/delete/<%=product.id%>" method="POST">
-            <button type="submit" class="action-button delete">Borrar producto</button>
-        </form>
-    </div>
-</div>
-<%- include ('../../partials/footer') %>
-<%- include('../../partials/scripts-js') %>  
+    <%- include ('../../partials/footer') %>
+    <%- include('../../partials/scripts-js') %>  
 </body>

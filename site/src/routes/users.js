@@ -70,6 +70,7 @@ router.get('/list', usersController.list);
 router.post('/delete/:id', usersController.delete);
 
 router.get('/edit/:id', usersController.edit);
+router.post('/edit/:id', usersController.processEdit);
 
 //router.get('/email/:id', usersController.email);
 

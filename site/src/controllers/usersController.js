@@ -438,15 +438,27 @@ const usersController = {
   },
 
   edit: function(req, res){
-    return res.redirect('/');
+    db.Users.findByPk(req.params.id)
+      .then(function(user){
+        return res.render('admin/users/edit', {user: user} )
+      })
   },
 
-  email: function(req, res){
-    db.Users.findByPk(req.params.id)
-    .then(function(user){
-      return res.render('admin/products/contact-form', {user: user});
+  processEdit: function(req, res){
+    db.Users.update({
+      username: req.body.username,
+      email: req.body.email,
+      //image: 
+      admin: req.body.admin ? 1 : 0
+    }, {
+      where: {
+        id: req.params.id
+      }
     })
-    
+    .then(function(){
+      req.session.user.username = req.body.username;
+      return res.redirect('/users/list')
+    })
   }
 
 
