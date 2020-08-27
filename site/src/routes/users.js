@@ -26,7 +26,8 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage,
-  imageFilter: function(req, file, cb){
+
+  fileFilter: function(req, file, cb){
 
     let acceptedExt = ['.jpg', '.png', '.jepg'];
     let ext = path.extname(file.originalname);
@@ -43,6 +44,9 @@ var upload = multer({ storage: storage,
 
 router.get("/register", auth.user, usersController.register);
 router.post("/register", upload.single('image'), validator.register, usersController.processRegister);
+
+
+
 
 router.get("/login", auth.user, usersController.login);
 router.post ('/login', validator.login, usersController.processLogin);
@@ -63,7 +67,7 @@ router.post('/profile/:id', validator.profile, usersController.editProfile);
 router.post('/checkout/:id', usersController.checkout);
 
 router.get('/create', usersController.create);
-router.post('/create', validator.register, usersController.save);
+router.post('/create', upload.single('image'), validator.register, usersController.save);
 
 router.get('/list', usersController.list);
 

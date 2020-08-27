@@ -387,11 +387,12 @@ const usersController = {
       db.Users.create({
         username: req.body.username,
         email: req.body.email,
-        //image: req.file ? req.file.filename : 'default-image.jpg',
+        image: req.file ? req.file.filename : 'default-image.jpg',
         password: req.body.password,
         admin: req.body.admin ? 1 : 0
       })
       .then(function(){
+
         return res.redirect("/users/list");
       })
       

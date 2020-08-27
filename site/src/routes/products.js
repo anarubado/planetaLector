@@ -21,22 +21,22 @@ var storage = multer.diskStorage({
   })
   
   var upload = multer({ storage: storage,
-    imageFilter: function(req, file, cb){
-      console.log("start: ", req.file)
+    fileFilter: function(req, file, cb){
       let acceptedExt = ['.jpg', '.png', '.jepg'];
       let ext = path.extname(file.originalname);
   
       if(!acceptedExt.includes(ext)){
         req.file = file;
       }
-
-      console.log("finish: ", req.file)
   
       cb(null, acceptedExt.includes(ext));
     }
   })
 
-router.get('/', productsController.index);
+//router.get('/categories', productsController.categories);
+
+router.get('/category/:id', productsController.category);
+
 router.get('/detail/:idProduct', productsController.detail);
 
 /*Rutas para editar un producto*/
