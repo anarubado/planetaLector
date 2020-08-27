@@ -3,6 +3,7 @@ const app = express();
 const session = require ('express-session');
 const cookieParser = require('cookie-parser');
 const log = require('./middlewares/log');
+const categories = require ('./middlewares/categories');
 
 // Requerimientos de rutas
 const homeRouter = require('./routes/home');
@@ -32,8 +33,8 @@ app.listen(3030, function(){
 
 // Middlewares propios a nivel de aplicacion
 
+app.use(categories);
 app.use(log);
-
 
 // Rutas
 app.use('/', homeRouter);
