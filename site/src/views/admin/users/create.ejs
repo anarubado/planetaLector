@@ -78,8 +78,9 @@
               </div>
 
               <div class="col-12 col-md-6">
-                <label for="image" class="form-label">Imagen</label>
+                <label class="form-label">Imagen</label>
                 <input class="admin-file" type="file" name="image" value="">
+
                 <small class="error admin-errors">
                     <% if (typeof errors != 'undefined') { %>
                     <% if (errors.image) { %>
@@ -88,7 +89,7 @@
                 <% }%>
                 </small>
             
-            </div>
+              </div>
 
               <div class="col-12 col-md-6">
                 <label for="admin" class="form-label">Admin</label>
@@ -107,5 +108,7 @@
         
       </div>
     </div>
+    <%- include('../../partials/footer')  %> 
+    <%- include('../../partials/scripts-js')  %> 
 </body>
 </html>

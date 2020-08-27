@@ -52,8 +52,7 @@ const validator = {
             
             //let user = usersModel.findBySomething((user) => user.email == value);    
             //return !user;
-          })
-          .withMessage("El email ya esta registrado"),
+          }),
 
         body("image")
           .custom(function(value, {req}){

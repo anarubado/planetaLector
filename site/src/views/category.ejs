@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head', {title: 'Literatura'}) %>
+<%- include('partials/head', {title: category.title}) %>
 <body>
     <!--header-->
     <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %> 
 
     <div class = "container">
-        <%- include('partials/banner-title', {title: "Literatura", route: "Inicio / Categorías / Literatura", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
+        <%- include('partials/banner-title', {title: category.title, route: "Inicio / Categorías / Literatura", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
     <!--Categorias-->
         <div class = "cuerpo">     
             <nav class = "menu-categorias">
@@ -45,47 +45,47 @@
             <h2>Novedades</h2>
 
             <section class="section-productos-novedades row">
-            <% novedades.forEach(libro => { %>
+            <!-- <%# novedades.forEach(libro => { %>
                 <article class= "producto-novedades col-12 col-sm-12 col-md-6 row">
                     <span class= "caja-imagen col-12 col-sm-12 col-md-6">
-                        <a href="/products/detail/<%= libro.id %>">
-                            <img src= "<%= libro.imagen %> "alt="" class="imagen-libro">
+                        <a href="/products/detail/<%#= libro.id %>">
+                            <img src= "<%#= libro.imagen %> "alt="" class="imagen-libro">
                         </a>
                     </span>
                     <span class = "descripcion-producto col-12 col-sm-12 col-md-6">
-                        <a href="/products/detail/<%= libro.id %>">
-                            <h3 class="nombre-libro"><%= libro.titulo %> </h3>
+                        <a href="/products/detail/<%#= libro.id %>">
+                            <h3 class="nombre-libro"><%#= libro.titulo %> </h3>
                         </a>
-                        <p>por <%= libro.autor %> </p>
-                        <p><%= libro.descripcion %> </p>
+                        <p>por <%#= libro.autor %> </p>
+                        <p><%#= libro.descripcion %> </p>
                     </span>
                 </article>                 
-            <% }) %>
+            <%# }) %> -->
             </section>
 
             <h2 class ="descuentos">Descuentos</h2>             
             
             <section class= "productos-descuento row">
-                <% descuentos.forEach(libro => { %>
+                <!-- <%# descuentos.forEach(libro => { %>
                 <article class = "producto-descuento col-12 col-sm-12 col-md-4">
-                    <a href="/products/detail/<%= libro.id  %>  ">
-                        <img src="<%= libro.imagen %>" alt="">
+                    <a href="/products/detail/<%#= libro.id  %>  ">
+                        <img src="<%#= libro.imagen %>" alt="">
                     </a>                    
                     <div class = "descripcion-producto2">
-                        <a href="/products/detail/<%= libro.id  %>">
-                            <h3><%= libro.titulo %> </h3>
+                        <a href="/products/detail/<%#= libro.id  %>">
+                            <h3><%#= libro.titulo %> </h3>
                         </a>
-                        <p>por <%= libro.autor %> </p>
+                        <p>por <%#= libro.autor %> </p>
                         <div class="precios">
-                            <h3 class= "precio-descuento">$<%= libro.precio %> </h3>
-                            <h3 class= "precio-final">$<%= libro.precio %> </h3>
+                            <h3 class= "precio-descuento">$<%#= libro.precio %> </h3>
+                            <h3 class= "precio-final">$<%#= libro.precio %> </h3>
                         </div>
-                        <form action="/users/cart/<%= libro.id %>" method="POST">
+                        <form action="/users/cart/<%#= libro.id %>" method="POST">
                             <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
                         </form>
                     </div>
                 </article>
-                <% }) %>                
+                <%# }) %>                 -->
             </section>
 
             <nav aria-label="...">
@@ -108,14 +108,15 @@
 
         <section class = "productos-categoria row">
 
-            <% literatura.forEach(libro => { %>
+            <% category.products.forEach(product => { %>
                 <article class = "book col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-                    <a href="/products/detail/<%= libro.id %>">
-                        <img src="<%= libro.imagen %> " alt="">
-                        <p><%= libro.titulo %> </p>
+                    <a href="/products/detail/<%= product.id %>">
+                        <img src="/images/products/<%= product.image %> " alt="">
+                        <p><%= product.title %> </p>
                     </a>                    
-                    <p>por <%= libro.autor %> </p>
-                    <form action="/users/cart/<%= libro.id %>" method="POST">
+                    <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                    <p>$<%= product.price %> </p>
+                    <form action="/users/cart/<%= product.id %>" method="POST">
                         <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
                     </form>                    
                 </article>             

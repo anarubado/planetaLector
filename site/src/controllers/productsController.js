@@ -6,28 +6,33 @@ let sequelize = db.sequelize
 const { validationResult } = require("express-validator");
 
 const productsController = {
-
-    index: function(req, res){
-        let novedades = productsModel.filterNProducts("Literatura", 1);
-        let descuentos = productsModel.filterBySomething(function(product){
-            return product.precio < 200;            
-        })
-        descuentos.splice(3, descuentos.length);
-
-        let literatura = productsModel.readJson();
-
-        return res.render('products', {novedades, descuentos, literatura});
-    },
     
+    category: function(req, res){
+        db.Categories.findByPk(req.params.id, {
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+        .then(function(category){
+            return res.render('category', {category});
+        })
+    },
+
     detail: function(req, res){
         let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
         let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-        let detail = productsModel.findBySomething(function(product){
-            return product.id == req.params.idProduct;
 
-        });
+        db.Products.findByPk(req.params.idProduct, {
+            include: {
+                all: true
+            }
 
-        return res.render('detail', {harryPotter, jkRowling, detail});
+        })
+        .then(function(detail){
+            return res.render('detail', {harryPotter, jkRowling, detail: detail});          
+
+        })  
     }, 
 
     edit: function(req, res){
