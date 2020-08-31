@@ -8,15 +8,18 @@ const { validationResult } = require("express-validator");
 const productsController = {
     
     category: function(req, res){
-        db.Categories.findByPk(req.params.id, {
-            include: {
-                all: true,
-                nested: true
+
+        let category = db.Categories.findByPk(req.params.id, {include: {all: true, nested: true}});
+        let subCategories = db.SubCategories.findAll({
+            where: {
+                categoryId: req.params.id
             }
         })
-        .then(function(category){
-            return res.render('category', {category});
-        })
+        Promise.all([category, subCategories])
+            .then(function([category, subCategories]){
+                console.log(category);
+                return res.render('category', {products: category.products, category: category, subCategories: subCategories});
+            })
     },
 
     detail: function(req, res){

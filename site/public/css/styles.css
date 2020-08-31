@@ -11,6 +11,11 @@ body{
 
 a{
     text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: black;
 }
 
 ul{
@@ -386,7 +391,7 @@ h2{
 
 /* ========== STYLES CARLI (start) ========== */
 
-.menu-categorias {
+.category-menu {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -394,27 +399,25 @@ h2{
     margin-bottom: 15px;
 }
 
-.navegacion-1 ul {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.navegation ul{
+    padding: 0 80px;
+    text-align: center;
 }
 
-.navegacion-2 ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+
+.navegation ul li{    
+    display: inline-block;    
+    border-right: 1px solid #007bff;
+    line-height: 0px;
+    padding: 10px;
 }
 
-.navegacion-3 ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.navegation ul li a{
+    color: #007bff;
 }
 
-.navegacion ul li {
-    padding: 0 15px;
+.navegation ul li a:hover{
+    text-decoration: none;
 }
 
 /* NOVEDADES */
@@ -455,12 +458,7 @@ h2{
 
 /* DESCUENTOS */
 
-.descuentos {
-    margin-top: 5% ;
-    margin-bottom: 5%;
-    font-size: 35;
-    font-weight: bold;
-}
+
 
 .descuentos {
     display: flex;
@@ -498,19 +496,11 @@ h2{
     margin-bottom: 30px;
 }
 
-.productos-categoria h2 {
-    font-size: 25px;
-}
-
-.productos-categoria h3 {
-    font-size: 15px;
-}
-
-.productos-categoria {
+/* .productos-categoria {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-}
+} */
 
 .items {
     padding: 0;
@@ -519,27 +509,36 @@ h2{
 
 .book{
     position: relative;
-}
-
-.cart-link{
-    position: absolute;
-    /*top: px;
-    right: px;*/
-}
-
-.boton-mini {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.book a img{
+    width: 150px;
+}
 
+.book form button{
+    position:absolute;
+    top: 3px;
+    right: 3px;
+}
+
+.book p{
+    text-align: center;
+}
+
+.detail-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 
 @media (max-width: 426px) {
-    .menu-categorias {
+    .category-menu {
         display: none;
     }
     .productos-descuento {
@@ -556,15 +555,10 @@ h2{
         margin-left: 15px;
     }
 
-    .productos-categoria {
+    /* .productos-categoria {
         display: flex;
-        flex-direction: column;
-        max-width: 100%;
-    }
-
-    .productos-categoria img {
-        max-width: 50%;
-    }
+        flex-direction: row;
+    } */
     
     .section-productos-novedades {
         display: flex;
@@ -578,7 +572,7 @@ h2{
 } 
 
 @media (max-width: 769px) {
-    .menu-categorias {
+    .category-menu {
         display: none;
     }
 
@@ -632,11 +626,11 @@ h2{
     margin-bottom: 15px;
 }
 
-.menu-breadcrumb .navegacion ul {
+.menu-breadcrumb{
     display: flex;
 }
 
-.menu-breadcrumb .navegacion ul li {
+.menu-breadcrumb{
     padding: 0 5px;
 }
 
@@ -778,6 +772,37 @@ h2{
     border-style: none;
 }
 /* CART STYLES */
+.cart-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cart-image img{
+    width: 200px;
+    height: auto;
+}
+
+.cart-total{
+    display: inline-block;
+}
+
+.trash-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy-items{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buy-items h6{
+    margin-right: 10px;
+}
 
 .producto{
     display: flex;
@@ -788,45 +813,20 @@ h2{
     border-bottom: 1px solid black;
 }
 
-.compras{
-    margin-top: 5%;
-}
 
-.infocompra{
+
+.cart-info{
     display: flex;
     flex-direction: column;
-}
- 
-.titulo{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-left: 5%;
-    margin-top: 5%;
-    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.infocantidad{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    align-self: flex-start;
-    width: 28%;
-}
-.cantidad{
-    align-self: flex-end;
-}
-
-.precio{
-    margin-left: 30px;
-}
-
-.contador{
+.item-quantity{
     border-radius: 20px;
-    width: 30%;
-    padding-left: 20px;   
+    width: 40px;
+    text-align: end;
+    padding: 0 5px;
 }
 
 .infototal{
@@ -856,10 +856,11 @@ h2{
     justify-content: flex-end;
 }
 
+@media (min-width: 768px){
+    .cart-image{
+        margin-bottom: 0px;
+    }
 
-
-.total{
-    margin-right: 10%;
 }
 
 /* ========== STYLES MARTIN (end) ========== */
