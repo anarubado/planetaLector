@@ -1,6 +1,7 @@
 const jsonModel = require('../models/jsonModel.js');
 const productsModel = jsonModel('products.json');
 const suscriptionsModel = jsonModel('suscriptions.json')
+let db = require ('../database/models');
 
 const homeController = {
 
@@ -27,6 +28,18 @@ const homeController = {
         suscriptionsModel.saveOne(suscription);
 
         res.redirect('/');
+    },
+
+
+    novedades: function(req, res){
+        db.Products.findAll(
+            {   include:{all:true},
+                order: [['createdAt', 'DESC']], limit:12
+            }
+            )
+            .then(function(products){
+            return res.render('news',{products})
+            })
     }
 }
 
