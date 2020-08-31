@@ -496,12 +496,6 @@ h2{
     margin-bottom: 30px;
 }
 
-/* .productos-categoria {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-
 .items {
     padding: 0;
     margin-bottom: 0;
@@ -534,7 +528,6 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 @media (max-width: 426px) {

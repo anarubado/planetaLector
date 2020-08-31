@@ -133,7 +133,8 @@ const usersController = {
           })
           .then(function(orderItem){
             return res.redirect('/users/cart');
-          })          
+          })   
+                 
 
         } else{
           // Sino, identificar producto en la db y crear orderItem con quantity 1      
@@ -311,21 +312,8 @@ const usersController = {
       .catch(function(error){
         console.log(error);
       })
-
      })
-
-
-
-     // Hacer el link al archivo de checkout para inyectar la info
-
-
-
-
-
-
-
-
-     
+     // Hacer el link al archivo de checkout para inyectar la info     
    },
 
    ticket: function(req, res){

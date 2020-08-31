@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head', {title: detail.titulo}) %>
+<%- include('partials/head', {title: detail.title}) %>
 <body>
-    <%-include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %> 
+    <%-include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>   
     
-    <!--Circuito de navegación-->
-    <nav class = "menu-breadcrumb">
-      <div class= "navegacion">
-          <ul>
-              <li><a href="/">Inicio /</a></li>
-              <li><a href="">Categoria /</a></li>
-              <li><a href="">Producto</a></li>
-          </ul>
-      </div>
-    </nav>
-
     <div class = "container">
+      <!--Circuito de navegación-->
+      <nav class = "menu-breadcrumb">
+        <div class= "navegacion">
+            <ul>
+                <li><a href="/">Inicio /</a></li>
+                <li><a href="/products/category/<%= detail.categoryId %> "><%= detail.category.title %>  /</a></li>
+                <li><a href="#"><%= detail.title %> </a></li>
+            </ul>
+        </div>
+      </nav>
 
       <div class = "detalle-producto">
 
@@ -85,8 +84,8 @@
       </div>      
         <!--sección sobre el autor-->
         <div class ="sobre-la-autora">
-          <img src="/images/authors/<%= detail.author.image %> " alt="unaimagen">
-          <h3>Sobre la autora</h3>
+          <img src="/images/authors/<%= detail.author.image %> " alt="Author's photo">
+          <h3>Sobre <%= detail.author.name + " " + detail.author.lastName %> </h3>
           <p><%= detail.author.bioAuthor %></p>
         </div>
 

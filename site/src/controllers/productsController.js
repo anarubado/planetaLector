@@ -33,6 +33,7 @@ const productsController = {
 
         })
         .then(function(detail){
+            console.log(detail);
             return res.render('detail', {harryPotter, jkRowling, detail: detail});          
 
         })  
