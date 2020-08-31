@@ -7,38 +7,31 @@
 
     <div class = "container">
         <%- include('partials/banner-title', {title: category.title, route: "Inicio / Categorías / Literatura", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
-    <!--Categorias-->
-        <div class = "cuerpo">     
-            <nav class = "menu-categorias">
-                <div class= "navegacion">
-                        <div class = "navegacion-1">
-                            <ul>
-                                <li><a href="">Clásicos</a></li>
-                                <li><a href="">Novelas Contemporáneas</a></li>
-                                <li><a href="">Novelas Románticas</a></li>
-                                <li><a href="">Novelas Juveniles</a></li>
-                            </ul>
-                        </div>
-                        <div class = "navegacion-2">
-                            <ul>
-                                <li><a href="">Drama</a></li>
-                                <li><a href="">Distopía</a></li>
-                                <li><a href="">Fantasía</a></li>
-                                <li><a href="">Ciencia Ficción</a></li>
-                                <li><a href="">Misterio & Suspenso</a></li>
-                                <li><a href="">Terror</a></li>
-                            </ul>
-                        </div>
-                        <div class = "navegacion-3">
-                            <ul>
-                                <li><a href="">Sátiras</a></li>
-                                <li><a href="">No Ficción</a></li>
-                                <li><a href="">Poesía</a></li>
-                                <li><a href="">Relatos Breves</a></li>
-                                <li><a href="">Comics & Novelas Gráficas</a></li>
-                            </ul>
-                        </div>
-                    </ul>
+        <!--Categorias-->
+        <div>     
+            <nav class = "category-menu">
+                <div class= "row">
+                    <div class = "navegation col-12">
+                        <ul>                            
+                            <% subCategories.forEach(subCategory => { %>
+                                <li><a href=""><%= subCategory.title %> </a></li>                             
+                            <% }) %>
+                            <!-- <li><a href="">Novelas Contemporáneas</a></li>
+                            <li><a href="">Novelas Románticas</a></li>
+                            <li><a href="">Novelas Juveniles</a></li>
+                            <li><a href="">Drama</a></li>
+                            <li><a href="">Distopía</a></li>
+                            <li><a href="">Fantasía</a></li>
+                            <li><a href="">Ciencia Ficción</a></li>
+                            <li><a href="">Misterio & Suspenso</a></li>
+                            <li><a href="">Terror</a></li>
+                            <li><a href="">Sátiras</a></li>
+                            <li><a href="">No Ficción</a></li>
+                            <li><a href="">Poesía</a></li>
+                            <li><a href="">Relatos Breves</a></li>
+                            <li><a href="">Comics & Novelas Gráficas</a></li> -->
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
@@ -63,7 +56,7 @@
             <%# }) %> -->
             </section>
 
-            <h2 class ="descuentos">Descuentos</h2>             
+            <h2>Descuentos</h2>             
             
             <section class= "productos-descuento row">
                 <!-- <%# descuentos.forEach(libro => { %>
@@ -88,6 +81,7 @@
                 <%# }) %>                 -->
             </section>
 
+            <!-- Pagination start -->
             <nav aria-label="...">
                 <ul class="pagination">
                     <li class="page-item disabled">
@@ -105,41 +99,48 @@
                     </li>
                 </ul>
             </nav>
+            <!-- Pagination end -->
 
-        <section class = "productos-categoria row">
+            <div class = "row">
 
-            <% category.products.forEach(product => { %>
-                <article class = "book col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2">
-                    <a href="/products/detail/<%= product.id %>">
-                        <img src="/images/products/<%= product.image %> " alt="">
-                        <p><%= product.title %> </p>
-                    </a>                    
-                    <p>por <%= product.author.name + " " + product.author.lastName %> </p>
-                    <p>$<%= product.price %> </p>
-                    <form action="/users/cart/<%= product.id %>" method="POST">
-                        <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
-                    </form>                    
-                </article>             
-            <% }) %>
+                <% products.forEach(product => { %>
+                    <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                        <a href="/products/detail/<%= product.id %>" class="detail-link">
+                            <img src="/images/products/<%= product.image %> " alt="">
+                            <p><%= product.title %> </p>
+                        </a>
+                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>$<%= product.price %> </p>
+                        <form action="/users/cart/<%= product.id %>" method="POST">
+                            <button class="btn btn-info trash-bin"><i class="fas fa-cart-plus"></i></button>
+                        </form>
+                    </div>        
+                <% }) %>
+            </div>   
+
             
+        </div>
 
-            <!--acá va un coso para pasar de página que no se cómo mierda se hace-->
-            <nav aria-label="...">
-                <ul class="pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>         
+        <!-- Pagination start -->
+        <nav aria-label="...">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">2 <span class="sr-only"></span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Pagination end -->
+
     </div>
     
     <%- include ('partials/footer') %> 

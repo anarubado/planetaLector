@@ -7,71 +7,72 @@
     <div class = "container">
                 
         <%- include('partials/banner-title', {title: "Mi Carrito", route: "Inicio / Mi Carrito", decoImg: "/images/banner-title/img-cart.png", bannerImg: '/images/banner-title/banner-title-2.png'}) %>
-        <% if (orderItems.length > 0) { %>
-        <div>
-            <section class="compras">             
-                 
-                <% orderItems.forEach(item => { %>
-                    
-                    <article class="producto">
-                        <img src="/images/products/<%= item.productImage %> " alt="Foto de libro">
-                        <div class='infocompra'>l
-                            <div class="titulo">
-                                <h6>Titulo:</h6>
-                                <p class="info"><%= item.productName %> </p>
-                            </div>
-                            <div class="titulo">
-                                <h6>Autor:</h6>
-                                <p class="info"><%= item.productAuthor %></p>
-                            </div>
-                            <div class="titulo">
-                                <h6>Editorial:</h6>
-                                <p class="info"><%= item.productEditorial %></p>
-                            </div>
-                            <div class="titulo">
-                                <h6>ISBN:</h6>
-                                <p class="info"><%= item.productIsbn %></p>
-                            </div>
-                        </div>
-    
-                        <div class="infocantidad">
-                            <h5 class="cantidad">Cantidad</h5>
-                            <input type="number" value="<%= item.productQuantity%>" class='contador cantidad' disabled> <!-- Habria que tener en cuenta la cantidad de stock y hacer un paro en el contador-->
-                        </div>
-    
-                        <div class="infocantidad">
-                            <h5 class="precio">Subtotal</h5>
-                            <p class="precio">$<%= item.productQuantity * item.productPrice %> </p>
-                        </div>
-                        <form action="/users/cart/delete/<%= item.id %>" method="POST">
-                            <button class = "btn btn-info trash-bin" type="submit">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                        
-                    </article>                    
-                 
-                    <% }) %>             
-
-
         
-            </section>
-        </div>
+        <% if (orderItems.length > 0) { %>
+            <div class="row">
+                <div class="col-12">
+                    <hr>
+                </div>
+                <% orderItems.forEach(item => { %>                    
+                    <div class="col-12 col-sm-12 col-md-3 cart-image">
+                        <img src="/images/products/<%= item.productImage %>" style="width: 150px;" alt="Foto de libro">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-3">
+                        <div>
+                            <h6>Título:</h6>
+                            <p> <%= item.productName %> </p>
+                        </div>
+                        <div>
+                            <h6>Autor: </h6>
+                            <p><%= item.productAuthor %></p>
+                        </div>
+                        <div>
+                            <h6>Editorial: </h6>
+                            <p><%= item.productEditorial %></p>
+                        </div>
+                        <div>
+                            <h6>ISBN: </h6>
+                            <p><%= item.productIsbn %></p>
+                        </div>
+                    </div>
 
-        <div class="endcart">
-            <div class='infototal'>
-                <h5 class="total">Total</h5>
-                <p>$<%= total %></p>
+                    <div class="col-4 col-md-2 cart-info">
+                        <h6>Cantidad</h6>
+                        <span><%= item.productQuantity%></span>                        
+                    </div>
+
+                    <div class="col-4 col-md-2 cart-info">
+                        <h6>Subtotal</h6>
+                        <p>$<%= item.productQuantity * item.productPrice %> </p>
+                    </div>
+                    <form action="/users/cart/delete/<%= item.id %>" method="POST" class="col-4 col-md-2 trash-container">
+                        <button class = "btn btn-info trash-bin" type="submit">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <div class="col-12">
+                        <hr>
+                    </div>
+                <% }) %>
+
+                
+                
             </div>
 
-            <div class='infototal'>
-                <form action="/users/checkout/<%= orderItems[0].userId %>" method="POST">
-                    <button type="submit" class="btn btn-info enviar">FINALIZAR COMPRA</button>
-                </form>
+            <div class="row">
+                <div class="col-12 buy-items">
+                    <h6>Total</h6>
+                    <span>$<%= total %></span>
+                </div>
+
+                <div class="col-12 buy-items">
+                    <form action="/users/checkout/<%= orderItems[0].userId %>" method="POST">
+                        <button type="submit" class="btn btn-info cart-btn">FINALIZAR COMPRA</button>
+                    </form>
+                </div>
+                
             </div>
             
-        </div>
-
         <% } %>
 
         <h3>Libros de Ciencia Ficción</h3>
