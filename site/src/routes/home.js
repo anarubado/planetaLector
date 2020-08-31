@@ -6,14 +6,11 @@ router.get('/', homeController.index);
 router.get('/search', homeController.search);
 router.post('/suscription', homeController.suscribe);
 
+router.get('/success', homeController.success);
+
 router.get('/failure', function(req, res){
     return res.render('checkout/failure');
 })
-
-router.get('/success', function(req, res){
-    return res.render('checkout/success');
-})
-
 router.get('/pending', function(req, res){
     return res.render('checkout/pending');
 })

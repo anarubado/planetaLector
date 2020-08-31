@@ -42,11 +42,11 @@ module.exports = (sequelize, dataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = function(models){
-        // Asociacion con OrderItems
-        Order.hasMany(models.OrderItems,{
-            as: 'orderItems',
-            foreignKey: 'orderId'
-        })
+        // // Asociacion con OrderItems
+        // Order.hasMany(models.OrderItems,{
+        //     as: 'orderItems',
+        //     foreignKey: 'orderId'
+        // })
 
         // Asociacion con Users
         //Order.belongsTo(models.Users,{

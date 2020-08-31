@@ -30,6 +30,45 @@ const homeController = {
         res.redirect('/');
     },
 
+    success: function(req, res){
+        // Buscar total de OrderItems por id de usuario        
+        db.OrderItems.sum("subTotal",{
+            where: {
+                userId: req.session.user.id
+            }
+        })
+        .then(function(total){   
+            // Crear un registro en Orders (create)
+            return db.Orders.create({
+                number: 1000,
+                total: total,
+                userId: req.session.user.id
+            })
+            .then(function(order){
+                // Asignarle a todos los OrderItems el OrderId y status = 1 (update)
+                return db.OrderItems.update({
+                    status: 1,
+                    orderId: order.number
+                },{
+                    where: {
+                    userId: req.session.user.id
+                    }
+                })
+            })
+            // Vaciar carrito? Destruir orderItems
+            .then(function(){
+                db.OrderItems.destroy({
+                    where: {
+                        userId: req.session.user.id
+                    }
+                })
+            })
+            .then(function(){
+                return res.render('checkout/success');  
+            })
+        })
+
+    },
 
     novedades: function(req, res){
         db.Products.findAll(

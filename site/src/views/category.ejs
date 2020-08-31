@@ -54,30 +54,25 @@
             </div>  
           
 
-            <h2>Descuentos</h2>             
-            
-            <section class= "productos-descuento row">
-                <!-- <%# descuentos.forEach(libro => { %>
-                <article class = "producto-descuento col-12 col-sm-12 col-md-4">
-                    <a href="/products/detail/<%#= libro.id  %>  ">
-                        <img src="<%#= libro.imagen %>" alt="">
-                    </a>                    
-                    <div class = "descripcion-producto2">
-                        <a href="/products/detail/<%#= libro.id  %>">
-                            <h3><%#= libro.titulo %> </h3>
+            <h2>Descuentos</h2>
+            <div class = "row">
+
+                <% discounts.forEach(product => { %>
+                    <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                        <a href="/products/detail/<%= product.id %>" class="detail-link">
+                            <img src="/images/products/<%= product.image %> " alt="">
+                            <p><%= product.title %> </p>
                         </a>
-                        <p>por <%#= libro.autor %> </p>
-                        <div class="precios">
-                            <h3 class= "precio-descuento">$<%#= libro.precio %> </h3>
-                            <h3 class= "precio-final">$<%#= libro.precio %> </h3>
-                        </div>
-                        <form action="/users/cart/<%#= libro.id %>" method="POST">
-                            <button class="btn btn-info boton-mini"><i class="fas fa-cart-plus"></i></button>
+                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <span style="text-decoration: line-through;">$<%= product.price %> </span>
+                        <span>$<%= product.price - product.discount / 100 * product.price %></span>
+                        <form action="/users/cart/<%= product.id %>" method="POST">
+                            <button class="btn btn-info trash-bin"><i class="fas fa-cart-plus"></i></button>
                         </form>
-                    </div>
-                </article>
-                <%# }) %>                 -->
-            </section>
+                    </div>        
+                <% }) %>
+            </div>  
+
 
             <!-- Pagination start -->
             <nav aria-label="...">

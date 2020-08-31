@@ -280,22 +280,24 @@ const usersController = {
            title: orderItem.productName,
            unit_price: orderItem.productPrice,
            quantity: orderItem.productQuantity
-         }        
-
-        items.push(item);
-         
+         }
+        items.push(item);         
        })
        return items;
      })
      .then(function(items){
       // Configuracion de TOKEN
       mercadopago.configure({
-        access_token: 'PRODUCT_TOKEN'
+        access_token: "APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398",
+        integrator_id: "dev_24c65fb163bf11ea96500242ac130004"
       });
 
       // Configuracion de preferences
       let preference = {
         items: items,
+        payer: {
+          email: "test_user_63274575@testuser.com"
+        },
         back_urls: {
           success: "http://localhost:3030/success",
           failure: "http://localhost:3030/failure",
@@ -307,56 +309,11 @@ const usersController = {
       mercadopago.preferences.create(preference)
       .then(function(response){
         return res.redirect(response.body.init_point);
-
       })
       .catch(function(error){
         console.log(error);
       })
      })
-     // Hacer el link al archivo de checkout para inyectar la info     
-   },
-
-   ticket: function(req, res){
-     // Buscar total de OrderItems por id de usuario
-     db.OrderItems.sum("subTotal",{
-      where: {
-        userId: req.params.id
-      }
-    })
-    .then(function(total){   
-      // Crear un registro en Orders (create)
-      return db.Orders.create({
-        number: 1000,
-        total: total,
-        userId: req.params.id
- 
-      })
-      .then(function(order){
-        // Asignarle a todos los OrderItems el OrderId y status = 1 (update)
-        return db.OrderItems.update({
-          status: 1,
-          orderId: order.number
-        },{
-          where: {
-            userId: req.params.id
-          }
-        })
-      })
-      // Vaciar carrito? Destruir orderItems
-      .then(function(){
-        db.OrderItems.destroy({
-          where: {
-            userId: req.params.id
-          }
-        })
-      })
-      .then(function(){
-        
-        return res.redirect('/');
-      })
-
-    })
-
    },
 
    create: function(req, res){

@@ -119,11 +119,11 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'userId'
         })
 
-        // Asociaciones con Orders
-        OrderItem.belongsTo(models.Orders,{
-            as: 'orders',
-            foreignKey: 'orderId'
-        })
+        // // Asociaciones con Orders
+        // OrderItem.belongsTo(models.Orders,{
+        //     as: 'orders',
+        //     foreignKey: 'orderId'
+        // })
 
     }
     

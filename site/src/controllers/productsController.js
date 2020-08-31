@@ -14,20 +14,26 @@ const productsController = {
             where: {
                 categoryId: req.params.id
             }
-
         })
         let news =  db.Products.findAll(
             {   include:{all:true},
                 where: {
                     categoryId: req.params.id    
                 },
-                order: [['createdAt', 'DESC']], limit:6
+                order: [['createdAt', 'DESC']],
+                limit:6
             }
-            )
-        Promise.all([category, subCategories, news])
-            .then(function([category, subCategories, news]){
-                console.log(category);
-                return res.render('category', {products: category.products, category: category, subCategories: subCategories, news: news});
+            );
+        let discounts = db.Products.findAll({
+            include:{all:true},
+            order: [["discount", "DESC"]],
+            limit: 6
+        });
+        
+        
+        Promise.all([category, subCategories, news, discounts])
+            .then(function([category, subCategories, news, discounts]){
+                return res.render('category', {products: category.products, category: category, subCategories: subCategories, news: news, discounts: discounts});
             })
     },
 
