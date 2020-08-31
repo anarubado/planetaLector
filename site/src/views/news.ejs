@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {title: 'Novedades'}) %>
+<body>
+    <!--header-->
+    <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %> 
+
+    <div class = "container">
+        <%- include('partials/banner-title', {title: 'Novedades', route: "Inicio / Novedades", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
+        <!--Categorias-->
+        <div>     
+            
+            <h2>Novedades</h2>
+
+            <div class = "row">
+
+                <% products.forEach(product => { %>
+                    <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                        <a href="/products/detail/<%= product.id %>" class="detail-link">
+                            <img src="/images/products/<%= product.image %> " alt="">
+                            <p><%= product.title %> </p>
+                        </a>
+                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>$<%= product.price %> </p>
+                        <form action="/users/cart/<%= product.id %>" method="POST">
+                            <button class="btn btn-info trash-bin"><i class="fas fa-cart-plus"></i></button>
+                        </form>
+                    </div>        
+                <% }) %>
+            </div>   
+
+            
+        </div>
+
+       
+        
+
+    </div>
+    
+    <%- include ('partials/footer') %> 
+    <%- include('partials/scripts-js') %> 
+
+</body>
+</html>

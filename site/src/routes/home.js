@@ -18,4 +18,6 @@ router.get('/pending', function(req, res){
     return res.render('checkout/pending');
 })
 
+router.get('/news', homeController.novedades)
+
 module.exports = router;
