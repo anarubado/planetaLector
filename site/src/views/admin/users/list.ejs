@@ -29,7 +29,7 @@
                                         <form action="/users/edit/<%= detail.id %> " method="GET">
                                             <button class="btn btn-info admin-button"><i class="fas fa-edit"></i></button>                
                                         </form>
-                                        <form class="admin-trash" action="/users/delete/<%= detail.id %> " method="POST">
+                                        <form id= "trash" class="admin-trash" action="/users/delete/<%= detail.id %> " method="POST">
                                             <button class="btn btn-danger admin-button"><i class="fas fa-trash"></i></button>            
                                         </form>
 

@@ -156,10 +156,10 @@ const usersController = {
               productAuthor: product.author.name + ' ' + product.author.lastName, // author viene del alias del modelo
               productEditorial: product.editorial.name, // editorial viene del alias del modelo
               productQuantity: 1,
-              productPrice: product.price,
+              productPrice: product.discount != null ? product.price - product.discount / 100 * product.price : product.price,
               productImage: product.image,
               productIsbn: product.isbn,
-              subTotal: product.price,
+              subTotal: product.discount != null ? product.price - product.discount / 100 * product.price : product.price,
               status: 0,
               orderId: null
             })

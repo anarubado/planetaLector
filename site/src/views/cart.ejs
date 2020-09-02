@@ -45,7 +45,7 @@
                         <h6>Subtotal</h6>
                         <p>$<%= item.productQuantity * item.productPrice %> </p>
                     </div>
-                    <form action="/users/cart/delete/<%= item.id %>" method="POST" class="col-4 col-md-2 trash-container">
+                    <form  id = "trash" action="/users/cart/delete/<%= item.id %>" method="POST" class="col-4 col-md-2 trash-container">
                         <button class = "btn btn-info trash-bin" type="submit">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>

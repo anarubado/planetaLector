@@ -14,7 +14,7 @@
                     <div class = "navegation col-12">
                         <ul>                            
                             <% subCategories.forEach(subCategory => { %>
-                                <li><a href=""><%= subCategory.title %> </a></li>                             
+                                <li><%= subCategory.title %></li>                             
                             <% }) %>
                             <!-- <li><a href="">Novelas Contemporáneas</a></li>
                             <li><a href="">Novelas Románticas</a></li>
@@ -64,7 +64,8 @@
                             <p><%= product.title %> </p>
                         </a>
                         <p>por <%= product.author.name + " " + product.author.lastName %> </p>
-                        <span style="text-decoration: line-through;">$<%= product.price %> </span>
+                        
+                        <span class="precio-descuento">$<%= product.price %> </span>
                         <span>$<%= product.price - product.discount / 100 * product.price %></span>
                         <form action="/users/cart/<%= product.id %>" method="POST">
                             <button class="btn btn-info trash-bin"><i class="fas fa-cart-plus"></i></button>
@@ -75,7 +76,7 @@
 
 
             <!-- Pagination start -->
-            <nav aria-label="...">
+            <!--<nav aria-label="...">
                 <ul class="pagination">
                     <li class="page-item disabled">
                         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -93,29 +94,34 @@
                 </ul>
             </nav>
             <!-- Pagination end -->
-
+            <h2>Nuestros productos</h2>
             <div class = "row">
-
                 <% products.forEach(product => { %>
-                    <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
+                      <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                         <a href="/products/detail/<%= product.id %>" class="detail-link">
                             <img src="/images/products/<%= product.image %> " alt="">
                             <p><%= product.title %> </p>
                         </a>
                         <p>por <%= product.author.name + " " + product.author.lastName %> </p>
-                        <p>$<%= product.price %> </p>
+                        <% if (product.discount > 0) { %> 
+                            <span class="precio-descuento">$<%= product.price %> </span>
+                            <span>$<%= product.price - product.discount / 100 * product.price %></span>
+                        <% }else { %>
+                            <span>$<%= product.price %> </span>
+                        <% } %>
                         <form action="/users/cart/<%= product.id %>" method="POST">
                             <button class="btn btn-info trash-bin"><i class="fas fa-cart-plus"></i></button>
                         </form>
-                    </div>        
-                <% }) %>
-            </div>   
+                    </div>          
+                    <% }) %>
+                </div>
+                     
 
             
         </div>
 
         <!-- Pagination start -->
-        <nav aria-label="...">
+        <!--<nav aria-label="...">
             <ul class="pagination">
                 <li class="page-item disabled">
                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>

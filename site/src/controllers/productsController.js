@@ -26,6 +26,9 @@ const productsController = {
             );
         let discounts = db.Products.findAll({
             include:{all:true},
+            where: {
+                categoryId: req.params.id    
+            },
             order: [["discount", "DESC"]],
             limit: 6
         });
@@ -35,6 +38,10 @@ const productsController = {
             .then(function([category, subCategories, news, discounts]){
                 return res.render('category', {products: category.products, category: category, subCategories: subCategories, news: news, discounts: discounts});
             })
+    },
+
+    subcategory: function(req,res){
+
     },
 
     detail: function(req, res){
