@@ -666,6 +666,7 @@ h2{
 .subcaja1-producto p {
     font-size: 25px;
     padding: 0
+    
 }
 
 .sobre-la-autora {
@@ -703,7 +704,7 @@ h2{
     }
 
     .subcaja1-producto {
-        margin-top: 20px;
+       margin: 5px 5px 5px 5px;
     }
     
 } 

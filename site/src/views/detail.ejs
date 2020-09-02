@@ -7,9 +7,9 @@
     <div class = "container">
       <!--Circuito de navegación-->
       <nav class = "menu-breadcrumb">
-        <div class= "navegacion">
+        <div class= "navegacion"></div>
             <ul>
-                <li><a href="/">Inicio /</a></li>
+                <li><a href="/">INICIO /</a></li>
                 <li><a href="/products/category/<%= detail.categoryId %> "><%= detail.category.title %>  /</a></li>
                 <li><a href="#"><%= detail.title %> </a></li>
             </ul>
@@ -30,29 +30,19 @@
           <div class= "subcaja2-producto" >
             <h2><%= detail.title %> </h2>
             <p><%= detail.description %> </p>
-            <div class="audiobook-ebook">
-              <a href="">
-                <p>Encuentra el ebook&nbsp;&nbsp;</p>
-              </a>
-              <a href="">
-                <p>Encuentra el audiobook</p>
-              </a>             
-              
-            </div>
+
             <div class= "precios">
               <div class="card border-primary mb-3" style="max-width: 18rem;">
                 <div class="card-body text-primary">
-                  <h5 class="card-title">Tapa dura</h5>
+                  <h5 class="card-title">Precio Total</h5>
                   <div class="precios">
-                    <p>$<%= detail.price %> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-body text-primary">
-                  <h5 class="card-title">Tapa blanda</h5>
-                  <div class="precios">
-                    <p>$<%= detail.price %> </p>
+                    <% if (detail.discount > 0) { %> 
+                      <span class="precio-descuento" style='font-size: 25px'>$<%= detail.price %> </span>
+                      <span style='font-size: 25px'>$<%= detail.price - detail.discount / 100 * detail.price %></span>
+                  <% }else { %>
+                      <span style='font-size: 25px'>$<%= detail.price %> </span>
+                  <% } %>
+                    
                   </div>
                 </div>
               </div>
