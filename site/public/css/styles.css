@@ -590,6 +590,7 @@ h2{
 .caja-producto {
     display: flex;
     flex-direction: row;
+    margin-left: 20px;
 }
 
 .sobre-la-autora img {
