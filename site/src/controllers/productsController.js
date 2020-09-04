@@ -45,18 +45,24 @@ const productsController = {
     },
 
     detail: function(req, res){
-        let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
-        let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
+        let harryPotter = db.Products.findAll({ 
+            include:{ all: true }, 
+            where: { authorId: 1}
+        });
+        let jkRowling = db.Products.findAll({ 
+            include:{ all: true }, 
+            where: { authorId: 1}
+        });
 
-        db.Products.findByPk(req.params.idProduct, {
+        let detail = db.Products.findByPk(req.params.idProduct, {
             include: {
                 all: true
             }
-
         })
-        .then(function(detail){
-            console.log(detail);
-            return res.render('detail', {harryPotter, jkRowling, detail: detail});          
+
+        Promise.all([harryPotter, jkRowling, detail])
+        .then(function([harryPotter, jkRowling, detail]){
+            return res.render('detail', {harryPotter, jkRowling, detail: detail});       
 
         })  
     }, 

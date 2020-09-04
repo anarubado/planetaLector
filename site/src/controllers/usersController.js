@@ -13,9 +13,15 @@ let sequelize = db.sequelize;
 const usersController = {
 
   register: function (req, res) {
-    //let slidesProducts = productsModel.processSlideProducts(15, 3);
-    let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
-    return res.render("register", { harryPotter });
+
+    db.Products.findAll({ 
+      include:{ all: true }, 
+      where: { authorId: 1}
+    })
+    .then(function(harryPotter){
+      return res.render("register", { harryPotter });
+    })
+
   },
 
   processRegister: function (req, res) {
@@ -38,16 +44,26 @@ const usersController = {
       return res.redirect("/users/login"); // No deberia estar dentro de un then?
 
     } else {
-      let harryPotter = productsModel.filterNProducts("Harry Potter", 10);
-      return res.render("register", {errors: errors.mapped(), harryPotter, old: req.body});
-
+      db.Products.findAll({ 
+        include:{ all: true }, 
+        where: { authorId: 1}
+      })
+      .then(function(harryPotter){
+        return res.render("register", { errors: errors.mapped(), harryPotter, old: req.body });
+      })
+      
     }
   },
 
   login: function (req, res) {
-    //let slidesProducts = productsModel.processSlideProducts(15, 3);
-    let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-    return res.render("login", { jkRowling });
+    db.Products.findAll({ 
+      include:{ all: true }, 
+      where: { authorId: 1}
+    })
+    .then(function(jkRowling){
+      return res.render("login", { jkRowling });
+    })
+    
   },
 
   processLogin: function (req, res) {
@@ -73,8 +89,14 @@ const usersController = {
       })
       
     } else {
-      let jkRowling = productsModel.filterNProducts("J. K. Rowling", 10);
-      return res.render("login", { errors: errors.mapped(), old: req.body, jkRowling });
+      db.Products.findAll({ 
+        include:{ all: true }, 
+        where: { authorId: 1}
+      })
+      .then(function(jkRowling){
+        return res.render("login", { errors: errors.mapped(), jkRowling, old: req.body });
+      })
+      
     }
   },
 
@@ -101,9 +123,20 @@ const usersController = {
         }
       })
       .then(function(total){
-        let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 10);
-        let cienciaFiccion = productsModel.filterNProducts("Ciencia ficción", 10);
-        return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems, total:total });
+        let isaacAsimov = db.Products.findAll({ 
+          include:{ all: true }, 
+          where: { authorId: 1}
+        });
+
+        let cienciaFiccion = db.Products.findAll({ 
+            include:{ all: true }, 
+            where: { authorId: 1}
+        });
+
+      Promise.all([isaacAsimov, cienciaFiccion])
+        .then(function([isaacAsimov, cienciaFiccion]){
+          return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems, total:total });
+        })
       })
     })
     

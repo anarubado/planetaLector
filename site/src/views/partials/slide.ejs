@@ -8,11 +8,11 @@
 
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-media-top">
-                                <img src="<%= product.imagen %>" alt=""> 
+                                <img src="/images/products/<%= product.image %>" alt=""> 
                             </div>
                             <div class="uk-card-body">
-                                <p><%= product.titulo %></p>
-                                <p>por <%= product.autor %></p>
+                                <p><%= product.title %></p>
+                                <p>por <%= product.author.name + " " + product.author.lastName %></p>
                             </div>
                         </div>
                     </a>

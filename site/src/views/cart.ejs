@@ -15,7 +15,10 @@
                 </div>
                 <% orderItems.forEach(item => { %>                    
                     <div class="col-12 col-sm-12 col-md-3 cart-image">
-                        <img src="/images/products/<%= item.productImage %>" style="width: 150px;" alt="Foto de libro">
+                        <a href="/products/detail/<%= item.productId %> ">
+                            <img src="/images/products/<%= item.productImage %>" style="width: 150px;" alt="Foto de libro">
+                        </a>
+                        
                     </div>
                     <div class="col-12 col-sm-12 col-md-3">
                         <div>
@@ -45,7 +48,7 @@
                         <h6>Subtotal</h6>
                         <p>$<%= item.productQuantity * item.productPrice %> </p>
                     </div>
-                    <form  id = "trash" action="/users/cart/delete/<%= item.id %>" method="POST" class="col-4 col-md-2 trash-container">
+                    <form action="/users/cart/delete/<%= item.id %>" method="POST" class="col-4 col-md-2 trash-container trash-alert">
                         <button class = "btn btn-info trash-bin" type="submit">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>

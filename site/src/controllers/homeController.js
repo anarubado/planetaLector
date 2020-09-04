@@ -1,26 +1,48 @@
 const jsonModel = require('../models/jsonModel.js');
 const productsModel = jsonModel('products.json');
 const suscriptionsModel = jsonModel('suscriptions.json')
+
+const { Op } = require("sequelize");
 let db = require ('../database/models');
 
 const homeController = {
 
     index: function(req, res){
         //let slidesProducts = productsModel.processSlideProducts(15, 3);
-        let isaacAsimov = productsModel.filterNProducts("Isaac Asimov", 5);
-        let suspense = productsModel.filterNProducts("Suspenso", 5);
-        let virginiaWoolf = productsModel.filterNProducts("Virginia Woolf", 5);
-        let quarantine = productsModel.filterNProducts("Autoayuda", 5);
+        let stephenKing = db.Products.findAll({ 
+            include:{ all: true }, 
+            where: { authorId: 1}
+        });
+        let suspense = db.Products.findAll( { include:{ all: true }, where: {authorId: 2 }});
+        let virginiaWoolf = db.Products.findAll( { include:{ all: true }, where: {authorId: 3 }});
+        let quarantine = db.Products.findAll( { include:{ all: true }, where: {authorId: 4 }});
 
-        let user = req.session.user;
+        Promise.all([stephenKing, suspense, virginiaWoolf, quarantine])
+        .then(function([stephenKing, suspense, virginiaWoolf, quarantine]){
+            let user = req.session.user;
+            return res.render("index", {stephenKing, suspense, virginiaWoolf, quarantine, user});
+        })
 
-        return res.render("index", {isaacAsimov, suspense, virginiaWoolf, quarantine, user});
+        
     },
 
     search: function(req, res){
         let keywords = req.query.keywords;
-        let products = productsModel.search(keywords);
-        return res.render("search", {keywords, products});
+        db.Products.findAll({
+            include: {
+                all: true
+            },
+            where: {
+                [Op.or]: [
+                    { "title" : {[Op.like]: '%' + keywords + '%'} }                  
+                    
+                ], 
+            }
+        })
+        .then(function(products){
+            return res.render("search", {keywords, products});
+        })
+
     },
     
     suscribe: function(req, res){
