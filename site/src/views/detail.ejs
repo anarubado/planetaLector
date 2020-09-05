@@ -5,89 +5,107 @@
     <%-include('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %>   
     
     <div class = "container">
-      <!--Circuito de navegación-->
-      <nav class = "menu-breadcrumb">
-        <div class= "navegacion"></div>
+      <div class="row">
+
+
+        <nav class = "menu-breadcrumb col-12">
+          <div class="navegation">
             <ul>
-                <li><a href="/">INICIO /</a></li>
-                <li><a href="/products/category/<%= detail.categoryId %> "><%= detail.category.title %>  /</a></li>
-                <li><a href="#"><%= detail.title %> </a></li>
-            </ul>
-        </div>
-      </nav>
+                  <li><a href="/">Inicio</a></li>
+                  <li><a href="/products/category/<%= detail.categoryId %> "><%= detail.category.title %></a></li>
+                  <li><a href="#"><%= detail.title %></a></li>
+              </ul>
+          </div>
+        </nav>
 
-      <div class = "detalle-producto">
 
-        <div class="caja-producto ">
-
-          <div class= "subcaja1-producto"
-          >
-            <img src="/images/products/<%= detail.image %> " alt="">
+  
+        <div class = "col-12">
+          <div class="row">
+            <div class= "col-12 col-md-4">  
+              <img src="/images/products/<%= detail.image %> " alt="">
               <p class="items" style= "font-size: 20px">Autor: <%= detail.author.name + " " + detail.author.lastName %></p>
               <p class="items"style= "font-size: 20px">Editorial: <%= detail.editorial.name %></p>
               <p class="items" style= "font-size: 20px">Número&nbsp;de&nbsp;páginas:&nbsp;<%= detail.numberPages%> </p>
-          </div>
-          <div class= "subcaja2-producto" >
-            <h2><%= detail.title %> </h2>
-            <p><%= detail.description %> </p>
-
-            <div class= "precios">
-              <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-body text-primary">
-                  <h5 class="card-title">Precio Total</h5>
-                  <div class="precios">
-                    <% if (detail.discount > 0) { %> 
-                      <span class="precio-descuento" style='font-size: 25px'>$<%= detail.price %> </span>
-                      <span style='font-size: 25px'>$<%= detail.price - detail.discount / 100 * detail.price %></span>
-                  <% }else { %>
-                      <span style='font-size: 25px'>$<%= detail.price %> </span>
-                  <% } %>
-                    
+            </div>
+  
+              <div class= "col-12 col-md-6" >
+                <p><%= detail.title %> </p>
+                <p><%= detail.description %> </p>
+    
+                <div class= "precios">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-body text-primary">
+                      <h5 class="card-title">Precio Total</h5>
+                      <div class="precios">
+                        <% if (detail.discount > 0) { %> 
+                          <span class="precio-descuento" style='font-size: 25px'>$<%= detail.price %> </span>
+                          <span style='font-size: 25px'>$<%= detail.price - detail.discount / 100 * detail.price %></span>
+                      <% }else { %>
+                          <span style='font-size: 25px'>$<%= detail.price %> </span>
+                      <% } %>
+                        
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="botones-agregar-editar-borrar">
+                <div class="botones-agregar-editar-borrar">
+    
+                  <% if(locals.user.admin == 1){ %> 
+                    <form action="/products/edit/<%=detail.id%>" method="GET">
+                      <button class= "boton">EDITAR</button>
+                    </form>
+    
+                    <form action="/products/delete/<%=detail.id%>" method="POST">
+                      <button class= "boton">BORRAR</button>
+                    </form>
+    
+                  <% } else{ %> 
+    
+                    <form action="/users/cart/<%=detail.id%>" method="POST">
+                      <button class= "boton">AGREGAR</button>
+                    </form> 
+    
+                  <% } %> 
+              
+                               
+    
+                </div>
 
-              <% if(locals.user.admin == 1){ %> 
-                <form action="/products/edit/<%=detail.id%>" method="GET">
-                  <button class= "boton">EDITAR</button>
-                </form>
-
-                <form action="/products/delete/<%=detail.id%>" method="POST">
-                  <button class= "boton">BORRAR</button>
-                </form>
-
-              <% } else{ %> 
-
-                <form action="/users/cart/<%=detail.id%>" method="POST">
-                  <button class= "boton">AGREGAR</button>
-                </form> 
-
-              <% } %> 
+          </div>  
+  
           
-                           
-
-            </div>
+            
           </div>
-        </div>
-      </div>      
-        <!--sección sobre el autor-->
-        <div class ="sobre-la-autora">
-          <img src="/images/authors/<%= detail.author.image %> " alt="Author's photo">
-          <h3>Sobre <%= detail.author.name + " " + detail.author.lastName %> </h3>
-          <p><%= detail.author.bioAuthor %></p>
-        </div>
 
-        <!--otros productos-->
-        <h3>De la saga de Harry Potter</h3>
-        <%-include('partials/slide', {id: "slide-detail-1", products: harryPotter })%>
-        <h3>Éxitos de J. K. Rowling</h3>
-        <%-include('partials/slide', {id: "slide-detail-2", products: jkRowling })%>
 
+
+          </div>  
+
+          <!--sección sobre el autor-->
+            <div class="col-12">
+              <div class="authors-image">
+                <img src="/images/authors/<%= detail.author.image %> " alt="Author's photo">
+              </div>
+              <h3>Sobre <%= detail.author.name + " " + detail.author.lastName %> </h3>
+              <p><%= detail.author.bioAuthor %></p>
+            </div>
+  
+          <!--otros productos-->
+          <div class="col-12">
+            <h3>De la saga de Harry Potter</h3>
+            <%-include('partials/slide', {id: "slide-detail-1", products: harryPotter })%>
+            <h3>Éxitos de J. K. Rowling</h3>
+            <%-include('partials/slide', {id: "slide-detail-2", products: jkRowling })%> 
+  
+          </div>
+
+      </div>
+      
+       
     </div>    
     
-    <!--footer-->
+
     <%- include ('partials/footer') %>
     <%- include('partials/scripts-js') %>  
         

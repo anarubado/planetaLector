@@ -26,22 +26,29 @@ const homeController = {
         
     },
 
-    search: function(req, res){
+    search: async function(req, res){
         let keywords = req.query.keywords;
-        db.Products.findAll({
-            include: {
-                all: true
-            },
+        let products = await db.Products.findAll({
+            include: ['author'],
             where: {
                 [Op.or]: [
-                    { "title" : {[Op.like]: '%' + keywords + '%'} }                  
-                    
+                    { "title" : {[Op.like]: '%' + keywords + '%'} },      
                 ], 
             }
         })
-        .then(function(products){
-            return res.render("search", {keywords, products});
-        })
+        let authors = await db.Authors.findAll({
+            where: {
+                [Op.or]: [
+                    { "name" : {[Op.like]: '%' + keywords + '%'} },    
+                    { "lastName" : {[Op.like]: '%' + keywords + '%'} },    
+                ], 
+            },
+            include: ["products"]
+        });
+
+        let authorsProducts = authors.length > 0 ? authors.map(author => author.products) : [];
+
+        return res.render("search", {keywords, products, authorsProducts});
 
     },
     

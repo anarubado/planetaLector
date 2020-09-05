@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const productsController = require('../controllers/productsController');
 const multer = require('multer');
+const path = require('path');
 
 const auth = require('../middlewares/auth');
 const validator = require('../middlewares/validator');
@@ -22,7 +23,7 @@ var storage = multer.diskStorage({
   
   var upload = multer({ storage: storage,
     fileFilter: function(req, file, cb){
-      let acceptedExt = ['.jpg', '.png', '.jepg'];
+      let acceptedExt = ['.jpg', '.png', '.jpeg'];
       let ext = path.extname(file.originalname);
   
       if(!acceptedExt.includes(ext)){

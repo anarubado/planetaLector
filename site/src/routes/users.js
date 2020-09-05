@@ -29,7 +29,7 @@ var upload = multer({ storage: storage,
 
   fileFilter: function(req, file, cb){
 
-    let acceptedExt = ['.jpg', '.png', '.jepg'];
+    let acceptedExt = ['.jpg', '.png', '.jpeg'];
     let ext = path.extname(file.originalname);
 
     if(!acceptedExt.includes(ext)){

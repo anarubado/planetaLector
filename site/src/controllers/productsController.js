@@ -157,7 +157,7 @@ const productsController = {
                 stock: req.body.stock,
                 isbn: req.body.isbn,
                 numberPages: req.body.numberPages,
-                //image: req.file ? req.file.filename : 'default-image.jpg',
+                image: req.file ? req.file.filename : 'default-image.jpg',
                 authorId: req.body.author,
                 categoryId: req.body.category,
                 subCategoryId: req.body.subCategory,
