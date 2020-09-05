@@ -1,31 +1,28 @@
-window.addEventListener("load", function(){
-  let trash = document.querySelector(".trash-alert");
-  if(trash){
-    trash.addEventListener("submit", function(e){
-      e.preventDefault()
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.value) {
-          trash.submit()
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-          
-        }
-      })
-
-    })
+window.addEventListener(
+    "load", function(){
+      if(document.querySelectorAll(".trash")){
+        let trash = document.querySelectorAll(".trash");
+        trash.forEach(function(item){
+         
+          item.addEventListener("submit", function(e){
+            e.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "Deberás volver a realizar esta acción en caso de deshacerla",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si!',
+                cancelButtonText: 'Volver'
+              }).then((result) => {
+                if (result.value) {
+                  this.submit()
+                }
+              })
+          })
+        })
+      }
     
-  }
-
-  }
+    }
 )
