@@ -12,10 +12,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
-        lastName: {
-            type: dataTypes.STRING
-        },
-
         bioAuthor: {
             type: dataTypes.STRING
         },

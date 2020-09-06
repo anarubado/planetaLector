@@ -12,7 +12,7 @@
         <section class = "row products">
             <% products.forEach(product => { %>
                 <article class = "col-3 product">
-                    <a href="/products/<%= product.id %>">
+                    <a href="/products/detail/<%= product.id %>">
                         <img src="/images/products/<%= product.image %> " alt="">
                         <p><%= product.title %> </p>
                         <p>por <%= product.author.name + " " + product.author.lastName %> </p>

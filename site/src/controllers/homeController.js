@@ -32,7 +32,8 @@ const homeController = {
             include: ['author'],
             where: {
                 [Op.or]: [
-                    { "title" : {[Op.like]: '%' + keywords + '%'} },      
+                    { "title" : {[Op.like]: '%' + keywords + '%'} },
+                    { "description" : {[Op.like]: '%' + keywords + '%'}}
                 ], 
             }
         })
@@ -41,7 +42,7 @@ const homeController = {
                 [Op.or]: [
                     { "name" : {[Op.like]: '%' + keywords + '%'} },    
                     { "lastName" : {[Op.like]: '%' + keywords + '%'} },    
-                ], 
+                ],
             },
             include: ["products"]
         });

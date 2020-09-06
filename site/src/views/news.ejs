@@ -20,7 +20,7 @@
                             <img src="/images/products/<%= product.image %> " alt="">
                             <p><%= product.title %> </p>
                         </a>
-                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>por <%= product.author.name %> </p>
                         <% if (product.discount > 0) { %> 
                             <span class="precio-descuento">$<%= product.price %> </span>
                             <span>$<%= product.price - product.discount / 100 * product.price %></span>

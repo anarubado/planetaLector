@@ -24,9 +24,9 @@
                             <select name="author" id="author" class="form-control">
                                 <% authors.forEach(author => {%>
                                     <% if (author.id == product.authorId) {%> 
-                                        <option value="<%=author.id%>" selected><%=author.name + " " + author.lastName %></option> 
+                                        <option value="<%=author.id%>" selected><%=author.name %></option> 
                                     <% } else{ %>
-                                        <option value="<%=author.id%>"><%=author.name + " " + author.lastName %></option>
+                                        <option value="<%=author.id%>"><%=author.name %></option>
                                     <% } %>
                                 <%});%>
                             </select>

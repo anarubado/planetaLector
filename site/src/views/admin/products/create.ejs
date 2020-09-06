@@ -39,16 +39,16 @@
                                 <% if (typeof old != 'undefined' && old.author) { %>
                                     <% authors.forEach(author => {%>
                                         <% if (author.id == old.author) {%> 
-                                            <option value="<%= old.author %>" selected><%= author.name + " " + author.lastName %></option>
+                                            <option value="<%= old.author %>" selected><%= author.name %></option>
                                         <% } else{ %>
-                                            <option value="<%=author.id%>"><%=author.name + " " + author.lastName%></option> 
+                                            <option value="<%=author.id%>"><%=author.name %></option> 
                                         <% } %>
                                     <%});%> 
 
                                 <% } else { %>
                                     <option value="" disabled hidden selected>Elige una opción</option>
                                     <% authors.forEach(author => {%>
-                                        <option value="<%=author.id%>"><%=author.name + " " + author.lastName%></option> 
+                                        <option value="<%=author.id%>"><%=author.name %></option> 
                                     <%});%>                           
                                     
 

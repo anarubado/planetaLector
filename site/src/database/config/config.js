@@ -7,7 +7,8 @@ module.exports = {
     "dialect": "mysql",
     "define": {
       "paranoid": true
-    }
+    },
+    "charset" : "utf8_general_ci"
   },
   "test": {
     "username": "root",

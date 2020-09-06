@@ -41,10 +41,14 @@
                 <% news.forEach(product => { %>
                     <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                         <a href="/products/detail/<%= product.id %>" class="detail-link">
-                            <img src="/images/products/<%= product.image %> " alt="">
-                            <p><%= product.title %> </p>
+                            <% if (product.image.includes("http")) { %>
+                                <img src="<%= product.image %>" alt="">                             
+                            <% } else{ %>
+                                <img src="/images/products/<%= product.image %>" alt="">
+                            <% } %>
+                            <strong><%= product.title %> </strong>
                         </a>
-                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>por <%= product.author.name %> </p>
                         <% if (product.discount > 0) { %> 
                             <span class="precio-descuento">$<%= product.price %> </span>
                             <span>$<%= product.price - product.discount / 100 * product.price %></span>
@@ -65,10 +69,14 @@
                 <% discounts.forEach(product => { %>
                     <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                         <a href="/products/detail/<%= product.id %>" class="detail-link">
-                            <img src="/images/products/<%= product.image %> " alt="">
-                            <p><%= product.title %> </p>
+                            <% if (product.image.includes("http")) { %>
+                                <img src="<%= product.image %>" alt="">                             
+                            <% } else{ %>
+                                <img src="/images/products/<%= product.image %>" alt="">
+                            <% } %>
+                            <strong><%= product.title %> </strong>
                         </a>
-                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>por <%= product.author.name %> </p>
                         
                         <span class="precio-descuento">$<%= product.price %> </span>
                         <span>$<%= product.price - product.discount / 100 * product.price %></span>
@@ -104,10 +112,14 @@
                 <% products.forEach(product => { %>
                       <div class = "book col-12 col-sm-12 col-md-4 col-lg-3 col-xl-2">
                         <a href="/products/detail/<%= product.id %>" class="detail-link">
-                            <img src="/images/products/<%= product.image %> " alt="">
-                            <p><%= product.title %> </p>
+                            <% if (product.image.includes("http")) { %>
+                                <img src="<%= product.image %>" alt="">                             
+                            <% } else{ %>
+                                <img src="/images/products/<%= product.image %>" alt="">
+                            <% } %>
+                            <strong><%= product.title %> </strong>
                         </a>
-                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>por <%= product.author.name %> </p>
                         <% if (product.discount > 0) { %> 
                             <span class="precio-descuento">$<%= product.price %> </span>
                             <span>$<%= product.price - product.discount / 100 * product.price %></span>

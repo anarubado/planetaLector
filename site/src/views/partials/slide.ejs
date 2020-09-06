@@ -8,11 +8,15 @@
 
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-media-top">
-                                <img src="/images/products/<%= product.image %>" alt=""> 
+                                <% if (product.image.includes("http")) { %>
+                                    <img src="<%= product.image %>" alt="">                             
+                                <% } else{ %>
+                                    <img src="/images/products/<%= product.image %>" alt="">
+                                <% } %> 
                             </div>
                             <div class="uk-card-body">
-                                <p><%= product.title %></p>
-                                <p>por <%= product.author.name + " " + product.author.lastName %></p>
+                                <strong><%= product.title %></strong>
+                                <p>por <%= product.author.name %></p>
                             </div>
                         </div>
                     </a>
