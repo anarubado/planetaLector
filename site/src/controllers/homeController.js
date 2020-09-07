@@ -14,7 +14,7 @@ const homeController = {
             where: { authorId: 1}
         });
         let JKRowling = db.Products.findAll( { include:{ all: true }, where: {authorId: 10 }});
-        let virginiaWoolf = db.Products.findAll( { include:{ all: true }, where: {authorId: 1 }});
+        let virginiaWoolf = db.Products.findAll( { include:{ all: true }, where: {authorId: 9 }});
         let technology = db.Products.findAll( { include:{ all: true }, where: {categoryId: 4 }});
 
         Promise.all([stephenKing, JKRowling, virginiaWoolf, technology])
