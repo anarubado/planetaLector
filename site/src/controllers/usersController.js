@@ -16,10 +16,10 @@ const usersController = {
 
     db.Products.findAll({ 
       include:{ all: true }, 
-      where: { authorId: 1}
+      where: { authorId: 9}
     })
-    .then(function(harryPotter){
-      return res.render("register", { harryPotter });
+    .then(function(virginiawoolf){
+      return res.render("register", { virginiawoolf });
     })
 
   },
@@ -58,7 +58,7 @@ const usersController = {
   login: function (req, res) {
     db.Products.findAll({ 
       include:{ all: true }, 
-      where: { authorId: 1}
+      where: { authorId: 10}
     })
     .then(function(jkRowling){
       return res.render("login", { jkRowling });
