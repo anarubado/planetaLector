@@ -13,14 +13,14 @@ const homeController = {
             include:{ all: true }, 
             where: { authorId: 1}
         });
-        let suspense = db.Products.findAll( { include:{ all: true }, where: {authorId: 1 }});
+        let JKRowling = db.Products.findAll( { include:{ all: true }, where: {authorId: 10 }});
         let virginiaWoolf = db.Products.findAll( { include:{ all: true }, where: {authorId: 1 }});
         let technology = db.Products.findAll( { include:{ all: true }, where: {categoryId: 4 }});
 
-        Promise.all([stephenKing, suspense, virginiaWoolf, technology])
-        .then(function([stephenKing, suspense, virginiaWoolf, technology]){
+        Promise.all([stephenKing, JKRowling, virginiaWoolf, technology])
+        .then(function([stephenKing, JKRowling, virginiaWoolf, technology]){
             let user = req.session.user;
-            return res.render("index", {stephenKing, suspense, virginiaWoolf, technology, user});
+            return res.render("index", {stephenKing, JKRowling, virginiaWoolf, technology, user});
         })
 
         
