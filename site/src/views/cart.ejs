@@ -6,7 +6,7 @@
 
     <div class = "container">
                 
-        <%- include('partials/banner-title', {title: "Mi Carrito", route: "Inicio / Mi Carrito", decoImg: "/images/banner-title/img-cart.png", bannerImg: '/images/banner-title/banner-title-2.png'}) %>
+        <%- include('partials/banner-title', {title: "Mi Carrito", id: -1, decoImg: "/images/banner-title/img-cart.png", bannerImg: '/images/banner-title/banner-title-2.png'}) %>
         
         <% if (orderItems.length > 0) { %>
             <div class="row">
@@ -78,11 +78,11 @@
             
         <% } %>
 
-        <h3>Libros de Ciencia Ficción</h3>
-        <%- include('partials/slide', {id: "slide-cart-1", products: cienciaFiccion})  %> 
+        <h3>Clásicos de J. K. Rowling</h3>
+        <%- include('partials/slide', {id: "slide-jk", products: jkRowling})  %> 
 
-        <h3>Imperdibles de Stephen King</h3>
-        <%- include('partials/slide', {id: "slide-cart-2", products: stephenKing }) %>
+        <h3>Libros sobre Tecnología</h3>
+        <%- include('partials/slide', {id: "slide-tech", products: technology }) %>
     </div>
 
     <%- include('partials/footer')  %> 

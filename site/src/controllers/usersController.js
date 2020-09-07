@@ -123,19 +123,19 @@ const usersController = {
         }
       })
       .then(function(total){
-        let stephenKing = db.Products.findAll({ 
+        let jkRowling = db.Products.findAll({ 
           include:{ all: true }, 
-          where: { authorId: 1}
+          where: { authorId: 10 }
         });
 
-        let cienciaFiccion = db.Products.findAll({ 
+        let technology = db.Products.findAll({ 
             include:{ all: true }, 
-            where: { authorId: 1}
+            where: { categoryId: 4}
         });
 
-      Promise.all([stephenKing, cienciaFiccion])
-        .then(function([stephenKing, cienciaFiccion]){
-          return res.render("cart", { stephenKing, cienciaFiccion, orderItems, total:total });
+      Promise.all([jkRowling, technology])
+        .then(function([jkRowling, technology]){
+          return res.render("cart", { jkRowling, technology, orderItems, total:total });
         })
       })
     })
