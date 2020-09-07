@@ -192,7 +192,6 @@ INSERT INTO authors (id, name, lastName, bioAuthor, image) VALUES
 (7,"Miguel", "De Cervantes", "Novelista, poeta y dramaturgo español. Se cree que nació el 29 de septiembre de 1547 en Alcalá de Henares y murió el 22 de abril de 1616 en Madrid, pero fue enterrado el 23 de abril y popularmente se conoce esta fecha como la de su muerte.", 'MIGUEL-DE-CERVANTES.jpg');
 (8,"Homero", "", "Homero fue un poeta de la Antigua Grecia que nació y vivió en el siglo VIII a.C. Es autor de dos de las principales obras de la antigüedad: Los poemas épicos La Ilíada y La Odisea. ... La vida de Homero es una mezcla de leyenda y realidad.", 'HOMERO.jpg');
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -210,9 +209,18 @@ INSERT INTO products (id, title, description, price, stock, isbn, numberPages, i
 (11, "Don Quijote de la Mancha", "Don Quijote de la Mancha es incesante el cruce entre lo real y lo ficticio, una semilla de la literatura en castellano que se escribiría en América: Sancho, pues vos queréis que se os crea lo que habéis visto en el cielo, yo quiero que vos me creáis a mí lo que vi en la cueva de Montesinos. O como escribió uno de sus escritores admiradores, Jorge Luis Borges: El hidalgo fue un sueño de Cervantes / y don Quijote un sueño del hidalgo",790,35,108415171803,1345,"DON-QUIJOTE-DE-LA-MANCHA.jpg", 10,1,1,7,6,1,2),
 (12, "La Iliada", "En su Poética, Aristóteles señaló que una buena epopeya representa una acción única, no un conjunto de acontecimientos. Tal vez sea ese el acierto de La Ilíada: la obra atribuida al poeta griego Homero no cuenta la Guerra de Troya entera, sino su año décimo, el último; no se dispersa en los sentimientos de todos sus personajes sino que se concentra en las emociones del héroe, Aquiles. Las pérdidas de los griegos, los giros del destino, las intervenciones de los dioses y la caída de Troya se narran mediante los actos que generan la ira, el orgullo, el impulso de desagravio, el amor y la compasión de Aquiles.",2380,20,9789700773308,380,"LA-ILIADA.jpg", 20,1,1,8,7,1,2);
 
+13-23 Virginia
 
+24-34 JK.
 
+35-45 bLA
 
-
+(35,)
+(36,)
+(37,)
+(38,)
+(39,)
+(40,)
+(45,)
 
 

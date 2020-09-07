@@ -516,7 +516,7 @@ h2{
 }
 
 .book a img{
-    width: 150px;
+    height: 230px;
 }
 
 .book form button{
@@ -534,6 +534,20 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 15px
+}
+
+.detail img{
+    align-self: center;
+    margin-bottom: 15px;
+    width: 50%;
 }
 
 @media (max-width: 426px) {
@@ -598,18 +612,13 @@ h2{
 }
 
 .authors-image{
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
+    width: 
 }
 
-.authors-image img{
-    border-radius: 50%;
-    width: auto;
-    height: auto;
-    height: 100%;   
+.authors-image img{  
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .audiobook-ebook {
@@ -657,16 +666,6 @@ h2{
 
 .card-title {
     font-size: 30px;
-}
-
-
-.boton {
-    border-style: none;
-    background-color: #E1306C;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    margin: 5px;
 }
 
 
