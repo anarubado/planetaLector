@@ -33,7 +33,7 @@
         </small>
 
         <label for="">Avatar</label>
-        <input type="file" name="image" value="">
+        <input class="admin-file" type="file" name="image" value="">
 
         <small class="error">
           <% if (typeof errors != 'undefined') { %>
@@ -71,7 +71,7 @@
       </form> 
     </div>
 
-    <h3>Exitos de Virginia Woolf</h3>
+    <h3>Introducción a Virginia Woolf</h3>
     <%- include ('partials/slide', {id: "slide-register", products: virginiawoolf})  %>
     
   </div>
