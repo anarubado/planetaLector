@@ -45,13 +45,13 @@ const productsController = {
     },
 
     detail: function(req, res){
-        let harryPotter = db.Products.findAll({ 
+        let virginiaWoolf = db.Products.findAll({ 
             include:{ all: true }, 
-            where: { authorId: 1}
+            where: { authorId: 9}
         });
         let jkRowling = db.Products.findAll({ 
             include:{ all: true }, 
-            where: { authorId: 1}
+            where: { authorId: 10}
         });
 
         let detail = db.Products.findByPk(req.params.idProduct, {
@@ -60,9 +60,9 @@ const productsController = {
             }
         })
 
-        Promise.all([harryPotter, jkRowling, detail])
-        .then(function([harryPotter, jkRowling, detail]){
-            return res.render('detail', {harryPotter, jkRowling, detail: detail});       
+        Promise.all([virginiaWoolf, jkRowling, detail])
+        .then(function([virginiaWoolf, jkRowling, detail]){
+            return res.render('detail', {virginiaWoolf, jkRowling, detail: detail});       
 
         })  
     }, 
