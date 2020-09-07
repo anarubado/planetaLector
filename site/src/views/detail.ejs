@@ -23,7 +23,11 @@
         <div class = "col-12">
           <div class="row">
             <div class= "col-12 col-md-6 detail" >
-              <img src="/images/products/<%= detail.image %> " alt="">             
+              <% if (detail.image.includes("http")) { %>
+                <img src="<%= detail.image %>" alt="">                             
+            <% } else{ %>
+                <img src="/images/products/<%= detail.image %>" alt="">
+            <% } %>          
               <p class="items" style= "font-size: 20px"><strong>Autor: </strong><%= detail.author.name %></p>
               <p class="items"style= "font-size: 20px"><strong>Editorial: </strong><%= detail.editorial.name %></p>
               <p class="items" style= "font-size: 20px"><strong>Número&nbsp;de&nbsp;páginas:&nbsp;</strong> <%= detail.numberPages%> </p>

@@ -1,7 +1,22 @@
 <div class = "row banner-title">
     <div class = "col-12">
         <h4><%= title %></h4>
-        <h6><%= route %> </h6>
+        <h4 class="menu-breadcrumb">
+            <div class="navegation">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <% if (id == 0) { %>
+                        <li><a href="/products/news"><%= title %></a></li>
+                     
+                    <% } else {%>
+                        <li><a href="/products/category/<%= id %>"><%= title %></a></li>
+
+                    <% } %>
+                    
+                </ul>
+
+            </div>            
+        </h4>
         <img class = "bg-banner" src="<%= bannerImg %>" alt="">
         <img class = "decorative-img" src="<%= decoImg %> " alt="">
     </div>

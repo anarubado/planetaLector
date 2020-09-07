@@ -6,17 +6,17 @@
     <%- include ('partials/header', {bgColor: "bg-dark", navbarColor: "navbar-dark"}) %> 
 
     <div class = "container">
-        <%- include('partials/banner-title', {title: category.title, route: "Inicio / Categorías / Literatura", decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
+        <%- include('partials/banner-title', {title: category.title, id: category.id, decoImg: "/images/banner-title/img-reading.png", bannerImg: '/images/banner-title/banner-title-1.png'}) %> 
         <!--Categorias-->
         <div>     
-            <nav class = "category-menu">
+            <!-- <nav class = "category-menu">
                 <div class= "row">
                     <div class = "navegation col-12">
                         <ul>                            
-                            <% subCategories.forEach(subCategory => { %>
-                                <li><%= subCategory.title %></li>                             
-                            <% }) %>
-                            <!-- <li><a href="">Novelas Contemporáneas</a></li>
+                            <%# subCategories.forEach(subCategory => { %>
+                                <li><%#= subCategory.title %></li>                             
+                            <%# }) %>
+                             <li><a href="">Novelas Contemporáneas</a></li>
                             <li><a href="">Novelas Románticas</a></li>
                             <li><a href="">Novelas Juveniles</a></li>
                             <li><a href="">Drama</a></li>
@@ -29,11 +29,11 @@
                             <li><a href="">No Ficción</a></li>
                             <li><a href="">Poesía</a></li>
                             <li><a href="">Relatos Breves</a></li>
-                            <li><a href="">Comics & Novelas Gráficas</a></li> -->
+                            <li><a href="">Comics & Novelas Gráficas</a></li> 
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
 
             <h2>Novedades</h2>
             <div class = "row">
