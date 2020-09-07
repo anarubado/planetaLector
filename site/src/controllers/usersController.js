@@ -123,7 +123,7 @@ const usersController = {
         }
       })
       .then(function(total){
-        let isaacAsimov = db.Products.findAll({ 
+        let stephenKing = db.Products.findAll({ 
           include:{ all: true }, 
           where: { authorId: 1}
         });
@@ -133,9 +133,9 @@ const usersController = {
             where: { authorId: 1}
         });
 
-      Promise.all([isaacAsimov, cienciaFiccion])
-        .then(function([isaacAsimov, cienciaFiccion]){
-          return res.render("cart", { isaacAsimov, cienciaFiccion, orderItems, total:total });
+      Promise.all([stephenKing, cienciaFiccion])
+        .then(function([stephenKing, cienciaFiccion]){
+          return res.render("cart", { stephenKing, cienciaFiccion, orderItems, total:total });
         })
       })
     })

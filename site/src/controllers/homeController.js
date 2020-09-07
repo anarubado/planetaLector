@@ -17,10 +17,10 @@ const homeController = {
         let virginiaWoolf = db.Products.findAll( { include:{ all: true }, where: {authorId: 9 }});
         let quarantine = db.Products.findAll( { include:{ all: true }, where: {authorId: 4 }});
 
-        Promise.all([stephenKing, JKRowling, virginiaWoolf, quarantine])
-        .then(function([stephenKing, JKRowling, virginiaWoolf, quarantine]){
+        Promise.all([stephenKing, JKRowling, virginiaWoolf, technology])
+        .then(function([stephenKing, JKRowling, virginiaWoolf, technology]){
             let user = req.session.user;
-            return res.render("index", {stephenKing, JKRowling, virginiaWoolf, quarantine, user});
+            return res.render("index", {stephenKing, JKRowling, virginiaWoolf, technology, user});
         })
 
         

@@ -22,15 +22,15 @@
   
         <div class = "col-12">
           <div class="row">
-            <div class= "col-12 col-md-4">  
-              <img src="/images/products/<%= detail.image %> " alt="">
-              <p class="items" style= "font-size: 20px">Autor: <%= detail.author.name + " " + detail.author.lastName %></p>
-              <p class="items"style= "font-size: 20px">Editorial: <%= detail.editorial.name %></p>
-              <p class="items" style= "font-size: 20px">Número&nbsp;de&nbsp;páginas:&nbsp;<%= detail.numberPages%> </p>
+            <div class= "col-12 col-md-6 detail" >
+              <img src="/images/products/<%= detail.image %> " alt="">             
+              <p class="items" style= "font-size: 20px"><strong>Autor: </strong><%= detail.author.name %></p>
+              <p class="items"style= "font-size: 20px"><strong>Editorial: </strong><%= detail.editorial.name %></p>
+              <p class="items" style= "font-size: 20px"><strong>Número&nbsp;de&nbsp;páginas:&nbsp;</strong> <%= detail.numberPages%> </p>
             </div>
   
               <div class= "col-12 col-md-6" >
-                <p><%= detail.title %> </p>
+                <h2><%= detail.title %> </h2>
                 <p><%= detail.description %> </p>
     
                 <div class= "precios">
@@ -53,17 +53,17 @@
     
                   <% if(locals.user.admin == 1){ %> 
                     <form action="/products/edit/<%=detail.id%>" method="GET">
-                      <button class= "boton">EDITAR</button>
+                      <button class= "btn btn-info action-button">EDITAR</button>
                     </form>
     
                     <form action="/products/delete/<%=detail.id%>" method="POST">
-                      <button class= "boton">BORRAR</button>
+                      <button class= "btn btn-info action-button">BORRAR</button>
                     </form>
     
                   <% } else{ %> 
     
                     <form action="/users/cart/<%=detail.id%>" method="POST">
-                      <button class= "boton">AGREGAR</button>
+                      <button class= "btn btn-info action-button">AGREGAR</button>
                     </form> 
     
                   <% } %> 
@@ -83,11 +83,14 @@
           </div>  
 
           <!--sección sobre el autor-->
-            <div class="col-12">
+            <div class="col-12 col-md-3">
               <div class="authors-image">
                 <img src="/images/authors/<%= detail.author.image %> " alt="Author's photo">
               </div>
-              <h3>Sobre <%= detail.author.name + " " + detail.author.lastName %> </h3>
+            </div>
+
+            <div class="col-12 col-md-9">
+              <h3>Sobre <%= detail.author.name %> </h3>
               <p><%= detail.author.bioAuthor %></p>
             </div>
   
