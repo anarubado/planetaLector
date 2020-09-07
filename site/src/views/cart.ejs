@@ -16,7 +16,11 @@
                 <% orderItems.forEach(item => { %>                    
                     <div class="col-12 col-sm-12 col-md-3 cart-image">
                         <a href="/products/detail/<%= item.productId %> ">
-                            <img src="/images/products/<%= item.productImage %>" style="width: 150px;" alt="Foto de libro">
+                            <% if (item.productImage.includes("http")) { %>
+                                <img src="<%= item.productImage %>" alt="">                             
+                            <% } else{ %>
+                                <img src="/images/products/<%= item.productImage %>" alt="">
+                            <% } %>
                         </a>
                         
                     </div>

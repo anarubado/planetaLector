@@ -40,8 +40,7 @@ const homeController = {
         let authors = await db.Authors.findAll({
             where: {
                 [Op.or]: [
-                    { "name" : {[Op.like]: '%' + keywords + '%'} },    
-                    { "lastName" : {[Op.like]: '%' + keywords + '%'} },    
+                    { "name" : {[Op.like]: '%' + keywords + '%'} }    
                 ],
             },
             include: ["products"]

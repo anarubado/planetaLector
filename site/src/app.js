@@ -31,7 +31,7 @@ saveUninitialized : true}));
 app.use(cors());
 
 
-app.listen(3030, function(){
+app.listen(process.env.PORT, function(){
     console.log("Running on 3030");
 });
 

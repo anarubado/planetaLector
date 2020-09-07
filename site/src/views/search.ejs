@@ -13,9 +13,13 @@
             <% products.forEach(product => { %>
                 <article class = "col-3 product">
                     <a href="/products/detail/<%= product.id %>">
-                        <img src="/images/products/<%= product.image %> " alt="">
+                        <% if (product.image.includes("http")) { %>
+                            <img src="<%= product.image %>" alt="">                             
+                        <% } else{ %>
+                            <img src="/images/products/<%= product.image %>" alt="">
+                        <% } %>
                         <p><%= product.title %> </p>
-                        <p>por <%= product.author.name + " " + product.author.lastName %> </p>
+                        <p>por <%= product.author.name %> </p>
                         <span><%= product.price %> </span>                  
                     </a>                    
                 </article>         
@@ -24,9 +28,13 @@
                 <% authorProduct.forEach(product => { %>
                     <article class = "col-3 product">
                         <a href="/products/<%= product.id %>">
-                            <img src="/images/products/<%= product.image %> " alt="">
+                            <% if (product.image.includes("http")) { %>
+                                <img src="<%= product.image %>" alt="">                             
+                            <% } else{ %>
+                                <img src="/images/products/<%= product.image %>" alt="">
+                            <% } %>
                             <p><%= product.title %> </p>
-                            <!-- <p>por <%#= product.author.name + " " + product.author.lastName %> </p> -->
+                            <p>por <%#= product.author.name + " " + product.author.lastName %> </p>
                             <span><%= product.price %> </span>                  
                         </a>                    
                     </article>  
