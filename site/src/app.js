@@ -30,9 +30,10 @@ app.use (session ({secret: 'Un mensaje secreto', resave : false ,
 saveUninitialized : true}));
 app.use(cors());
 
+const port = process.env.PORT || 3030
 
-app.listen(process.env.PORT, function(){
-    console.log("Running on 3030");
+app.listen(port, function(){
+    console.log("Running on " + port);
 });
 
 // Middlewares propios a nivel de aplicacion

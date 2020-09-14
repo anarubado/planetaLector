@@ -32,6 +32,7 @@ const productsController = {
             order: [["discount", "DESC"]],
             limit: 6
         });
+
         
         
         Promise.all([category, subCategories, news, discounts])
